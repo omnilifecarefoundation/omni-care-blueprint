@@ -31,7 +31,7 @@ export const Route = createFileRoute("/programs/$slug")({
 });
 
 function ProgramPage() {
-  const { program } = Route.useLoaderData();
+  const { program } = Route.useLoaderData() as { program: import("@/lib/site").Program };
   const pillar = PILLAR_BY_ID[program.pillar];
 
   return (
