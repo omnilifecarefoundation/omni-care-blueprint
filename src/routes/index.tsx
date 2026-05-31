@@ -8,6 +8,7 @@ import { CountUp } from "@/components/CountUp";
 import { FadeUp } from "@/components/FadeUp";
 import { ProgramCard } from "@/components/ProgramCard";
 import { IndiaMap } from "@/components/IndiaMap";
+import { PillButton } from "@/components/ui-axion/PillButton";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -71,12 +72,12 @@ function Hero() {
               across India's underserved populations.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Link to="/partner/csr" className="btn btn-primary btn-lg">
-                Partner with Us <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-              <Link to="/donate" className="btn btn-secondary btn-lg">
+              <PillButton to="/partner/csr" variant="primary">
+                Partner with Us
+              </PillButton>
+              <PillButton to="/donate" variant="ghost">
                 Make a Donation
-              </Link>
+              </PillButton>
             </div>
             <ul
               aria-label="Compliance and registrations"
@@ -395,12 +396,12 @@ function CSRBand() {
               genuine, measurable community outcomes.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Link to="/partner/csr" className="btn btn-on-dark btn-lg">
-                Explore CSR Partnership <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-              <a href="/csr-brochure.pdf" className="btn btn-secondary-on-dark btn-lg">
-                <Download className="h-4 w-4" aria-hidden="true" /> Download CSR Brochure
-              </a>
+              <PillButton to="/partner/csr" variant="on-dark">
+                Explore CSR Partnership
+              </PillButton>
+              <PillButton href="/csr-brochure.pdf" variant="on-dark" icon={<Download size={14} />}>
+                Download CSR Brochure
+              </PillButton>
             </div>
             <p className="mt-6 text-xs text-canvas/55 font-mono tabular">
               Registered under Section 135 of the Companies Act · CSR-1: CSR00045678
