@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode, type ElementType } from "react";
 
 type Props = {
   children: ReactNode;
   delay?: number;
-  as?: "div" | "section" | "article" | "li" | "header";
+  as?: ElementType;
   className?: string;
 };
 
@@ -34,10 +34,13 @@ export function FadeUp({ children, delay = 0, as: Tag = "div", className = "" }:
     return () => io.disconnect();
   }, [delay]);
 
-  // @ts-expect-error — ref typing across tag union is fine at runtime
+  const Component = Tag as ElementType;
   return (
-    <Tag ref={ref} className={`fade-up ${visible ? "is-visible" : ""} ${className}`}>
+    <Component
+      ref={ref as React.Ref<HTMLElement>}
+      className={`fade-up ${visible ? "is-visible" : ""} ${className}`}
+    >
       {children}
-    </Tag>
+    </Component>
   );
 }
