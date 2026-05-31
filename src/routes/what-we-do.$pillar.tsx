@@ -37,7 +37,7 @@ export const Route = createFileRoute("/what-we-do/$pillar")({
 });
 
 function PillarPage() {
-  const { pillar, programs } = Route.useLoaderData();
+  const { pillar, programs } = Route.useLoaderData() as { pillar: typeof PILLARS[number]; programs: typeof PROGRAMS };
   return (
     <>
       <PageHero
