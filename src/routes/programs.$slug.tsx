@@ -31,7 +31,7 @@ export const Route = createFileRoute("/programs/$slug")({
 });
 
 function ProgramPage() {
-  const { program } = Route.useLoaderData();
+  const { program } = Route.useLoaderData() as { program: import("@/lib/site").Program };
   const pillar = PILLAR_BY_ID[program.pillar];
 
   return (
@@ -68,7 +68,7 @@ function ProgramPage() {
               <img src={program.image} alt={program.name} className="h-full w-full object-cover" loading="lazy" width={1600} height={1000} />
             </div>
             <div className="prose prose-lg max-w-none space-y-5 text-ink-muted text-lg leading-relaxed">
-              {program.body.map((para, i) => (
+              {program.body.map((para: string, i: number) => (
                 <p key={i}>{para}</p>
               ))}
             </div>
