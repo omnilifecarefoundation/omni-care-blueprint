@@ -9,38 +9,443 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SitemapRouteImport } from './routes/sitemap'
+import { Route as SafeguardingPolicyRouteImport } from './routes/safeguarding-policy'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as NewsroomRouteImport } from './routes/newsroom'
+import { Route as DonationPolicyRouteImport } from './routes/donation-policy'
+import { Route as DonateRouteImport } from './routes/donate'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WhatWeDoIndexRouteImport } from './routes/what-we-do.index'
+import { Route as ProgramsIndexRouteImport } from './routes/programs.index'
+import { Route as ImpactIndexRouteImport } from './routes/impact.index'
+import { Route as GetInvolvedIndexRouteImport } from './routes/get-involved.index'
+import { Route as AboutIndexRouteImport } from './routes/about.index'
+import { Route as WhatWeDoPillarRouteImport } from './routes/what-we-do.$pillar'
+import { Route as ProgramsSlugRouteImport } from './routes/programs.$slug'
+import { Route as PartnerCsrRouteImport } from './routes/partner.csr'
+import { Route as ImpactStoriesRouteImport } from './routes/impact.stories'
+import { Route as GetInvolvedVolunteerRouteImport } from './routes/get-involved.volunteer'
+import { Route as AboutVisionMissionRouteImport } from './routes/about.vision-mission'
+import { Route as AboutValuesRouteImport } from './routes/about.values'
+import { Route as AboutOurStoryRouteImport } from './routes/about.our-story'
+import { Route as AboutOmniCareModelRouteImport } from './routes/about.omni-care-model'
+import { Route as AboutLeadershipRouteImport } from './routes/about.leadership'
+import { Route as AboutComplianceRouteImport } from './routes/about.compliance'
+import { Route as AboutCareersRouteImport } from './routes/about.careers'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapRoute = SitemapRouteImport.update({
+  id: '/sitemap',
+  path: '/sitemap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SafeguardingPolicyRoute = SafeguardingPolicyRouteImport.update({
+  id: '/safeguarding-policy',
+  path: '/safeguarding-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsroomRoute = NewsroomRouteImport.update({
+  id: '/newsroom',
+  path: '/newsroom',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DonationPolicyRoute = DonationPolicyRouteImport.update({
+  id: '/donation-policy',
+  path: '/donation-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DonateRoute = DonateRouteImport.update({
+  id: '/donate',
+  path: '/donate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccessibilityRoute = AccessibilityRouteImport.update({
+  id: '/accessibility',
+  path: '/accessibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WhatWeDoIndexRoute = WhatWeDoIndexRouteImport.update({
+  id: '/what-we-do/',
+  path: '/what-we-do/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramsIndexRoute = ProgramsIndexRouteImport.update({
+  id: '/programs/',
+  path: '/programs/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpactIndexRoute = ImpactIndexRouteImport.update({
+  id: '/impact/',
+  path: '/impact/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GetInvolvedIndexRoute = GetInvolvedIndexRouteImport.update({
+  id: '/get-involved/',
+  path: '/get-involved/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutIndexRoute = AboutIndexRouteImport.update({
+  id: '/about/',
+  path: '/about/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhatWeDoPillarRoute = WhatWeDoPillarRouteImport.update({
+  id: '/what-we-do/$pillar',
+  path: '/what-we-do/$pillar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramsSlugRoute = ProgramsSlugRouteImport.update({
+  id: '/programs/$slug',
+  path: '/programs/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartnerCsrRoute = PartnerCsrRouteImport.update({
+  id: '/partner/csr',
+  path: '/partner/csr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpactStoriesRoute = ImpactStoriesRouteImport.update({
+  id: '/impact/stories',
+  path: '/impact/stories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GetInvolvedVolunteerRoute = GetInvolvedVolunteerRouteImport.update({
+  id: '/get-involved/volunteer',
+  path: '/get-involved/volunteer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutVisionMissionRoute = AboutVisionMissionRouteImport.update({
+  id: '/about/vision-mission',
+  path: '/about/vision-mission',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutValuesRoute = AboutValuesRouteImport.update({
+  id: '/about/values',
+  path: '/about/values',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutOurStoryRoute = AboutOurStoryRouteImport.update({
+  id: '/about/our-story',
+  path: '/about/our-story',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutOmniCareModelRoute = AboutOmniCareModelRouteImport.update({
+  id: '/about/omni-care-model',
+  path: '/about/omni-care-model',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutLeadershipRoute = AboutLeadershipRouteImport.update({
+  id: '/about/leadership',
+  path: '/about/leadership',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutComplianceRoute = AboutComplianceRouteImport.update({
+  id: '/about/compliance',
+  path: '/about/compliance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutCareersRoute = AboutCareersRouteImport.update({
+  id: '/about/careers',
+  path: '/about/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
+  '/donation-policy': typeof DonationPolicyRoute
+  '/newsroom': typeof NewsroomRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/safeguarding-policy': typeof SafeguardingPolicyRoute
+  '/sitemap': typeof SitemapRoute
+  '/terms': typeof TermsRoute
+  '/about/careers': typeof AboutCareersRoute
+  '/about/compliance': typeof AboutComplianceRoute
+  '/about/leadership': typeof AboutLeadershipRoute
+  '/about/omni-care-model': typeof AboutOmniCareModelRoute
+  '/about/our-story': typeof AboutOurStoryRoute
+  '/about/values': typeof AboutValuesRoute
+  '/about/vision-mission': typeof AboutVisionMissionRoute
+  '/get-involved/volunteer': typeof GetInvolvedVolunteerRoute
+  '/impact/stories': typeof ImpactStoriesRoute
+  '/partner/csr': typeof PartnerCsrRoute
+  '/programs/$slug': typeof ProgramsSlugRoute
+  '/what-we-do/$pillar': typeof WhatWeDoPillarRoute
+  '/about/': typeof AboutIndexRoute
+  '/get-involved/': typeof GetInvolvedIndexRoute
+  '/impact/': typeof ImpactIndexRoute
+  '/programs/': typeof ProgramsIndexRoute
+  '/what-we-do/': typeof WhatWeDoIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
+  '/donation-policy': typeof DonationPolicyRoute
+  '/newsroom': typeof NewsroomRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/safeguarding-policy': typeof SafeguardingPolicyRoute
+  '/sitemap': typeof SitemapRoute
+  '/terms': typeof TermsRoute
+  '/about/careers': typeof AboutCareersRoute
+  '/about/compliance': typeof AboutComplianceRoute
+  '/about/leadership': typeof AboutLeadershipRoute
+  '/about/omni-care-model': typeof AboutOmniCareModelRoute
+  '/about/our-story': typeof AboutOurStoryRoute
+  '/about/values': typeof AboutValuesRoute
+  '/about/vision-mission': typeof AboutVisionMissionRoute
+  '/get-involved/volunteer': typeof GetInvolvedVolunteerRoute
+  '/impact/stories': typeof ImpactStoriesRoute
+  '/partner/csr': typeof PartnerCsrRoute
+  '/programs/$slug': typeof ProgramsSlugRoute
+  '/what-we-do/$pillar': typeof WhatWeDoPillarRoute
+  '/about': typeof AboutIndexRoute
+  '/get-involved': typeof GetInvolvedIndexRoute
+  '/impact': typeof ImpactIndexRoute
+  '/programs': typeof ProgramsIndexRoute
+  '/what-we-do': typeof WhatWeDoIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
+  '/donation-policy': typeof DonationPolicyRoute
+  '/newsroom': typeof NewsroomRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/safeguarding-policy': typeof SafeguardingPolicyRoute
+  '/sitemap': typeof SitemapRoute
+  '/terms': typeof TermsRoute
+  '/about/careers': typeof AboutCareersRoute
+  '/about/compliance': typeof AboutComplianceRoute
+  '/about/leadership': typeof AboutLeadershipRoute
+  '/about/omni-care-model': typeof AboutOmniCareModelRoute
+  '/about/our-story': typeof AboutOurStoryRoute
+  '/about/values': typeof AboutValuesRoute
+  '/about/vision-mission': typeof AboutVisionMissionRoute
+  '/get-involved/volunteer': typeof GetInvolvedVolunteerRoute
+  '/impact/stories': typeof ImpactStoriesRoute
+  '/partner/csr': typeof PartnerCsrRoute
+  '/programs/$slug': typeof ProgramsSlugRoute
+  '/what-we-do/$pillar': typeof WhatWeDoPillarRoute
+  '/about/': typeof AboutIndexRoute
+  '/get-involved/': typeof GetInvolvedIndexRoute
+  '/impact/': typeof ImpactIndexRoute
+  '/programs/': typeof ProgramsIndexRoute
+  '/what-we-do/': typeof WhatWeDoIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/accessibility'
+    | '/contact'
+    | '/donate'
+    | '/donation-policy'
+    | '/newsroom'
+    | '/privacy-policy'
+    | '/safeguarding-policy'
+    | '/sitemap'
+    | '/terms'
+    | '/about/careers'
+    | '/about/compliance'
+    | '/about/leadership'
+    | '/about/omni-care-model'
+    | '/about/our-story'
+    | '/about/values'
+    | '/about/vision-mission'
+    | '/get-involved/volunteer'
+    | '/impact/stories'
+    | '/partner/csr'
+    | '/programs/$slug'
+    | '/what-we-do/$pillar'
+    | '/about/'
+    | '/get-involved/'
+    | '/impact/'
+    | '/programs/'
+    | '/what-we-do/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/accessibility'
+    | '/contact'
+    | '/donate'
+    | '/donation-policy'
+    | '/newsroom'
+    | '/privacy-policy'
+    | '/safeguarding-policy'
+    | '/sitemap'
+    | '/terms'
+    | '/about/careers'
+    | '/about/compliance'
+    | '/about/leadership'
+    | '/about/omni-care-model'
+    | '/about/our-story'
+    | '/about/values'
+    | '/about/vision-mission'
+    | '/get-involved/volunteer'
+    | '/impact/stories'
+    | '/partner/csr'
+    | '/programs/$slug'
+    | '/what-we-do/$pillar'
+    | '/about'
+    | '/get-involved'
+    | '/impact'
+    | '/programs'
+    | '/what-we-do'
+  id:
+    | '__root__'
+    | '/'
+    | '/accessibility'
+    | '/contact'
+    | '/donate'
+    | '/donation-policy'
+    | '/newsroom'
+    | '/privacy-policy'
+    | '/safeguarding-policy'
+    | '/sitemap'
+    | '/terms'
+    | '/about/careers'
+    | '/about/compliance'
+    | '/about/leadership'
+    | '/about/omni-care-model'
+    | '/about/our-story'
+    | '/about/values'
+    | '/about/vision-mission'
+    | '/get-involved/volunteer'
+    | '/impact/stories'
+    | '/partner/csr'
+    | '/programs/$slug'
+    | '/what-we-do/$pillar'
+    | '/about/'
+    | '/get-involved/'
+    | '/impact/'
+    | '/programs/'
+    | '/what-we-do/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccessibilityRoute: typeof AccessibilityRoute
+  ContactRoute: typeof ContactRoute
+  DonateRoute: typeof DonateRoute
+  DonationPolicyRoute: typeof DonationPolicyRoute
+  NewsroomRoute: typeof NewsroomRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  SafeguardingPolicyRoute: typeof SafeguardingPolicyRoute
+  SitemapRoute: typeof SitemapRoute
+  TermsRoute: typeof TermsRoute
+  AboutCareersRoute: typeof AboutCareersRoute
+  AboutComplianceRoute: typeof AboutComplianceRoute
+  AboutLeadershipRoute: typeof AboutLeadershipRoute
+  AboutOmniCareModelRoute: typeof AboutOmniCareModelRoute
+  AboutOurStoryRoute: typeof AboutOurStoryRoute
+  AboutValuesRoute: typeof AboutValuesRoute
+  AboutVisionMissionRoute: typeof AboutVisionMissionRoute
+  GetInvolvedVolunteerRoute: typeof GetInvolvedVolunteerRoute
+  ImpactStoriesRoute: typeof ImpactStoriesRoute
+  PartnerCsrRoute: typeof PartnerCsrRoute
+  ProgramsSlugRoute: typeof ProgramsSlugRoute
+  WhatWeDoPillarRoute: typeof WhatWeDoPillarRoute
+  AboutIndexRoute: typeof AboutIndexRoute
+  GetInvolvedIndexRoute: typeof GetInvolvedIndexRoute
+  ImpactIndexRoute: typeof ImpactIndexRoute
+  ProgramsIndexRoute: typeof ProgramsIndexRoute
+  WhatWeDoIndexRoute: typeof WhatWeDoIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap': {
+      id: '/sitemap'
+      path: '/sitemap'
+      fullPath: '/sitemap'
+      preLoaderRoute: typeof SitemapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/safeguarding-policy': {
+      id: '/safeguarding-policy'
+      path: '/safeguarding-policy'
+      fullPath: '/safeguarding-policy'
+      preLoaderRoute: typeof SafeguardingPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/newsroom': {
+      id: '/newsroom'
+      path: '/newsroom'
+      fullPath: '/newsroom'
+      preLoaderRoute: typeof NewsroomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/donation-policy': {
+      id: '/donation-policy'
+      path: '/donation-policy'
+      fullPath: '/donation-policy'
+      preLoaderRoute: typeof DonationPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/donate': {
+      id: '/donate'
+      path: '/donate'
+      fullPath: '/donate'
+      preLoaderRoute: typeof DonateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accessibility': {
+      id: '/accessibility'
+      path: '/accessibility'
+      fullPath: '/accessibility'
+      preLoaderRoute: typeof AccessibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +453,157 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/what-we-do/': {
+      id: '/what-we-do/'
+      path: '/what-we-do'
+      fullPath: '/what-we-do/'
+      preLoaderRoute: typeof WhatWeDoIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/': {
+      id: '/programs/'
+      path: '/programs'
+      fullPath: '/programs/'
+      preLoaderRoute: typeof ProgramsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impact/': {
+      id: '/impact/'
+      path: '/impact'
+      fullPath: '/impact/'
+      preLoaderRoute: typeof ImpactIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/get-involved/': {
+      id: '/get-involved/'
+      path: '/get-involved'
+      fullPath: '/get-involved/'
+      preLoaderRoute: typeof GetInvolvedIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/': {
+      id: '/about/'
+      path: '/about'
+      fullPath: '/about/'
+      preLoaderRoute: typeof AboutIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/what-we-do/$pillar': {
+      id: '/what-we-do/$pillar'
+      path: '/what-we-do/$pillar'
+      fullPath: '/what-we-do/$pillar'
+      preLoaderRoute: typeof WhatWeDoPillarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/$slug': {
+      id: '/programs/$slug'
+      path: '/programs/$slug'
+      fullPath: '/programs/$slug'
+      preLoaderRoute: typeof ProgramsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partner/csr': {
+      id: '/partner/csr'
+      path: '/partner/csr'
+      fullPath: '/partner/csr'
+      preLoaderRoute: typeof PartnerCsrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impact/stories': {
+      id: '/impact/stories'
+      path: '/impact/stories'
+      fullPath: '/impact/stories'
+      preLoaderRoute: typeof ImpactStoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/get-involved/volunteer': {
+      id: '/get-involved/volunteer'
+      path: '/get-involved/volunteer'
+      fullPath: '/get-involved/volunteer'
+      preLoaderRoute: typeof GetInvolvedVolunteerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/vision-mission': {
+      id: '/about/vision-mission'
+      path: '/about/vision-mission'
+      fullPath: '/about/vision-mission'
+      preLoaderRoute: typeof AboutVisionMissionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/values': {
+      id: '/about/values'
+      path: '/about/values'
+      fullPath: '/about/values'
+      preLoaderRoute: typeof AboutValuesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/our-story': {
+      id: '/about/our-story'
+      path: '/about/our-story'
+      fullPath: '/about/our-story'
+      preLoaderRoute: typeof AboutOurStoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/omni-care-model': {
+      id: '/about/omni-care-model'
+      path: '/about/omni-care-model'
+      fullPath: '/about/omni-care-model'
+      preLoaderRoute: typeof AboutOmniCareModelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/leadership': {
+      id: '/about/leadership'
+      path: '/about/leadership'
+      fullPath: '/about/leadership'
+      preLoaderRoute: typeof AboutLeadershipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/compliance': {
+      id: '/about/compliance'
+      path: '/about/compliance'
+      fullPath: '/about/compliance'
+      preLoaderRoute: typeof AboutComplianceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/careers': {
+      id: '/about/careers'
+      path: '/about/careers'
+      fullPath: '/about/careers'
+      preLoaderRoute: typeof AboutCareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccessibilityRoute: AccessibilityRoute,
+  ContactRoute: ContactRoute,
+  DonateRoute: DonateRoute,
+  DonationPolicyRoute: DonationPolicyRoute,
+  NewsroomRoute: NewsroomRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  SafeguardingPolicyRoute: SafeguardingPolicyRoute,
+  SitemapRoute: SitemapRoute,
+  TermsRoute: TermsRoute,
+  AboutCareersRoute: AboutCareersRoute,
+  AboutComplianceRoute: AboutComplianceRoute,
+  AboutLeadershipRoute: AboutLeadershipRoute,
+  AboutOmniCareModelRoute: AboutOmniCareModelRoute,
+  AboutOurStoryRoute: AboutOurStoryRoute,
+  AboutValuesRoute: AboutValuesRoute,
+  AboutVisionMissionRoute: AboutVisionMissionRoute,
+  GetInvolvedVolunteerRoute: GetInvolvedVolunteerRoute,
+  ImpactStoriesRoute: ImpactStoriesRoute,
+  PartnerCsrRoute: PartnerCsrRoute,
+  ProgramsSlugRoute: ProgramsSlugRoute,
+  WhatWeDoPillarRoute: WhatWeDoPillarRoute,
+  AboutIndexRoute: AboutIndexRoute,
+  GetInvolvedIndexRoute: GetInvolvedIndexRoute,
+  ImpactIndexRoute: ImpactIndexRoute,
+  ProgramsIndexRoute: ProgramsIndexRoute,
+  WhatWeDoIndexRoute: WhatWeDoIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
