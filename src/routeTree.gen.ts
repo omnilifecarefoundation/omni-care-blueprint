@@ -17,6 +17,7 @@ import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as NewsroomRouteImport } from './routes/newsroom'
 import { Route as DonationPolicyRouteImport } from './routes/donation-policy'
 import { Route as DonateRouteImport } from './routes/donate'
+import { Route as DesignUiInspoRouteImport } from './routes/design-ui-inspo'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as IndexRouteImport } from './routes/index'
@@ -76,6 +77,11 @@ const DonationPolicyRoute = DonationPolicyRouteImport.update({
 const DonateRoute = DonateRouteImport.update({
   id: '/donate',
   path: '/donate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignUiInspoRoute = DesignUiInspoRouteImport.update({
+  id: '/design-ui-inspo',
+  path: '/design-ui-inspo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -183,6 +189,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/accessibility': typeof AccessibilityRoute
   '/contact': typeof ContactRoute
+  '/design-ui-inspo': typeof DesignUiInspoRoute
   '/donate': typeof DonateRoute
   '/donation-policy': typeof DonationPolicyRoute
   '/newsroom': typeof NewsroomRoute
@@ -213,6 +220,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/accessibility': typeof AccessibilityRoute
   '/contact': typeof ContactRoute
+  '/design-ui-inspo': typeof DesignUiInspoRoute
   '/donate': typeof DonateRoute
   '/donation-policy': typeof DonationPolicyRoute
   '/newsroom': typeof NewsroomRoute
@@ -244,6 +252,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/accessibility': typeof AccessibilityRoute
   '/contact': typeof ContactRoute
+  '/design-ui-inspo': typeof DesignUiInspoRoute
   '/donate': typeof DonateRoute
   '/donation-policy': typeof DonationPolicyRoute
   '/newsroom': typeof NewsroomRoute
@@ -276,6 +285,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accessibility'
     | '/contact'
+    | '/design-ui-inspo'
     | '/donate'
     | '/donation-policy'
     | '/newsroom'
@@ -306,6 +316,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accessibility'
     | '/contact'
+    | '/design-ui-inspo'
     | '/donate'
     | '/donation-policy'
     | '/newsroom'
@@ -336,6 +347,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accessibility'
     | '/contact'
+    | '/design-ui-inspo'
     | '/donate'
     | '/donation-policy'
     | '/newsroom'
@@ -367,6 +379,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccessibilityRoute: typeof AccessibilityRoute
   ContactRoute: typeof ContactRoute
+  DesignUiInspoRoute: typeof DesignUiInspoRoute
   DonateRoute: typeof DonateRoute
   DonationPolicyRoute: typeof DonationPolicyRoute
   NewsroomRoute: typeof NewsroomRoute
@@ -450,6 +463,13 @@ declare module '@tanstack/react-router' {
       path: '/donate'
       fullPath: '/donate'
       preLoaderRoute: typeof DonateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design-ui-inspo': {
+      id: '/design-ui-inspo'
+      path: '/design-ui-inspo'
+      fullPath: '/design-ui-inspo'
+      preLoaderRoute: typeof DesignUiInspoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -599,6 +619,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccessibilityRoute: AccessibilityRoute,
   ContactRoute: ContactRoute,
+  DesignUiInspoRoute: DesignUiInspoRoute,
   DonateRoute: DonateRoute,
   DonationPolicyRoute: DonationPolicyRoute,
   NewsroomRoute: NewsroomRoute,
