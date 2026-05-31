@@ -8,6 +8,7 @@ import { CountUp } from "@/components/CountUp";
 import { FadeUp } from "@/components/FadeUp";
 import { ProgramCard } from "@/components/ProgramCard";
 import { IndiaMap } from "@/components/IndiaMap";
+import { PillButton } from "@/components/ui-axion/PillButton";
 
 export const Route = createFileRoute("/")({
   head: () => ({
