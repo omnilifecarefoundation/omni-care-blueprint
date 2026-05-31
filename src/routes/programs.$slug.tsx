@@ -68,7 +68,7 @@ function ProgramPage() {
               <img src={program.image} alt={program.name} className="h-full w-full object-cover" loading="lazy" width={1600} height={1000} />
             </div>
             <div className="prose prose-lg max-w-none space-y-5 text-ink-muted text-lg leading-relaxed">
-              {program.body.map((para, i) => (
+              {program.body.map((para: string, i: number) => (
                 <p key={i}>{para}</p>
               ))}
             </div>
