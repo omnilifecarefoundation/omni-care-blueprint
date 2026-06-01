@@ -4,7 +4,14 @@ import { PageHero } from "@/components/PageHero";
 import { CTABand } from "@/components/CTABand";
 import { FadeUp } from "@/components/FadeUp";
 import { PILLARS } from "@/lib/site";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "@/components/ui/dialog";
 
 export const Route = createFileRoute("/programs/")({
   head: () => ({
@@ -162,6 +169,7 @@ type Filter = "all" | PillarId;
 
 function Page() {
   const [filter, setFilter] = useState<Filter>("all");
+  const [open, setOpen] = useState<Programme | null>(null);
   const list = useMemo(
     () => (filter === "all" ? PROGRAMMES : PROGRAMMES.filter((p) => p.pillar === filter)),
     [filter],
@@ -262,13 +270,13 @@ function Page() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-5">
+          <ul className="divide-y divide-hairline border-y border-hairline">
             {list.map((p, i) => (
-              <FadeUp key={p.slug} delay={Math.min(i * 70, 280)}>
-                <ProgrammeCard p={p} />
+              <FadeUp as="li" key={p.slug} delay={Math.min(i * 50, 240)}>
+                <ProgrammeRow p={p} onOpen={() => setOpen(p)} />
               </FadeUp>
             ))}
-          </div>
+          </ul>
 
           {list.length === 0 && (
             <p className="mt-10 text-sm text-ink-muted">No programmes match that pillar yet.</p>
@@ -276,43 +284,63 @@ function Page() {
         </div>
       </section>
 
-      {/* The reporting promise */}
+      {/* The reporting promise — redesigned as a quarterly ledger */}
       <section className="bg-sage border-b border-hairline">
         <div className="container-editorial py-20 lg:py-24">
-          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-16">
+          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-16 mb-12 lg:mb-14">
             <FadeUp>
               <div className="space-y-4">
                 <div className="eyebrow">The reporting promise</div>
                 <h2 className="font-sans font-semibold text-[clamp(1.625rem,2.6vw,2.125rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-                  Every programme, every quarter, in the same shape.
+                  Every quarter, every programme, the same six lines.
                 </h2>
               </div>
             </FadeUp>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {[
-                { k: "Scope", v: "Wards, partner sites, and the eligible population — written down." },
-                { k: "Activity", v: "Sessions held, screenings completed, referrals made. Counted, not estimated." },
-                { k: "Linkage", v: "Share of positive screens that completed a follow-up within fourteen days." },
-                { k: "Spend", v: "Rupees in, rupees out, by line item — reconciled to the bank statement." },
-                { k: "What did not work", v: "A short, named list. Closed by the next quarter or escalated." },
-                { k: "What we learned", v: "One paragraph per programme — written in plain language." },
-              ].map((m, i) => (
-                <FadeUp key={m.k} delay={80 + i * 60}>
-                  <article className="h-full rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]">
-                    <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted">
-                      Field
-                    </div>
-                    <h3 className="mt-2 font-sans font-semibold text-[1.0625rem] text-ink">
+            <FadeUp delay={80}>
+              <p className="text-[1.0625rem] leading-[1.7] text-ink-muted text-pretty max-w-2xl">
+                A quarterly report is a contract with the people who fund us and the people we
+                serve. Ours is short, identical in shape across programmes, and published on the
+                same day each quarter — so it can be compared, not just read.
+              </p>
+            </FadeUp>
+          </div>
+
+          <FadeUp delay={120}>
+            <div className="rounded-2xl bg-snow border border-hairline overflow-hidden shadow-[0_1px_2px_rgba(28,0,96,0.04),0_18px_40px_-28px_rgba(28,0,96,0.18)]">
+              <div className="flex items-center justify-between gap-4 px-6 lg:px-8 py-4 border-b border-hairline bg-canvas">
+                <div className="flex items-center gap-3">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted">
+                    Quarterly ledger
+                  </span>
+                  <span className="hidden sm:inline font-mono text-[11px] text-ink-muted tabular-nums">
+                    · published within 30 days of quarter close
+                  </span>
+                </div>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-snow px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-muted">
+                  <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-gold" />
+                  Same shape, every time
+                </span>
+              </div>
+              <ol className="divide-y divide-hairline">
+                {LEDGER.map((m, i) => (
+                  <li
+                    key={m.k}
+                    className="grid grid-cols-[auto_minmax(0,1fr)] sm:grid-cols-[auto_10rem_minmax(0,1fr)] items-baseline gap-x-5 gap-y-1 px-6 lg:px-8 py-5"
+                  >
+                    <span className="font-mono text-[12px] text-ink-muted tabular-nums">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-sans font-semibold text-[1rem] text-ink tracking-[-0.005em]">
                       {m.k}
                     </h3>
-                    <p className="mt-2 text-[14px] text-ink-muted leading-[1.6] text-pretty">
+                    <p className="col-span-2 sm:col-span-1 text-[14.5px] leading-[1.6] text-ink-muted text-pretty">
                       {m.v}
                     </p>
-                  </article>
-                </FadeUp>
-              ))}
+                  </li>
+                ))}
+              </ol>
             </div>
-          </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -323,19 +351,34 @@ function Page() {
         primary={{ label: "Partner on a programme", href: "/partner/csr" }}
         secondary={{ label: "Volunteer with us", href: "/get-involved/volunteer" }}
       />
+
+      <ProgrammeDialog programme={open} onClose={() => setOpen(null)} />
     </>
   );
 }
 
-function ProgrammeCard({ p }: { p: Programme }) {
+const LEDGER: { k: string; v: string }[] = [
+  { k: "Scope", v: "Wards, partner sites, and the eligible population — written down, not estimated." },
+  { k: "Activity", v: "Sessions held, screenings completed, referrals made. Counted from the register." },
+  { k: "Linkage", v: "Share of positive screens that completed a follow-up within fourteen days." },
+  { k: "Spend", v: "Rupees in, rupees out, by line item — reconciled to the bank statement." },
+  { k: "What did not work", v: "A short, named list. Closed by the next quarter, or escalated in writing." },
+  { k: "What we learned", v: "One paragraph per programme — in plain language, signed by the lead." },
+];
+
+function ProgrammeRow({ p, onOpen }: { p: Programme; onOpen: () => void }) {
   const pillar = PILLARS.find((x) => x.id === p.pillar)!;
   return (
-    <article className="group relative h-full rounded-xl bg-snow border border-hairline p-7 lg:p-8 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_14px_30px_-22px_rgba(28,0,96,0.28)]">
-      {/* Header row */}
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex items-baseline gap-3 min-w-0">
-          <span className="font-mono text-sm text-ink-muted tabular-nums">{p.n}</span>
-          <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-ink-muted">
+    <button
+      type="button"
+      onClick={onOpen}
+      className="group w-full text-left grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-5 lg:gap-x-8 py-5 lg:py-6 transition-[background-color] duration-200 hover:bg-canvas/60 focus-visible:outline-2 focus-visible:outline-primary px-2 -mx-2 rounded-md"
+      aria-label={`Open details for ${p.name}`}
+    >
+      <span className="font-mono text-[12px] text-ink-muted tabular-nums">{p.n}</span>
+      <div className="min-w-0">
+        <div className="flex items-center gap-3 flex-wrap">
+          <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-ink-muted">
             <span
               aria-hidden="true"
               className="h-1.5 w-1.5 rounded-full"
@@ -343,43 +386,104 @@ function ProgrammeCard({ p }: { p: Programme }) {
             />
             {pillar.name}
           </span>
+          <span className="hidden sm:inline font-mono text-[11px] text-ink-muted">
+            {p.schedule} · {p.sdg}
+          </span>
         </div>
-        <StatusBadge status={p.status} />
+        <h3 className="mt-1.5 font-sans font-semibold text-[1.0625rem] lg:text-[1.15rem] tracking-[-0.005em] text-ink text-balance">
+          {p.name}
+        </h3>
+        <p className="mt-1 text-[14px] leading-[1.55] text-ink-muted text-pretty line-clamp-2 lg:max-w-[58ch]">
+          {p.intent}
+        </p>
       </div>
-
-      <h3 className="mt-4 font-sans font-semibold text-[1.25rem] lg:text-[1.4rem] tracking-[-0.01em] text-ink text-balance">
-        {p.name}
-      </h3>
-
-      <p className="mt-3 text-ink-muted text-[15px] leading-[1.65] text-pretty">
-        {p.intent}
-      </p>
-
-      <div className="mt-6 space-y-5">
-        <Detail label="Who it serves" body={p.who} />
-        <DetailList label="What we will do" items={p.doing} />
-        <DetailList label="What we will publish" items={p.publish} />
-      </div>
-
-      <div className="mt-7 pt-5 border-t border-hairline grid grid-cols-2 gap-4">
-        <Meta label="CSR entry" value={p.schedule} />
-        <Meta label="SDG" value={p.sdg} />
-      </div>
-
-      <Link
-        to="/partner/csr"
-        className="mt-6 inline-flex items-center gap-1.5 text-sm text-ink underline decoration-ink/25 underline-offset-4 transition-colors hover:decoration-ink"
-      >
-        Partner on this programme
+      <span className="inline-flex items-center gap-1.5 text-[12px] font-mono uppercase tracking-[0.14em] text-ink-muted group-hover:text-ink transition-colors">
+        <span className="hidden sm:inline">Read</span>
         <ArrowUpRight
-          className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+          className="h-4 w-4 transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
           strokeWidth={1.75}
           aria-hidden="true"
         />
-      </Link>
-    </article>
+      </span>
+    </button>
   );
 }
+
+function ProgrammeDialog({
+  programme,
+  onClose,
+}: {
+  programme: Programme | null;
+  onClose: () => void;
+}) {
+  const open = !!programme;
+  const pillar = programme ? PILLARS.find((x) => x.id === programme.pillar)! : null;
+  return (
+    <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
+      <DialogContent className="max-w-2xl bg-snow border border-hairline p-0 overflow-hidden gap-0 rounded-2xl shadow-[0_20px_60px_-20px_rgba(28,0,96,0.35)] [&>button]:hidden">
+        {programme && pillar && (
+          <>
+            <div className="flex items-start justify-between gap-4 px-7 lg:px-9 pt-7 pb-5 border-b border-hairline bg-canvas">
+              <div className="min-w-0">
+                <div className="flex items-center gap-3 flex-wrap">
+                  <span className="font-mono text-[11px] text-ink-muted tabular-nums">
+                    {programme.n}
+                  </span>
+                  <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-ink-muted">
+                    <span
+                      aria-hidden="true"
+                      className="h-1.5 w-1.5 rounded-full"
+                      style={{ background: pillar.color }}
+                    />
+                    {pillar.name}
+                  </span>
+                  <StatusBadge status={programme.status} />
+                </div>
+                <DialogTitle className="mt-3 font-sans font-semibold text-[1.375rem] lg:text-[1.5rem] tracking-[-0.01em] text-ink text-balance">
+                  {programme.name}
+                </DialogTitle>
+                <DialogDescription className="mt-2 text-[15px] leading-[1.6] text-ink-muted text-pretty">
+                  {programme.intent}
+                </DialogDescription>
+              </div>
+              <DialogClose
+                aria-label="Close"
+                className="shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-full border border-hairline bg-snow text-ink-muted transition-[color,border-color,scale] duration-200 hover:text-ink hover:border-ink/40 active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-primary"
+              >
+                <X className="h-4 w-4" strokeWidth={1.75} />
+              </DialogClose>
+            </div>
+
+            <div className="px-7 lg:px-9 py-7 space-y-6 max-h-[60vh] overflow-y-auto">
+              <Detail label="Who it serves" body={programme.who} />
+              <DetailList label="What we will do" items={programme.doing} />
+              <DetailList label="What we will publish" items={programme.publish} />
+              <div className="pt-5 border-t border-hairline grid grid-cols-2 gap-4">
+                <Meta label="CSR entry" value={programme.schedule} />
+                <Meta label="SDG" value={programme.sdg} />
+              </div>
+            </div>
+
+            <div className="px-7 lg:px-9 py-5 border-t border-hairline bg-canvas flex items-center justify-between gap-4">
+              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-muted">
+                Year one · in design
+              </span>
+              <Link
+                to="/partner/csr"
+                onClick={onClose}
+                className="inline-flex items-center gap-1.5 text-sm text-ink underline decoration-ink/25 underline-offset-4 transition-colors hover:decoration-ink"
+              >
+                Partner on this programme
+                <ArrowUpRight className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
+              </Link>
+            </div>
+          </>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 
 function Detail({ label, body }: { label: string; body: string }) {
   return (
