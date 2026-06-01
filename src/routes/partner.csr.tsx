@@ -34,16 +34,16 @@ function Page() {
       />
 
       <section className="container-editorial py-16 lg:py-24">
-        <div className="grid lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid lg:grid-cols-3 gap-5 mb-16">
           {[
             { icon: FileCheck2, title: "Schedule VII aligned", body: "Every programme maps to one or more Schedule VII areas under Section 135 of the Companies Act." },
             { icon: ShieldCheck, title: "Audit-ready reporting", body: "Quarterly MIS, impact dashboards, and third-party independent evaluation built into every engagement." },
             { icon: Building2, title: "End-to-end execution", body: "Co-designed programmes, on-ground delivery, government coordination, and statutory reporting." },
           ].map((c) => (
-            <div key={c.title} className="border border-hairline bg-snow p-6">
+            <div key={c.title} className="rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]">
               <c.icon className="h-6 w-6 text-primary" aria-hidden="true" strokeWidth={1.5} />
-              <h3 className="font-serif text-xl mt-5">{c.title}</h3>
-              <p className="mt-2 text-sm text-ink-muted">{c.body}</p>
+              <h3 className="font-serif text-xl mt-5 text-balance">{c.title}</h3>
+              <p className="mt-2 text-sm text-ink-muted text-pretty">{c.body}</p>
             </div>
           ))}
         </div>
@@ -55,7 +55,7 @@ function Page() {
               {FOCUS.map((f) => (
                 <li key={f.area} className="flex justify-between items-center py-4">
                   <span className="font-serif text-lg">{f.area}</span>
-                  <span className="font-mono text-xs tabular text-ink-muted">{f.entry}</span>
+                  <span className="font-mono text-xs tabular-nums text-ink-muted">{f.entry}</span>
                 </li>
               ))}
             </ul>
@@ -64,7 +64,7 @@ function Page() {
                 <Download className="h-4 w-4" /> Download CSR Brochure (PDF)
               </button>
             </div>
-            <p className="mt-6 text-xs text-ink-muted font-mono tabular">
+            <p className="mt-6 text-xs text-ink-muted font-mono tabular-nums">
               CSR-1 Registration No: CSR00045678 · Section 135, Companies Act
             </p>
           </div>
@@ -79,9 +79,9 @@ function CSRForm() {
   const [submitted, setSubmitted] = useState(false);
   if (submitted) {
     return (
-      <div className="bg-sage p-8 border border-hairline">
-        <h3 className="font-serif text-2xl">Thank you.</h3>
-        <p className="mt-3 text-ink-muted">
+      <div className="rounded-2xl bg-sage p-8 border border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04)]">
+        <h3 className="font-serif text-2xl text-balance">Thank you.</h3>
+        <p className="mt-3 text-ink-muted text-pretty">
           Our partnerships team will respond within 3 business days. For urgent
           enquiries, write to{" "}
           <a className="underline" href="mailto:csr@omnilifecare.org">csr@omnilifecare.org</a>.
@@ -92,7 +92,7 @@ function CSRForm() {
   return (
     <form
       onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
-      className="bg-snow border border-hairline p-7"
+      className="rounded-2xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04),0_8px_24px_-16px_rgba(28,0,96,0.10)]"
       aria-label="CSR enquiry form"
     >
       <h3 className="font-serif text-2xl">Start an enquiry</h3>
@@ -104,7 +104,7 @@ function CSRForm() {
         <Field id="phone" label="Phone (optional)" />
         <div>
           <label htmlFor="focus" className="block text-sm font-semibold mb-1.5">CSR focus area</label>
-          <select id="focus" className="w-full h-12 px-4 bg-canvas border border-hairline focus:border-primary outline-none">
+          <select id="focus" className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)] focus:border-primary outline-none transition-colors">
             <option>Healthcare</option>
             <option>Education & Skills</option>
             <option>Women's Empowerment</option>
@@ -114,7 +114,7 @@ function CSRForm() {
         </div>
         <div>
           <label htmlFor="msg" className="block text-sm font-semibold mb-1.5">Message</label>
-          <textarea id="msg" rows={4} className="w-full px-4 py-3 bg-canvas border border-hairline focus:border-primary outline-none" />
+          <textarea id="msg" rows={4} className="w-full px-4 py-3 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)] focus:border-primary outline-none transition-colors" />
         </div>
         <label className="flex items-start gap-2 text-xs text-ink-muted">
           <input type="checkbox" required className="mt-1" />
@@ -132,7 +132,7 @@ function Field({ id, label, type = "text", required }: { id: string; label: stri
       <label htmlFor={id} className="block text-sm font-semibold mb-1.5">
         {label}{required && <span className="text-coral"> *</span>}
       </label>
-      <input id={id} type={type} required={required} className="w-full h-12 px-4 bg-canvas border border-hairline focus:border-primary outline-none" />
+      <input id={id} type={type} required={required} className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)] focus:border-primary outline-none transition-colors" />
     </div>
   );
 }
