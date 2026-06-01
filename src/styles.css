@@ -138,9 +138,20 @@
 
   h1, h2, h3, h4 {
     font-family: var(--font-sans);
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: -0.02em;
     color: var(--color-ink);
+  }
+
+  /* Italic accents within headings use Tillana (script display) */
+  h1 em, h2 em, h3 em, h4 em,
+  h1 i, h2 i, h3 i, h4 i,
+  .display-xl em, .display-lg em, .display-md em,
+  .headline-axion em,
+  .font-display-italic {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 500;
   }
 
   ::selection {
