@@ -27,11 +27,11 @@ function Page() {
       <section className="container-editorial py-16 lg:py-24">
         <div className="grid md:grid-cols-2 gap-5">
           {COMPLIANCE.map((c) => (
-            <div key={c.label} className="border border-hairline bg-snow p-6">
+            <div key={c.label} className="rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]">
               <ShieldCheck className="h-5 w-5 text-primary" aria-hidden="true" />
-              <h2 className="font-serif text-2xl mt-4">{c.label}</h2>
-              <p className="text-ink-muted mt-1">{c.desc}</p>
-              <div className="font-mono text-sm tabular text-ink-muted mt-4">Registration: {c.id}</div>
+              <h2 className="font-serif text-2xl mt-4 text-balance">{c.label}</h2>
+              <p className="text-ink-muted mt-1 text-pretty">{c.desc}</p>
+              <div className="font-mono text-sm tabular-nums text-ink-muted mt-4">Registration: {c.id}</div>
               <button type="button" className="link-arrow mt-4 text-sm">
                 <Download className="h-4 w-4" /> View certificate
               </button>

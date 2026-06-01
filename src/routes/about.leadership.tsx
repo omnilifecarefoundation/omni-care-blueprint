@@ -39,12 +39,12 @@ function Page() {
       />
       <section className="container-editorial py-16 lg:py-24">
         <h2 className="display-md mb-8">Board of Trustees</h2>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-5">
           {BOARD.map((m) => (
-            <div key={m.name} className="border border-hairline bg-snow p-6">
-              <h3 className="font-serif text-xl">{m.name}</h3>
+            <div key={m.name} className="rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]">
+              <h3 className="font-serif text-xl text-balance">{m.name}</h3>
               <div className="eyebrow mt-1">{m.role}</div>
-              <p className="mt-3 text-sm text-ink-muted leading-relaxed">{m.bio}</p>
+              <p className="mt-3 text-sm text-ink-muted leading-relaxed text-pretty">{m.bio}</p>
             </div>
           ))}
         </div>
