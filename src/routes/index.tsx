@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, ShieldCheck, FileCheck2, Building2, Heart, HandHeart, Users, Download } from "lucide-react";
-import heroImg from "@/assets/hero-market.jpg";
+import heroImg from "@/assets/hero-community.jpg";
 import storySunita from "@/assets/story-sunita.jpg";
 import { COMPLIANCE, PILLARS, PROGRAMS, SITE, STATS, STORIES, PILLAR_BY_ID } from "@/lib/site";
 import { OmniCareDiagram } from "@/components/OmniCareDiagram";
