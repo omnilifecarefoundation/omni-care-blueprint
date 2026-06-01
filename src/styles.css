@@ -47,6 +47,7 @@
   --color-sage: var(--sage);
   --color-sandstone: var(--sandstone);
   --color-coral: var(--coral);
+  --color-gold: var(--gold);
 
   --color-pillar-mental: var(--pillar-mental);
   --color-pillar-social: var(--pillar-social);
@@ -81,6 +82,7 @@
   --sage: #E8F2FF;
   --sandstone: #4D9FFF;
   --coral: #4D9FFF;
+  --gold: #C9A84C;
 
   /* Pillar accents — electric blue family + complements */
   --pillar-mental: #4D9FFF;
