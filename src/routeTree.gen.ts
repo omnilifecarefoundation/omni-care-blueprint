@@ -27,6 +27,7 @@ import { Route as ImpactIndexRouteImport } from './routes/impact.index'
 import { Route as GetInvolvedIndexRouteImport } from './routes/get-involved.index'
 import { Route as AboutIndexRouteImport } from './routes/about.index'
 import { Route as WhatWeDoPillarRouteImport } from './routes/what-we-do.$pillar'
+import { Route as ProgramsResearchImpactAssessmentRouteImport } from './routes/programs.research-impact-assessment'
 import { Route as ProgramsSlugRouteImport } from './routes/programs.$slug'
 import { Route as PartnerCsrRouteImport } from './routes/partner.csr'
 import { Route as ImpactStoriesRouteImport } from './routes/impact.stories'
@@ -129,6 +130,12 @@ const WhatWeDoPillarRoute = WhatWeDoPillarRouteImport.update({
   path: '/what-we-do/$pillar',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProgramsResearchImpactAssessmentRoute =
+  ProgramsResearchImpactAssessmentRouteImport.update({
+    id: '/programs/research-impact-assessment',
+    path: '/programs/research-impact-assessment',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProgramsSlugRoute = ProgramsSlugRouteImport.update({
   id: '/programs/$slug',
   path: '/programs/$slug',
@@ -209,6 +216,7 @@ export interface FileRoutesByFullPath {
   '/impact/stories': typeof ImpactStoriesRoute
   '/partner/csr': typeof PartnerCsrRoute
   '/programs/$slug': typeof ProgramsSlugRoute
+  '/programs/research-impact-assessment': typeof ProgramsResearchImpactAssessmentRoute
   '/what-we-do/$pillar': typeof WhatWeDoPillarRoute
   '/about/': typeof AboutIndexRoute
   '/get-involved/': typeof GetInvolvedIndexRoute
@@ -240,6 +248,7 @@ export interface FileRoutesByTo {
   '/impact/stories': typeof ImpactStoriesRoute
   '/partner/csr': typeof PartnerCsrRoute
   '/programs/$slug': typeof ProgramsSlugRoute
+  '/programs/research-impact-assessment': typeof ProgramsResearchImpactAssessmentRoute
   '/what-we-do/$pillar': typeof WhatWeDoPillarRoute
   '/about': typeof AboutIndexRoute
   '/get-involved': typeof GetInvolvedIndexRoute
@@ -272,6 +281,7 @@ export interface FileRoutesById {
   '/impact/stories': typeof ImpactStoriesRoute
   '/partner/csr': typeof PartnerCsrRoute
   '/programs/$slug': typeof ProgramsSlugRoute
+  '/programs/research-impact-assessment': typeof ProgramsResearchImpactAssessmentRoute
   '/what-we-do/$pillar': typeof WhatWeDoPillarRoute
   '/about/': typeof AboutIndexRoute
   '/get-involved/': typeof GetInvolvedIndexRoute
@@ -305,6 +315,7 @@ export interface FileRouteTypes {
     | '/impact/stories'
     | '/partner/csr'
     | '/programs/$slug'
+    | '/programs/research-impact-assessment'
     | '/what-we-do/$pillar'
     | '/about/'
     | '/get-involved/'
@@ -336,6 +347,7 @@ export interface FileRouteTypes {
     | '/impact/stories'
     | '/partner/csr'
     | '/programs/$slug'
+    | '/programs/research-impact-assessment'
     | '/what-we-do/$pillar'
     | '/about'
     | '/get-involved'
@@ -367,6 +379,7 @@ export interface FileRouteTypes {
     | '/impact/stories'
     | '/partner/csr'
     | '/programs/$slug'
+    | '/programs/research-impact-assessment'
     | '/what-we-do/$pillar'
     | '/about/'
     | '/get-involved/'
@@ -399,6 +412,7 @@ export interface RootRouteChildren {
   ImpactStoriesRoute: typeof ImpactStoriesRoute
   PartnerCsrRoute: typeof PartnerCsrRoute
   ProgramsSlugRoute: typeof ProgramsSlugRoute
+  ProgramsResearchImpactAssessmentRoute: typeof ProgramsResearchImpactAssessmentRoute
   WhatWeDoPillarRoute: typeof WhatWeDoPillarRoute
   AboutIndexRoute: typeof AboutIndexRoute
   GetInvolvedIndexRoute: typeof GetInvolvedIndexRoute
@@ -535,6 +549,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WhatWeDoPillarRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/programs/research-impact-assessment': {
+      id: '/programs/research-impact-assessment'
+      path: '/programs/research-impact-assessment'
+      fullPath: '/programs/research-impact-assessment'
+      preLoaderRoute: typeof ProgramsResearchImpactAssessmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/programs/$slug': {
       id: '/programs/$slug'
       path: '/programs/$slug'
@@ -639,6 +660,7 @@ const rootRouteChildren: RootRouteChildren = {
   ImpactStoriesRoute: ImpactStoriesRoute,
   PartnerCsrRoute: PartnerCsrRoute,
   ProgramsSlugRoute: ProgramsSlugRoute,
+  ProgramsResearchImpactAssessmentRoute: ProgramsResearchImpactAssessmentRoute,
   WhatWeDoPillarRoute: WhatWeDoPillarRoute,
   AboutIndexRoute: AboutIndexRoute,
   GetInvolvedIndexRoute: GetInvolvedIndexRoute,
