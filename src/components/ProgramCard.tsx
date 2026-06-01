@@ -16,10 +16,11 @@ export function ProgramCard({ program }: { program: Program }) {
           width={1200}
           height={900}
           loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover outline outline-1 -outline-offset-1 outline-ink/10 transition-transform duration-500 ease-out group-hover:scale-105"
         />
         <ExpandingPill label="Explore program" tone="light" expandedWidth={170} />
       </div>
+
       <div className="pt-4">
         <span className="chip" style={{ color: pillar.color }}>
           <span className="chip-dot" />

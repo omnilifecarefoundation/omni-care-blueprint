@@ -282,9 +282,10 @@ function OmniCareSection() {
             <FadeUp key={p.id} delay={i * 80}>
               <Link
                 to={p.href}
-                className="group block bg-snow border border-hairline hover:border-ink-muted p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(11,59,60,0.06)] h-full"
+                className="group block bg-snow border border-hairline p-6 h-full transition-[border-color,box-shadow,transform] duration-200 ease-out hover:border-ink-muted hover:-translate-y-0.5 hover:shadow-[0_1px_2px_rgba(28,0,96,0.06),0_12px_28px_-12px_rgba(28,0,96,0.18)]"
                 style={{ borderLeft: `3px solid ${p.color}` }}
               >
+
                 <div className="font-mono text-xs text-ink-muted tabular">{p.number}</div>
                 <h3 className="mt-3 font-serif text-xl text-ink leading-snug">
                   {p.name}
@@ -407,8 +408,9 @@ function StoriesSection() {
                   width={1200}
                   height={1500}
                   loading="lazy"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover outline outline-1 -outline-offset-1 outline-ink/10"
                 />
+
               </div>
               <div className="p-6">
                 <div className="eyebrow text-ink-muted">Mental Wellbeing · Solapur</div>
@@ -601,8 +603,9 @@ function GetInvolved() {
             <FadeUp key={c.title} delay={i * 80}>
               <Link
                 to={c.href}
-                className="group block h-full bg-snow border border-hairline hover:border-primary p-8 lg:p-10 transition-all duration-200 hover:-translate-y-0.5"
+                className="group block h-full bg-snow border border-hairline p-8 lg:p-10 transition-[border-color,box-shadow,transform] duration-200 ease-out hover:border-primary hover:-translate-y-0.5 hover:shadow-[0_1px_2px_rgba(28,0,96,0.06),0_16px_32px_-14px_rgba(28,0,96,0.2)]"
               >
+
                 <c.icon className="h-7 w-7 text-primary" aria-hidden="true" strokeWidth={1.5} />
                 <div className="mt-6 eyebrow text-ink-muted">{c.sub}</div>
                 <h3 className="mt-1 font-serif text-2xl text-ink">{c.title}</h3>
@@ -646,8 +649,9 @@ function NewsroomStrip() {
             <FadeUp key={n.title} delay={i * 60}>
               <Link
                 to="/newsroom"
-                className="block bg-snow border border-hairline p-6 h-full hover:border-ink-muted hover:-translate-y-0.5 transition-all"
+                className="block bg-snow border border-hairline p-6 h-full transition-[border-color,box-shadow,transform] duration-200 ease-out hover:border-ink-muted hover:-translate-y-0.5 hover:shadow-[0_1px_2px_rgba(28,0,96,0.06),0_12px_28px_-12px_rgba(28,0,96,0.18)]"
               >
+
                 <div className="flex items-center gap-3 font-mono text-[11px] tabular text-ink-muted">
                   <span>{n.date}</span>
                   <span className="text-coral">{n.cat}</span>

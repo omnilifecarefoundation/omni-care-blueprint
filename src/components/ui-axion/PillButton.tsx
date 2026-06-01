@@ -64,7 +64,7 @@ export function PillButton(props: PillButtonProps) {
     </>
   );
 
-  const cls = `group inline-flex items-center gap-3 rounded-full font-medium transition-colors w-fit ${padding} ${text} ${VARIANT_BG[variant]} ${className}`;
+  const cls = `group inline-flex items-center gap-3 rounded-full font-medium w-fit transition-[background-color,border-color,scale] duration-200 ease-out active:scale-[0.96] ${padding} ${text} ${VARIANT_BG[variant]} ${className}`;
 
   if ("to" in props && props.to) {
     return (
