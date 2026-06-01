@@ -66,29 +66,29 @@
 :root {
   --radius: 4px;
 
-  /* Brand — Electric Blue */
-  --primary: #0066FF;
+  /* Brand — SDG-aligned: Blue + Dark Blue + Yellow + White */
+  --primary: #0A6FD8;
   --primary-foreground: #FFFFFF;
-  --primary-glow: #4D9FFF;
-  --primary-deep: #003D99;
-  --secondary: #E8F2FF;
-  --secondary-foreground: #003D99;
+  --primary-glow: #3B8FE8;
+  --primary-deep: #0A2A5E;
+  --secondary: #F5F8FC;
+  --secondary-foreground: #0A2A5E;
 
   --canvas: #FFFFFF;
   --snow: #FFFFFF;
-  --ink: #003D99;
-  --ink-muted: #4A6FA5;
-  --hairline: #D4E4FF;
-  --sage: #E8F2FF;
-  --sandstone: #4D9FFF;
-  --coral: #4D9FFF;
+  --ink: #0A2A5E;
+  --ink-muted: #5A6B85;
+  --hairline: #E1E7F0;
+  --sage: #F5F8FC;
+  --sandstone: #FFD600;
+  --coral: #FFD600;
   --gold: #FFD600;
 
-  /* Pillar accents — electric blue family + complements */
-  --pillar-mental: #4D9FFF;
-  --pillar-social: #0066FF;
-  --pillar-inclusive: #003D99;
-  --pillar-human: #80B3FF;
+  /* Pillar accents — distinct per pillar, SDG-derived */
+  --pillar-mental: #FFD600;     /* Yellow — vitality */
+  --pillar-social: #0A6FD8;     /* Blue — partnerships */
+  --pillar-inclusive: #DD1367;  /* Magenta — SDG 10 */
+  --pillar-human: #0A2A5E;      /* Dark blue — knowledge */
 
   /* Motion easings (Axion-style) */
   --ease-axion: cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -96,25 +96,25 @@
 
   /* Shadcn token mapping */
   --background: #FFFFFF;
-  --foreground: #003D99;
+  --foreground: #0A2A5E;
   --card: #FFFFFF;
-  --card-foreground: #003D99;
+  --card-foreground: #0A2A5E;
   --popover: #FFFFFF;
-  --popover-foreground: #003D99;
-  --muted: #E8F2FF;
-  --muted-foreground: #4A6FA5;
-  --accent: #4D9FFF;
-  --accent-foreground: #FFFFFF;
+  --popover-foreground: #0A2A5E;
+  --muted: #F5F8FC;
+  --muted-foreground: #5A6B85;
+  --accent: #FFD600;
+  --accent-foreground: #0A2A5E;
   --destructive: #A8392B;
   --destructive-foreground: #FFFFFF;
-  --border: #D4E4FF;
-  --input: #D4E4FF;
-  --ring: #0066FF;
+  --border: #E1E7F0;
+  --input: #E1E7F0;
+  --ring: #0A6FD8;
 }
 
 .dark {
   --background: #FFFFFF;
-  --foreground: #003D99;
+  --foreground: #0A2A5E;
 }
 
 @layer base {
@@ -266,13 +266,13 @@
     background-color: var(--color-primary);
     color: var(--color-primary-foreground);
   }
-  .btn-primary:hover { background-color: #003D99; }
+  .btn-primary:hover { background-color: #0A2A5E; }
 
   .btn-coral {
-    background-color: var(--color-coral);
-    color: var(--color-snow);
+    background-color: var(--color-gold);
+    color: var(--color-ink);
   }
-  .btn-coral:hover { background-color: #0066FF; }
+  .btn-coral:hover { background-color: #E6C000; }
 
   .btn-secondary {
     background-color: var(--color-snow);
@@ -291,10 +291,10 @@
   .btn-ghost:hover { background-color: var(--color-hairline); }
 
   .btn-on-dark {
-    background-color: var(--color-coral);
-    color: var(--color-snow);
+    background-color: var(--color-gold);
+    color: var(--color-ink);
   }
-  .btn-on-dark:hover { background-color: #0066FF; }
+  .btn-on-dark:hover { background-color: #E6C000; }
 
   .btn-secondary-on-dark {
     background-color: transparent;
@@ -357,7 +357,7 @@
   .card-editorial:hover {
     border-color: var(--color-ink-muted);
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0,102,255,0.10);
+    box-shadow: 0 4px 16px rgba(10,42,94,0.10);
   }
 
   /* Pillar chip / tag */
