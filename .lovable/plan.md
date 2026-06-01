@@ -1,37 +1,64 @@
-## Hero redesign — institutional editorial
+# Palette Refresh — Omni Life Care Foundation
 
-The current hero drowns the photo in a heavy electric-blue overlay so the headline disappears and the page reads as corporate, not like a credible non-profit. I'll rebuild the `Hero` component in `src/routes/index.tsx` using the "Institutional editorial" direction — white canvas, split layout, photo framed as a card, compliance badges promoted into a floating trust card.
+## Why
+The current site leans almost entirely on electric blue (`#0066FF` + 4 blue tints). It reads corporate/tech rather than care-led, and the four pillars all share blue shades so they aren't visually distinguishable. You want SDG-aligned colors: **yellow, blue, dark blue, white**, with each of the four pillars getting its own accent.
 
-### Layout (desktop, 7/5 split)
+## New Core Palette (SDG-aligned)
 
-```text
-┌──────────────────────────────────────────────────────────────┐
-│  • Live · Field operations active in 6 states                │
-│                                                              │
-│  Equitable, dignified care for every  ┌──────────────────┐   │
-│  community in India.                  │                  │   │
-│  (Fira Sans bold, ink #003D99,        │  hero-market.jpg │   │
-│   "dignified care" in Tillana italic  │  framed, rounded,│   │
-│   #0066FF)                            │  caption overlay │   │
-│                                       │                  │   │
-│  Lead paragraph (Telex, ink-muted)    │                  │   │
-│                                       └──────────────────┘   │
-│  [Partner with Us]  [Make a Donation]   ┌───────────────┐    │
-│  ─────────────────────────────────────  │ Compliance    │    │
-│  6 States · 42+ Centers · 1.2M Lives    │ 12A 80G CSR FCRA│  │
-│                                         └───────────────┘    │
-└──────────────────────────────────────────────────────────────┘
-```
+| Role | Hex | Notes |
+|---|---|---|
+| Canvas / Snow | `#FFFFFF` | Page background |
+| Soft canvas | `#F5F8FC` | Section bands, muted surfaces |
+| Ink (headings/body) | `#0A2A5E` | Deep navy — replaces current `#003D99` ink, slightly richer |
+| Ink muted | `#5A6B85` | Neutral secondary text (not blue-tinted) |
+| Hairline | `#E1E7F0` | Borders, dividers |
+| **Primary — Blue** | `#0A6FD8` | SDG-style mid blue, slightly less neon than `#0066FF` |
+| **Primary deep — Dark blue** | `#0A2A5E` | CTA hover, navy headings |
+| **Accent — Yellow** | `#FFD600` | Bright yellow, kept from your last decision |
+| Accent deep (yellow hover) | `#E6C000` | Hover state for yellow CTAs |
 
-### Changes
+Net effect: still blue-led (trust, health), but warmer because white + yellow carry more weight; dark blue replaces "more blue" for depth instead of stacking 4 blue tints.
 
-- **`src/routes/index.tsx` → `Hero()`**: replace the full-bleed image + overlay with a 12-col grid (`lg:grid-cols-12`, `gap-12`):
-  - Left col (`lg:col-span-7`): keep status pill (Live + states), headline with `font-display-italic text-primary` on "dignified care", lead paragraph, existing `PillButton` CTAs, then a bordered stat row pulled from `STATS` in `@/lib/site`.
-  - Right col (`lg:col-span-5`): `hero-market.jpg` in a rounded `aspect-[3/4]` framed card with soft shadow, subtle offset blue tint layer behind it, and a small italic caption overlay. Floating white compliance card (12A / 80G / CSR-1 / FCRA) absolutely positioned over the bottom-left of the image card.
-  - Section background: `bg-canvas` (white), `border-b border-hairline` instead of `bg-ink`. Remove `bg-gradient-to-*` overlays.
-- **Mobile**: stack — content first, image card second, compliance card flows below image (not absolute).
-- **Tokens**: use only existing CSS vars (`--primary`, `--ink`, `--ink-muted`, `--hairline`, `--sage`, `--primary-glow`). No new colors. No new files. No nav/footer/section changes.
+## Per-Pillar Accents (distinct, SDG-derived)
 
-### Out of scope
+Each pillar gets its own identity color used in chips, icons, and section accents. All chosen to sit harmoniously with blue + yellow + white.
 
-Header, sections below the hero, design tokens, image asset — all untouched.
+| Pillar | Color | Hex | SDG link |
+|---|---|---|---|
+| Mental Wellbeing | Yellow | `#FFD600` | SDG 3 vitality, warmth |
+| Social Growth | Mid Blue | `#0A6FD8` | SDG 17 Partnerships |
+| Inclusive Care | Magenta | `#DD1367` | SDG 10 Reduced Inequalities |
+| Human Potential | Dark Blue | `#0A2A5E` | SDG 4 / 16 — depth, knowledge |
+
+(Magenta is the one non-yellow-non-blue accent — needed so Inclusive Care doesn't collapse into the same blue family. It's pulled directly from official SDG 10 color.)
+
+## Where Each Color Shows Up
+
+- **White**: page canvas, cards
+- **Dark blue (`#0A2A5E`)**: all headings, body text, primary navigation text, footer background
+- **Blue (`#0A6FD8`)**: primary buttons, links, focus ring, "Social Growth" pillar
+- **Yellow (`#FFD600`)**: hero italic accent ("community in India"), key stat numbers, secondary CTA, "Mental Wellbeing" pillar
+- **Magenta**: only on "Inclusive Care" pillar chip/icon
+- **Hairline grey**: borders, section dividers (replaces current `#D4E4FF` blue-tinted hairline so the page reads less blue overall)
+
+## Files to Change
+
+1. **`src/styles.css`** — single source of truth. Update tokens in `:root`:
+   - `--primary`, `--primary-glow`, `--primary-deep`
+   - `--ink`, `--ink-muted`, `--hairline`, `--sage`, `--secondary`
+   - `--pillar-mental`, `--pillar-social`, `--pillar-inclusive`, `--pillar-human`
+   - `--gold` stays `#FFD600`
+   - shadcn mappings (`--background`, `--foreground`, `--muted`, `--accent`, `--border`, `--ring`, `--destructive` etc.) updated to match
+   - button hover hex literals (`.btn-primary:hover`, `.btn-coral:hover`, `.btn-on-dark:hover`) repointed to new dark blue
+   - card hover shadow tint updated from blue glow to neutral
+
+2. **No component file changes needed** — every component already reads from tokens (`text-ink`, `bg-primary`, `text-gold`, `bg-pillar-*` etc.), so the palette swap propagates automatically.
+
+## Out of Scope
+- No layout changes
+- No typography changes (Fira Sans / Tillana / Telex stay)
+- No copy changes
+- Hero "community in India" stays bright yellow italic as you set last turn
+
+## Verification
+After the edit I'll screenshot the homepage hero, pillars section, and footer to confirm the new balance reads as **white-dominant, dark-blue text, blue accents, yellow highlights** with four visually distinct pillars.
