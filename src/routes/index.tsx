@@ -10,21 +10,22 @@ export const Route = createFileRoute("/")({
     meta: [
       {
         title:
-          "Omni Life Care Foundation — Better health, closer to home. Mumbai.",
+          "Omni Life Care Foundation — Care that arrives where people already live. Mumbai.",
       },
       {
         name: "description",
         content:
-          "A new Mumbai-based non-profit building four kinds of care — mental health, community health, inclusive care, and women's health — that work together instead of separately.",
+          "A new Mumbai non-profit bringing mental health, women's health, inclusive care and community health under one team — so a family never has to ask in four different places.",
       },
       {
         property: "og:title",
-        content: "Omni Life Care Foundation — Better health, closer to home.",
+        content:
+          "Omni Life Care Foundation — Care that arrives where people already live.",
       },
       {
         property: "og:description",
         content:
-          "A new Mumbai-based non-profit. Four kinds of care, designed to work as one. Founding partners welcome.",
+          "Four kinds of care, one team, one Mumbai foundation. Founding partners welcome.",
       },
       { property: "og:url", content: "/" },
       { property: "og:image", content: heroImg },
@@ -41,9 +42,11 @@ function HomePage() {
       <Hero />
       <Manifesto />
       <WhatWeDo />
+      <Values />
       <WhyItMatters />
       <Programmes />
       <FoundersNote />
+      <SDGs />
       <PartnerBand />
       <Trust />
       <ClosingCTA />
@@ -53,7 +56,7 @@ function HomePage() {
 }
 
 /* ============================================================
-   1. HERO — dark indigo, editorial headline with italic accent
+   1. HERO — emotional headline, Ogilvy long subhead
    ============================================================ */
 function Hero() {
   return (
@@ -73,34 +76,37 @@ function Hero() {
             <FadeUp delay={0}>
               <span className="inline-flex items-center gap-2 rounded-full border border-snow/20 bg-snow/5 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-snow/80">
                 <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                New non-profit · Mumbai, India
+                A new non-profit · Mumbai, India
               </span>
             </FadeUp>
 
             <FadeUp delay={80}>
               <h1 className="font-sans font-semibold text-[clamp(2.5rem,5.4vw,4.75rem)] leading-[1.02] tracking-[-0.025em] text-snow text-balance">
-                Better health,
+                When help is needed,
                 <br />
-                closer to <em className="font-serif italic font-medium text-gold">home.</em>
+                no one should be sent to{" "}
+                <em className="font-serif italic font-medium text-gold">
+                  four different doors.
+                </em>
               </h1>
             </FadeUp>
 
             <FadeUp delay={160}>
               <p className="max-w-xl text-[1.0625rem] lg:text-[1.15rem] leading-[1.6] text-snow/80 text-pretty">
-                We&rsquo;re a new Mumbai-based non-profit building four kinds
-                of care &mdash; mental health, community health, inclusive
-                care, and women&rsquo;s health &mdash; that work together
-                instead of separately.
+                Omni Life Care Foundation is a new Mumbai non-profit bringing
+                mental health, women&rsquo;s health, inclusive care and
+                community health under one team &mdash; so a family never has
+                to ask in four different places.
               </p>
             </FadeUp>
 
             <FadeUp delay={240}>
               <div className="flex flex-col sm:flex-row gap-3">
                 <PillButton to="/partner/csr" variant="on-dark">
-                  Partner with us
+                  Become a founding partner
                 </PillButton>
                 <PillButton to="/about" variant="ghost">
-                  Learn who we are
+                  Why we exist
                 </PillButton>
               </div>
             </FadeUp>
@@ -137,7 +143,6 @@ function Hero() {
                   fetchPriority="high"
                   className="h-full w-full object-cover outline outline-1 -outline-offset-1 outline-snow/15"
                 />
-                {/* Corner caption */}
                 <div className="absolute left-4 bottom-4 right-4 flex items-end justify-between gap-3">
                   <span className="inline-flex items-center gap-2 rounded-full bg-ink/70 backdrop-blur-sm border border-snow/15 px-3 py-1.5 text-[10.5px] uppercase tracking-[0.16em] text-snow/85">
                     <span className="h-1 w-1 rounded-full bg-gold" />
@@ -154,7 +159,7 @@ function Hero() {
 }
 
 /* ============================================================
-   2. MANIFESTO STRIP — single editorial line on bg-sage
+   2. MANIFESTO — single editorial promise
    ============================================================ */
 function Manifesto() {
   return (
@@ -165,8 +170,7 @@ function Manifesto() {
         </FadeUp>
         <FadeUp delay={80}>
           <p className="font-sans font-medium text-[clamp(1.375rem,2.4vw,1.875rem)] leading-[1.25] tracking-[-0.015em] text-ink text-balance max-w-4xl">
-            Care that doesn&rsquo;t make people choose which kind of help to
-            ask for first &mdash;{" "}
+            Health that meets people where they already live &mdash;{" "}
             <em className="font-serif italic font-medium text-primary">
               designed with the community, reported in the open.
             </em>
@@ -178,7 +182,7 @@ function Manifesto() {
 }
 
 /* ============================================================
-   3. WHAT WE DO — 4 pillars
+   3. WHAT WE DO — 4 pillars of the Omni Care Model
    ============================================================ */
 function WhatWeDo() {
   return (
@@ -186,7 +190,7 @@ function WhatWeDo() {
       <div className="container-editorial py-20 lg:py-28">
         <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
           <FadeUp className="lg:col-span-7">
-            <p className="eyebrow mb-4">What we do</p>
+            <p className="eyebrow mb-4">The Omni Care Model</p>
             <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
               Four kinds of care.{" "}
               <em className="font-serif italic font-medium">One team.</em>
@@ -194,9 +198,10 @@ function WhatWeDo() {
           </FadeUp>
           <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
             <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
-              Most health problems show up together. Our programmes are
-              designed to do the same &mdash; so a person never has to choose
-              which kind of help to ask for first.
+              Most health problems arrive together. Mental, social, inclusive
+              and human &mdash; our four pillars are designed to do the same,
+              so a person never has to choose which kind of help to ask for
+              first.
             </p>
           </FadeUp>
         </div>
@@ -206,7 +211,7 @@ function WhatWeDo() {
             <FadeUp key={p.id} delay={i * 70} as="li">
               <Link
                 to={p.href}
-                className="group relative flex h-full flex-col gap-4 rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform,background-color] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/30 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_12px_28px_-20px_rgba(28,0,96,0.22)]"
+                className="group relative flex h-full flex-col gap-4 rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform,background-color] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/30 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_12px_28px_-20px_rgba(28,0,96,0.22)] active:scale-[0.99]"
               >
                 <div className="flex items-center justify-between">
                   <span
@@ -238,7 +243,83 @@ function WhatWeDo() {
 }
 
 /* ============================================================
-   4. WHY IT MATTERS — three sourced facts
+   4. VALUES — five commitments you can hold us to
+   ============================================================ */
+function Values() {
+  const values = [
+    {
+      n: "01",
+      title: "Dignity & Respect",
+      body: "Every person we serve is treated as a person first &mdash; never a case number.",
+    },
+    {
+      n: "02",
+      title: "Inclusion & Equity",
+      body: "We start with the people most often left out: women, the elderly, persons with disability.",
+    },
+    {
+      n: "03",
+      title: "Community-Centred",
+      body: "Programmes are designed with the people they serve &mdash; not for them.",
+    },
+    {
+      n: "04",
+      title: "Collaboration",
+      body: "We partner with local groups, institutions and government &mdash; not around them.",
+    },
+    {
+      n: "05",
+      title: "Impact & Sustainability",
+      body: "We measure what changes, publish what works, and stop what doesn&rsquo;t.",
+    },
+  ];
+  return (
+    <section className="bg-snow border-b border-hairline">
+      <div className="container-editorial py-20 lg:py-28">
+        <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
+          <FadeUp className="lg:col-span-7">
+            <p className="eyebrow mb-4">What we stand for</p>
+            <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
+              Five commitments,{" "}
+              <em className="font-serif italic font-medium">
+                you can hold us to.
+              </em>
+            </h2>
+          </FadeUp>
+          <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
+            <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
+              A new foundation has no track record. So instead of promises
+              about the future, here are five rules we&rsquo;ve written for
+              ourselves from day one.
+            </p>
+          </FadeUp>
+        </div>
+
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
+          {values.map((v, i) => (
+            <FadeUp key={v.n} delay={i * 60} as="li">
+              <div className="h-full rounded-xl bg-canvas border border-hairline p-6 flex flex-col gap-3 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]">
+                <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted tabular-nums">
+                  {v.n}
+                </span>
+                <h3 className="font-sans font-semibold text-[1rem] leading-snug text-ink text-balance">
+                  {v.title}
+                </h3>
+                <p
+                  className="text-[13.5px] leading-relaxed text-ink-muted text-pretty"
+                  dangerouslySetInnerHTML={{ __html: v.body }}
+                />
+              </div>
+            </FadeUp>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================
+   5. WHY IT MATTERS — three sourced facts
    ============================================================ */
 function WhyItMatters() {
   const facts = [
@@ -260,7 +341,7 @@ function WhyItMatters() {
   ];
 
   return (
-    <section className="bg-snow border-b border-hairline">
+    <section className="bg-sage border-b border-hairline">
       <div className="container-editorial py-20 lg:py-28">
         <FadeUp>
           <p className="eyebrow mb-4">Why it matters</p>
@@ -296,7 +377,7 @@ function WhyItMatters() {
 }
 
 /* ============================================================
-   5. PROGRAMMES — four flagship cards
+   6. PROGRAMMES — four flagship cards
    ============================================================ */
 function Programmes() {
   const flagship = [PROGRAMS[0], PROGRAMS[2], PROGRAMS[1], PROGRAMS[3]];
@@ -308,13 +389,13 @@ function Programmes() {
           <FadeUp className="lg:col-span-7">
             <p className="eyebrow mb-4">Our programmes</p>
             <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-              Four programmes,{" "}
+              Five programmes,{" "}
               <em className="font-serif italic font-medium">ready to go.</em>
             </h2>
           </FadeUp>
           <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
             <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
-              Each one is fully designed and waiting for funding and
+              Each one is fully designed and waiting on funding and
               partnerships. The first cohorts will run in and around Mumbai.
             </p>
           </FadeUp>
@@ -325,7 +406,7 @@ function Programmes() {
             <FadeUp key={p.slug} delay={i * 70} as="li">
               <Link
                 to={p.href}
-                className="group block overflow-hidden rounded-2xl bg-snow border border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04),0_8px_24px_-16px_rgba(28,0,96,0.12)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-1 hover:border-ink/40 hover:shadow-[0_4px_8px_rgba(28,0,96,0.06),0_22px_44px_-22px_rgba(28,0,96,0.32)]"
+                className="group block overflow-hidden rounded-2xl bg-snow border border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04),0_8px_24px_-16px_rgba(28,0,96,0.12)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-1 hover:border-ink/40 hover:shadow-[0_4px_8px_rgba(28,0,96,0.06),0_22px_44px_-22px_rgba(28,0,96,0.32)] active:scale-[0.995]"
               >
                 <div className="relative aspect-[5/3] overflow-hidden bg-sage">
                   <img
@@ -366,7 +447,7 @@ function Programmes() {
 }
 
 /* ============================================================
-   6. FROM THE FOUNDERS — short, signed, plain
+   7. FOUNDERS NOTE — short, signed, plain
    ============================================================ */
 function FoundersNote() {
   return (
@@ -378,7 +459,7 @@ function FoundersNote() {
           </FadeUp>
           <FadeUp delay={80}>
             <p className="text-[1.0625rem] lg:text-[1.15rem] leading-[1.7] text-ink text-pretty">
-              We started Omni Life Care because we&rsquo;ve seen the same
+              We started Omni Life Care because we&rsquo;ve watched the same
               family visit three different places for help &mdash; and walk
               home with none.{" "}
               <em className="font-serif italic">We want to fix that.</em>
@@ -395,8 +476,8 @@ function FoundersNote() {
           </FadeUp>
           <FadeUp delay={240}>
             <p className="mt-5 text-[1.0625rem] lg:text-[1.15rem] leading-[1.7] text-ink text-pretty">
-              If that sounds like the kind of organisation you&rsquo;d like to
-              back, we&rsquo;d love to hear from you.
+              If that sounds like the kind of organisation you&rsquo;d like
+              to back, we&rsquo;d love to hear from you.
             </p>
           </FadeUp>
           <FadeUp delay={320}>
@@ -411,7 +492,77 @@ function FoundersNote() {
 }
 
 /* ============================================================
-   7. PARTNER BAND — dark, three audiences
+   8. SDGs — the global goals we contribute to
+   ============================================================ */
+function SDGs() {
+  const goals = [
+    { n: "03", title: "Good Health & Well-Being", primary: true },
+    { n: "05", title: "Gender Equality" },
+    { n: "04", title: "Quality Education" },
+    { n: "10", title: "Reduced Inequalities" },
+    { n: "16", title: "Peace, Justice & Strong Institutions" },
+    { n: "17", title: "Partnerships for the Goals" },
+  ];
+  return (
+    <section className="bg-snow border-b border-hairline">
+      <div className="container-editorial py-20 lg:py-24">
+        <div className="grid lg:grid-cols-12 gap-x-10 gap-y-10">
+          <FadeUp className="lg:col-span-4">
+            <p className="eyebrow mb-4">Aligned with the UN SDGs</p>
+            <h2 className="font-sans font-semibold text-[clamp(1.625rem,2.6vw,2.125rem)] leading-[1.15] tracking-[-0.02em] text-ink text-balance">
+              Local work, measured against{" "}
+              <em className="font-serif italic font-medium">global goals.</em>
+            </h2>
+            <p className="mt-5 text-[14px] leading-relaxed text-ink-muted text-pretty">
+              Every programme is mapped to the Sustainable Development Goals
+              it advances &mdash; so the impact we report can be compared, not
+              just admired.
+            </p>
+          </FadeUp>
+
+          <ul className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-3 lg:gap-4">
+            {goals.map((g, i) => (
+              <FadeUp key={g.n} delay={i * 50} as="li">
+                <div
+                  className={`h-full rounded-xl border p-5 flex flex-col gap-2 transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 ${
+                    g.primary
+                      ? "bg-ink text-snow border-ink shadow-[0_8px_24px_-16px_rgba(28,0,96,0.4)] hover:shadow-[0_14px_32px_-18px_rgba(28,0,96,0.55)]"
+                      : "bg-canvas border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04)] hover:border-ink/25 hover:shadow-[0_10px_24px_-18px_rgba(28,0,96,0.18)]"
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span
+                      className={`font-mono text-[11px] uppercase tracking-[0.18em] tabular-nums ${
+                        g.primary ? "text-gold" : "text-ink-muted"
+                      }`}
+                    >
+                      SDG {g.n}
+                    </span>
+                    {g.primary && (
+                      <span className="text-[10px] uppercase tracking-[0.16em] text-snow/70">
+                        Primary
+                      </span>
+                    )}
+                  </div>
+                  <h3
+                    className={`font-sans font-semibold text-[14.5px] leading-snug text-balance ${
+                      g.primary ? "text-snow" : "text-ink"
+                    }`}
+                  >
+                    {g.title}
+                  </h3>
+                </div>
+              </FadeUp>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================
+   9. PARTNER BAND — dark, three audiences
    ============================================================ */
 function PartnerBand() {
   const cards = [
@@ -466,7 +617,7 @@ function PartnerBand() {
             <FadeUp key={c.tag} delay={i * 80} as="li">
               <Link
                 to={c.href}
-                className="group flex h-full flex-col gap-5 rounded-2xl border border-snow/15 bg-snow/[0.04] p-7 lg:p-8 transition-[background-color,border-color,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-snow/30 hover:bg-snow/[0.08]"
+                className="group flex h-full flex-col gap-5 rounded-2xl border border-snow/15 bg-snow/[0.04] p-7 lg:p-8 transition-[background-color,border-color,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-snow/30 hover:bg-snow/[0.08] active:scale-[0.99]"
               >
                 <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold">
                   {c.tag}
@@ -492,7 +643,7 @@ function PartnerBand() {
 }
 
 /* ============================================================
-   8. TRUST & COMPLIANCE — plain explanations
+   10. TRUST & COMPLIANCE
    ============================================================ */
 function Trust() {
   const items = [
@@ -556,7 +707,7 @@ function Trust() {
 }
 
 /* ============================================================
-   9. CLOSING CTA — dark, the kept favourite
+   11. CLOSING CTA
    ============================================================ */
 function ClosingCTA() {
   return (
@@ -578,9 +729,9 @@ function ClosingCTA() {
           </FadeUp>
           <FadeUp delay={80}>
             <h2 className="font-sans font-semibold text-[clamp(2rem,4.4vw,3.5rem)] leading-[1.05] tracking-[-0.025em] text-snow text-balance">
-              Help build it{" "}
+              The first chapter is being written.{" "}
               <em className="font-serif italic font-medium text-gold">
-                from day one.
+                Help write it.
               </em>
             </h2>
           </FadeUp>
@@ -608,7 +759,7 @@ function ClosingCTA() {
 }
 
 /* ============================================================
-   10. NEWSLETTER — simple, honest cadence
+   12. NEWSLETTER
    ============================================================ */
 function Newsletter() {
   return (
@@ -617,11 +768,11 @@ function Newsletter() {
         <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 items-center">
           <FadeUp className="lg:col-span-6">
             <h3 className="font-sans font-semibold text-[1.375rem] leading-snug text-ink text-balance">
-              Get an update every three months. No spam.
+              Field notes from Mumbai, every three months. No spam.
             </h3>
             <p className="mt-2 text-[14px] text-ink-muted text-pretty">
-              Field notes from Mumbai &mdash; what we built, what worked, what
-              didn&rsquo;t.
+              What we built, what worked, and what didn&rsquo;t &mdash;
+              straight from the team.
             </p>
           </FadeUp>
           <FadeUp className="lg:col-span-6" delay={80}>
