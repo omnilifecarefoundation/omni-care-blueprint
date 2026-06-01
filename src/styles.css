@@ -259,7 +259,7 @@
     background-color: var(--color-coral);
     color: var(--color-snow);
   }
-  .btn-coral:hover { background-color: #C24A33; }
+  .btn-coral:hover { background-color: #3F00AC; }
 
   .btn-secondary {
     background-color: var(--color-snow);
