@@ -1,32 +1,43 @@
-## Typography swap
+## Plan: Replace Purple with Electric Blue
 
-Replace the current General Sans / Excon stack with the pairing from your reference:
+### Scope
+Swap the current purple/indigo brand palette (`#3F00AC` family) for an electric blue family. No layout, typography, or component logic changes.
 
-- **Fira Sans** (700) — headings (h1–h4)
-- **Tillana** (500/600 italic) — display accents / italic emphasis (e.g. the italicized "dignified care" in the hero, section intro eyebrows where italic is used)
-- **Telex** (400) — body copy, lead paragraphs, UI text
+### Color mapping
 
-All three are available on Google Fonts.
+| Current (purple) | Electric blue replacement |
+|---|---|
+| `#3F00AC` | `#0066FF` |
+| `#735BF6` | `#4D9FFF` |
+| `#1C0060` | `#003D99` |
+| `#9B86FA` | `#80B3FF` |
+| `#F1EEFE` | `#E8F2FF` |
+| `#E5E0F5` | `#D4E4FF` |
+| `#5A4E8C` | `#4A6FA5` |
+| `rgba(63,0,172,0.10)` | `rgba(0,102,255,0.10)` |
 
-### Changes
+### Files to edit
 
-**`src/routes/__root.tsx`**
-- Replace the Fontshare `<link>` tags (General Sans + Excon) with Google Fonts preconnect + a single stylesheet link for:
-  - `Fira+Sans:wght@400;500;600;700`
-  - `Tillana:wght@500;600;700`
-  - `Telex` (single weight 400)
+1. **`src/styles.css`**
+   - Update all `:root` CSS custom properties that reference purple hex values:
+     `--primary`, `--primary-glow`, `--primary-deep`, `--secondary`, `--secondary-foreground`, `--ink`, `--ink-muted`, `--hairline`, `--sage`, `--sandstone`, `--coral`, `--pillar-mental`, `--pillar-social`, `--pillar-inclusive`, `--pillar-human`, `--foreground`, `--card-foreground`, `--popover-foreground`, `--muted`, `--muted-foreground`, `--accent`, `--border`, `--input`, `--ring`
+   - Update `.dark` `--foreground`
+   - Update hardcoded hover states: `.btn-primary:hover`, `.btn-coral:hover`, `.btn-on-dark:hover`
+   - Update card shadow: `.card-editorial:hover` `rgba(63,0,172,0.10)` → `rgba(0,102,255,0.10)`
 
-**`src/styles.css`**
-- `--font-sans` → `"Fira Sans", system-ui, sans-serif` (headings + UI)
-- `--font-body` → `"Telex", system-ui, sans-serif` (body)
-- `--font-serif` → `"Tillana", Georgia, serif` (used by `.italic` display moments / accent type)
-- Keep `--font-mono` as-is.
-- Adjust headline tuning for Fira Sans: `font-weight: 600` on h1–h4 (Fira Sans 500 reads light at display sizes), keep `letter-spacing: -0.02em`. Body stays at default weight (Telex only ships 400).
-- Where the design uses `italic` inside a headline (hero "dignified care"), add a utility/class so italic spans pick up `var(--font-serif)` (Tillana) instead of italicizing Fira Sans — Fira Sans italic looks very different from the reference; Tillana provides the warm italic shown in your image.
+2. **`src/routes/__root.tsx`**
+   - Change `theme-color` meta tag from `#3F00AC` to `#0066FF`
+
+3. **`src/components/Header.tsx`**
+   - In the `Logo` SVG, change the first `<rect>` fill from `#7A6F9B` (muted purple) to `#4D9FFF`
+
+4. **`src/components/OmniCareDiagram.tsx`**
+   - Change the `mental` pillar color from `#7A6F9B` to `#4D9FFF`
 
 ### Out of scope
-- No color, layout, or component changes.
-- No logo or copy changes.
+- Green-tinted rgba shadows (`rgba(11,59,60,...)`) — these are legacy green branding, not purple
+- Orange/coral action button hover (`#C24A33`)
+- Any non-purple hardcoded colors
 
 ### Verification
-- After build, spot-check hero headline (Fira Sans bold + Tillana italic accent), section intros, body paragraphs (Telex), buttons/pills (Fira Sans), and the mobile CTA bar.
+After build, spot-check: primary buttons, hero italic accent, pillar cards, mobile menu close button, logo icon, focus rings, and the CSR band text accents.

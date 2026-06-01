@@ -17,7 +17,7 @@ export function OmniCareDiagram({
   focus = null,
 }: Props) {
   const pillars = [
-    { id: "mental", color: "#7A6F9B" },
+    { id: "mental", color: "#4D9FFF" },
     { id: "social", color: "#4A7C59" },
     { id: "inclusive", color: "#B8553A" },
     { id: "human", color: "#C9912C" },

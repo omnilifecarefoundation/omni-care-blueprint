@@ -75,7 +75,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "An India-based foundation strengthening community health and wellbeing through inclusive, community-centred initiatives.",
       },
-      { name: "theme-color", content: "#3F00AC" },
+      { name: "theme-color", content: "#0066FF" },
       { property: "og:site_name", content: "Omni Life Care Foundation" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
