@@ -204,29 +204,18 @@ function Page() {
 
       {/* Manifesto strip */}
       <section className="bg-sage border-b border-hairline">
-        <div className="container-editorial py-16 lg:py-20">
-          <div className="grid lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16 items-start">
-            <FadeUp>
-              <div className="eyebrow">The promise</div>
-            </FadeUp>
-            <div className="space-y-6 max-w-3xl">
-              <FadeUp delay={80}>
-                <p className="font-serif text-[1.625rem] lg:text-[2rem] leading-[1.22] tracking-[-0.01em] text-ink text-balance">
-                  We will not lead with reach numbers we have not yet earned. We will
-                  publish the same six lines for every programme, every quarter, on the
-                  same day — so what we did, and what did not work, can be read in plain
-                  sight.
-                </p>
-              </FadeUp>
-              <FadeUp delay={160}>
-                <p className="text-ink-muted text-[1.0625rem] leading-[1.65] text-pretty">
-                  Five programmes sit inside the Omni Care Model — mental wellbeing as the
-                  floor, human potential at the top. Tap any programme to read the full
-                  brief.
-                </p>
-              </FadeUp>
-            </div>
-          </div>
+        <div className="container-editorial py-14 lg:py-16">
+          <FadeUp>
+            <p className="eyebrow mb-5">The promise</p>
+          </FadeUp>
+          <FadeUp delay={80}>
+            <p className="font-sans font-medium text-[clamp(1.375rem,2.4vw,1.875rem)] leading-[1.25] tracking-[-0.015em] text-ink text-balance max-w-4xl">
+              We will not lead with reach numbers we have not yet earned —{" "}
+              <em className="font-serif italic font-medium text-primary">
+                we will publish the same six lines, every programme, every quarter.
+              </em>
+            </p>
+          </FadeUp>
         </div>
       </section>
 
