@@ -344,7 +344,7 @@
   .card-editorial:hover {
     border-color: var(--color-ink-muted);
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(11,59,60,0.08);
+    box-shadow: 0 4px 16px rgba(63,0,172,0.10);
   }
 
   /* Pillar chip / tag */
