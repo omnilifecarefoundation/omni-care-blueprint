@@ -35,7 +35,7 @@ function Page() {
           {ROLES.map((r) => (
             <li key={r.title} className="py-6 grid lg:grid-cols-[1fr_auto] gap-4 items-start">
               <div>
-                <h3 className="font-serif text-xl">{r.title}</h3>
+                <h3 className="font-sans font-semibold tracking-[-0.01em] text-xl">{r.title}</h3>
                 <p className="text-sm text-ink-muted mt-1">{r.location} · {r.time}</p>
                 <p className="text-sm text-ink-muted mt-1">Skills: {r.skills}</p>
               </div>

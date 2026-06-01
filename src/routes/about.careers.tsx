@@ -35,7 +35,7 @@ function Page() {
           {OPENINGS.map((o) => (
             <li key={o.role} className="grid lg:grid-cols-[1fr_auto_auto] gap-4 lg:items-center py-6">
               <div>
-                <h3 className="font-serif text-xl">{o.role}</h3>
+                <h3 className="font-sans font-semibold tracking-[-0.01em] text-xl">{o.role}</h3>
                 <div className="text-sm text-ink-muted mt-1">{o.location} · {o.type}</div>
               </div>
               <a href={`mailto:careers@omnilifecare.org?subject=${encodeURIComponent(o.role)}`} className="btn btn-secondary btn-sm">Apply</a>

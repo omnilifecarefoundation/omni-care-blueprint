@@ -32,7 +32,7 @@ function Page() {
             <li key={v.title} className="grid lg:grid-cols-[120px_1fr] gap-6 py-8">
               <div className="font-mono text-xs text-ink-muted tabular">0{i + 1}</div>
               <div>
-                <h2 className="font-serif text-2xl text-ink">{v.title}</h2>
+                <h2 className="font-sans font-semibold tracking-[-0.015em] text-2xl text-ink">{v.title}</h2>
                 <p className="mt-3 text-ink-muted max-w-2xl leading-relaxed">{v.body}</p>
               </div>
             </li>

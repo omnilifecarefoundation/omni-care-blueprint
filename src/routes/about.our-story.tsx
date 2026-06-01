@@ -34,9 +34,9 @@ function Page() {
         <ol className="border-l border-hairline pl-8 space-y-12 max-w-3xl">
           {MILESTONES.map((m) => (
             <li key={m.year} className="relative">
-              <span className="absolute -left-[33px] top-1 h-2.5 w-2.5 rounded-full bg-coral" />
+              <span className="absolute -left-[33px] top-1 h-2.5 w-2.5 rounded-full bg-gold" />
               <div className="font-mono text-sm text-ink-muted tabular">{m.year}</div>
-              <h3 className="mt-1 font-serif text-2xl">{m.title}</h3>
+              <h3 className="mt-1 font-sans font-semibold tracking-[-0.015em] text-2xl">{m.title}</h3>
               <p className="mt-2 text-ink-muted leading-relaxed">{m.body}</p>
             </li>
           ))}

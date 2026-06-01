@@ -38,7 +38,7 @@ function AboutIndex() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {SECTIONS.map((s) => (
             <Link key={s.href} to={s.href} className="card-editorial p-7 group">
-              <h2 className="font-serif text-xl text-ink">{s.title}</h2>
+              <h2 className="font-sans font-semibold tracking-[-0.01em] text-xl text-ink">{s.title}</h2>
               <p className="mt-2 text-sm text-ink-muted">{s.body}</p>
               <span className="link-arrow mt-5">Read more <ArrowRight className="h-4 w-4" /></span>
             </Link>
