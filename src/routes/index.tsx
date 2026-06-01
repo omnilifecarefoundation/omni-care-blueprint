@@ -39,6 +39,7 @@ function HomePage() {
   return (
     <>
       <Hero />
+      <Manifesto />
       <WhatWeDo />
       <WhyItMatters />
       <Programmes />
@@ -52,7 +53,7 @@ function HomePage() {
 }
 
 /* ============================================================
-   1. HERO — dark indigo, plain headline, real photo
+   1. HERO — dark indigo, editorial headline with italic accent
    ============================================================ */
 function Hero() {
   return (
@@ -62,7 +63,7 @@ function Hero() {
         className="pointer-events-none absolute inset-0 opacity-60"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 12% 18%, rgba(115,91,246,0.28), transparent 45%), radial-gradient(circle at 88% 80%, rgba(255,214,0,0.10), transparent 40%)",
+            "radial-gradient(circle at 12% 18%, rgba(115,91,246,0.30), transparent 45%), radial-gradient(circle at 88% 80%, rgba(255,214,0,0.10), transparent 40%)",
         }}
       />
       <div className="container-editorial relative pt-14 pb-16 lg:pt-20 lg:pb-24">
@@ -80,7 +81,7 @@ function Hero() {
               <h1 className="font-sans font-semibold text-[clamp(2.5rem,5.4vw,4.75rem)] leading-[1.02] tracking-[-0.025em] text-snow text-balance">
                 Better health,
                 <br />
-                closer to home.
+                closer to <em className="font-serif italic font-medium text-gold">home.</em>
               </h1>
             </FadeUp>
 
@@ -127,7 +128,7 @@ function Hero() {
           {/* Right — photo */}
           <div className="lg:col-span-5">
             <FadeUp delay={120}>
-              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink/40 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.55)]">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink/40 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.55),0_2px_4px_rgba(0,0,0,0.25)]">
                 <img
                   src={heroImg}
                   alt="A community gathered in a Mumbai neighbourhood — where Omni Life Care Foundation begins its work."
@@ -136,6 +137,13 @@ function Hero() {
                   fetchPriority="high"
                   className="h-full w-full object-cover outline outline-1 -outline-offset-1 outline-snow/15"
                 />
+                {/* Corner caption */}
+                <div className="absolute left-4 bottom-4 right-4 flex items-end justify-between gap-3">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-ink/70 backdrop-blur-sm border border-snow/15 px-3 py-1.5 text-[10.5px] uppercase tracking-[0.16em] text-snow/85">
+                    <span className="h-1 w-1 rounded-full bg-gold" />
+                    Field, Mumbai
+                  </span>
+                </div>
               </div>
             </FadeUp>
           </div>
@@ -146,7 +154,31 @@ function Hero() {
 }
 
 /* ============================================================
-   2. WHAT WE DO — 4 pillars, simple 4-up grid
+   2. MANIFESTO STRIP — single editorial line on bg-sage
+   ============================================================ */
+function Manifesto() {
+  return (
+    <section className="bg-sage border-b border-hairline">
+      <div className="container-editorial py-14 lg:py-16">
+        <FadeUp>
+          <p className="eyebrow mb-5">Our promise</p>
+        </FadeUp>
+        <FadeUp delay={80}>
+          <p className="font-sans font-medium text-[clamp(1.375rem,2.4vw,1.875rem)] leading-[1.25] tracking-[-0.015em] text-ink text-balance max-w-4xl">
+            Care that doesn&rsquo;t make people choose which kind of help to
+            ask for first &mdash;{" "}
+            <em className="font-serif italic font-medium text-primary">
+              designed with the community, reported in the open.
+            </em>
+          </p>
+        </FadeUp>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================
+   3. WHAT WE DO — 4 pillars
    ============================================================ */
 function WhatWeDo() {
   return (
@@ -156,7 +188,8 @@ function WhatWeDo() {
           <FadeUp className="lg:col-span-7">
             <p className="eyebrow mb-4">What we do</p>
             <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-              Four kinds of care. One team.
+              Four kinds of care.{" "}
+              <em className="font-serif italic font-medium">One team.</em>
             </h2>
           </FadeUp>
           <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
@@ -175,13 +208,15 @@ function WhatWeDo() {
                 to={p.href}
                 className="group relative flex h-full flex-col gap-4 rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform,background-color] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/30 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_12px_28px_-20px_rgba(28,0,96,0.22)]"
               >
-                <span
-                  className="h-1.5 w-10 rounded-full"
-                  style={{ backgroundColor: p.color }}
-                  aria-hidden="true"
-                />
-                <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted tabular-nums">
-                  {p.number}
+                <div className="flex items-center justify-between">
+                  <span
+                    className="h-1.5 w-10 rounded-full transition-[width] duration-300 ease-out group-hover:w-16"
+                    style={{ backgroundColor: p.color }}
+                    aria-hidden="true"
+                  />
+                  <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted tabular-nums">
+                    {p.number}
+                  </span>
                 </div>
                 <h3 className="font-sans font-semibold text-[1.25rem] leading-snug text-ink text-balance">
                   {p.name}
@@ -190,7 +225,8 @@ function WhatWeDo() {
                   {p.description}
                 </p>
                 <span className="mt-auto inline-flex items-center gap-1.5 text-[13px] font-medium text-ink transition-transform duration-300 ease-out group-hover:translate-x-1">
-                  Learn more <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                  Learn more{" "}
+                  <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                 </span>
               </Link>
             </FadeUp>
@@ -202,7 +238,7 @@ function WhatWeDo() {
 }
 
 /* ============================================================
-   3. WHY IT MATTERS — 3 sourced facts, one line each
+   4. WHY IT MATTERS — three sourced facts
    ============================================================ */
 function WhyItMatters() {
   const facts = [
@@ -229,8 +265,10 @@ function WhyItMatters() {
         <FadeUp>
           <p className="eyebrow mb-4">Why it matters</p>
           <h2 className="font-sans font-semibold text-[clamp(1.75rem,3.2vw,2.5rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance max-w-3xl">
-            India doesn&rsquo;t lack compassion. It lacks care that reaches the
-            last mile.
+            India doesn&rsquo;t lack compassion.{" "}
+            <em className="font-serif italic font-medium">
+              It lacks care that reaches the last mile.
+            </em>
           </h2>
         </FadeUp>
 
@@ -258,7 +296,7 @@ function WhyItMatters() {
 }
 
 /* ============================================================
-   4. PROGRAMMES — 4 flagship cards with photo
+   5. PROGRAMMES — four flagship cards
    ============================================================ */
 function Programmes() {
   const flagship = [PROGRAMS[0], PROGRAMS[2], PROGRAMS[1], PROGRAMS[3]];
@@ -270,7 +308,8 @@ function Programmes() {
           <FadeUp className="lg:col-span-7">
             <p className="eyebrow mb-4">Our programmes</p>
             <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-              Four programmes, ready to go.
+              Four programmes,{" "}
+              <em className="font-serif italic font-medium">ready to go.</em>
             </h2>
           </FadeUp>
           <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
@@ -327,7 +366,7 @@ function Programmes() {
 }
 
 /* ============================================================
-   5. FROM THE FOUNDERS — short, signed, plain
+   6. FROM THE FOUNDERS — short, signed, plain
    ============================================================ */
 function FoundersNote() {
   return (
@@ -341,7 +380,8 @@ function FoundersNote() {
             <p className="text-[1.0625rem] lg:text-[1.15rem] leading-[1.7] text-ink text-pretty">
               We started Omni Life Care because we&rsquo;ve seen the same
               family visit three different places for help &mdash; and walk
-              home with none. We want to fix that.
+              home with none.{" "}
+              <em className="font-serif italic">We want to fix that.</em>
             </p>
           </FadeUp>
           <FadeUp delay={160}>
@@ -371,7 +411,7 @@ function FoundersNote() {
 }
 
 /* ============================================================
-   6. PARTNER BAND — dark, three audiences
+   7. PARTNER BAND — dark, three audiences
    ============================================================ */
 function PartnerBand() {
   const cards = [
@@ -407,7 +447,10 @@ function PartnerBand() {
               Partner with us
             </p>
             <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-snow text-balance">
-              Three ways to help build this.
+              Three ways to{" "}
+              <em className="font-serif italic font-medium text-gold">
+                help build this.
+              </em>
             </h2>
           </FadeUp>
           <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
@@ -449,7 +492,7 @@ function PartnerBand() {
 }
 
 /* ============================================================
-   7. TRUST & COMPLIANCE — plain explanations
+   8. TRUST & COMPLIANCE — plain explanations
    ============================================================ */
 function Trust() {
   const items = [
@@ -477,7 +520,8 @@ function Trust() {
           <FadeUp className="lg:col-span-4">
             <p className="eyebrow mb-4">Trust &amp; compliance</p>
             <h2 className="font-sans font-semibold text-[clamp(1.625rem,2.6vw,2.125rem)] leading-[1.15] tracking-[-0.02em] text-ink text-balance">
-              Registered, transparent, and accountable.
+              Registered, transparent,{" "}
+              <em className="font-serif italic font-medium">and accountable.</em>
             </h2>
             <p className="mt-5 text-[14px] leading-relaxed text-ink-muted text-pretty">
               All our registrations and annual reports will be public on our
@@ -512,7 +556,7 @@ function Trust() {
 }
 
 /* ============================================================
-   8. CLOSING CTA — the section the user likes (kept dark)
+   9. CLOSING CTA — dark, the kept favourite
    ============================================================ */
 function ClosingCTA() {
   return (
@@ -534,7 +578,10 @@ function ClosingCTA() {
           </FadeUp>
           <FadeUp delay={80}>
             <h2 className="font-sans font-semibold text-[clamp(2rem,4.4vw,3.5rem)] leading-[1.05] tracking-[-0.025em] text-snow text-balance">
-              Help build it from day one.
+              Help build it{" "}
+              <em className="font-serif italic font-medium text-gold">
+                from day one.
+              </em>
             </h2>
           </FadeUp>
           <FadeUp delay={160}>
@@ -561,7 +608,7 @@ function ClosingCTA() {
 }
 
 /* ============================================================
-   9. NEWSLETTER — simple, honest cadence
+   10. NEWSLETTER — simple, honest cadence
    ============================================================ */
 function Newsletter() {
   return (
