@@ -65,28 +65,28 @@
 :root {
   --radius: 4px;
 
-  /* Brand — Indigo */
-  --primary: #3F00AC;
+  /* Brand — Electric Blue */
+  --primary: #0066FF;
   --primary-foreground: #FFFFFF;
-  --primary-glow: #735BF6;
-  --primary-deep: #1C0060;
-  --secondary: #F1EEFE;
-  --secondary-foreground: #1C0060;
+  --primary-glow: #4D9FFF;
+  --primary-deep: #003D99;
+  --secondary: #E8F2FF;
+  --secondary-foreground: #003D99;
 
   --canvas: #FFFFFF;
   --snow: #FFFFFF;
-  --ink: #1C0060;
-  --ink-muted: #5A4E8C;
-  --hairline: #E5E0F5;
-  --sage: #F1EEFE;
-  --sandstone: #735BF6;
-  --coral: #735BF6;
+  --ink: #003D99;
+  --ink-muted: #4A6FA5;
+  --hairline: #D4E4FF;
+  --sage: #E8F2FF;
+  --sandstone: #4D9FFF;
+  --coral: #4D9FFF;
 
-  /* Pillar accents — indigo family + complements */
-  --pillar-mental: #735BF6;
-  --pillar-social: #3F00AC;
-  --pillar-inclusive: #1C0060;
-  --pillar-human: #9B86FA;
+  /* Pillar accents — electric blue family + complements */
+  --pillar-mental: #4D9FFF;
+  --pillar-social: #0066FF;
+  --pillar-inclusive: #003D99;
+  --pillar-human: #80B3FF;
 
   /* Motion easings (Axion-style) */
   --ease-axion: cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -94,25 +94,25 @@
 
   /* Shadcn token mapping */
   --background: #FFFFFF;
-  --foreground: #1C0060;
+  --foreground: #003D99;
   --card: #FFFFFF;
-  --card-foreground: #1C0060;
+  --card-foreground: #003D99;
   --popover: #FFFFFF;
-  --popover-foreground: #1C0060;
-  --muted: #F1EEFE;
-  --muted-foreground: #5A4E8C;
-  --accent: #735BF6;
+  --popover-foreground: #003D99;
+  --muted: #E8F2FF;
+  --muted-foreground: #4A6FA5;
+  --accent: #4D9FFF;
   --accent-foreground: #FFFFFF;
   --destructive: #A8392B;
   --destructive-foreground: #FFFFFF;
-  --border: #E5E0F5;
-  --input: #E5E0F5;
-  --ring: #3F00AC;
+  --border: #D4E4FF;
+  --input: #D4E4FF;
+  --ring: #0066FF;
 }
 
 .dark {
   --background: #FFFFFF;
-  --foreground: #1C0060;
+  --foreground: #003D99;
 }
 
 @layer base {
@@ -264,13 +264,13 @@
     background-color: var(--color-primary);
     color: var(--color-primary-foreground);
   }
-  .btn-primary:hover { background-color: #1C0060; }
+  .btn-primary:hover { background-color: #003D99; }
 
   .btn-coral {
     background-color: var(--color-coral);
     color: var(--color-snow);
   }
-  .btn-coral:hover { background-color: #3F00AC; }
+  .btn-coral:hover { background-color: #0066FF; }
 
   .btn-secondary {
     background-color: var(--color-snow);
@@ -292,7 +292,7 @@
     background-color: var(--color-coral);
     color: var(--color-snow);
   }
-  .btn-on-dark:hover { background-color: #3F00AC; }
+  .btn-on-dark:hover { background-color: #0066FF; }
 
   .btn-secondary-on-dark {
     background-color: transparent;
@@ -355,7 +355,7 @@
   .card-editorial:hover {
     border-color: var(--color-ink-muted);
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(63,0,172,0.10);
+    box-shadow: 0 4px 16px rgba(0,102,255,0.10);
   }
 
   /* Pillar chip / tag */

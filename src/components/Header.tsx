@@ -211,7 +211,7 @@ export function Logo({ className = "" }: { className?: string }) {
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
       >
-        <rect x="4" y="9" width="2" height="14" fill="#7A6F9B" />
+        <rect x="4" y="9" width="2" height="14" fill="#4D9FFF" />
         <rect x="11" y="9" width="2" height="14" fill="#4A7C59" />
         <rect x="18" y="9" width="2" height="14" fill="#B8553A" />
         <rect x="25" y="9" width="2" height="14" fill="#C9912C" />
