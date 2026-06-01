@@ -282,11 +282,10 @@ const PILLAR_ITEMS: MegaItem[] = PILLARS.map((p) => ({
 }));
 
 const programsByPillar = (id: Pillar["id"]) =>
-  PROGRAMS.filter((p) => p.pillar === id).map((p) => ({
-    label: p.name,
-    href: p.href,
-    swatch: PILLAR_BY_ID[p.pillar].color,
-  }));
+  PROGRAMS.filter((p) => p.pillar === id).map((p) => {
+    const pillar = PILLARS.find((x) => x.id === p.pillar)!;
+    return { label: p.name, href: p.href, swatch: pillar.color };
+  });
 
 export const MEGA_NAV: MegaSection[] = [
   {
