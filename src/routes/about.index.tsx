@@ -20,11 +20,27 @@ export const Route = createFileRoute("/about/")({
   component: AboutIndex,
 });
 
-const PROOF = [
-  { value: "120,000", label: "Lives reached", context: "Across community health, mental wellbeing, and inclusion." },
-  { value: "6", label: "States", context: "Maharashtra, Karnataka, Tamil Nadu, MP, Odisha, UP." },
-  { value: "85", label: "Communities", context: "Programmes co-designed with district partners." },
-  { value: "100%", label: "Audit-ready", context: "12A, 80G, CSR-1 and FCRA on record." },
+const PRINCIPLES = [
+  {
+    n: "01",
+    title: "We start with the household, not the headline.",
+    body: "Health, mind, ability and livelihood show up in the same family. We design programmes that travel together — not four parallel projects that never speak.",
+  },
+  {
+    n: "02",
+    title: "Evidence before scale.",
+    body: "We would rather serve fifty families well and measure it honestly than claim a number we cannot defend. Outcomes are published — including the ones that disappoint us.",
+  },
+  {
+    n: "03",
+    title: "The community holds the pen.",
+    body: "Every programme is co-designed with the people it serves and the district partners already doing the work. We do not arrive with answers; we arrive with questions.",
+  },
+  {
+    n: "04",
+    title: "Open books, by default.",
+    body: "Governance, finances, donor reports and field learnings are public. If you fund us, you see everything — not a curated highlight reel.",
+  },
 ];
 
 const FEATURE = {
