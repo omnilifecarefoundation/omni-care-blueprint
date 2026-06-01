@@ -232,15 +232,22 @@ function Page() {
 
       {/* Programme cards — open modal */}
       <section id="index" className="bg-snow border-b border-hairline scroll-mt-20">
-        <div className="container-editorial py-16 lg:py-20">
-          <div className="grid lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16 mb-10 lg:mb-12">
-            <FadeUp>
-              <div className="eyebrow">The five programmes</div>
-            </FadeUp>
-            <FadeUp delay={80}>
-              <h2 className="font-sans font-semibold text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.08] tracking-[-0.02em] text-ink text-balance">
-                Tap a programme to read its full brief.
+        <div className="container-editorial py-20 lg:py-28">
+          <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
+            <FadeUp className="lg:col-span-7">
+              <p className="eyebrow mb-4">The five programmes</p>
+              <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
+                Five briefs,{" "}
+                <em className="font-serif italic font-medium text-primary">
+                  open by default.
+                </em>
               </h2>
+            </FadeUp>
+            <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
+              <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
+                Tap any programme to read its scope, who it serves, what we will
+                actually do, and the numbers we will publish each quarter.
+              </p>
             </FadeUp>
           </div>
 
@@ -291,22 +298,21 @@ function Page() {
 
       {/* Quarterly ledger */}
       <section className="bg-sage border-y border-hairline">
-        <div className="container-editorial py-20 lg:py-24">
-          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-16 mb-10 lg:mb-12">
-            <FadeUp>
-              <div className="space-y-3">
-                <div className="eyebrow">The reporting promise</div>
-                <h2 className="font-sans font-semibold text-[clamp(1.625rem,2.6vw,2.125rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-                  Same six lines. Every programme. Every quarter.
-                </h2>
-              </div>
+        <div className="container-editorial py-20 lg:py-28">
+          <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
+            <FadeUp className="lg:col-span-7">
+              <p className="eyebrow mb-4">The reporting promise</p>
+              <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
+                Same six lines.{" "}
+                <em className="font-serif italic font-medium">Every quarter.</em>
+              </h2>
             </FadeUp>
-            <FadeUp delay={80}>
-              <p className="text-[1.0625rem] leading-[1.7] text-ink-muted text-pretty max-w-2xl">
-                A quarterly report is a contract — with the people who fund us and the
-                people we serve. Ours is short, identical in shape across programmes, and
-                published on the same day each quarter, so it can be compared, not just
-                read.
+            <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
+              <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
+                A quarterly report is a contract — with the people who fund us
+                and the people we serve. Ours is short, identical in shape
+                across programmes, and published on the same day each quarter,
+                so it can be compared, not just read.
               </p>
             </FadeUp>
           </div>
