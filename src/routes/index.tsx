@@ -258,51 +258,127 @@ function WhoWeAre() {
 
 function OmniCareSection() {
   return (
-    <section className="bg-sage border-y border-hairline">
-      <div className="container-editorial py-20 lg:py-28">
-        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12 items-end mb-12">
-          <FadeUp>
-            <div className="eyebrow mb-4">Our Approach</div>
-            <h2 className="display-lg">
-              The Omni Care Model — four pillars, one integrated approach.
+    <section className="relative bg-sage border-y border-hairline overflow-hidden">
+      {/* Decorative editorial backdrop */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 12% 8%, rgba(28,0,96,0.06), transparent 42%), radial-gradient(circle at 92% 92%, rgba(28,0,96,0.05), transparent 38%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ink/15 to-transparent"
+      />
+
+      <div className="container-editorial relative py-20 lg:py-32">
+        {/* Editorial header — manifesto layout */}
+        <div className="grid lg:grid-cols-12 gap-x-10 gap-y-10 mb-16 lg:mb-24">
+          <FadeUp className="lg:col-span-5">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-muted tabular">
+                §02 — Our Approach
+              </span>
+              <span className="h-px flex-1 bg-ink/15" />
+            </div>
+            <h2 className="font-sans font-semibold text-[clamp(2rem,4.4vw,3.75rem)] leading-[1.02] tracking-[-0.025em] text-ink text-balance">
+              Four pillars.{" "}
+              <span className="font-display-italic text-gold">One</span>{" "}
+              integrated system of care.
             </h2>
           </FadeUp>
-          <FadeUp delay={80}>
-            <p className="lead">
-              Health doesn't live in silos. Mental wellbeing, social growth, inclusive
-              care, and human potential are interdependent — and our programmes are
-              designed to work as a single system, not parallel projects.
-            </p>
-            <OmniCareDiagram className="mt-6" width={320} height={140} />
-          </FadeUp>
+
+          <div className="lg:col-span-6 lg:col-start-7 space-y-6">
+            <FadeUp delay={80}>
+              <p className="lead text-pretty">
+                Health doesn't live in silos. Mental wellbeing, social growth,
+                inclusive care, and human potential move together — so our
+                programmes are designed as a single, interlocking system rather
+                than parallel projects.
+              </p>
+            </FadeUp>
+            <FadeUp delay={160}>
+              <div className="bg-snow/60 backdrop-blur-[2px] border border-hairline px-5 py-4 inline-block">
+                <OmniCareDiagram width={320} height={120} />
+              </div>
+            </FadeUp>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* Pillars — editorial rows with oversized numerals */}
+        <div className="border-t border-ink/15">
           {PILLARS.map((p, i) => (
-            <FadeUp key={p.id} delay={i * 80}>
+            <FadeUp key={p.id} delay={i * 60}>
               <Link
                 to={p.href}
-                className="group block bg-snow border border-hairline p-6 h-full transition-[border-color,box-shadow,transform] duration-200 ease-out hover:border-ink-muted hover:-translate-y-0.5 hover:shadow-[0_1px_2px_rgba(28,0,96,0.06),0_12px_28px_-12px_rgba(28,0,96,0.18)]"
-                style={{ borderLeft: `3px solid ${p.color}` }}
+                className="group relative grid grid-cols-12 gap-x-6 gap-y-3 items-baseline py-8 lg:py-10 border-b border-ink/15 transition-colors duration-300 ease-out hover:bg-snow/55"
               >
+                {/* Color accent rail */}
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 top-0 bottom-0 w-[3px] origin-top scale-y-0 transition-transform duration-500 ease-out group-hover:scale-y-100"
+                  style={{ backgroundColor: p.color }}
+                />
 
-                <div className="font-mono text-xs text-ink-muted tabular">{p.number}</div>
-                <h3 className="mt-3 font-serif text-xl text-ink leading-snug">
-                  {p.name}
-                </h3>
-                <p className="mt-2 text-sm text-ink-muted leading-relaxed">
-                  {p.description}
-                </p>
-                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                  Explore
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                </span>
+                {/* Oversized outline numeral */}
+                <div className="col-span-3 sm:col-span-2 pl-3 sm:pl-5">
+                  <div
+                    className="font-serif italic leading-none text-[clamp(2.75rem,7vw,5.5rem)] tracking-tight transition-colors duration-300"
+                    style={{
+                      WebkitTextStroke: "1px currentColor",
+                      WebkitTextFillColor: "transparent",
+                      color: "rgba(28,0,96,0.35)",
+                    }}
+                  >
+                    <span
+                      className="transition-colors duration-300 group-hover:[--num-color:var(--pillar)]"
+                      style={
+                        {
+                          color: "currentColor",
+                          ["--pillar" as never]: p.color,
+                        } as React.CSSProperties
+                      }
+                    >
+                      {p.number}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Title */}
+                <div className="col-span-9 sm:col-span-4">
+                  <h3 className="font-serif text-2xl lg:text-[2rem] leading-[1.1] text-ink text-balance">
+                    {p.name}
+                  </h3>
+                </div>
+
+                {/* Description */}
+                <div className="col-span-12 sm:col-span-5 sm:col-start-7">
+                  <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
+                    {p.description}
+                  </p>
+                </div>
+
+                {/* Explore arrow */}
+                <div className="col-span-12 sm:col-span-1 sm:col-start-12 sm:justify-self-end self-center">
+                  <span
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/20 text-ink transition-all duration-300 ease-out group-hover:border-ink group-hover:bg-ink group-hover:text-snow group-hover:rotate-[-45deg]"
+                    aria-hidden="true"
+                  >
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                  <span className="sr-only">Explore {p.name}</span>
+                </div>
               </Link>
             </FadeUp>
           ))}
         </div>
 
-        <FadeUp className="mt-10">
+        <FadeUp className="mt-12 flex flex-wrap items-center justify-between gap-4">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-muted tabular">
+            04 / 04 — A single system of care
+          </p>
           <Link to="/about/omni-care-model" className="link-arrow">
             See how the model works <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
