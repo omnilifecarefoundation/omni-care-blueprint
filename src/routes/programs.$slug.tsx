@@ -36,16 +36,29 @@ function ProgramPage() {
 
   return (
     <>
-      <section className="bg-sage border-b border-hairline">
-        <div className="container-editorial pt-16 pb-12 lg:pt-24 lg:pb-16">
-          <Link to="/programs" className="inline-flex items-center gap-1 text-sm text-ink-muted hover:text-ink mb-6">
-            <ArrowLeft className="h-4 w-4" /> All programmes
-          </Link>
-          <span className="chip" style={{ color: pillar.color }}>
-            <span className="chip-dot" /> {pillar.name}
-          </span>
-          <h1 className="display-lg mt-5 max-w-4xl">{program.name}</h1>
-          <p className="lead mt-5 max-w-2xl">{program.summary}</p>
+      <section className="relative bg-ink text-snow overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-60"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 12% 18%, rgba(115,91,246,0.28), transparent 45%), radial-gradient(circle at 88% 80%, rgba(255,214,0,0.10), transparent 40%)",
+          }}
+        />
+        <div className="container-editorial relative pt-14 pb-14 lg:pt-20 lg:pb-20">
+          <div className="max-w-3xl space-y-6">
+            <Link to="/programs" className="inline-flex items-center gap-1 text-sm text-snow/70 hover:text-snow transition-colors">
+              <ArrowLeft className="h-4 w-4" /> All programmes
+            </Link>
+            <span
+              className="inline-flex items-center gap-2 rounded-full border border-snow/20 bg-snow/5 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-snow/80"
+            >
+              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: pillar.color }} />
+              {pillar.name}
+            </span>
+            <h1 className="font-sans font-semibold text-[clamp(2.25rem,4.6vw,3.75rem)] leading-[1.04] tracking-[-0.025em] text-snow text-balance">{program.name}</h1>
+            <p className="max-w-2xl text-[1.0625rem] lg:text-[1.125rem] leading-[1.6] text-snow/80 text-pretty">{program.summary}</p>
+          </div>
         </div>
       </section>
 
@@ -54,7 +67,7 @@ function ProgramPage() {
           <aside className="space-y-5">
             <div className="rounded-xl bg-snow border border-hairline p-5 shadow-[0_1px_2px_rgba(28,0,96,0.04)]">
               <div className="eyebrow mb-2">Outcome to date</div>
-              <p className="font-serif text-xl text-ink text-balance">{program.outcome}</p>
+              <p className="font-sans font-semibold text-xl tracking-[-0.015em] text-ink text-balance">{program.outcome}</p>
             </div>
             <div className="rounded-xl bg-snow border border-hairline p-5 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25">
               <div className="eyebrow mb-2">Pillar</div>
