@@ -79,9 +79,8 @@ function Hero() {
 
             <FadeUp>
               <h1 className="font-sans font-semibold text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.05] tracking-[-0.025em] text-ink">
-                Equitable,{" "}
-                <span className="font-display-italic text-primary">dignified care</span>{" "}
-                for every community in India.
+                Equitable, dignified care for every{" "}
+                <span className="font-display-italic text-gold">community in India</span>.
               </h1>
               <p className="lead mt-6 max-w-xl">
                 We strengthen community health and wellbeing through inclusive,
