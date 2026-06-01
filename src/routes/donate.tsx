@@ -31,7 +31,7 @@ function Page() {
         <div className="grid lg:grid-cols-[1.4fr_1fr] gap-12">
           <form
             onSubmit={(e) => { e.preventDefault(); alert("Payment integration ships in Phase 2."); }}
-            className="bg-snow border border-hairline p-7 lg:p-10"
+            className="rounded-2xl bg-snow border border-hairline p-7 lg:p-10 shadow-[0_1px_2px_rgba(28,0,96,0.04),0_8px_24px_-16px_rgba(28,0,96,0.10)]"
             aria-label="Donation form"
           >
             <div className="eyebrow mb-3">Make a contribution</div>
@@ -43,7 +43,7 @@ function Page() {
                   key={a}
                   type="button"
                   onClick={() => setAmount(a)}
-                  className={`h-12 px-5 border text-base font-semibold transition-colors ${
+                  className={`h-12 px-5 rounded-full border text-base font-semibold tabular-nums transition-[background-color,border-color,color] ${
                     amount === a ? "bg-primary text-primary-foreground border-primary" : "bg-canvas border-hairline hover:border-ink-muted"
                   }`}
                 >
@@ -59,7 +59,7 @@ function Page() {
                 min="100"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                className="w-full h-12 px-4 bg-canvas border border-hairline focus:border-primary outline-none"
+                className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)] focus:border-primary outline-none transition-colors tabular-nums"
               />
             </div>
 
@@ -74,7 +74,7 @@ function Page() {
                     key={o.v}
                     type="button"
                     onClick={() => setFreq(o.v as "one" | "monthly")}
-                    className={`h-12 px-5 border text-sm font-semibold transition-colors ${
+                    className={`h-12 px-5 rounded-full border text-sm font-semibold transition-[background-color,border-color,color] ${
                       freq === o.v ? "bg-primary text-primary-foreground border-primary" : "bg-canvas border-hairline hover:border-ink-muted"
                     }`}
                   >
@@ -100,20 +100,20 @@ function Page() {
           </form>
 
           <aside className="space-y-5">
-            <div className="bg-sage p-6 border border-hairline">
-              <h3 className="font-serif text-xl">Where your contribution goes</h3>
-              <ul className="mt-4 space-y-3 text-sm text-ink-muted">
+            <div className="rounded-2xl bg-sage p-6 border border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04)]">
+              <h3 className="font-serif text-xl text-balance">Where your contribution goes</h3>
+              <ul className="mt-4 space-y-3 text-sm text-ink-muted text-pretty">
                 <li>· ₹1,000 — one month of group support for a participant in the Community Mental Health programme.</li>
                 <li>· ₹5,000 — a full preventive health screening day for 25 villagers.</li>
                 <li>· ₹25,000 — training stipend for one community health worker for a full quarter.</li>
               </ul>
             </div>
-            <div className="bg-snow p-6 border border-hairline">
-              <h3 className="font-serif text-xl">Tax exemption</h3>
-              <p className="mt-2 text-sm text-ink-muted">
+            <div className="rounded-xl bg-snow p-6 border border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04)]">
+              <h3 className="font-serif text-xl text-balance">Tax exemption</h3>
+              <p className="mt-2 text-sm text-ink-muted text-pretty">
                 Donations are eligible for 50% tax deduction under Section 80G of
                 the Income Tax Act. Registration number{" "}
-                <span className="font-mono tabular">80G/2024/0042</span>.
+                <span className="font-mono tabular-nums">80G/2024/0042</span>.
               </p>
             </div>
           </aside>
@@ -129,7 +129,7 @@ function Field({ id, label, type = "text", required }: { id: string; label: stri
       <label htmlFor={id} className="block text-sm font-semibold mb-1.5">
         {label}{required && <span className="text-coral"> *</span>}
       </label>
-      <input id={id} type={type} required={required} className="w-full h-12 px-4 bg-canvas border border-hairline focus:border-primary outline-none" />
+      <input id={id} type={type} required={required} className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)] focus:border-primary outline-none transition-colors" />
     </div>
   );
 }

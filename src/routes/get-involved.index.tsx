@@ -34,10 +34,10 @@ function Page() {
       <section className="container-editorial py-16 lg:py-24">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {OPTIONS.map((o) => (
-            <Link key={o.title} to={o.href} className="card-editorial p-7 group h-full block">
+            <Link key={o.title} to={o.href} className="group h-full block rounded-2xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/30 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_12px_28px_-20px_rgba(28,0,96,0.22)]">
               <o.icon className="h-7 w-7 text-primary" strokeWidth={1.5} aria-hidden="true" />
-              <h2 className="mt-6 font-serif text-2xl">{o.title}</h2>
-              <p className="mt-3 text-ink-muted text-sm leading-relaxed">{o.body}</p>
+              <h2 className="mt-6 font-serif text-2xl text-balance">{o.title}</h2>
+              <p className="mt-3 text-ink-muted text-sm leading-relaxed text-pretty">{o.body}</p>
               <span className="link-arrow mt-6">{o.cta} <ArrowRight className="h-4 w-4" /></span>
             </Link>
           ))}
