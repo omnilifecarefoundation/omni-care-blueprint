@@ -102,7 +102,7 @@ function Hero() {
           <FadeUp>
             <h1 className="font-sans font-semibold text-[clamp(2.5rem,6vw,5.25rem)] leading-[1.02] tracking-[-0.025em] text-canvas">
               Equitable, dignified care for every{" "}
-              <span className="font-display-italic text-primary-glow">community in India</span>.
+              <span className="font-display-italic text-[#FFD43B]">community in India</span>.
             </h1>
             <p className="lead mt-6 max-w-xl text-canvas/85">
               We strengthen community health and wellbeing through inclusive,
