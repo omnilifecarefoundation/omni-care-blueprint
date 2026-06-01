@@ -281,7 +281,7 @@
     background-color: var(--color-coral);
     color: var(--color-snow);
   }
-  .btn-on-dark:hover { background-color: #C24A33; }
+  .btn-on-dark:hover { background-color: #3F00AC; }
 
   .btn-secondary-on-dark {
     background-color: transparent;
