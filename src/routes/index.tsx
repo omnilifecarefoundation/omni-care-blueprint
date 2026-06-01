@@ -58,82 +58,133 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-ink">
-      {/* Background image */}
-      <img
-        src={heroImg}
-        alt="A bustling Indian street market with vendors and community members gathered around stalls of fresh produce."
-        width={2400}
-        height={1300}
-        fetchPriority="high"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      {/* Readability overlays */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/60 to-ink/20"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/30"
-      />
+    <section className="relative bg-canvas border-b border-hairline overflow-hidden">
+      <div className="container-editorial pt-10 pb-20 lg:pt-16 lg:pb-28">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left — content */}
+          <div className="lg:col-span-7 space-y-8">
+            <FadeUp>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-2 bg-sage border border-hairline rounded-full pl-2 pr-4 py-1.5 text-[12px] text-ink">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animate-ping" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+                  </span>
+                  <span className="font-mono tabular text-ink-muted">Live</span>
+                  <span className="text-ink-muted">·</span>
+                  <span>Field operations active across 6 states in India</span>
+                </span>
+              </div>
+            </FadeUp>
 
-      <div className="relative container-editorial pt-6 pb-16 lg:pt-10 lg:pb-32">
-        {/* Top status pill */}
-        <FadeUp>
-          <div className="flex flex-wrap items-center gap-2 mb-8 lg:mb-12">
-            <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/20 rounded-full pl-2 pr-4 py-1.5 text-[12px] text-canvas">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-coral opacity-75 animate-ping" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-coral" />
-              </span>
-              <span className="font-mono tabular text-canvas/70">Live</span>
-              <span className="text-canvas/50">·</span>
-              <span>Working across 6 states in India</span>
-            </span>
-            <span className="hidden sm:inline-flex items-center gap-1.5 bg-white/10 backdrop-blur border border-white/20 rounded-full px-3 py-1.5 text-[12px] text-canvas">
-              <ShieldCheck className="h-3.5 w-3.5 text-primary-glow" aria-hidden="true" />
-              12A · 80G · CSR-1 · FCRA
-            </span>
+            <FadeUp>
+              <h1 className="font-sans font-semibold text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.05] tracking-[-0.025em] text-ink">
+                Equitable,{" "}
+                <span className="font-display-italic text-primary">dignified care</span>{" "}
+                for every community in India.
+              </h1>
+              <p className="lead mt-6 max-w-xl">
+                We strengthen community health and wellbeing through inclusive,
+                community-centred initiatives that improve access to essential care
+                across India's underserved populations.
+              </p>
+            </FadeUp>
+
+            <FadeUp>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <PillButton to="/partner/csr" variant="primary">
+                  Partner with Us
+                </PillButton>
+                <PillButton to="/donate" variant="ghost">
+                  Make a Donation
+                </PillButton>
+              </div>
+            </FadeUp>
+
+            <FadeUp>
+              <dl className="pt-8 border-t border-hairline grid grid-cols-3 gap-4 sm:gap-6 max-w-lg">
+                {[
+                  { v: "1.2M+", l: "Lives reached" },
+                  { v: "210", l: "CHWs trained" },
+                  { v: "6", l: "States active" },
+                ].map((s) => (
+                  <div key={s.l}>
+                    <dt className="font-sans font-bold text-2xl lg:text-3xl text-ink tabular leading-none">
+                      {s.v}
+                    </dt>
+                    <dd className="eyebrow mt-2">{s.l}</dd>
+                  </div>
+                ))}
+              </dl>
+            </FadeUp>
           </div>
-        </FadeUp>
 
-        <div className="max-w-3xl">
-          <FadeUp>
-            <h1 className="font-sans font-semibold text-[clamp(2.5rem,6vw,5.25rem)] leading-[1.02] tracking-[-0.025em] text-canvas">
-              Equitable, dignified care for every{" "}
-              <span className="font-display-italic text-[#FFD43B]">community in India</span>.
-            </h1>
-            <p className="lead mt-6 max-w-xl text-canvas/85">
-              We strengthen community health and wellbeing through inclusive,
-              community-centred initiatives that improve access to essential care
-              across India's underserved populations.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <PillButton to="/partner/csr" variant="primary">
-                Partner with Us
-              </PillButton>
-              <PillButton to="/donate" variant="ghost">
-                Make a Donation
-              </PillButton>
-            </div>
-
-            {/* Inline mini-stats */}
-            <dl className="mt-12 grid grid-cols-3 gap-4 sm:gap-6 max-w-lg">
-              {[
-                { v: "1.2M+", l: "Lives reached" },
-                { v: "210", l: "CHWs trained" },
-                { v: "6", l: "States active" },
-              ].map((s) => (
-                <div key={s.l} className="border-t border-white/20 pt-3">
-                  <dt className="font-sans font-bold text-2xl lg:text-3xl text-primary-glow tabular leading-none">
-                    {s.v}
-                  </dt>
-                  <dd className="mt-2 text-[12px] text-canvas/75 leading-snug">{s.l}</dd>
+          {/* Right — framed photo + floating compliance card */}
+          <div className="lg:col-span-5 relative">
+            <FadeUp>
+              <div className="relative">
+                {/* Offset tint layer */}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl bg-primary-glow/20"
+                />
+                {/* Image card */}
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-hairline shadow-[0_24px_60px_-20px_rgba(0,61,153,0.25)] bg-sage">
+                  <img
+                    src={heroImg}
+                    alt="A bustling Indian street market with vendors and community members gathered around stalls of fresh produce."
+                    width={1200}
+                    height={1500}
+                    fetchPriority="high"
+                    className="h-full w-full object-cover"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/70 to-transparent"
+                  />
+                  <p className="absolute bottom-5 left-5 right-5 text-canvas/95 text-sm font-display-italic leading-snug">
+                    Care meets community — where India lives, works, and travels.
+                  </p>
                 </div>
-              ))}
-            </dl>
-          </FadeUp>
+
+                {/* Floating compliance card */}
+                <div className="hidden lg:block absolute -bottom-8 -left-10 bg-canvas border border-hairline rounded-xl shadow-xl p-5 w-[260px]">
+                  <p className="eyebrow border-b border-hairline pb-2 mb-3">
+                    Statutory Compliance
+                  </p>
+                  <div className="grid grid-cols-2 gap-2.5">
+                    {[
+                      { code: "12A", label: "Registered" },
+                      { code: "80G", label: "Tax exempt" },
+                      { code: "CSR-1", label: "CSR ready" },
+                      { code: "FCRA", label: "Compliant" },
+                    ].map((c) => (
+                      <div key={c.code} className="flex items-center gap-2.5">
+                        <div className="flex-shrink-0 h-9 w-9 rounded-md bg-sage flex items-center justify-center font-sans font-bold text-[10px] text-primary">
+                          {c.code}
+                        </div>
+                        <span className="text-[11px] font-medium text-ink-muted leading-tight">
+                          {c.label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile/tablet compliance row */}
+              <div className="lg:hidden mt-6 bg-canvas border border-hairline rounded-xl p-4">
+                <p className="eyebrow mb-3">Statutory Compliance</p>
+                <div className="flex flex-wrap gap-2">
+                  {["12A", "80G", "CSR-1", "FCRA"].map((c) => (
+                    <span key={c} className="px-2.5 py-1 rounded-md bg-sage text-[11px] font-sans font-bold text-primary">
+                      {c}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </FadeUp>
+          </div>
         </div>
       </div>
     </section>

@@ -1,43 +1,37 @@
-## Plan: Replace Purple with Electric Blue
+## Hero redesign — institutional editorial
 
-### Scope
-Swap the current purple/indigo brand palette (`#3F00AC` family) for an electric blue family. No layout, typography, or component logic changes.
+The current hero drowns the photo in a heavy electric-blue overlay so the headline disappears and the page reads as corporate, not like a credible non-profit. I'll rebuild the `Hero` component in `src/routes/index.tsx` using the "Institutional editorial" direction — white canvas, split layout, photo framed as a card, compliance badges promoted into a floating trust card.
 
-### Color mapping
+### Layout (desktop, 7/5 split)
 
-| Current (purple) | Electric blue replacement |
-|---|---|
-| `#3F00AC` | `#0066FF` |
-| `#735BF6` | `#4D9FFF` |
-| `#1C0060` | `#003D99` |
-| `#9B86FA` | `#80B3FF` |
-| `#F1EEFE` | `#E8F2FF` |
-| `#E5E0F5` | `#D4E4FF` |
-| `#5A4E8C` | `#4A6FA5` |
-| `rgba(63,0,172,0.10)` | `rgba(0,102,255,0.10)` |
+```text
+┌──────────────────────────────────────────────────────────────┐
+│  • Live · Field operations active in 6 states                │
+│                                                              │
+│  Equitable, dignified care for every  ┌──────────────────┐   │
+│  community in India.                  │                  │   │
+│  (Fira Sans bold, ink #003D99,        │  hero-market.jpg │   │
+│   "dignified care" in Tillana italic  │  framed, rounded,│   │
+│   #0066FF)                            │  caption overlay │   │
+│                                       │                  │   │
+│  Lead paragraph (Telex, ink-muted)    │                  │   │
+│                                       └──────────────────┘   │
+│  [Partner with Us]  [Make a Donation]   ┌───────────────┐    │
+│  ─────────────────────────────────────  │ Compliance    │    │
+│  6 States · 42+ Centers · 1.2M Lives    │ 12A 80G CSR FCRA│  │
+│                                         └───────────────┘    │
+└──────────────────────────────────────────────────────────────┘
+```
 
-### Files to edit
+### Changes
 
-1. **`src/styles.css`**
-   - Update all `:root` CSS custom properties that reference purple hex values:
-     `--primary`, `--primary-glow`, `--primary-deep`, `--secondary`, `--secondary-foreground`, `--ink`, `--ink-muted`, `--hairline`, `--sage`, `--sandstone`, `--coral`, `--pillar-mental`, `--pillar-social`, `--pillar-inclusive`, `--pillar-human`, `--foreground`, `--card-foreground`, `--popover-foreground`, `--muted`, `--muted-foreground`, `--accent`, `--border`, `--input`, `--ring`
-   - Update `.dark` `--foreground`
-   - Update hardcoded hover states: `.btn-primary:hover`, `.btn-coral:hover`, `.btn-on-dark:hover`
-   - Update card shadow: `.card-editorial:hover` `rgba(63,0,172,0.10)` → `rgba(0,102,255,0.10)`
-
-2. **`src/routes/__root.tsx`**
-   - Change `theme-color` meta tag from `#3F00AC` to `#0066FF`
-
-3. **`src/components/Header.tsx`**
-   - In the `Logo` SVG, change the first `<rect>` fill from `#7A6F9B` (muted purple) to `#4D9FFF`
-
-4. **`src/components/OmniCareDiagram.tsx`**
-   - Change the `mental` pillar color from `#7A6F9B` to `#4D9FFF`
+- **`src/routes/index.tsx` → `Hero()`**: replace the full-bleed image + overlay with a 12-col grid (`lg:grid-cols-12`, `gap-12`):
+  - Left col (`lg:col-span-7`): keep status pill (Live + states), headline with `font-display-italic text-primary` on "dignified care", lead paragraph, existing `PillButton` CTAs, then a bordered stat row pulled from `STATS` in `@/lib/site`.
+  - Right col (`lg:col-span-5`): `hero-market.jpg` in a rounded `aspect-[3/4]` framed card with soft shadow, subtle offset blue tint layer behind it, and a small italic caption overlay. Floating white compliance card (12A / 80G / CSR-1 / FCRA) absolutely positioned over the bottom-left of the image card.
+  - Section background: `bg-canvas` (white), `border-b border-hairline` instead of `bg-ink`. Remove `bg-gradient-to-*` overlays.
+- **Mobile**: stack — content first, image card second, compliance card flows below image (not absolute).
+- **Tokens**: use only existing CSS vars (`--primary`, `--ink`, `--ink-muted`, `--hairline`, `--sage`, `--primary-glow`). No new colors. No new files. No nav/footer/section changes.
 
 ### Out of scope
-- Green-tinted rgba shadows (`rgba(11,59,60,...)`) — these are legacy green branding, not purple
-- Orange/coral action button hover (`#C24A33`)
-- Any non-purple hardcoded colors
 
-### Verification
-After build, spot-check: primary buttons, hero italic accent, pillar cards, mobile menu close button, logo icon, focus rings, and the CSR band text accents.
+Header, sections below the hero, design tokens, image asset — all untouched.
