@@ -66,29 +66,29 @@
 :root {
   --radius: 4px;
 
-  /* Brand — SDG-aligned: Blue + Dark Blue + Yellow + White */
-  --primary: #0A6FD8;
+  /* Brand — Indigo family + Yellow accent */
+  --primary: #735BF6;
   --primary-foreground: #FFFFFF;
-  --primary-glow: #3B8FE8;
-  --primary-deep: #0A2A5E;
-  --secondary: #F5F8FC;
-  --secondary-foreground: #0A2A5E;
+  --primary-glow: #9485F9;
+  --primary-deep: #3F00AC;
+  --secondary: #F4F2FE;
+  --secondary-foreground: #1C0060;
 
   --canvas: #FFFFFF;
   --snow: #FFFFFF;
-  --ink: #0A2A5E;
-  --ink-muted: #5A6B85;
-  --hairline: #E1E7F0;
-  --sage: #F5F8FC;
+  --ink: #1C0060;
+  --ink-muted: #5A4E8C;
+  --hairline: #E4E0F7;
+  --sage: #F4F2FE;
   --sandstone: #FFD600;
   --coral: #FFD600;
   --gold: #FFD600;
 
-  /* Pillar accents — distinct per pillar, SDG-derived */
+  /* Pillar accents — distinct per pillar */
   --pillar-mental: #FFD600;     /* Yellow — vitality */
-  --pillar-social: #0A6FD8;     /* Blue — partnerships */
+  --pillar-social: #735BF6;     /* Light indigo — partnerships */
   --pillar-inclusive: #DD1367;  /* Magenta — SDG 10 */
-  --pillar-human: #0A2A5E;      /* Dark blue — knowledge */
+  --pillar-human: #1C0060;      /* Deep indigo — knowledge */
 
   /* Motion easings (Axion-style) */
   --ease-axion: cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -96,26 +96,27 @@
 
   /* Shadcn token mapping */
   --background: #FFFFFF;
-  --foreground: #0A2A5E;
+  --foreground: #1C0060;
   --card: #FFFFFF;
-  --card-foreground: #0A2A5E;
+  --card-foreground: #1C0060;
   --popover: #FFFFFF;
-  --popover-foreground: #0A2A5E;
-  --muted: #F5F8FC;
-  --muted-foreground: #5A6B85;
+  --popover-foreground: #1C0060;
+  --muted: #F4F2FE;
+  --muted-foreground: #5A4E8C;
   --accent: #FFD600;
-  --accent-foreground: #0A2A5E;
+  --accent-foreground: #1C0060;
   --destructive: #A8392B;
   --destructive-foreground: #FFFFFF;
-  --border: #E1E7F0;
-  --input: #E1E7F0;
-  --ring: #0A6FD8;
+  --border: #E4E0F7;
+  --input: #E4E0F7;
+  --ring: #735BF6;
 }
 
 .dark {
   --background: #FFFFFF;
-  --foreground: #0A2A5E;
+  --foreground: #1C0060;
 }
+
 
 @layer base {
   *,
@@ -266,7 +267,7 @@
     background-color: var(--color-primary);
     color: var(--color-primary-foreground);
   }
-  .btn-primary:hover { background-color: #0A2A5E; }
+  .btn-primary:hover { background-color: #3F00AC; }
 
   .btn-coral {
     background-color: var(--color-gold);
