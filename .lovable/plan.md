@@ -1,97 +1,107 @@
+## Site map (current pages, by hierarchy)
 
-# Site-wide card system — roll out the home page pattern
+```text
+Home  /
+│
+├─ About  /about
+│   ├─ Vision & Mission       /about/vision-mission
+│   ├─ Omni Care Model        /about/omni-care-model
+│   ├─ Values                 /about/values
+│   ├─ Our Story              /about/our-story
+│   ├─ Leadership             /about/leadership
+│   ├─ Compliance & Trust     /about/compliance
+│   └─ Careers                /about/careers
+│
+├─ What We Do  /what-we-do                 ← 4 pillars
+│   ├─ Mental Wellbeing       /what-we-do/mental-wellbeing
+│   ├─ Social Growth          /what-we-do/social-growth
+│   ├─ Inclusive Care         /what-we-do/inclusive-care
+│   └─ Human Potential        /what-we-do/human-potential
+│
+├─ Programmes  /programs                   ← 9 programs
+│   ├─ Community Mental Health
+│   ├─ Preventive Health Outreach
+│   ├─ Women's Health & Life-Cycle
+│   ├─ Disability & Elderly Care
+│   ├─ Women's Wellness
+│   ├─ Training & Capacity Building
+│   ├─ Research & Impact Assessment        /programs/research-impact-assessment
+│   ├─ Scholarships & Education
+│   └─ CHW Development
+│
+├─ Impact  /impact
+│   └─ Stories                /impact/stories
+│
+├─ Get Involved  /get-involved
+│   ├─ Volunteer              /get-involved/volunteer
+│   ├─ Partner (CSR)          /partner/csr
+│   └─ Donate                 /donate
+│
+├─ Newsroom    /newsroom
+├─ Contact     /contact
+│
+└─ Utility footer-only
+    Accessibility · Privacy · Terms · Donation Policy · Safeguarding · Sitemap
+```
 
-Apply the rounded, soft-shadow card language from the home page across every route and shared component. Audited via `make-interfaces-feel-better` (concentric radius, shadows over hard borders, specific transitions, hit areas) and `frontend-design` (consistent surface vocabulary).
+## Header information architecture (6 top-level slots)
 
-## The system (lock these tokens — every card on the site must use one of three)
+```text
+[Logo]   About ▾   What We Do ▾   Programmes ▾   Impact ▾   Get Involved ▾   Newsroom        [Donate] [Partner with Us]
+```
 
-| Tier | Use for | Classes |
-|---|---|---|
-| **Primary card** | Programmes, features, anything with media | `rounded-2xl bg-snow border border-hairline overflow-hidden shadow-[0_1px_2px_rgba(28,0,96,0.04),0_8px_24px_-16px_rgba(28,0,96,0.12)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-1 hover:border-ink/40 hover:shadow-[0_4px_8px_rgba(28,0,96,0.06),0_22px_44px_-22px_rgba(28,0,96,0.32)]` |
-| **Secondary card** | Compliance items, stat tiles, info blocks | `rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]` |
-| **Dark-band card** | Cards on `bg-ink` sections | `rounded-2xl border border-snow/15 bg-snow/[0.04] p-7 lg:p-8 transition-[background-color,border-color,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-snow/30 hover:bg-snow/[0.08]` |
+Mega-menu contents:
+- **About** — 2 col: links list (7 pages) + featured card "Omni Care Model"
+- **What We Do** — 4 pillar tiles with pillar colour swatch + 1-line description
+- **Programmes** — 3 col grouped by pillar (Mental / Social / Inclusive / Human) + footer link "All programmes →"
+- **Impact** — Overview, Stories, + featured stat card "1,20,000+ lives reached"
+- **Get Involved** — Volunteer, Partner (CSR), Donate cards with icons + role tag
 
-Plus three universal rules:
-1. **No `gap-px` divider grids** — replace with real gaps (`gap-4` / `gap-5` / `gap-6`).
-2. **Concentric radius** — images inside primary cards: card uses `overflow-hidden rounded-2xl`, image fills it (no separate radius on the image).
-3. **All hero / large feature photos**: `rounded-2xl` (not `rounded-md` or `rounded-lg`).
+Mobile: bottom-sheet (current pattern) extended with expandable accordion sections per top-level item.
 
-## Shared components (highest impact — touch first)
+## Design plan (skills: make-interfaces-feel-better + frontend-design)
 
-| File | Change |
-|---|---|
-| `src/components/ProgramCard.tsx` | Wrap the whole card in primary-card classes; remove `rounded-2xl` from inner image (let parent clip). Photo block becomes `aspect-[5/3]` to match new home page. |
-| `src/components/CTABand.tsx` | Apply dark-band card style if it uses tiles. |
-| `src/components/PageHero.tsx` | If it renders a photo, bump radius to `rounded-2xl`. |
-| `src/components/Footer.tsx` | Any boxed CTA blocks → secondary card. |
-| `src/components/MobileCTABar.tsx` | Pill chrome stays, but any `rounded-md` → `rounded-full` consistency check. |
+**Aesthetic** — keep the editorial Omni system: `bg-canvas` pill nav, `text-ink`, `text-gold` accent, hairline borders, Tillana serif italic accents. The mega-panel is a single `bg-snow` sheet floating below the pill with `border-hairline`, layered shadow (no hard border): `0 1px 0 rgba(28,0,96,0.04), 0 24px 48px -24px rgba(28,0,96,0.18)`.
 
-## Routes to update
+**Interactions**
+- Hover-intent: 80 ms open delay, 180 ms close delay to prevent flicker between trigger and panel.
+- Single shared panel container that morphs height with `transition: height 220ms cubic-bezier(0.2,0,0,1)` — content cross-fades (`opacity` + `translateY(4px)`, staggered 40 ms per column).
+- `initial={false}` equivalent — panel hidden on first paint, no entrance flash.
+- Pointer follows: small underline indicator slides between active triggers (`transition: transform, width` only — never `all`).
+- Keyboard: Esc closes, ↓ enters panel, ↑/↓/←/→ navigate within columns, Tab cycles, focus rings via `outline-gold`.
+- Click outside / route change → close.
+- Scroll lock only on mobile sheet.
 
-Group by what they show. Each gets a sweep applying the table above.
+**Micro-details (per skill checklist)**
+- Concentric radius: pill nav `rounded-full`, inner items `rounded-[14px]` (pill padding 5 + 9 inner = 14).
+- Triggers: 40×40 min hit area; chevron rotates 180° on open with `cubic-bezier(0.2,0,0,1)`.
+- Active route gets `text-primary` + 2 px underline; hover gets ink-muted → ink colour transition only.
+- Featured card images use 1 px `outline outline-ink/5`.
+- All CTAs use existing `PillButton`, `active:scale-[0.96]`.
+- Tabular nums on the IST clock.
+- `text-wrap: balance` on mega-panel headings, `pretty` on descriptions.
+- Shadow over border for panel + scrolled-state nav.
+- Transitions specify exact props (`transition-[color,background-color,transform]`), never `transition-all`.
 
-**A. Routes with media cards → primary card**
-- `src/routes/programs.index.tsx` (uses `ProgramCard` — fixed by component edit)
-- `src/routes/programs.$slug.tsx`
-- `src/routes/what-we-do.index.tsx`
-- `src/routes/what-we-do.$pillar.tsx`
-- `src/routes/about.leadership.tsx` (people cards)
-- `src/routes/impact.index.tsx` / `impact.stories.tsx` (story cards)
-- `src/routes/newsroom.tsx`
+**Scroll states**
+- Top of page: transparent wrapper, pill on bare canvas.
+- Scrolled >40 px: `bg-canvas/80 backdrop-blur` + faint hairline shadow (already wired — keep).
 
-**B. Routes with info tiles → secondary card**
-- `src/routes/about.compliance.tsx`
-- `src/routes/about.omni-care-model.tsx`
-- `src/routes/about.values.tsx`
-- `src/routes/about.vision-mission.tsx`
-- `src/routes/about.our-story.tsx`
-- `src/routes/about.careers.tsx`
-- `src/routes/donation-policy.tsx`, `privacy-policy.tsx`, `terms.tsx`, `safeguarding-policy.tsx`, `accessibility.tsx` (any boxed callout)
+**Accessibility**
+- `role="menubar"` triggers with `aria-haspopup="true"`, `aria-expanded`, `aria-controls`.
+- Panel `role="menu"` with grouped `role="group"` and `aria-label` per column.
+- Visible focus ring (`focus-visible:outline-2 outline-gold`).
+- `prefers-reduced-motion` → no translate/blur, only opacity.
 
-**C. Routes with dark CTA sections → dark-band card**
-- `src/routes/partner.csr.tsx`
-- `src/routes/get-involved.index.tsx` / `get-involved.volunteer.tsx`
-- `src/routes/donate.tsx`
+## Implementation steps (technical)
 
-**D. Form pages → secondary card + rounded inputs**
-- `src/routes/contact.tsx`
-- `src/routes/donate.tsx` (form panel)
-- All form inputs: keep `rounded-full` for single-line, `rounded-xl` for textareas; add `shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)]` resting state.
+1. Extend `src/lib/site.ts` with a `MEGA_NAV` structure: `{ key, label, href, columns: [{ heading, items: [{ label, href, description?, badge? }] }], feature? }`. Derive `What We Do` from `PILLARS`, `Programmes` grouped from `PROGRAMS`.
+2. New components in `src/components/nav/`:
+   - `MegaNav.tsx` — desktop menubar + shared panel container with hover-intent timers, keyboard handling, route-change close.
+   - `MegaPanel.tsx` — column renderer (links / pillar tiles / feature card variants).
+   - `MobileNav.tsx` — refactor existing bottom-sheet to use accordion sections from same data.
+3. Refactor `src/components/Header.tsx` to compose `MegaNav` + `MobileNav`; keep clock, compliance row, scrolled state, logo, and right-side CTAs (`Donate` ghost + `Partner with Us` PillButton primary).
+4. Add CSS tokens to `src/styles.css` if needed: `--shadow-panel`, `--ease-axion` already exists, reuse.
+5. Verify build, run a visual pass at 1440 / 1024 / 390 viewports, confirm Esc + keyboard nav, confirm route-change auto-close.
 
-**Untouched routes** (no card surfaces or already correct):
-- `src/routes/__root.tsx`, `src/routes/index.tsx` (already done), `src/routes/sitemap.tsx`, `src/routes/sitemap[.]xml.ts`, `src/routes/design-ui-inspo.tsx` (internal reference page).
-
-## Make-interfaces-feel-better sweep (every file touched)
-
-- Replace any `transition-all` with specific property lists (`border-color`, `box-shadow`, `transform`, `background-color`).
-- All card images get `outline outline-1 -outline-offset-1 outline-ink/10`.
-- Card titles use `text-balance`; body uses `text-pretty`.
-- Min 44px hit area on every card `<Link>` — full-tile links already satisfy this; verify small mono "Read more" links sit inside the parent tile link, not floating beside it.
-- Numbers/stats use `tabular-nums`.
-
-## Frontend-design sweep (every file touched)
-
-- One card tier per grid — never mix primary and secondary radii in the same row.
-- Section rhythm rule from home page extended: when a route lives on `bg-canvas`, use **secondary** cards on `bg-snow`; when on `bg-sage`, use **primary** cards on `bg-snow`; when on `bg-ink`, use **dark-band** cards. No new colours.
-- Strip any literary italics (`font-display-italic`) in body copy on these routes — keep them only for the single hero word per page, matching home page restraint.
-
-## Out of scope
-
-- Copy rewrites on subpages (only home page got Ogilvy pass).
-- Colour token changes.
-- shadcn UI primitives in `src/components/ui/*` (they're consumed via wrappers; updating them risks cross-app regressions).
-- Header / nav surfaces (they're already pill-based and feel right).
-
-## Verification after build
-
-- Click through each route in the table above; every card should be rounded with a faint resting shadow and a soft hover lift.
-- No `gap-px` grids remain (`rg "gap-px" src/routes src/components` should return only `design-ui-inspo.tsx` if anything).
-- No `rounded-md` on hero photos or media cards (`rg "rounded-md" src/routes` ≈ zero on photo surfaces).
-- Mobile (<768px): rounded tiles stack with proper gap; no edge-to-edge bleed.
-- All hover/focus transitions stay smooth — no `transition: all` left on any touched file.
-
-## Files touched (summary)
-
-- 5 shared components (`ProgramCard`, `CTABand`, `PageHero`, `Footer`, `MobileCTABar`)
-- ~20 route files across groups A–D
-- No new files, no token changes, no shadcn edits
+**Files touched**: `src/lib/site.ts`, `src/components/Header.tsx`, `src/components/nav/MegaNav.tsx` (new), `src/components/nav/MegaPanel.tsx` (new), `src/components/nav/MobileNav.tsx` (new), maybe small additions to `src/styles.css`.
