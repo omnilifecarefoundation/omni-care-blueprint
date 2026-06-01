@@ -1,80 +1,117 @@
-# Apply Skills + Refine Hero (Ogilvy copy + interface polish)
+# Homepage Redesign — Omni Life Care Foundation
 
-## Why
-You uploaded three reusable skill bundles. Step one: install them under `.agents/skills/` and activate so any future session can pull them by name. Step two: actually use them right now on the homepage hero — Ogilvy for copy, frontend-design + make-interfaces-feel-better for visual refinement.
+A full rewrite of `src/routes/index.tsx` using three skills: **ogilvy-copywriting** (positioning + promise + honest facts), **frontend-design** (a single cohesive editorial direction), and **make-interfaces-feel-better** (staggered reveals, optical detail, tactile feedback).
 
-## Part A — Save the skills (reusable)
+## The honesty problem (must fix)
 
-Create three skill directories from your uploads:
+The current homepage advertises **"1.2M+ lives reached, 210 CHWs trained, 6 states active"** and "Live · Field operations active across 6 states." You're a **newly registered Mumbai-based foundation** — these numbers are fabricated and will destroy donor/CSR trust the moment it's checked. Ogilvy's rule: *the product must actually deliver the promise.*
 
+Every fabricated stat will be removed. We replace them with what is **actually true and persuasive for a new org**: statutory compliance, the four-pillar model, the founders' commitment, Mumbai roots, and an open invitation to be a founding partner.
+
+## Positioning & promise (Ogilvy)
+
+- **Position:** Mumbai-born foundation building an **integrated continuum of care** — mental wellbeing, social growth, inclusive care, human potential — for India's underserved communities. Aimed at CSR teams, institutional partners, and individuals who want to fund a model from day one, not a brand from year ten.
+- **Single promise:** *Four pillars of care, designed to work as one system — built with communities, not for them.*
+- **Big idea (headline candidate, ~12 words):** **"Health doesn't live in silos. Neither should the care that reaches you."**
+
+## Aesthetic direction (frontend-design)
+
+**Editorial / quiet-luxury manifesto** — picks up the existing serif italic accents, ink-on-canvas palette, and pillar color tokens already in `styles.css`. Confident restraint, not maximalism. References: long-form magazine editorial, charity:water annual-report layouts, Rolls-Royce-era Ogilvy long copy.
+
+- Asymmetric 12-column grids, oversized italic numerals, hairline rules as a structural device.
+- Display serif italic for emphasis words; sans for structure; mono for metadata/labels.
+- Pillar colors used as **single sharp accents** (color rail, dot, underline), never as fills.
+- Subtle gradient-mesh + grain backdrops on hero and "Founding Moment" sections; everything else is canvas/sage with hairlines.
+
+## New section order
+
+```text
+1.  Hero — "Health doesn't live in silos…" + founding-moment badge (not fake "live ops")
+2.  Founding Moment — honest "what we are right now" strip (replaces fake counters)
+3.  Why We Exist — Ogilvy-style problem framing with one specific Mumbai-rooted fact
+4.  The Omni Care Model — four pillars, editorial rows (already redesigned, keep)
+5.  Our Four Programs in Motion — the 4 pillar programs from the questionnaire
+6.  A Letter from the Founders — long-copy editorial (Ogilvy: long copy sells)
+7.  Be a Founding Partner — CSR / institutional / individual paths (replaces "Impact Split")
+8.  Compliance & Transparency — 12A/80G/CSR-1 with what each means, plainly
+9.  CTA Band — single promise, two actions
+10. Newsletter — "Quarterly field notes from Mumbai" (honest cadence)
 ```
-.agents/skills/
-├── ogilvy-copywriting/
-│   └── SKILL.md                    (from first upload, 208 lines)
-├── frontend-design/
-│   └── SKILL.md                    (from second upload, 42 lines)
-└── make-interfaces-feel-better/
-    ├── SKILL.md                    (from upload, 122 lines)
-    └── references/
-        ├── typography.md           (123 lines)
-        ├── surfaces.md             (247 lines)
-        ├── animations.md           (379 lines)
-        └── performance.md          (full file)
-```
 
-Then call `skills--apply_draft` on each of the three skill roots so they become active and retrievable by name in future sessions.
+Sections being removed/merged: `ImpactCounters` (fake numbers), `StoriesSection` (no real stories yet), `ResearchTeaser`, `NewsroomStrip` (nothing to show yet — empty press strips signal a dead org). Page-level fake "1.2M / 210 / 6 states" trio is deleted from the hero.
 
-## Part B — Hero copy rewrite (Ogilvy)
+## Section-by-section copy & design
 
-Current hero is generic and feature-led. Ogilvy says: **positioning first, then one big promise, then specifics.**
+### 1. Hero
+- Eyebrow chip: `Est. 2026 · Mumbai, India` (replaces the fake "Live · Field operations active" badge)
+- H1: **"Health doesn't live in silos. *Neither should the care that reaches you.*"** (italic on second clause)
+- Sub: *"Omni Life Care Foundation is a newly registered Mumbai-based public charitable trust building an integrated model of mental wellbeing, social growth, inclusive care, and human potential — designed with the communities it will serve."*
+- CTAs: **Partner with us** (primary) · **Read our mission** (ghost)
+- Below-the-fold strip (replaces fake stats): `12A registered` · `80G applied` · `CSR-1 in progress` · `Headquartered in Mumbai` — honest signals only.
+- Right column: keep the framed hero image + floating compliance card (already well-done).
 
-**Positioning:** Omni Lifecare Foundation is for Indian families in underserved communities who deserve the same standard of care any city hospital offers — not a charity case, but care delivered with dignity.
+### 2. Founding Moment (new — replaces ImpactCounters)
+A horizontal editorial strip with four honest facts: **4 pillars defined** · **9 programs designed** · **5 SDGs prioritised** · **Day 001 in Mumbai**. Mono labels, oversized italic numerals, hairline dividers. No fake "lives reached."
 
-**The promise (one, not many):** Every life gets care it can trust — at the doorstep.
+### 3. Why We Exist
+Two-column: left = oversized pull quote; right = three short facts about India's care gap (verified, sourced — e.g. WHO mental health treatment-gap figures for India). Ends with: *"We won't fix this alone. We're building a system others can plug into."*
 
-**Hero rewrite (proposed):**
+### 4. The Omni Care Model
+**Keep the redesigned editorial-rows section** (already shipped last turn). Minor copy tightening per Ogilvy: every pillar gets a verb-led promise sentence drawn straight from the questionnaire.
 
-- Eyebrow chip: keep "Live · Field operations active across 6 states in India" (proof, not claim)
-- Headline (H1, replaces current): **"Care that reaches every doorstep in India."** with *"every doorstep"* in the bright-yellow display-italic accent — concrete, specific, makes the promise.
-- Subhead (replaces current lead paragraph): **"For 1.2 million people across 6 states, dignified healthcare is no longer a question of where you live. It's already on the way."** — quantified, benefit-first, ends with momentum (Ogilvy: "long copy sells").
-- CTAs (verbs, not vague labels): primary "Partner with Us" → keep; secondary changes from "Make a Donation" → **"Fund a Community"** (specific outcome, not generic ask).
-- Stats strip stays — Ogilvy loves specifics, and "1.2M+ / 210 / 6" is exactly that.
-- Image caption (italic strip on photo): replace "Care meets community…" with **"Where India lives, care arrives."** — shorter, parallel construction, rhythmic.
+### 5. Four Programs in Motion
+2×2 editorial grid of the four flagship programs from the questionnaire:
+1. Community Mental Health & Wellbeing
+2. Preventive & Community Health Outreach
+3. Inclusive Care (Disability + Elderly + Chronic)
+4. Women's Health & Life-Cycle Care
 
-Net effect: every line either makes a promise, proves a promise, or asks for action. No filler adjectives ("equitable, dignified, inclusive, community-centred" all collapsed into one specific claim).
+Each card: pillar color rail, mono program code, serif title, plain-English "what it does" + "who it serves" + SDG tag. No invented metrics.
 
-## Part C — Hero visual refinement (frontend-design + make-interfaces-feel-better)
+### 6. A Letter from the Founders (Ogilvy long copy)
+Single-column 65ch editorial, ~250–350 words, signed. Honest framing: *"We are starting today. Here is what we promise…"* Five specific commitments: community-led design, third-party impact audits, open finances, no overhead inflation, public learning. Ends with a hand-set signature block.
 
-Aesthetic direction: **editorial / magazine**, refined indigo+yellow, calm density. Not maximalist, not generic AI-soft.
+### 7. Be a Founding Partner (replaces ImpactSplit)
+Three editorial cards on a sage background, each with a verb-led headline (Ogilvy: name your audience):
+- **For CSR teams:** "Anchor a pillar. Shape the model." → /partner/csr
+- **For institutions:** "Co-design a programme." → /get-involved
+- **For individuals:** "Fund the first hundred families." → /donate
 
-Concrete polish moves, each tied to a skill rule:
+### 8. Compliance & Transparency
+Already strong. Reframe each badge with a one-line plain-English explanation of what it means for a donor ("12A — your donation is tax-deductible under Indian law"). Add a link to a future Transparency page.
 
-| Rule | Fix |
-|---|---|
-| **text-wrap: balance** on H1 | Add `text-balance` to the headline so "every doorstep in India" doesn't orphan |
-| **text-wrap: pretty** on lead | Add `text-pretty` to the subhead paragraph |
-| **Stagger enter animations** | Replace the three identical `<FadeUp>` wrappers with a single staggered group: eyebrow (0ms) → headline (100ms) → subhead (200ms) → CTAs (300ms) → stats strip (400ms). Use the existing `FadeUp` with `delay` prop if it accepts one; otherwise pass inline staggered delays. |
-| **Interruptible transitions, no `transition-all`** | Audit hero buttons and pill chip — replace any `transition` or `transition-all` with explicit properties (`transition-[scale,background-color]`) |
-| **Concentric border radius** | The image card uses `rounded-2xl` (16px) with no inner padding, so OK. The floating compliance card uses `rounded-xl` (12px) — inner badges should drop to `rounded-md` (6px) so the math reads concentric |
-| **Shadows over borders** | The image card currently mixes `border border-hairline` with a heavy shadow — drop the border, layer two shadows: tight (`0 1px 2px rgba(28,0,96,0.08)`) + diffuse (`0 24px 60px -20px rgba(28,0,96,0.25)`) |
-| **Image outline** | Add a 1px inset `box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08)` to the hero image so it doesn't melt into a light background |
-| **Tabular numbers** | Stats strip already uses `tabular` — keep, and add `font-variant-numeric: tabular-nums` to CountUp output globally if missing |
-| **Optical alignment** | PillButton already has asymmetric padding via the trailing circle — verify the arrow icon sits centered, nudge `-translate-x-px` if needed |
-| **Subtle exit, soft enter** | Use `opacity + translateY(8px) + blur(4px)` for enter, no exit needed on hero |
-| **Hit area** | Compliance card chips should be at least 44px tall on touch — current `gap-2.5` grid is fine, just verify |
+### 9. CTA Band
+Replace existing with: **"You can fund a foundation at year ten. Or you can help shape one at month one."** Two buttons: *Become a founding partner* · *Read our model*.
 
-## Files to Change
+### 10. Newsletter
+"Quarterly field notes from Mumbai — what we built, what failed, what we learned." (Honest cadence — no "weekly updates" promise we can't keep.)
 
-- **Create**: `.agents/skills/ogilvy-copywriting/SKILL.md`, `.agents/skills/frontend-design/SKILL.md`, `.agents/skills/make-interfaces-feel-better/SKILL.md` + 4 references
-- **Apply**: `skills--apply_draft` × 3
-- **Edit**: `src/routes/index.tsx` — hero section only (lines ~59-180). Headline, lead, CTA label, image caption, FadeUp stagger, `text-balance`/`text-pretty`, border→shadow swap on image card, concentric radius on compliance card badges
-- **Edit (small)**: `src/components/FadeUp.tsx` — only if it doesn't already accept a `delay` prop (will check during build)
+## Polish pass (make-interfaces-feel-better)
 
-## Out of Scope
-- No palette change (indigo + yellow stays)
-- No new sections, no layout restructure beyond the hero
-- No copy changes outside the hero (Ogilvy pass on other sections is a separate follow-up — say the word and I'll do it)
-- No font swap (the brand-kit General Sans / Excon pair is a separate task)
+- Stagger every section's enter reveals at 80–120ms via existing `FadeUp`.
+- Heading `text-wrap: balance` already global; verify every new headline benefits.
+- All hover surfaces use `transition-[border-color,box-shadow,transform,background-color]` — never `transition-all`.
+- Numerals get `tabular-nums` (already in tokens).
+- Founders' signature image and program images all get `outline outline-1 -outline-offset-1 outline-ink/10`.
+- Pillar arrow buttons keep the rotate-on-hover + concentric-radius pattern from the Approach section.
+- All CTAs use `PillButton` (which now has `active:scale-[0.96]`).
+- Minimum 44px hit area on every link/button — audit small mono links.
 
-## Verification
-After the edit I'll screenshot the hero at the current 889×541 viewport and at desktop width, and confirm: headline balances on two lines, yellow accent sits inside the headline, stagger reads top-to-bottom, image card has no harsh border, no `transition-all` left in the hero, and the three skills appear active in future sessions by name.
+## Files touched
+
+- **Rewrite:** `src/routes/index.tsx` (sole file changed for the redesign itself).
+- **Possibly add:** one small `<FoundersLetter />` sub-component inline in `index.tsx` (no new file unless it grows).
+- **No changes to** tokens, `styles.css`, routing, or business logic. All copy lives in the route; pillar/program data continues to come from `@/lib/site`.
+
+## Out of scope
+
+- About / Programs / Impact subroutes (the user asked for the home page).
+- New illustrations or photography.
+- Adding real impact numbers (we have none — that's the point).
+
+## Risks & checks
+
+- **Removing fake stats may feel "emptier."** That's intentional and correct for a new org; we compensate with editorial confidence and Ogilvy long copy.
+- After build, scan the rendered home page for any remaining instance of "1.2M", "210", "1.2 million", or "6 states" — these strings must be zero.
+- Verify mobile (`<768px`): editorial grids collapse to single column; oversized numerals must not overflow viewport.
+
