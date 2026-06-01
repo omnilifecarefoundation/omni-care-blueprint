@@ -160,8 +160,8 @@ function Page() {
         eyebrow="Subscribe to the ledger"
         title="Be on the list the day the first report is published."
         body="No newsletter, no marketing. One email when each quarterly community ledger and monthly cost-per-outcome dashboard goes live."
-        primary={{ label: "Write to us", to: "mailto:media@omnilifecare.org" }}
-        secondary={{ label: "See where we start", to: "/impact" }}
+        primary={{ label: "Write to us", href: "mailto:media@omnilifecare.org" }}
+        secondary={{ label: "See where we start", href: "/impact" }}
       />
     </>
   );
