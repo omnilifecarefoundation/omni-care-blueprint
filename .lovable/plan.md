@@ -1,82 +1,72 @@
 
-# Home page v3 — international NGO, plain English
+# Home page audit — cards & surface polish
 
-## What's wrong with the current home page
+Audit run against `make-interfaces-feel-better` + `frontend-design`. Scope: cards and small surface details only. Hero copy, section order, dark-band rhythm and the §07 closing all stay untouched.
 
-- Reads like a literary magazine, not a non-profit. Ogilvy says talk like a human — "Health doesn't live in silos. Neither should the care that reaches you." is a writer's sentence, not a donor's sentence.
-- Visual language is one note: cream canvas + thin hairlines + italic display serif on every section. That's "vibe-coded editorial template," not international-NGO. Gates, BRAC, charity:water, Wellcome, MSF all alternate dark/light bands, use real photography, and put **one** number or **one** quote per section, not paragraphs of italics.
-- The only section the user actually likes is §07 Closing CTA — the dark indigo band. That should become the page's signature, not a one-off footer.
-- Eyebrows like "§01 — Founding Moment" and the oversized outline numerals look "designed at" the user.
+## What's off right now
 
-## The new direction
+The page is sharp-cornered everywhere. Every card and tile uses `border-radius: 0` (the design tokens are 4–16px but the components never apply them). For a non-profit aimed at warmth + trust, square 90°-corner cards read cold and "wireframe-y." Three specific failures:
 
-Reference vocabulary: **Gates Foundation** (confident dark hero, big plain headline, real photo), **charity:water** (full-bleed image + 1-sentence promise), **BRAC** (clean stat blocks, no italics), **Wellcome** (mixed light/dark sections with strong typographic hierarchy).
+1. **What we do** (pillar grid) — flat 4-up tiles, no radius, no shadow, separated only by 1px `bg-hairline` lines. Looks like a spreadsheet.
+2. **Programmes** — cards have border + hover shadow, but `border-radius: 0` on both the outer card and the image, so the concentric-radius rule is violated (image and card share the same hard corner).
+3. **Partner band** (dark) — same flat 3-up grid pattern, 1px snow/10 dividers, no radius. The dark indigo deserves softer, more deliberate card shapes to feel premium.
 
-Three rules for this pass:
-1. **Dark-ink (deep indigo `--ink` / `--primary-deep`) becomes the dominant brand surface** — used in hero, the partner band, and the closing CTA. Cream is the connective tissue, not the hero.
-2. **Plain English everywhere.** Sentences a 14-year-old understands. No "the care that reaches you." No "§ §." No oversized outline italics.
-3. **One idea per section.** Either one number, one photo, one quote, or one short paragraph. Never all four.
+Other smaller misses:
+- Hero photo uses `rounded-md` (~4px) — too tight against the generous spacing around it.
+- Compliance / Trust 3-up uses the same flat-tile pattern as pillars.
+- Newsletter input is `rounded-full` but the submit button is also `rounded-full` and the same height — fine, but the input border darkens on focus only; no resting-state warmth.
+- Pillar tiles have a `gap-px` divider system AND no inner radius — so we can't just round corners without re-thinking the grid (rounded children inside a `gap-px` strip look broken).
 
-## New section order
+## What to change
 
-```text
-1. Hero (dark indigo)        Big plain headline + sub + 2 CTAs + real photo
-2. What we do (light)        4 pillars as a clean 4-up grid, plain labels
-3. Why this matters (light)  3 sourced facts about India's care gap — 1 line each
-4. Our programmes (light)    4 flagship programmes, simple cards w/ photo
-5. From the founders (light) Short letter — 120-160 words, signed, no italics
-6. Partner with us (dark)    3 audiences: CSR / Institutions / Individuals
-7. Trust & compliance        12A / 80G / CSR-1 with 1-line plain explanation
-8. Closing CTA (dark)        Keep this — the section the user likes
-9. Newsletter strip          Single line + email field
-```
+### 1. Programmes cards (biggest visual win)
+- Outer card: `rounded-2xl` (16px), keep border, keep hover lift.
+- Inner image wrapper: `rounded-t-2xl` only (concentric — same 16px on top corners).
+- Add a subtle resting shadow `shadow-[0_1px_2px_rgba(28,0,96,0.04),0_8px_24px_-16px_rgba(28,0,96,0.12)]` so cards float a touch even before hover.
+- Hover shadow stays, hover lift goes to `-translate-y-1` (more felt feedback).
 
-Removed: Founding Moment editorial strip, Omni Care diagram section (moved to /about), oversized italic numerals, "§" eyebrows, the founders' 5-commitment manifesto block (compressed into the short letter).
+### 2. Pillar grid (What we do)
+- Drop the `gap-px` divider grid. Switch to `gap-4 lg:gap-5` between actual rounded tiles.
+- Each tile: `rounded-2xl bg-snow border border-hairline p-7`.
+- Hover: border darkens to `ink/30`, tile lifts `-translate-y-0.5`, subtle shadow appears.
+- Keep the colored pill rail at top (`h-1.5 w-10 rounded-full`) — it already reads well.
 
-## Copy rewrites (representative)
+### 3. Partner band cards (dark)
+- Drop `gap-px` divider for `gap-4 lg:gap-5` rounded tiles.
+- Each tile: `rounded-2xl bg-snow/[0.04] border border-snow/12 p-8`.
+- Hover: `bg-snow/[0.07]` + border `snow/25`. Keeps the dark-band feel but tiles now read as distinct objects.
+- Gold CTA arrow stays.
 
-| Old | New |
-|---|---|
-| "Health doesn't live in silos. *Neither should the care that reaches you.*" | **"Better health, closer to home."** Sub: "We're a new Mumbai-based non-profit building four kinds of care — mental health, community health, inclusive care, and women's health — that work together instead of separately." |
-| "§01 — Founding Moment" | "What we are today" |
-| "Four pillars. One integrated system of care." | "Four kinds of care. One team." |
-| "You can fund a foundation at year ten. Or you can help shape one at month one." | **"Help build it from day one."** Sub: "We're registered, ready, and looking for our first partners." |
-| Newsletter: "Quarterly field notes from Mumbai…" | "Get an update every three months. No spam." |
+### 4. Trust / Compliance 3-up
+- Same treatment: `gap-4` between `rounded-xl bg-snow border border-hairline p-6` tiles. Smaller radius (12px) than primary cards — they're secondary content.
 
-Tone target: clear, warm, factually honest. No literary flourishes. No more than one italic word per section.
+### 5. Hero photo
+- Bump `rounded-md` → `rounded-2xl` (16px). Matches programme cards and feels intentional against the wide negative space.
 
-## Visual system changes (frontend-design)
+### 6. Newsletter
+- Input gets a subtle inner shadow `shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)]` at rest.
+- Submit button: add `hover:shadow-[0_4px_12px_-4px_rgba(28,0,96,0.4)]` for tactile lift.
 
-- **Hero**: full-width band, `bg-ink` (deep indigo), white text, real community photo on the right with a soft inner outline. Headline `font-sans` weight 600 — no italics. Below the CTAs: a single thin row of compliance chips (`12A · 80G applied · CSR-1 in progress · Mumbai`).
-- **Section rhythm**: light → light → light → dark (Partner) → light → dark (Closing). Two dark anchors instead of one.
-- **Cards**: square-ish 4:5 photo on top, 1-line label, 1-sentence description. Hover = photo zoom 1.03, card lifts 2px, hairline darkens. No expanding pills, no rotating arrows.
-- **Numerals / stats**: when used, `font-sans` tabular, big but not italic. Replaces the outline-italic numerals.
-- **Removed visual tropes**: §-eyebrows, oversized outline italics, color-rail-on-hover, rotating circular arrows in the pillars row.
+## Surface details checklist (applied to all touched cards)
 
-## Make-interfaces-feel-better pass
-
-- Stagger reveals 80ms per item in each grid (max 4 stops, then stop staggering).
-- All images: `outline outline-1 -outline-offset-1 outline-ink/10` + lazy-loaded.
-- All buttons via `PillButton` (already has `active:scale-[0.96]`).
-- `tabular-nums` on every number.
-- `text-wrap: balance` on H1/H2, `text-wrap: pretty` on body paragraphs.
-- Specific transitions only — never `transition-all`.
-- Min 44px hit area on every link/button, including footer mono links.
-- Verify single H1, alt text on hero + programme photos, retain `<head>` SEO.
+- [x] Concentric radius — image wrapper top corners match card radius.
+- [x] Shadows over hard borders — at rest, cards get a faint layered shadow so they don't rely on the border alone.
+- [x] `outline outline-1 -outline-offset-1 outline-ink/10` on all card images (already present, verified kept).
+- [x] All hover transitions remain specific (`transition-[border-color,box-shadow,transform,background-color]`), no `transition: all`.
+- [x] Cards keep `text-balance` on titles, `text-pretty` on body.
+- [x] Hit areas — all card `<Link>`s are full-tile, already ≥44px. Verified.
 
 ## Files touched
 
-- **Rewrite**: `src/routes/index.tsx` (sole code file).
-- **No changes** to `styles.css`, tokens, components, or routes. Dark hero/partner bands use existing `--ink` and `--snow` tokens.
-- Pillars + programmes data continues to come from `@/lib/site`.
+- **Edit only**: `src/routes/index.tsx` — four card grids (WhatWeDo, Programmes, PartnerBand, Trust), hero photo radius, newsletter input/button.
+- No changes to copy, section order, dark/light rhythm, header, footer, or tokens in `styles.css`.
 
-## Out of scope
+## Out of scope (per your "rest I like everything")
 
-- No new sub-routes, no new images generated, no real impact numbers (we still have none), no `styles.css` token changes.
+- Hero copy, dark-indigo brand surface, §07 closing band, founders' note, eyebrow style, typography pairing, color tokens.
 
 ## Verification after build
 
-- Scan rendered page for: "§", "doesn't live in silos", outline italic numerals — must be zero.
-- Headlines should read naturally when said out loud — no literary inversions.
-- Mobile (<768px): dark hero stacks photo below, CTAs full-width, compliance chips wrap cleanly, no horizontal scroll.
-- The §07 closing band stays visually intact — that's the user's anchor.
+- Visually scan the home page top-to-bottom — every card should have rounded corners. No remaining 90° card on the page.
+- Hover any programme card: lifts, deeper shadow, image scales — all three should fire together smoothly with no jank.
+- Mobile (<768px): rounded tiles stack with proper gap, no edge-to-edge bleed, no horizontal scroll.
