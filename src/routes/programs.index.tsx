@@ -1,9 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { PageHero } from "@/components/PageHero";
 import { CTABand } from "@/components/CTABand";
 import { FadeUp } from "@/components/FadeUp";
 import { PILLARS } from "@/lib/site";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight, X } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "@/components/ui/dialog";
 
 export const Route = createFileRoute("/programs/")({
   head: () => ({
@@ -176,6 +184,8 @@ function pillarOf(id: PillarId) {
 }
 
 function Page() {
+  const [active, setActive] = useState<Programme | null>(null);
+
   return (
     <>
       <PageHero
@@ -187,12 +197,12 @@ function Page() {
           href="#index"
           className="inline-flex items-center gap-2 text-sm text-snow/85 hover:text-snow transition-colors"
         >
-          Jump to the index
+          Jump to the programmes
           <ArrowDown className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
         </a>
       </PageHero>
 
-      {/* Manifesto strip — Ogilvy-tight, single promise */}
+      {/* Manifesto strip */}
       <section className="bg-sage border-b border-hairline">
         <div className="container-editorial py-16 lg:py-20">
           <div className="grid lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16 items-start">
@@ -211,8 +221,8 @@ function Page() {
               <FadeUp delay={160}>
                 <p className="text-ink-muted text-[1.0625rem] leading-[1.65] text-pretty">
                   Five programmes sit inside the Omni Care Model — mental wellbeing as the
-                  floor, human potential at the top. Each one below names its population,
-                  its work, and the numbers it will own.
+                  floor, human potential at the top. Tap any programme to read the full
+                  brief.
                 </p>
               </FadeUp>
             </div>
@@ -220,67 +230,66 @@ function Page() {
         </div>
       </section>
 
-      {/* The index — typographic at-a-glance */}
+      {/* Programme cards — open modal */}
       <section id="index" className="bg-snow border-b border-hairline scroll-mt-20">
         <div className="container-editorial py-16 lg:py-20">
           <div className="grid lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16 mb-10 lg:mb-12">
             <FadeUp>
-              <div className="eyebrow">The index</div>
+              <div className="eyebrow">The five programmes</div>
             </FadeUp>
             <FadeUp delay={80}>
               <h2 className="font-sans font-semibold text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.08] tracking-[-0.02em] text-ink text-balance">
-                Five programmes — at a glance.
+                Tap a programme to read its full brief.
               </h2>
             </FadeUp>
           </div>
 
-          <ol className="border-y border-hairline divide-y divide-hairline">
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
             {PROGRAMMES.map((p, i) => {
               const pillar = pillarOf(p.pillar);
               return (
-                <FadeUp as="li" key={p.slug} delay={Math.min(i * 50, 240)}>
-                  <a
-                    href={`#${p.slug}`}
-                    className="group grid grid-cols-[3rem_minmax(0,1fr)_auto] sm:grid-cols-[3.5rem_minmax(0,1fr)_minmax(0,1fr)_auto] items-baseline gap-x-5 lg:gap-x-8 py-5 lg:py-6 transition-[background-color] duration-200 hover:bg-canvas/60 focus-visible:outline-2 focus-visible:outline-primary rounded-md px-2 -mx-2"
+                <FadeUp as="li" key={p.slug} delay={Math.min(i * 60, 240)}>
+                  <button
+                    type="button"
+                    onClick={() => setActive(p)}
+                    className="group relative h-full w-full text-left rounded-2xl border border-hairline bg-canvas p-5 lg:p-6 transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/35 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_18px_36px_-20px_rgba(28,0,96,0.22)] focus-visible:outline-2 focus-visible:outline-primary active:scale-[0.99]"
                   >
-                    <span className="font-mono text-sm text-ink-muted tabular-nums">{p.n}</span>
-                    <h3 className="font-sans font-semibold text-[1.05rem] lg:text-[1.2rem] tracking-[-0.005em] text-ink text-balance">
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="font-mono text-[11px] text-ink-muted tabular-nums">
+                        {p.n}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.18em] text-ink-muted">
+                        <span
+                          aria-hidden="true"
+                          className="h-1.5 w-1.5 rounded-full"
+                          style={{ background: pillar.color }}
+                        />
+                        {pillar.name}
+                      </span>
+                    </div>
+                    <h3 className="mt-4 font-sans font-semibold text-[1.125rem] lg:text-[1.2rem] leading-snug tracking-[-0.01em] text-ink text-balance">
                       {p.name}
                     </h3>
-                    <span className="hidden sm:inline text-[14px] text-ink-muted leading-snug text-pretty">
+                    <p className="mt-2 text-[14px] leading-[1.55] text-ink-muted text-pretty line-clamp-3">
                       {p.oneLine}
-                    </span>
-                    <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-ink-muted">
-                      <span
-                        aria-hidden="true"
-                        className="h-1.5 w-1.5 rounded-full"
-                        style={{ background: pillar.color }}
-                      />
-                      <span className="hidden md:inline">{pillar.name}</span>
-                      <ArrowDown
-                        className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover:translate-y-0.5"
+                    </p>
+                    <div className="mt-5 pt-4 border-t border-hairline flex items-center justify-between">
+                      <span className="text-[12px] font-medium text-ink">Read the brief</span>
+                      <ArrowUpRight
+                        className="h-4 w-4 text-ink transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                         strokeWidth={1.75}
                         aria-hidden="true"
                       />
-                    </span>
-                  </a>
+                    </div>
+                  </button>
                 </FadeUp>
               );
             })}
-          </ol>
+          </ul>
         </div>
       </section>
 
-      {/* Programme entries — full editorial */}
-      <section className="bg-canvas">
-        <div className="container-editorial divide-y divide-hairline">
-          {PROGRAMMES.map((p, i) => (
-            <ProgrammeEntry key={p.slug} p={p} index={i} />
-          ))}
-        </div>
-      </section>
-
-      {/* Quarterly ledger — the reporting promise, refined */}
+      {/* Quarterly ledger */}
       <section className="bg-sage border-y border-hairline">
         <div className="container-editorial py-20 lg:py-24">
           <div className="grid lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-16 mb-10 lg:mb-12">
@@ -348,80 +357,106 @@ function Page() {
         primary={{ label: "Partner on a programme", href: "/partner/csr" }}
         secondary={{ label: "Volunteer with us", href: "/get-involved/volunteer" }}
       />
+
+      <ProgrammeDialog
+        programme={active}
+        onClose={() => setActive(null)}
+      />
     </>
   );
 }
 
-function ProgrammeEntry({ p, index }: { p: Programme; index: number }) {
-  const pillar = pillarOf(p.pillar);
+function ProgrammeDialog({
+  programme,
+  onClose,
+}: {
+  programme: Programme | null;
+  onClose: () => void;
+}) {
+  const open = !!programme;
+  const pillar = programme ? pillarOf(programme.pillar) : null;
+
   return (
-    <article id={p.slug} className="scroll-mt-20 py-16 lg:py-24">
-      <div className="grid lg:grid-cols-[8rem_minmax(0,1fr)] gap-8 lg:gap-12">
-        {/* Left rail — index number + pillar */}
-        <FadeUp>
-          <div className="lg:sticky lg:top-24">
-            <div className="font-mono text-[5.5rem] lg:text-[6.5rem] leading-none text-ink/15 tabular-nums select-none">
-              {p.n}
+    <Dialog open={open} onOpenChange={(o) => !o && onClose()}>
+      <DialogContent
+        className="p-0 gap-0 border-hairline bg-snow w-[calc(100vw-1.5rem)] sm:w-full sm:max-w-2xl max-h-[90vh] overflow-hidden flex flex-col rounded-2xl [&>button]:hidden"
+      >
+        {programme && pillar && (
+          <>
+            {/* Header */}
+            <div className="relative shrink-0 px-6 sm:px-8 pt-6 sm:pt-8 pb-5 border-b border-hairline bg-canvas">
+              <DialogClose
+                className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-hairline bg-snow text-ink-muted transition-colors hover:text-ink hover:border-ink/40 focus-visible:outline-2 focus-visible:outline-primary"
+                aria-label="Close"
+              >
+                <X className="h-4 w-4" strokeWidth={1.75} />
+              </DialogClose>
+
+              <div className="flex items-center gap-3 pr-12">
+                <span className="font-mono text-[11px] text-ink-muted tabular-nums">
+                  {programme.n}
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.18em] text-ink-muted">
+                  <span
+                    aria-hidden="true"
+                    className="h-1.5 w-1.5 rounded-full"
+                    style={{ background: pillar.color }}
+                  />
+                  {pillar.name}
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-snow px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-muted">
+                  <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-gold" />
+                  In design
+                </span>
+              </div>
+
+              <DialogTitle className="mt-4 font-sans font-semibold text-[1.375rem] sm:text-[1.625rem] leading-[1.15] tracking-[-0.015em] text-ink text-balance pr-12">
+                {programme.name}
+              </DialogTitle>
+              <DialogDescription className="mt-2 font-serif text-[1.0625rem] sm:text-[1.15rem] leading-[1.4] text-ink/80 text-balance pr-2">
+                {programme.oneLine}
+              </DialogDescription>
             </div>
-            <div className="mt-4 space-y-3">
-              <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-ink-muted">
-                <span
-                  aria-hidden="true"
-                  className="h-1.5 w-1.5 rounded-full"
-                  style={{ background: pillar.color }}
-                />
-                {pillar.name}
-              </span>
-              <StatusBadge status={p.status} />
+
+            {/* Body — scrollable */}
+            <div className="overflow-y-auto px-6 sm:px-8 py-6 sm:py-7 space-y-6">
+              <p className="text-[15px] sm:text-[15.5px] leading-[1.65] text-ink-muted text-pretty">
+                {programme.intent}
+              </p>
+
+              <div className="rounded-xl border border-hairline bg-canvas p-4 sm:p-5">
+                <FieldLabel>Who it serves</FieldLabel>
+                <p className="mt-1.5 text-[14.5px] leading-[1.6] text-ink text-pretty">
+                  {programme.who}
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                <DetailBlock label="What we will do" items={programme.doing} />
+                <DetailBlock label="What we will publish" items={programme.publish} accent />
+              </div>
+
+              <div className="pt-5 border-t border-hairline grid grid-cols-2 gap-5">
+                <Meta label="CSR entry" value={programme.schedule} />
+                <Meta label="SDG alignment" value={programme.sdg} />
+              </div>
             </div>
-          </div>
-        </FadeUp>
 
-        {/* Right — content */}
-        <div className="max-w-3xl">
-          <FadeUp delay={60}>
-            <h2 className="font-sans font-semibold text-[clamp(1.625rem,2.8vw,2.25rem)] leading-[1.08] tracking-[-0.02em] text-ink text-balance">
-              {p.name}
-            </h2>
-          </FadeUp>
-
-          <FadeUp delay={120}>
-            <p className="mt-3 font-serif text-[1.2rem] lg:text-[1.35rem] leading-[1.35] tracking-[-0.005em] text-ink/85 text-balance">
-              {p.oneLine}
-            </p>
-          </FadeUp>
-
-          <FadeUp delay={180}>
-            <p className="mt-5 text-[1.0625rem] leading-[1.7] text-ink-muted text-pretty">
-              {p.intent}
-            </p>
-          </FadeUp>
-
-          <FadeUp delay={220}>
-            <div className="mt-8 rounded-xl border border-hairline bg-snow p-5 lg:p-6">
-              <FieldLabel>Who it serves</FieldLabel>
-              <p className="mt-1.5 text-[15px] leading-[1.6] text-ink text-pretty">{p.who}</p>
-            </div>
-          </FadeUp>
-
-          <div className="mt-6 grid md:grid-cols-2 gap-5">
-            <FadeUp delay={260}>
-              <DetailBlock label="What we will do" items={p.doing} />
-            </FadeUp>
-            <FadeUp delay={320}>
-              <DetailBlock label="What we will publish" items={p.publish} accent />
-            </FadeUp>
-          </div>
-
-          <FadeUp delay={380}>
-            <div className="mt-8 pt-6 border-t border-hairline grid grid-cols-2 sm:grid-cols-3 gap-6 items-end">
-              <Meta label="CSR entry" value={p.schedule} />
-              <Meta label="SDG alignment" value={p.sdg} />
+            {/* Footer */}
+            <div className="shrink-0 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-3 px-6 sm:px-8 py-4 border-t border-hairline bg-canvas">
+              <button
+                type="button"
+                onClick={onClose}
+                className="inline-flex items-center justify-center rounded-full border border-hairline bg-snow px-4 py-2 text-sm font-medium text-ink-muted transition-colors hover:text-ink hover:border-ink/40"
+              >
+                Close
+              </button>
               <Link
                 to="/partner/csr"
-                className="group/cta inline-flex items-center gap-1.5 text-sm font-medium text-ink underline decoration-ink/25 underline-offset-4 transition-colors hover:decoration-ink justify-self-start sm:justify-self-end"
+                onClick={onClose}
+                className="group/cta inline-flex items-center justify-center gap-1.5 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-snow transition-[transform,background-color] duration-200 hover:bg-ink/90 active:scale-[0.98]"
               >
-                Partner on this
+                Partner on this programme
                 <ArrowUpRight
                   className="h-4 w-4 transition-transform duration-300 ease-out group-hover/cta:-translate-y-0.5 group-hover/cta:translate-x-0.5"
                   strokeWidth={1.75}
@@ -429,12 +464,10 @@ function ProgrammeEntry({ p, index }: { p: Programme; index: number }) {
                 />
               </Link>
             </div>
-          </FadeUp>
-        </div>
-      </div>
-      {/* hairline-less spacer; divider lives on parent container */}
-      <span className="sr-only">End of programme {index + 1}.</span>
-    </article>
+          </>
+        )}
+      </DialogContent>
+    </Dialog>
   );
 }
 
@@ -457,10 +490,10 @@ function DetailBlock({
 }) {
   return (
     <div
-      className={`h-full rounded-xl border p-5 lg:p-6 transition-[border-color,box-shadow] duration-300 ease-out ${
+      className={`h-full rounded-xl border p-4 sm:p-5 ${
         accent
-          ? "bg-snow border-hairline shadow-[inset_3px_0_0_0_var(--gold,#caa64a)]"
-          : "bg-snow border-hairline"
+          ? "bg-canvas border-hairline shadow-[inset_3px_0_0_0_var(--gold,#caa64a)]"
+          : "bg-canvas border-hairline"
       }`}
     >
       <FieldLabel>{label}</FieldLabel>
@@ -468,7 +501,7 @@ function DetailBlock({
         {items.map((it) => (
           <li
             key={it}
-            className="text-[14.5px] leading-[1.55] text-ink text-pretty flex gap-2.5"
+            className="text-[14px] leading-[1.55] text-ink text-pretty flex gap-2.5"
           >
             <span
               aria-hidden="true"
@@ -488,15 +521,5 @@ function Meta({ label, value }: { label: string; value: string }) {
       <FieldLabel>{label}</FieldLabel>
       <div className="mt-1.5 font-mono text-[13px] text-ink tabular-nums">{value}</div>
     </div>
-  );
-}
-
-function StatusBadge({ status }: { status: Programme["status"] }) {
-  const label = status === "pilot" ? "In pilot" : "In design";
-  return (
-    <span className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-snow px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-muted">
-      <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-gold" />
-      {label}
-    </span>
   );
 }
