@@ -1,11 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, Clock } from "lucide-react";
+import { Clock } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { PillButton } from "@/components/ui-axion/PillButton";
 import { useIndiaTime } from "@/hooks/use-india-time";
 import { MegaNav } from "@/components/nav/MegaNav";
 import { MobileNav } from "@/components/nav/MobileNav";
+import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
