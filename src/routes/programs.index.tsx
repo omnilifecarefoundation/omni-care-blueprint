@@ -506,19 +506,20 @@ function FieldLabel({ children }: { children: React.ReactNode }) {
 function DetailBlock({
   label,
   items,
-  accent = false,
+  accentColor,
 }: {
   label: string;
   items: string[];
-  accent?: boolean;
+  accentColor?: string;
 }) {
   return (
     <div
-      className={`h-full rounded-xl border p-4 sm:p-5 ${
-        accent
-          ? "bg-canvas border-hairline shadow-[inset_3px_0_0_0_var(--gold,#caa64a)]"
-          : "bg-canvas border-hairline"
-      }`}
+      className="h-full rounded-xl border border-hairline bg-canvas p-4 sm:p-5"
+      style={
+        accentColor
+          ? { boxShadow: `inset 3px 0 0 0 ${accentColor}` }
+          : undefined
+      }
     >
       <FieldLabel>{label}</FieldLabel>
       <ul className="mt-3 space-y-2.5">
@@ -539,11 +540,29 @@ function DetailBlock({
   );
 }
 
-function Meta({ label, value }: { label: string; value: string }) {
+function Meta({
+  label,
+  value,
+  accentColor,
+}: {
+  label: string;
+  value: string;
+  accentColor?: string;
+}) {
   return (
     <div>
       <FieldLabel>{label}</FieldLabel>
-      <div className="mt-1.5 font-mono text-[13px] text-ink tabular-nums">{value}</div>
+      <div className="mt-1.5 flex items-center gap-2 font-mono text-[13px] text-ink tabular-nums">
+        {accentColor && (
+          <span
+            aria-hidden="true"
+            className="inline-block h-1.5 w-1.5 rounded-full"
+            style={{ background: accentColor }}
+          />
+        )}
+        {value}
+      </div>
     </div>
   );
 }
+
