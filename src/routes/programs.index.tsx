@@ -169,6 +169,7 @@ type Filter = "all" | PillarId;
 
 function Page() {
   const [filter, setFilter] = useState<Filter>("all");
+  const [open, setOpen] = useState<Programme | null>(null);
   const list = useMemo(
     () => (filter === "all" ? PROGRAMMES : PROGRAMMES.filter((p) => p.pillar === filter)),
     [filter],
