@@ -1,13 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { CTABand } from "@/components/CTABand";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 export const Route = createFileRoute("/about/")({
   head: () => ({
     meta: [
       { title: "About — Omni Life Care Foundation" },
-      { name: "description", content: "Our vision, mission, governance and the integrated Omni Care Model." },
+      {
+        name: "description",
+        content:
+          "An India-based foundation reaching 120,000 lives across six states through an integrated, evidence-led model of community health, mental wellbeing, and inclusive care.",
+      },
       { property: "og:title", content: "About — Omni Life Care Foundation" },
       { property: "og:url", content: "/about" },
     ],
@@ -16,14 +20,28 @@ export const Route = createFileRoute("/about/")({
   component: AboutIndex,
 });
 
+const PROOF = [
+  { value: "120,000", label: "Lives reached", context: "Across community health, mental wellbeing, and inclusion." },
+  { value: "6", label: "States", context: "Maharashtra, Karnataka, Tamil Nadu, MP, Odisha, UP." },
+  { value: "85", label: "Communities", context: "Programmes co-designed with district partners." },
+  { value: "100%", label: "Audit-ready", context: "12A, 80G, CSR-1 and FCRA on record." },
+];
+
+const FEATURE = {
+  href: "/about/omni-care-model",
+  eyebrow: "The model",
+  title: "One family. Four pillars of care. Measured outcomes.",
+  body: "Most NGOs run one programme well. We integrate community health, mental wellbeing, inclusive care, and livelihoods around the same household — because the problems show up together, and so should the answers.",
+  cta: "See how the model works",
+};
+
 const SECTIONS = [
-  { href: "/about/vision-mission", title: "Vision & Mission", body: "What we exist for, and how we work towards it." },
-  { href: "/about/values", title: "Our Values", body: "Dignity, inclusion, community, collaboration, and impact." },
-  { href: "/about/omni-care-model", title: "The Omni Care Model", body: "Our integrated four-pillar model of care." },
-  { href: "/about/leadership", title: "Leadership & Governance", body: "Board of trustees, advisory council, and team." },
-  { href: "/about/our-story", title: "Our Story", body: "How the Foundation came to be." },
-  { href: "/about/compliance", title: "Compliance & Registrations", body: "12A, 80G, CSR-1, FCRA and annual returns." },
-  { href: "/about/careers", title: "Careers", body: "Join a mission-driven, evidence-led team." },
+  { href: "/about/vision-mission", eyebrow: "01", title: "Vision & Mission", body: "The promise we make to the families we serve — and the discipline behind it." },
+  { href: "/about/values", eyebrow: "02", title: "Our Values", body: "Dignity first. Evidence always. Community in the lead." },
+  { href: "/about/leadership", eyebrow: "03", title: "Leadership & Governance", body: "An independent board, a working advisory council, and a programmes team trained on the ground." },
+  { href: "/about/our-story", eyebrow: "04", title: "Our Story", body: "From one Maharashtra district to programmes across six states." },
+  { href: "/about/compliance", eyebrow: "05", title: "Compliance & Registrations", body: "12A, 80G, CSR-1, FCRA and annual returns — all on the record." },
+  { href: "/about/careers", eyebrow: "06", title: "Careers", body: "Join a mission-driven, evidence-led team of practitioners." },
 ];
 
 function AboutIndex() {
@@ -31,25 +49,117 @@ function AboutIndex() {
     <>
       <PageHero
         eyebrow="About"
-        title="A foundation built on dignity, inclusion, and community."
-        lead="We are an India-based foundation working at the intersection of community health, mental wellbeing, inclusive care, and human potential — through an integrated, evidence-led model."
+        title="An integrated model of care, built around the family — not the funder."
+        lead="Omni Life Care Foundation works at the intersection of community health, mental wellbeing, inclusive care, and human potential. 120,000 lives reached, six states, one model — designed with the people it serves."
       />
-      <section className="container-editorial py-20">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {SECTIONS.map((s) => (
-            <Link key={s.href} to={s.href} className="card-editorial p-7 group">
-              <h2 className="font-sans font-semibold tracking-[-0.01em] text-xl text-ink">{s.title}</h2>
-              <p className="mt-2 text-sm text-ink-muted">{s.body}</p>
-              <span className="link-arrow mt-5">Read more <ArrowRight className="h-4 w-4" /></span>
-            </Link>
-          ))}
+
+      {/* Proof strip */}
+      <section className="bg-snow border-b border-hairline">
+        <div className="container-editorial py-12 lg:py-16">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6">
+            {PROOF.map((p) => (
+              <div key={p.label} className="border-l border-hairline pl-5">
+                <div className="font-sans font-semibold text-3xl text-primary tabular-nums tracking-[-0.02em]">
+                  {p.value}
+                </div>
+                <div className="mt-3 h-[2px] w-10 bg-gold" />
+                <div className="eyebrow mt-3">{p.label}</div>
+                <p className="mt-1.5 text-sm text-ink-muted text-pretty">{p.context}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* Featured: Omni Care Model */}
+      <section className="container-editorial py-20 lg:py-28">
+        <div className="flex items-center gap-2 mb-5">
+          <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+          <span className="eyebrow">{FEATURE.eyebrow}</span>
+        </div>
+        <Link
+          to={FEATURE.href}
+          className="group block rounded-2xl bg-ink text-snow overflow-hidden border border-ink/10 shadow-[0_1px_2px_rgba(28,0,96,0.06),0_22px_44px_-22px_rgba(28,0,96,0.32)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_4px_8px_rgba(28,0,96,0.10),0_30px_60px_-24px_rgba(28,0,96,0.42)]"
+        >
+          <div className="relative p-8 lg:p-14 grid lg:grid-cols-12 gap-10 items-end">
+            <div
+              aria-hidden
+              className="absolute inset-0 opacity-60"
+              style={{
+                background:
+                  "radial-gradient(60% 80% at 85% 10%, rgba(201,168,76,0.18), transparent 60%), radial-gradient(50% 60% at 10% 100%, rgba(99,102,241,0.18), transparent 70%)",
+              }}
+            />
+            <div className="relative lg:col-span-8">
+              <h2 className="font-sans font-semibold text-balance tracking-[-0.025em] text-3xl md:text-4xl lg:text-5xl leading-[1.05]">
+                {FEATURE.title}
+              </h2>
+              <p className="mt-6 text-snow/75 text-pretty max-w-2xl text-lg leading-relaxed">
+                {FEATURE.body}
+              </p>
+            </div>
+            <div className="relative lg:col-span-4 lg:text-right">
+              <span className="inline-flex items-center gap-2 text-gold font-sans font-medium transition-transform duration-200 ease-out group-hover:translate-x-1">
+                {FEATURE.cta}
+                <ArrowUpRight className="h-5 w-5" />
+              </span>
+            </div>
+          </div>
+        </Link>
+      </section>
+
+      {/* Section grid */}
+      <section className="bg-canvas border-y border-hairline">
+        <div className="container-editorial py-20 lg:py-24">
+          <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                <span className="eyebrow">Explore</span>
+              </div>
+              <h2 className="font-sans font-semibold tracking-[-0.025em] text-3xl md:text-4xl text-ink text-balance">
+                Everything you'd ask of an NGO worth funding.
+              </h2>
+            </div>
+            <p className="text-ink-muted max-w-md text-pretty">
+              Mission, governance, model, money. Open by default — because trust is earned in the details.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {SECTIONS.map((s) => (
+              <Link
+                key={s.href}
+                to={s.href}
+                className="group relative rounded-xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_14px_28px_-18px_rgba(28,0,96,0.22)]"
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <span className="font-sans text-xs tabular-nums tracking-[0.12em] text-ink-muted">
+                    {s.eyebrow}
+                  </span>
+                  <ArrowUpRight className="h-4 w-4 text-ink-muted transition-transform duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink" />
+                </div>
+                <h3 className="font-sans font-semibold tracking-[-0.01em] text-xl text-ink text-balance">
+                  {s.title}
+                </h3>
+                <p className="mt-2.5 text-sm text-ink-muted text-pretty leading-relaxed">
+                  {s.body}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-sans font-medium text-primary">
+                  Read more
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <CTABand
         eyebrow="Get Involved"
-        title="Partner with us, or join our work."
+        title="Fund a programme. Partner on CSR. Or come work with us."
         primary={{ label: "Partner with Us", href: "/partner/csr" }}
-        secondary={{ label: "Careers", href: "/about/careers" }}
+        secondary={{ label: "Open Roles", href: "/about/careers" }}
       />
     </>
   );
