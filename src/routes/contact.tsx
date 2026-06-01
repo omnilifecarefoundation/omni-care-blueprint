@@ -42,7 +42,7 @@ function Page() {
 
           {sent ? (
             <div className="rounded-2xl bg-sage p-8 border border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04)]">
-              <h2 className="font-serif text-2xl text-balance">Thanks — your message is in.</h2>
+              <h2 className="font-sans font-semibold tracking-[-0.015em] text-2xl text-balance">Thanks — your message is in.</h2>
               <p className="mt-3 text-ink-muted text-pretty">We'll get back within 3 business days.</p>
             </div>
           ) : (
@@ -51,7 +51,7 @@ function Page() {
               className="rounded-2xl bg-snow border border-hairline p-7 lg:p-10 shadow-[0_1px_2px_rgba(28,0,96,0.04),0_8px_24px_-16px_rgba(28,0,96,0.10)]"
               aria-label="Contact form"
             >
-              <h2 className="font-serif text-2xl">Send us a message</h2>
+              <h2 className="font-sans font-semibold tracking-[-0.015em] text-2xl">Send us a message</h2>
               <div className="mt-6 grid sm:grid-cols-2 gap-4">
                 <Field id="cname" label="Your name" required />
                 <Field id="cemail" label="Email" type="email" required />
@@ -84,7 +84,7 @@ function Field({ id, label, type = "text", required }: { id: string; label: stri
   return (
     <div>
       <label htmlFor={id} className="block text-sm font-semibold mb-1.5">
-        {label}{required && <span className="text-coral"> *</span>}
+        {label}{required && <span className="text-gold"> *</span>}
       </label>
       <input id={id} type={type} required={required} className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)] focus:border-primary outline-none transition-colors" />
     </div>

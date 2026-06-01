@@ -42,7 +42,7 @@ function Page() {
         <div className="grid md:grid-cols-2 gap-5">
           {BOARD.map((m) => (
             <div key={m.name} className="rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]">
-              <h3 className="font-serif text-xl text-balance">{m.name}</h3>
+              <h3 className="font-sans font-semibold tracking-[-0.01em] text-xl text-balance">{m.name}</h3>
               <div className="eyebrow mt-1">{m.role}</div>
               <p className="mt-3 text-sm text-ink-muted leading-relaxed text-pretty">{m.bio}</p>
             </div>
@@ -53,7 +53,7 @@ function Page() {
         <ul className="divide-y divide-hairline border-y border-hairline">
           {TEAM.map((m) => (
             <li key={m.name} className="flex justify-between py-5">
-              <div className="font-serif text-lg">{m.name}</div>
+              <div className="font-sans font-semibold text-lg">{m.name}</div>
               <div className="text-sm text-ink-muted">{m.role}</div>
             </li>
           ))}

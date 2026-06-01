@@ -34,7 +34,7 @@ function Page() {
               <div className="font-sans font-bold text-3xl text-primary tabular">
                 <CountUp value={s.value} />
               </div>
-              <div className="mt-3 h-[2px] w-10 bg-coral" />
+              <div className="mt-3 h-[2px] w-10 bg-gold" />
               <div className="eyebrow mt-3">{s.label}</div>
               <p className="mt-1.5 text-sm text-ink-muted">{s.context}</p>
             </div>
@@ -67,7 +67,7 @@ function Page() {
         <ul className="divide-y divide-hairline border-y border-hairline">
           {["2024–25", "2023–24", "2022–23"].map((y) => (
             <li key={y} className="flex items-center justify-between py-5">
-              <span className="font-serif text-lg">Annual Impact Report {y}</span>
+              <span className="font-sans font-semibold text-lg">Annual Impact Report {y}</span>
               <button type="button" className="btn btn-secondary btn-sm">
                 <Download className="h-4 w-4" /> PDF
               </button>

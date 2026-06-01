@@ -34,7 +34,7 @@ function Page() {
               style={{ borderLeft: `4px solid ${p.color}` }}
             >
               <div className="font-mono text-xs text-ink-muted tabular-nums">{p.number}</div>
-              <h2 className="font-serif text-3xl mt-3 text-balance">{p.name}</h2>
+              <h2 className="font-sans font-semibold tracking-[-0.02em] text-3xl mt-3 text-balance">{p.name}</h2>
               <p className="mt-3 text-ink-muted leading-relaxed text-pretty">{p.long}</p>
               <span className="link-arrow mt-6">Explore <ArrowRight className="h-4 w-4" /></span>
             </Link>

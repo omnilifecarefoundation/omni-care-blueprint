@@ -101,7 +101,7 @@ function Page() {
 
           <aside className="space-y-5">
             <div className="rounded-2xl bg-sage p-6 border border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04)]">
-              <h3 className="font-serif text-xl text-balance">Where your contribution goes</h3>
+              <h3 className="font-sans font-semibold tracking-[-0.01em] text-xl text-balance">Where your contribution goes</h3>
               <ul className="mt-4 space-y-3 text-sm text-ink-muted text-pretty">
                 <li>· ₹1,000 — one month of group support for a participant in the Community Mental Health programme.</li>
                 <li>· ₹5,000 — a full preventive health screening day for 25 villagers.</li>
@@ -109,7 +109,7 @@ function Page() {
               </ul>
             </div>
             <div className="rounded-xl bg-snow p-6 border border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04)]">
-              <h3 className="font-serif text-xl text-balance">Tax exemption</h3>
+              <h3 className="font-sans font-semibold tracking-[-0.01em] text-xl text-balance">Tax exemption</h3>
               <p className="mt-2 text-sm text-ink-muted text-pretty">
                 Donations are eligible for 50% tax deduction under Section 80G of
                 the Income Tax Act. Registration number{" "}
@@ -127,7 +127,7 @@ function Field({ id, label, type = "text", required }: { id: string; label: stri
   return (
     <div>
       <label htmlFor={id} className="block text-sm font-semibold mb-1.5">
-        {label}{required && <span className="text-coral"> *</span>}
+        {label}{required && <span className="text-gold"> *</span>}
       </label>
       <input id={id} type={type} required={required} className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)] focus:border-primary outline-none transition-colors" />
     </div>
