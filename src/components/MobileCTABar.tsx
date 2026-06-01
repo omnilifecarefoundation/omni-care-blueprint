@@ -22,7 +22,7 @@ export function MobileCTABar() {
       <div className="flex gap-2 p-3 bg-canvas/95 backdrop-blur border-t border-hairline shadow-[0_-2px_12px_rgba(11,59,60,0.06)]">
         <Link
           to="/donate"
-          className="flex-1 text-center text-[14px] font-medium text-ink bg-white border border-hairline rounded-full py-2.5"
+          className="flex-1 text-center text-[14px] font-medium text-ink bg-white border border-hairline rounded-full py-2.5 transition-[border-color,box-shadow] hover:border-ink/30 active:scale-[0.97]"
           tabIndex={show ? 0 : -1}
         >
           Donate

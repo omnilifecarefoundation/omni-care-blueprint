@@ -51,12 +51,12 @@ function ProgramPage() {
 
       <section className="container-editorial py-16 lg:py-24">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-12">
-          <aside className="space-y-6">
-            <div className="border border-hairline p-5 bg-snow">
+          <aside className="space-y-5">
+            <div className="rounded-xl bg-snow border border-hairline p-5 shadow-[0_1px_2px_rgba(28,0,96,0.04)]">
               <div className="eyebrow mb-2">Outcome to date</div>
-              <p className="font-serif text-xl text-ink">{program.outcome}</p>
+              <p className="font-serif text-xl text-ink text-balance">{program.outcome}</p>
             </div>
-            <div className="border border-hairline p-5 bg-snow">
+            <div className="rounded-xl bg-snow border border-hairline p-5 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25">
               <div className="eyebrow mb-2">Pillar</div>
               <Link to={pillar.href} className="link-arrow">
                 {pillar.name} <ArrowRight className="h-4 w-4" />
@@ -64,8 +64,8 @@ function ProgramPage() {
             </div>
           </aside>
           <div>
-            <div className="aspect-[16/10] overflow-hidden mb-10">
-              <img src={program.image} alt={program.name} className="h-full w-full object-cover" loading="lazy" width={1600} height={1000} />
+            <div className="aspect-[16/10] overflow-hidden rounded-2xl mb-10">
+              <img src={program.image} alt={program.name} className="h-full w-full object-cover outline outline-1 -outline-offset-1 outline-ink/10" loading="lazy" width={1600} height={1000} />
             </div>
             <div className="prose prose-lg max-w-none space-y-5 text-ink-muted text-lg leading-relaxed">
               {program.body.map((para: string, i: number) => (

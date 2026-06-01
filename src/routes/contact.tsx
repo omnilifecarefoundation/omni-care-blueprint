@@ -41,14 +41,14 @@ function Page() {
           </aside>
 
           {sent ? (
-            <div className="bg-sage p-8 border border-hairline">
-              <h2 className="font-serif text-2xl">Thanks — your message is in.</h2>
-              <p className="mt-3 text-ink-muted">We'll get back within 3 business days.</p>
+            <div className="rounded-2xl bg-sage p-8 border border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04)]">
+              <h2 className="font-serif text-2xl text-balance">Thanks — your message is in.</h2>
+              <p className="mt-3 text-ink-muted text-pretty">We'll get back within 3 business days.</p>
             </div>
           ) : (
             <form
               onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-              className="bg-snow border border-hairline p-7 lg:p-10"
+              className="rounded-2xl bg-snow border border-hairline p-7 lg:p-10 shadow-[0_1px_2px_rgba(28,0,96,0.04),0_8px_24px_-16px_rgba(28,0,96,0.10)]"
               aria-label="Contact form"
             >
               <h2 className="font-serif text-2xl">Send us a message</h2>
@@ -57,7 +57,7 @@ function Page() {
                 <Field id="cemail" label="Email" type="email" required />
                 <div className="sm:col-span-2">
                   <label htmlFor="ctopic" className="block text-sm font-semibold mb-1.5">Topic</label>
-                  <select id="ctopic" className="w-full h-12 px-4 bg-canvas border border-hairline focus:border-primary outline-none">
+                  <select id="ctopic" className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)] focus:border-primary outline-none transition-colors">
                     <option>General enquiry</option>
                     <option>CSR partnership</option>
                     <option>Media enquiry</option>
@@ -68,7 +68,7 @@ function Page() {
                 </div>
                 <div className="sm:col-span-2">
                   <label htmlFor="cmsg" className="block text-sm font-semibold mb-1.5">Message</label>
-                  <textarea id="cmsg" rows={5} required className="w-full px-4 py-3 bg-canvas border border-hairline focus:border-primary outline-none" />
+                  <textarea id="cmsg" rows={5} required className="w-full px-4 py-3 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)] focus:border-primary outline-none transition-colors" />
                 </div>
               </div>
               <button type="submit" className="btn btn-primary mt-6">Send message</button>
@@ -86,7 +86,7 @@ function Field({ id, label, type = "text", required }: { id: string; label: stri
       <label htmlFor={id} className="block text-sm font-semibold mb-1.5">
         {label}{required && <span className="text-coral"> *</span>}
       </label>
-      <input id={id} type={type} required={required} className="w-full h-12 px-4 bg-canvas border border-hairline focus:border-primary outline-none" />
+      <input id={id} type={type} required={required} className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)] focus:border-primary outline-none transition-colors" />
     </div>
   );
 }
