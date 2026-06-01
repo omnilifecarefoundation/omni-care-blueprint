@@ -270,13 +270,13 @@ function Page() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-5">
+          <ul className="divide-y divide-hairline border-y border-hairline">
             {list.map((p, i) => (
-              <FadeUp key={p.slug} delay={Math.min(i * 70, 280)}>
-                <ProgrammeCard p={p} />
+              <FadeUp as="li" key={p.slug} delay={Math.min(i * 50, 240)}>
+                <ProgrammeRow p={p} onOpen={() => setOpen(p)} />
               </FadeUp>
             ))}
-          </div>
+          </ul>
 
           {list.length === 0 && (
             <p className="mt-10 text-sm text-ink-muted">No programmes match that pillar yet.</p>
@@ -284,43 +284,63 @@ function Page() {
         </div>
       </section>
 
-      {/* The reporting promise */}
+      {/* The reporting promise — redesigned as a quarterly ledger */}
       <section className="bg-sage border-b border-hairline">
         <div className="container-editorial py-20 lg:py-24">
-          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-16">
+          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-16 mb-12 lg:mb-14">
             <FadeUp>
               <div className="space-y-4">
                 <div className="eyebrow">The reporting promise</div>
                 <h2 className="font-sans font-semibold text-[clamp(1.625rem,2.6vw,2.125rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-                  Every programme, every quarter, in the same shape.
+                  Every quarter, every programme, the same six lines.
                 </h2>
               </div>
             </FadeUp>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {[
-                { k: "Scope", v: "Wards, partner sites, and the eligible population — written down." },
-                { k: "Activity", v: "Sessions held, screenings completed, referrals made. Counted, not estimated." },
-                { k: "Linkage", v: "Share of positive screens that completed a follow-up within fourteen days." },
-                { k: "Spend", v: "Rupees in, rupees out, by line item — reconciled to the bank statement." },
-                { k: "What did not work", v: "A short, named list. Closed by the next quarter or escalated." },
-                { k: "What we learned", v: "One paragraph per programme — written in plain language." },
-              ].map((m, i) => (
-                <FadeUp key={m.k} delay={80 + i * 60}>
-                  <article className="h-full rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]">
-                    <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted">
-                      Field
-                    </div>
-                    <h3 className="mt-2 font-sans font-semibold text-[1.0625rem] text-ink">
+            <FadeUp delay={80}>
+              <p className="text-[1.0625rem] leading-[1.7] text-ink-muted text-pretty max-w-2xl">
+                A quarterly report is a contract with the people who fund us and the people we
+                serve. Ours is short, identical in shape across programmes, and published on the
+                same day each quarter — so it can be compared, not just read.
+              </p>
+            </FadeUp>
+          </div>
+
+          <FadeUp delay={120}>
+            <div className="rounded-2xl bg-snow border border-hairline overflow-hidden shadow-[0_1px_2px_rgba(28,0,96,0.04),0_18px_40px_-28px_rgba(28,0,96,0.18)]">
+              <div className="flex items-center justify-between gap-4 px-6 lg:px-8 py-4 border-b border-hairline bg-canvas">
+                <div className="flex items-center gap-3">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted">
+                    Quarterly ledger
+                  </span>
+                  <span className="hidden sm:inline font-mono text-[11px] text-ink-muted tabular-nums">
+                    · published within 30 days of quarter close
+                  </span>
+                </div>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-snow px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-muted">
+                  <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-gold" />
+                  Same shape, every time
+                </span>
+              </div>
+              <ol className="divide-y divide-hairline">
+                {LEDGER.map((m, i) => (
+                  <li
+                    key={m.k}
+                    className="grid grid-cols-[auto_minmax(0,1fr)] sm:grid-cols-[auto_10rem_minmax(0,1fr)] items-baseline gap-x-5 gap-y-1 px-6 lg:px-8 py-5"
+                  >
+                    <span className="font-mono text-[12px] text-ink-muted tabular-nums">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-sans font-semibold text-[1rem] text-ink tracking-[-0.005em]">
                       {m.k}
                     </h3>
-                    <p className="mt-2 text-[14px] text-ink-muted leading-[1.6] text-pretty">
+                    <p className="col-span-2 sm:col-span-1 text-[14.5px] leading-[1.6] text-ink-muted text-pretty">
                       {m.v}
                     </p>
-                  </article>
-                </FadeUp>
-              ))}
+                  </li>
+                ))}
+              </ol>
             </div>
-          </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -331,9 +351,20 @@ function Page() {
         primary={{ label: "Partner on a programme", href: "/partner/csr" }}
         secondary={{ label: "Volunteer with us", href: "/get-involved/volunteer" }}
       />
+
+      <ProgrammeDialog programme={open} onClose={() => setOpen(null)} />
     </>
   );
 }
+
+const LEDGER: { k: string; v: string }[] = [
+  { k: "Scope", v: "Wards, partner sites, and the eligible population — written down, not estimated." },
+  { k: "Activity", v: "Sessions held, screenings completed, referrals made. Counted from the register." },
+  { k: "Linkage", v: "Share of positive screens that completed a follow-up within fourteen days." },
+  { k: "Spend", v: "Rupees in, rupees out, by line item — reconciled to the bank statement." },
+  { k: "What did not work", v: "A short, named list. Closed by the next quarter, or escalated in writing." },
+  { k: "What we learned", v: "One paragraph per programme — in plain language, signed by the lead." },
+];
 
 function ProgrammeCard({ p }: { p: Programme }) {
   const pillar = PILLARS.find((x) => x.id === p.pillar)!;
