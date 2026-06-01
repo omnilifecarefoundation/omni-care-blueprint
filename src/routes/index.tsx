@@ -63,7 +63,7 @@ function Hero() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left — content */}
           <div className="lg:col-span-7 space-y-8">
-            <FadeUp>
+            <FadeUp delay={0}>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-2 bg-sage border border-hairline rounded-full pl-2 pr-4 py-1.5 text-[12px] text-ink">
                   <span className="relative flex h-2 w-2">
@@ -77,30 +77,34 @@ function Hero() {
               </div>
             </FadeUp>
 
-            <FadeUp>
-              <h1 className="font-sans font-semibold text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.05] tracking-[-0.025em] text-ink">
-                Equitable, dignified care for every{" "}
-                <span className="font-display-italic text-gold">community in India</span>.
+            <FadeUp delay={100}>
+              <h1 className="font-sans font-semibold text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.05] tracking-[-0.025em] text-ink text-balance">
+                Care that reaches{" "}
+                <span className="font-display-italic text-gold">every doorstep</span>{" "}
+                in India.
               </h1>
-              <p className="lead mt-6 max-w-xl">
-                We strengthen community health and wellbeing through inclusive,
-                community-centred initiatives that improve access to essential care
-                across India's underserved populations.
+            </FadeUp>
+
+            <FadeUp delay={200}>
+              <p className="lead max-w-xl text-pretty">
+                For 1.2 million people across 6 states, dignified healthcare is no
+                longer a question of where you live. It's already on the way —
+                delivered by 210 trained community health workers, every day.
               </p>
             </FadeUp>
 
-            <FadeUp>
+            <FadeUp delay={300}>
               <div className="flex flex-col sm:flex-row gap-3">
                 <PillButton to="/partner/csr" variant="primary">
                   Partner with Us
                 </PillButton>
                 <PillButton to="/donate" variant="ghost">
-                  Make a Donation
+                  Fund a Community
                 </PillButton>
               </div>
             </FadeUp>
 
-            <FadeUp>
+            <FadeUp delay={400}>
               <dl className="pt-8 border-t border-hairline grid grid-cols-3 gap-4 sm:gap-6 max-w-lg">
                 {[
                   { v: "1.2M+", l: "Lives reached" },
@@ -120,31 +124,32 @@ function Hero() {
 
           {/* Right — framed photo + floating compliance card */}
           <div className="lg:col-span-5 relative">
-            <FadeUp>
+            <FadeUp delay={150}>
               <div className="relative">
                 {/* Offset tint layer */}
                 <div
                   aria-hidden="true"
                   className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl bg-primary-glow/20"
                 />
-                {/* Image card */}
-                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-hairline shadow-[0_24px_60px_-20px_rgba(0,61,153,0.25)] bg-sage">
+                {/* Image card — shadows over borders */}
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-sage shadow-[0_1px_2px_rgba(28,0,96,0.08),0_24px_60px_-20px_rgba(28,0,96,0.28)]">
                   <img
                     src={heroImg}
                     alt="A bustling Indian street market with vendors and community members gathered around stalls of fresh produce."
                     width={1200}
                     height={1500}
                     fetchPriority="high"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover outline outline-1 -outline-offset-1 outline-ink/10"
                   />
                   <div
                     aria-hidden="true"
                     className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/70 to-transparent"
                   />
-                  <p className="absolute bottom-5 left-5 right-5 text-canvas/95 text-sm font-display-italic leading-snug">
-                    Care meets community — where India lives, works, and travels.
+                  <p className="absolute bottom-5 left-5 right-5 text-canvas/95 text-sm font-display-italic leading-snug text-balance">
+                    Where India lives, care arrives.
                   </p>
                 </div>
+
 
                 {/* Floating compliance card */}
                 <div className="hidden lg:block absolute -bottom-8 -left-10 bg-canvas border border-hairline rounded-xl shadow-xl p-5 w-[260px]">
