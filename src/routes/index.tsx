@@ -93,9 +93,9 @@ function Hero() {
 
         <div className="grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-16 items-center">
           <FadeUp className="order-2 lg:order-1">
-            <h1 className="font-serif text-[clamp(2.5rem,6vw,5.25rem)] leading-[1.02] tracking-[-0.02em] text-ink">
+            <h1 className="font-sans font-semibold text-[clamp(2.5rem,6vw,5.25rem)] leading-[1.02] tracking-[-0.025em] text-ink">
               Equitable,{" "}
-              <span className="italic text-primary">dignified care</span>{" "}
+              <span className="font-display-italic text-primary">dignified care</span>{" "}
               for every community in India.
             </h1>
             <p className="lead mt-6 max-w-xl">
