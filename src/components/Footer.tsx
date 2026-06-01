@@ -49,13 +49,10 @@ export function Footer() {
       <div className="container-editorial py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2.5 mb-4">
-              <Logo />
-              <div>
-                <div className="font-serif text-lg text-canvas">Omni Life Care</div>
-                <div className="text-[10px] uppercase tracking-[0.18em] text-canvas/60">Foundation</div>
-              </div>
+            <div className="mb-4">
+              <Logo onDark />
             </div>
+
             <p className="text-sm text-canvas/70 max-w-xs leading-relaxed">
               {SITE.tagline} An India-based foundation strengthening community health and wellbeing.
             </p>

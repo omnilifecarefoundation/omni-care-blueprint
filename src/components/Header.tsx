@@ -112,10 +112,10 @@ export function Header() {
           style={{ transitionTimingFunction: "var(--ease-sheet)" }}
         >
           <div className="flex items-center justify-between p-5 border-b border-hairline">
-            <div className="flex items-center gap-2.5">
-              <Logo />
-              <span className="font-serif text-lg">Omni Life Care</span>
-            </div>
+          <div className="flex items-center gap-2.5">
+            <Logo />
+          </div>
+
             <button
               type="button"
               onClick={() => setOpen(false)}
@@ -198,26 +198,21 @@ export function Header() {
   );
 }
 
-export function Logo({ className = "" }: { className?: string }) {
+import logoSrc from "@/assets/omni-logo.png";
+
+export function Logo({ className = "", onDark = false }: { className?: string; onDark?: boolean }) {
   return (
-    <div
-      className={`w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-full flex items-center justify-center ${className}`}
+    <span
+      className={`inline-flex items-center ${onDark ? "bg-white rounded-md px-2 py-1" : ""} ${className}`}
     >
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 28 28"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <rect x="4" y="9" width="2" height="14" fill="#4D9FFF" />
-        <rect x="11" y="9" width="2" height="14" fill="#4A7C59" />
-        <rect x="18" y="9" width="2" height="14" fill="#B8553A" />
-        <rect x="25" y="9" width="2" height="14" fill="#C9912C" />
-        <path d="M4 8 Q15 2 27 8" stroke="#FBFAF6" strokeWidth="1.5" fill="none" />
-        <line x1="2" y1="24" x2="28" y2="24" stroke="#FBFAF6" strokeWidth="1" />
-      </svg>
-    </div>
+      <img
+        src={logoSrc}
+        alt="Omni Lifecare Foundation"
+        className="h-8 sm:h-9 w-auto block"
+        loading="eager"
+        decoding="async"
+      />
+    </span>
   );
 }
+
