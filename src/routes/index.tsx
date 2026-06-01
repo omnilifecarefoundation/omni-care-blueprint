@@ -127,7 +127,7 @@ function Hero() {
           {/* Right — photo */}
           <div className="lg:col-span-5">
             <FadeUp delay={120}>
-              <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-ink/40 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.55)]">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink/40 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.55)]">
                 <img
                   src={heroImg}
                   alt="A community gathered in a Mumbai neighbourhood — where Omni Life Care Foundation begins its work."
@@ -168,12 +168,12 @@ function WhatWeDo() {
           </FadeUp>
         </div>
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-hairline border border-hairline">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
           {PILLARS.map((p, i) => (
             <FadeUp key={p.id} delay={i * 70} as="li">
               <Link
                 to={p.href}
-                className="group relative flex h-full flex-col gap-4 bg-canvas p-6 lg:p-7 transition-colors duration-300 ease-out hover:bg-snow"
+                className="group relative flex h-full flex-col gap-4 rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform,background-color] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/30 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_12px_28px_-20px_rgba(28,0,96,0.22)]"
               >
                 <span
                   className="h-1.5 w-10 rounded-full"
@@ -286,7 +286,7 @@ function Programmes() {
             <FadeUp key={p.slug} delay={i * 70} as="li">
               <Link
                 to={p.href}
-                className="group block bg-snow border border-hairline transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/40 hover:shadow-[0_18px_40px_-24px_rgba(28,0,96,0.30)]"
+                className="group block overflow-hidden rounded-2xl bg-snow border border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04),0_8px_24px_-16px_rgba(28,0,96,0.12)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-1 hover:border-ink/40 hover:shadow-[0_4px_8px_rgba(28,0,96,0.06),0_22px_44px_-22px_rgba(28,0,96,0.32)]"
               >
                 <div className="relative aspect-[5/3] overflow-hidden bg-sage">
                   <img
@@ -418,12 +418,12 @@ function PartnerBand() {
           </FadeUp>
         </div>
 
-        <ul className="grid grid-cols-1 md:grid-cols-3 gap-px bg-snow/10 border border-snow/10">
+        <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
           {cards.map((c, i) => (
             <FadeUp key={c.tag} delay={i * 80} as="li">
               <Link
                 to={c.href}
-                className="group flex h-full flex-col gap-5 bg-ink p-7 lg:p-8 transition-colors duration-300 ease-out hover:bg-[#2A0E80]"
+                className="group flex h-full flex-col gap-5 rounded-2xl border border-snow/15 bg-snow/[0.04] p-7 lg:p-8 transition-[background-color,border-color,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-snow/30 hover:bg-snow/[0.08]"
               >
                 <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold">
                   {c.tag}
@@ -485,10 +485,10 @@ function Trust() {
             </p>
           </FadeUp>
 
-          <ul className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-px bg-hairline border border-hairline">
+          <ul className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
             {items.map((it, i) => (
               <FadeUp key={it.label} delay={i * 70} as="li">
-                <div className="h-full bg-snow p-6 lg:p-7 flex flex-col gap-3">
+                <div className="h-full rounded-xl bg-snow border border-hairline p-6 flex flex-col gap-3 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]">
                   <div className="flex items-center gap-2">
                     <ShieldCheck className="h-4 w-4 text-primary" aria-hidden="true" />
                     <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink tabular-nums">
@@ -590,11 +590,11 @@ function Newsletter() {
                 type="email"
                 required
                 placeholder="you@email.com"
-                className="flex-1 h-11 px-4 rounded-full bg-snow border border-hairline text-[14px] text-ink placeholder:text-ink-muted/70 focus:outline-none focus:border-ink/50 transition-colors"
+                className="flex-1 h-11 px-4 rounded-full bg-snow border border-hairline text-[14px] text-ink placeholder:text-ink-muted/70 shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)] focus:outline-none focus:border-ink/50 transition-colors"
               />
               <button
                 type="submit"
-                className="h-11 px-5 rounded-full bg-ink text-snow text-[13px] font-medium transition-[background-color,scale] duration-200 ease-out hover:bg-primary-deep active:scale-[0.96]"
+                className="h-11 px-5 rounded-full bg-ink text-snow text-[13px] font-medium transition-[background-color,box-shadow,scale] duration-200 ease-out hover:bg-primary-deep hover:shadow-[0_4px_12px_-4px_rgba(28,0,96,0.45)] active:scale-[0.96]"
               >
                 Subscribe
               </button>
