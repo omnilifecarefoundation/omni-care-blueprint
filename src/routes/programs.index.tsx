@@ -390,12 +390,6 @@ function ProgrammeDialog({
                 background: `linear-gradient(180deg, color-mix(in oklab, ${pillar.color} 14%, var(--canvas)) 0%, var(--canvas) 100%)`,
               }}
             >
-              {/* Top accent rail */}
-              <span
-                aria-hidden="true"
-                className="absolute inset-x-0 top-0 h-[3px]"
-                style={{ background: pillar.color }}
-              />
               <DialogClose
                 className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-hairline bg-snow text-ink-muted transition-[color,border-color,transform] duration-200 hover:text-ink hover:border-ink/40 active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-primary"
                 aria-label="Close"
