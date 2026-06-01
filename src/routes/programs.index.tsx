@@ -180,7 +180,7 @@ function Page() {
           <PillButton to="/about/omni-care-model" variant="on-dark">
             See the Omni Care Model
           </PillButton>
-          <PillButton to="/partner/csr" variant="on-dark-outline">
+          <PillButton to="/partner/csr" variant="ghost">
             Partner on a programme
           </PillButton>
         </div>
