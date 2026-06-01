@@ -65,11 +65,12 @@ export function Header() {
 
             <button
               type="button"
-              onClick={() => setOpen(true)}
-              aria-label="Open menu"
+              onClick={() => setOpen((v) => !v)}
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
               className="lg:hidden w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground active:scale-[0.96] transition-transform"
             >
-              <Menu size={18} aria-hidden="true" />
+              <MenuToggleIcon open={open} className="w-[18px] h-[18px]" />
             </button>
           </nav>
         </div>
