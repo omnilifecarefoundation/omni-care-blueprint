@@ -291,10 +291,10 @@
   .btn-ghost:hover { background-color: var(--color-hairline); }
 
   .btn-on-dark {
-    background-color: var(--color-coral);
-    color: var(--color-snow);
+    background-color: var(--color-gold);
+    color: var(--color-ink);
   }
-  .btn-on-dark:hover { background-color: #0066FF; }
+  .btn-on-dark:hover { background-color: #E6C000; }
 
   .btn-secondary-on-dark {
     background-color: transparent;
