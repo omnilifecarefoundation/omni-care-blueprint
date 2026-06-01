@@ -20,11 +20,27 @@ export const Route = createFileRoute("/about/")({
   component: AboutIndex,
 });
 
-const PROOF = [
-  { value: "120,000", label: "Lives reached", context: "Across community health, mental wellbeing, and inclusion." },
-  { value: "6", label: "States", context: "Maharashtra, Karnataka, Tamil Nadu, MP, Odisha, UP." },
-  { value: "85", label: "Communities", context: "Programmes co-designed with district partners." },
-  { value: "100%", label: "Audit-ready", context: "12A, 80G, CSR-1 and FCRA on record." },
+const PRINCIPLES = [
+  {
+    n: "01",
+    title: "We start with the household, not the headline.",
+    body: "Health, mind, ability and livelihood show up in the same family. We design programmes that travel together — not four parallel projects that never speak.",
+  },
+  {
+    n: "02",
+    title: "Evidence before scale.",
+    body: "We would rather serve fifty families well and measure it honestly than claim a number we cannot defend. Outcomes are published — including the ones that disappoint us.",
+  },
+  {
+    n: "03",
+    title: "The community holds the pen.",
+    body: "Every programme is co-designed with the people it serves and the district partners already doing the work. We do not arrive with answers; we arrive with questions.",
+  },
+  {
+    n: "04",
+    title: "Open books, by default.",
+    body: "Governance, finances, donor reports and field learnings are public. If you fund us, you see everything — not a curated highlight reel.",
+  },
 ];
 
 const FEATURE = {
@@ -50,23 +66,46 @@ function AboutIndex() {
       <PageHero
         eyebrow="About"
         title="An integrated model of care, built around the family — not the funder."
-        lead="Omni Life Care Foundation works at the intersection of community health, mental wellbeing, inclusive care, and human potential. 120,000 lives reached, six states, one model — designed with the people it serves."
+        lead="Omni Life Care Foundation is a new India-based foundation working at the intersection of community health, mental wellbeing, inclusive care, and human potential. One model. Four pillars. Designed with the people it serves — and held to the receipts."
       />
 
-      {/* Proof strip */}
+      {/* Where we stand on day one */}
       <section className="bg-snow border-b border-hairline">
-        <div className="container-editorial py-12 lg:py-16">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6">
-            {PROOF.map((p) => (
-              <div key={p.label} className="border-l border-hairline pl-5">
-                <div className="font-sans font-semibold text-3xl text-primary tabular-nums tracking-[-0.02em]">
-                  {p.value}
-                </div>
-                <div className="mt-3 h-[2px] w-10 bg-gold" />
-                <div className="eyebrow mt-3">{p.label}</div>
-                <p className="mt-1.5 text-sm text-ink-muted text-pretty">{p.context}</p>
+        <div className="container-editorial py-20 lg:py-24">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+            <div className="lg:col-span-4">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                <span className="eyebrow">Where we stand</span>
               </div>
-            ))}
+              <h2 className="font-sans font-semibold tracking-[-0.025em] text-3xl md:text-4xl text-ink text-balance leading-[1.1]">
+                We are new. So we are saying out loud what we will be held to.
+              </h2>
+              <p className="mt-5 text-ink-muted text-pretty leading-relaxed">
+                A new foundation cannot trade on a track record it has not earned. It can trade on the discipline it brings to day one — and the willingness to publish what happens next.
+              </p>
+            </div>
+
+            <ol className="lg:col-span-8 divide-y divide-hairline border-y border-hairline">
+              {PRINCIPLES.map((p) => (
+                <li
+                  key={p.n}
+                  className="group grid grid-cols-[3rem_1fr] md:grid-cols-[5rem_1fr] gap-4 md:gap-8 py-7 md:py-8 transition-colors duration-200 ease-out"
+                >
+                  <span className="font-sans text-sm tabular-nums tracking-[0.12em] text-ink-muted pt-1 transition-colors duration-200 ease-out group-hover:text-gold">
+                    {p.n}
+                  </span>
+                  <div>
+                    <h3 className="font-sans font-semibold tracking-[-0.015em] text-xl md:text-2xl text-ink text-balance leading-[1.25]">
+                      {p.title}
+                    </h3>
+                    <p className="mt-3 text-ink-muted text-pretty leading-relaxed max-w-xl">
+                      {p.body}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </section>
