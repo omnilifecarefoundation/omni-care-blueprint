@@ -285,10 +285,7 @@ function Page() {
                 <a
                   href="mailto:careers@omnilifecare.org?subject=Talent%20pool"
                   className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-ink underline decoration-hairline underline-offset-4 transition-colors hover:decoration-ink"
-                >
-                  Write to careers@omnilifecare.org
-                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </a>
+                ><span>Write to careers@omnilifecare.org</span><ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></a>
               </article>
             </FadeUp>
           </div>
