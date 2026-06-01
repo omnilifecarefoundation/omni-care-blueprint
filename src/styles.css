@@ -53,9 +53,9 @@
   --color-pillar-inclusive: var(--pillar-inclusive);
   --color-pillar-human: var(--pillar-human);
 
-  --font-serif: "General Sans", system-ui, -apple-system, sans-serif;
-  --font-sans: "General Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-body: "Excon", Georgia, "Times New Roman", serif;
+  --font-serif: "Tillana", Georgia, "Times New Roman", serif;
+  --font-sans: "Fira Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Telex", system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
 
   --color-primary-glow: var(--primary-glow);
