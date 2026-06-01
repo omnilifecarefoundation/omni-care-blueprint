@@ -266,13 +266,13 @@
     background-color: var(--color-primary);
     color: var(--color-primary-foreground);
   }
-  .btn-primary:hover { background-color: #003D99; }
+  .btn-primary:hover { background-color: #0A2A5E; }
 
   .btn-coral {
-    background-color: var(--color-coral);
-    color: var(--color-snow);
+    background-color: var(--color-gold);
+    color: var(--color-ink);
   }
-  .btn-coral:hover { background-color: #0066FF; }
+  .btn-coral:hover { background-color: #E6C000; }
 
   .btn-secondary {
     background-color: var(--color-snow);
