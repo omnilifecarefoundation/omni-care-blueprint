@@ -51,7 +51,7 @@ function Page() {
                 <span className="chip" style={{ color: pillar.color }}>
                   <span className="chip-dot" /> {pillar.name}
                 </span>
-                <h2 className="mt-4 font-serif text-xl leading-snug text-balance">{s.headline}</h2>
+                <h2 className="mt-4 font-sans font-semibold tracking-[-0.01em] text-xl leading-snug text-balance">{s.headline}</h2>
                 <p className="mt-3 text-sm text-ink-muted leading-relaxed text-pretty">{s.preview}</p>
                 <p className="mt-5 text-sm text-ink-muted">— {s.name}, {s.location}</p>
               </article>

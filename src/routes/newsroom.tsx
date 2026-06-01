@@ -32,7 +32,7 @@ function Page() {
             <li key={n.title} className="grid md:grid-cols-[160px_1fr] gap-6 py-8">
               <div className="flex md:flex-col gap-2 md:gap-1">
                 <span className="font-mono text-xs text-ink-muted tabular">{n.date}</span>
-                <span className="font-mono text-xs text-gold tabular">{n.cat}</span>
+                <span className="font-mono text-xs text-primary tabular tracking-wider">{n.cat}</span>
               </div>
               <div>
                 <h2 className="font-sans font-semibold tracking-[-0.015em] text-2xl text-ink leading-snug">{n.title}</h2>
