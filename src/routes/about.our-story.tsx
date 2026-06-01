@@ -177,8 +177,11 @@ function TheChoice() {
       <div className="container-editorial py-20 lg:py-28">
         <FadeUp>
           <p className="eyebrow mb-4">Four choices we made before writing a budget</p>
-          <h2 className="font-sans font-semibold text-[clamp(1.625rem,2.6vw,2.25rem)] leading-[1.12] tracking-[-0.02em] text-ink text-balance max-w-3xl">
-            A foundation is shaped less by what it does than by what it decided not to do.
+          <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance max-w-3xl">
+            A foundation is shaped less by what it does{" "}
+            <em className="font-serif italic font-medium text-primary">
+              than by what it decided not to do.
+            </em>
           </h2>
         </FadeUp>
 
@@ -230,8 +233,11 @@ function Roadmap() {
         <div className="grid lg:grid-cols-12 gap-x-10 gap-y-8">
           <FadeUp className="lg:col-span-5">
             <p className="eyebrow mb-4">The first twelve months</p>
-            <h2 className="font-sans font-semibold text-[clamp(1.625rem,2.6vw,2.25rem)] leading-[1.12] tracking-[-0.02em] text-ink text-balance">
-              The roadmap, written before the work — not after.
+            <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
+              The roadmap, written{" "}
+              <em className="font-serif italic font-medium text-primary">
+                before the work — not after.
+              </em>
             </h2>
             <p className="lead mt-5 max-w-md">
               We publish what we plan to do, in the order we plan to do it, so that next year&rsquo;s annual report has something honest to be measured against.
