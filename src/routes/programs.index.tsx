@@ -452,13 +452,18 @@ function ProgrammeDialog({
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <DetailBlock label="What we will do" items={programme.doing} />
-                <DetailBlock label="What we will publish" items={programme.publish} accent />
+                <DetailBlock
+                  label="What we will publish"
+                  items={programme.publish}
+                  accentColor={pillar.color}
+                />
               </div>
 
               <div className="pt-5 border-t border-hairline grid grid-cols-2 gap-5">
                 <Meta label="CSR entry" value={programme.schedule} />
-                <Meta label="SDG alignment" value={programme.sdg} />
+                <Meta label="SDG alignment" value={programme.sdg} accentColor={pillar.color} />
               </div>
+
             </div>
 
             {/* Footer */}
