@@ -433,4 +433,14 @@
     animation: marquee 40s linear infinite;
   }
   .marquee-track:hover { animation-play-state: paused; }
+
+  /* Mega-nav column reveal */
+  @keyframes mega-in {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+  }
 }
