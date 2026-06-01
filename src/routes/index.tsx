@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, ShieldCheck, FileCheck2, Building2, Heart, HandHeart, Users, Download } from "lucide-react";
-import heroImg from "@/assets/hero-community-health.jpg";
+import heroImg from "@/assets/hero-market.jpg";
 import storySunita from "@/assets/story-sunita.jpg";
 import { COMPLIANCE, PILLARS, PROGRAMS, SITE, STATS, STORIES, PILLAR_BY_ID } from "@/lib/site";
 import { OmniCareDiagram } from "@/components/OmniCareDiagram";
@@ -58,47 +58,54 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative bg-canvas overflow-hidden">
-      {/* Ambient background accents */}
+    <section className="relative overflow-hidden bg-ink">
+      {/* Background image */}
+      <img
+        src={heroImg}
+        alt="A bustling Indian street market with vendors and community members gathered around stalls of fresh produce."
+        width={2400}
+        height={1300}
+        fetchPriority="high"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      {/* Readability overlays */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-32 -right-32 w-[520px] h-[520px] rounded-full opacity-60 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, rgba(74,124,89,0.18), transparent 70%)" }}
+        className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/60 to-ink/20"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-40 -left-40 w-[460px] h-[460px] rounded-full opacity-50 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, rgba(184,85,58,0.16), transparent 70%)" }}
+        className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/30"
       />
 
-      <div className="relative container-editorial pt-6 pb-14 lg:pt-10 lg:pb-28">
+      <div className="relative container-editorial pt-6 pb-16 lg:pt-10 lg:pb-32">
         {/* Top status pill */}
         <FadeUp>
           <div className="flex flex-wrap items-center gap-2 mb-8 lg:mb-12">
-            <span className="inline-flex items-center gap-2 bg-white border border-hairline rounded-full pl-2 pr-4 py-1.5 text-[12px] text-ink shadow-[0_1px_2px_rgba(11,59,60,0.04)]">
+            <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/20 rounded-full pl-2 pr-4 py-1.5 text-[12px] text-canvas">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-coral opacity-75 animate-ping" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-coral" />
               </span>
-              <span className="font-mono tabular text-ink-muted">Live</span>
-              <span className="text-ink-muted">·</span>
+              <span className="font-mono tabular text-canvas/70">Live</span>
+              <span className="text-canvas/50">·</span>
               <span>Working across 6 states in India</span>
             </span>
-            <span className="hidden sm:inline-flex items-center gap-1.5 bg-sage rounded-full px-3 py-1.5 text-[12px] text-ink">
-              <ShieldCheck className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+            <span className="hidden sm:inline-flex items-center gap-1.5 bg-white/10 backdrop-blur border border-white/20 rounded-full px-3 py-1.5 text-[12px] text-canvas">
+              <ShieldCheck className="h-3.5 w-3.5 text-primary-glow" aria-hidden="true" />
               12A · 80G · CSR-1 · FCRA
             </span>
           </div>
         </FadeUp>
 
-        <div className="grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-16 items-center">
-          <FadeUp className="order-2 lg:order-1">
-            <h1 className="font-sans font-semibold text-[clamp(2.5rem,6vw,5.25rem)] leading-[1.02] tracking-[-0.025em] text-ink">
+        <div className="max-w-3xl">
+          <FadeUp>
+            <h1 className="font-sans font-semibold text-[clamp(2.5rem,6vw,5.25rem)] leading-[1.02] tracking-[-0.025em] text-canvas">
               Equitable,{" "}
-              <span className="font-display-italic text-primary">dignified care</span>{" "}
+              <span className="font-display-italic text-primary-glow">dignified care</span>{" "}
               for every community in India.
             </h1>
-            <p className="lead mt-6 max-w-xl">
+            <p className="lead mt-6 max-w-xl text-canvas/85">
               We strengthen community health and wellbeing through inclusive,
               community-centred initiatives that improve access to essential care
               across India's underserved populations.
@@ -113,63 +120,20 @@ function Hero() {
             </div>
 
             {/* Inline mini-stats */}
-            <dl className="mt-10 grid grid-cols-3 gap-4 sm:gap-6 max-w-lg">
+            <dl className="mt-12 grid grid-cols-3 gap-4 sm:gap-6 max-w-lg">
               {[
                 { v: "1.2M+", l: "Lives reached" },
                 { v: "210", l: "CHWs trained" },
                 { v: "6", l: "States active" },
               ].map((s) => (
-                <div key={s.l} className="border-t border-hairline pt-3">
-                  <dt className="font-sans font-bold text-2xl lg:text-3xl text-primary tabular leading-none">
+                <div key={s.l} className="border-t border-white/20 pt-3">
+                  <dt className="font-sans font-bold text-2xl lg:text-3xl text-primary-glow tabular leading-none">
                     {s.v}
                   </dt>
-                  <dd className="mt-2 text-[12px] text-ink-muted leading-snug">{s.l}</dd>
+                  <dd className="mt-2 text-[12px] text-canvas/75 leading-snug">{s.l}</dd>
                 </div>
               ))}
             </dl>
-          </FadeUp>
-
-          <FadeUp delay={120} className="order-1 lg:order-2">
-            <div className="relative">
-              {/* Floating accent card behind */}
-              <div
-                aria-hidden="true"
-                className="absolute -inset-3 lg:-inset-4 rounded-[2rem] bg-gradient-to-br from-sage to-sandstone/50"
-              />
-              <div className="relative aspect-[4/5] lg:aspect-[5/6] overflow-hidden rounded-[1.75rem] shadow-[0_20px_60px_-20px_rgba(11,59,60,0.25)]">
-                <img
-                  src={heroImg}
-                  alt="A community health worker speaking with an elderly woman outside a rural clinic in Maharashtra, India."
-                  width={1600}
-                  height={1200}
-                  className="h-full w-full object-cover"
-                  fetchPriority="high"
-                />
-                {/* Floating top-right chip */}
-                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur rounded-full pl-2 pr-3.5 py-1.5 flex items-center gap-2 shadow-[0_4px_16px_rgba(11,59,60,0.12)]">
-                  <span className="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
-                    <Heart size={12} aria-hidden="true" />
-                  </span>
-                  <span className="text-[12px] text-ink font-medium">Community-led care</span>
-                </div>
-                {/* Bottom location strip */}
-                <div className="absolute inset-x-0 bottom-0 p-4 lg:p-5 bg-gradient-to-t from-ink/80 via-ink/40 to-transparent">
-                  <div className="flex items-end justify-between gap-3">
-                    <div>
-                      <p className="text-canvas/70 text-[11px] font-mono tabular uppercase tracking-wider">
-                        On the ground
-                      </p>
-                      <p className="text-canvas font-serif text-lg leading-tight mt-0.5">
-                        Solapur district, Maharashtra
-                      </p>
-                    </div>
-                    <span className="text-canvas/90 text-[11px] font-mono tabular bg-white/10 backdrop-blur border border-white/15 rounded-full px-2.5 py-1">
-                      2024
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
           </FadeUp>
         </div>
       </div>
