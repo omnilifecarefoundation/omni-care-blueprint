@@ -4,7 +4,14 @@ import { PageHero } from "@/components/PageHero";
 import { CTABand } from "@/components/CTABand";
 import { FadeUp } from "@/components/FadeUp";
 import { PILLARS } from "@/lib/site";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "@/components/ui/dialog";
 
 export const Route = createFileRoute("/programs/")({
   head: () => ({
