@@ -230,10 +230,171 @@ export const PROGRAMS: Program[] = [
 export const NAV: Array<{ label: string; href: string }> = [
   { label: "About", href: "/about" },
   { label: "What We Do", href: "/what-we-do" },
+  { label: "Programmes", href: "/programs" },
   { label: "Impact", href: "/impact" },
-  { label: "Research", href: "/programs/research-impact-assessment" },
   { label: "Get Involved", href: "/get-involved" },
   { label: "Newsroom", href: "/newsroom" },
+];
+
+// Mega-menu schema consumed by MegaNav / MobileNav.
+export type MegaItem = {
+  label: string;
+  href: string;
+  description?: string;
+  swatch?: string;
+};
+export type MegaColumn = {
+  heading?: string;
+  items: MegaItem[];
+};
+export type MegaFeature = {
+  eyebrow: string;
+  title: string;
+  body: string;
+  href: string;
+  cta: string;
+  tone?: "ink" | "sage" | "snow";
+};
+export type MegaSection = {
+  key: string;
+  label: string;
+  href: string;
+  blurb?: string;
+  columns: MegaColumn[];
+  feature?: MegaFeature;
+};
+
+const ABOUT_LINKS: MegaItem[] = [
+  { label: "Vision & Mission", href: "/about/vision-mission", description: "What we exist to do." },
+  { label: "Omni Care Model", href: "/about/omni-care-model", description: "Four pillars, one continuum." },
+  { label: "Values", href: "/about/values", description: "The five commitments we hold." },
+  { label: "Our Story", href: "/about/our-story", description: "How a Mumbai foundation began." },
+  { label: "Leadership", href: "/about/leadership", description: "The people accountable." },
+  { label: "Compliance & Trust", href: "/about/compliance", description: "12A, 80G, CSR-1, FCRA." },
+  { label: "Careers", href: "/about/careers", description: "Build with us." },
+];
+
+const PILLAR_ITEMS: MegaItem[] = PILLARS.map((p) => ({
+  label: p.name,
+  href: p.href,
+  description: p.description,
+  swatch: p.color,
+}));
+
+const programsByPillar = (id: Pillar["id"]) =>
+  PROGRAMS.filter((p) => p.pillar === id).map((p) => ({
+    label: p.name,
+    href: p.href,
+    swatch: PILLAR_BY_ID[p.pillar].color,
+  }));
+
+export const MEGA_NAV: MegaSection[] = [
+  {
+    key: "about",
+    label: "About",
+    href: "/about",
+    blurb: "Who we are and how we work.",
+    columns: [
+      { heading: "Organisation", items: ABOUT_LINKS.slice(0, 4) },
+      { heading: "Governance", items: ABOUT_LINKS.slice(4) },
+    ],
+    feature: {
+      eyebrow: "Framework",
+      title: "The Omni Care Model",
+      body: "Four pillars connecting mental, social, inclusive and human care into one continuum.",
+      href: "/about/omni-care-model",
+      cta: "Read the model",
+      tone: "ink",
+    },
+  },
+  {
+    key: "what-we-do",
+    label: "What We Do",
+    href: "/what-we-do",
+    blurb: "Four pillars of integrated community care.",
+    columns: [{ items: PILLAR_ITEMS }],
+    feature: {
+      eyebrow: "All work",
+      title: "See every pillar",
+      body: "From mental wellbeing to the frontline workforce — one connected continuum.",
+      href: "/what-we-do",
+      cta: "Browse all pillars",
+      tone: "sage",
+    },
+  },
+  {
+    key: "programmes",
+    label: "Programmes",
+    href: "/programs",
+    blurb: "Nine active programmes across India.",
+    columns: [
+      { heading: "Mental Wellbeing", items: programsByPillar("mental") },
+      { heading: "Inclusive Care", items: programsByPillar("inclusive") },
+      { heading: "Social Growth", items: programsByPillar("social") },
+      { heading: "Human Potential", items: programsByPillar("human") },
+    ],
+    feature: {
+      eyebrow: "Index",
+      title: "All programmes",
+      body: "Outcomes, geographies and methodology for each programme.",
+      href: "/programs",
+      cta: "View the index",
+      tone: "snow",
+    },
+  },
+  {
+    key: "impact",
+    label: "Impact",
+    href: "/impact",
+    blurb: "Evidence, transparency, and the people behind the numbers.",
+    columns: [
+      {
+        heading: "Reports",
+        items: [
+          { label: "Impact Overview", href: "/impact", description: "Numbers we publish and audit." },
+          { label: "Field Stories", href: "/impact/stories", description: "Lives in the communities we serve." },
+          { label: "Research & Assessment", href: "/programs/research-impact-assessment", description: "Peer-reviewed evidence." },
+        ],
+      },
+    ],
+    feature: {
+      eyebrow: "Live count",
+      title: "1,20,000+ lives reached",
+      body: "Across 6 states, 85+ communities, audited against our reporting promise.",
+      href: "/impact",
+      cta: "Read the ledger",
+      tone: "ink",
+    },
+  },
+  {
+    key: "get-involved",
+    label: "Get Involved",
+    href: "/get-involved",
+    blurb: "Three ways to stand with us.",
+    columns: [
+      {
+        items: [
+          { label: "Volunteer", href: "/get-involved/volunteer", description: "Give time on the ground or remotely." },
+          { label: "Partner — CSR", href: "/partner/csr", description: "Co-design measurable corporate impact." },
+          { label: "Donate", href: "/donate", description: "80G eligible. Every rupee tracked." },
+        ],
+      },
+    ],
+    feature: {
+      eyebrow: "Now",
+      title: "Partner with us",
+      body: "CSR programmes start with a single conversation. We'll respond within two working days.",
+      href: "/partner/csr",
+      cta: "Start a partnership",
+      tone: "sage",
+    },
+  },
+  {
+    key: "newsroom",
+    label: "Newsroom",
+    href: "/newsroom",
+    columns: [],
+  },
 ];
 
 export const COMPLIANCE = [
