@@ -253,7 +253,7 @@
     background-color: var(--color-primary);
     color: var(--color-primary-foreground);
   }
-  .btn-primary:hover { background-color: #072A2B; }
+  .btn-primary:hover { background-color: #1C0060; }
 
   .btn-coral {
     background-color: var(--color-coral);
