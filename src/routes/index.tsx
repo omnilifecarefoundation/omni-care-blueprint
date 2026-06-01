@@ -1,29 +1,32 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, ShieldCheck, FileCheck2, Building2, Heart, HandHeart, Users, Download } from "lucide-react";
+import { ArrowRight, ShieldCheck, Download } from "lucide-react";
 import heroImg from "@/assets/hero-community.jpg";
-import storySunita from "@/assets/story-sunita.jpg";
-import { COMPLIANCE, PILLARS, PROGRAMS, SITE, STATS, STORIES, PILLAR_BY_ID } from "@/lib/site";
+import { COMPLIANCE, PILLARS, PROGRAMS, PILLAR_BY_ID } from "@/lib/site";
 import { OmniCareDiagram } from "@/components/OmniCareDiagram";
-import { CountUp } from "@/components/CountUp";
 import { FadeUp } from "@/components/FadeUp";
-import { ProgramCard } from "@/components/ProgramCard";
-import { IndiaMap } from "@/components/IndiaMap";
 import { PillButton } from "@/components/ui-axion/PillButton";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Omni Life Care Foundation — Care, integrated. Communities, strengthened." },
+      {
+        title:
+          "Omni Life Care Foundation — Mumbai. Four pillars of care, designed to work as one.",
+      },
       {
         name: "description",
         content:
-          "We strengthen community health and wellbeing across India through an integrated model of mental health, inclusive care, women's health, and human potential.",
+          "A newly registered Mumbai-based public charitable trust building an integrated model of mental wellbeing, social growth, inclusive care, and human potential — with the communities it serves.",
       },
-      { property: "og:title", content: "Omni Life Care Foundation" },
+      {
+        property: "og:title",
+        content:
+          "Omni Life Care Foundation — Mumbai. Care, designed as one system.",
+      },
       {
         property: "og:description",
         content:
-          "An India-based foundation strengthening community health through an integrated, evidence-led model of care.",
+          "Newly registered in Mumbai. Four pillars. Four flagship programmes. Built with communities, not for them. Founding partners welcome.",
       },
       { property: "og:url", content: "/" },
       { property: "og:image", content: heroImg },
@@ -38,17 +41,14 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <ImpactCounters />
-      <WhoWeAre />
+      <FoundingMoment />
+      <WhyWeExist />
       <OmniCareSection />
-      <ProgramsSection />
-      <ImpactSplit />
-      <StoriesSection />
-      <CSRBand />
-      <ResearchTeaser />
-      <GetInvolved />
-      <NewsroomStrip />
+      <FlagshipPrograms />
+      <FoundersLetter />
+      <FoundingPartners />
       <ComplianceBand />
+      <ClosingCTA />
       <NewsletterBand />
     </>
   );
@@ -59,63 +59,76 @@ function HomePage() {
 function Hero() {
   return (
     <section className="relative bg-canvas border-b border-hairline overflow-hidden">
-      <div className="container-editorial pt-10 pb-20 lg:pt-16 lg:pb-28">
+      {/* Soft editorial backdrop */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.5]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 8% 12%, rgba(28,0,96,0.05), transparent 45%), radial-gradient(circle at 95% 85%, rgba(180,140,60,0.06), transparent 40%)",
+        }}
+      />
+      <div className="container-editorial relative pt-10 pb-20 lg:pt-16 lg:pb-28">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left — content */}
           <div className="lg:col-span-7 space-y-8">
             <FadeUp delay={0}>
               <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-2 bg-sage border border-hairline rounded-full pl-2 pr-4 py-1.5 text-[12px] text-ink">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animate-ping" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+                <span className="inline-flex items-center gap-2 bg-sage border border-hairline rounded-full pl-3 pr-4 py-1.5 text-[12px] text-ink">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                  <span className="font-mono tabular text-ink-muted uppercase tracking-[0.18em] text-[10px]">
+                    Est. 2026
                   </span>
-                  <span className="font-mono tabular text-ink-muted">Live</span>
                   <span className="text-ink-muted">·</span>
-                  <span>Field operations active across 6 states in India</span>
+                  <span>Mumbai, India — a new public charitable trust</span>
                 </span>
               </div>
             </FadeUp>
 
             <FadeUp delay={100}>
-              <h1 className="font-sans font-semibold text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.05] tracking-[-0.025em] text-ink text-balance">
-                Care that reaches{" "}
-                <span className="font-display-italic text-gold">every doorstep</span>{" "}
-                in India.
+              <h1 className="font-sans font-semibold text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.04] tracking-[-0.025em] text-ink text-balance">
+                Health doesn't live in silos.{" "}
+                <span className="font-display-italic text-gold">
+                  Neither should the care that reaches you.
+                </span>
               </h1>
             </FadeUp>
 
             <FadeUp delay={200}>
               <p className="lead max-w-xl text-pretty">
-                For 1.2 million people across 6 states, dignified healthcare is no
-                longer a question of where you live. It's already on the way —
-                delivered by 210 trained community health workers, every day.
+                Omni Life Care Foundation is a newly registered Mumbai-based
+                public charitable trust building an integrated model of mental
+                wellbeing, social growth, inclusive care, and human potential
+                — designed with the communities it will serve, not for them.
               </p>
             </FadeUp>
 
             <FadeUp delay={300}>
               <div className="flex flex-col sm:flex-row gap-3">
                 <PillButton to="/partner/csr" variant="primary">
-                  Partner with Us
+                  Become a founding partner
                 </PillButton>
-                <PillButton to="/donate" variant="ghost">
-                  Fund a Community
+                <PillButton to="/about/vision-mission" variant="ghost">
+                  Read our mission
                 </PillButton>
               </div>
             </FadeUp>
 
             <FadeUp delay={400}>
-              <dl className="pt-8 border-t border-hairline grid grid-cols-3 gap-4 sm:gap-6 max-w-lg">
+              <dl className="pt-8 border-t border-hairline grid grid-cols-2 sm:grid-cols-4 gap-y-5 gap-x-6 max-w-xl">
                 {[
-                  { v: "1.2M+", l: "Lives reached" },
-                  { v: "210", l: "CHWs trained" },
-                  { v: "6", l: "States active" },
+                  { v: "12A", l: "Registered" },
+                  { v: "80G", l: "Applied" },
+                  { v: "CSR-1", l: "In progress" },
+                  { v: "Mumbai", l: "Headquartered" },
                 ].map((s) => (
                   <div key={s.l}>
-                    <dt className="font-sans font-bold text-2xl lg:text-3xl text-ink tabular leading-none">
+                    <dt className="font-mono text-[11px] tabular uppercase tracking-[0.18em] text-ink leading-none">
                       {s.v}
                     </dt>
-                    <dd className="eyebrow mt-2">{s.l}</dd>
+                    <dd className="mt-2 text-[11px] text-ink-muted uppercase tracking-[0.14em]">
+                      {s.l}
+                    </dd>
                   </div>
                 ))}
               </dl>
@@ -126,16 +139,14 @@ function Hero() {
           <div className="lg:col-span-5 relative">
             <FadeUp delay={150}>
               <div className="relative">
-                {/* Offset tint layer */}
                 <div
                   aria-hidden="true"
                   className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl bg-primary-glow/20"
                 />
-                {/* Image card — shadows over borders */}
                 <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-sage shadow-[0_1px_2px_rgba(28,0,96,0.08),0_24px_60px_-20px_rgba(28,0,96,0.28)]">
                   <img
                     src={heroImg}
-                    alt="A bustling Indian street market with vendors and community members gathered around stalls of fresh produce."
+                    alt="A Mumbai community gathered in a neighbourhood lane — the kind of place Omni Life Care Foundation begins its work."
                     width={1200}
                     height={1500}
                     fetchPriority="high"
@@ -146,45 +157,32 @@ function Hero() {
                     className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/70 to-transparent"
                   />
                   <p className="absolute bottom-5 left-5 right-5 text-canvas/95 text-sm font-display-italic leading-snug text-balance">
-                    Where India lives, care arrives.
+                    Where India lives, care should arrive.
                   </p>
                 </div>
 
-
-                {/* Floating compliance card */}
                 <div className="hidden lg:block absolute -bottom-8 -left-10 bg-canvas border border-hairline rounded-xl shadow-xl p-5 w-[260px]">
                   <p className="eyebrow border-b border-hairline pb-2 mb-3">
-                    Statutory Compliance
+                    A foundation, on the record
                   </p>
-                  <div className="grid grid-cols-2 gap-2.5">
-                    {[
-                      { code: "12A", label: "Registered" },
-                      { code: "80G", label: "Tax exempt" },
-                      { code: "CSR-1", label: "CSR ready" },
-                      { code: "FCRA", label: "Compliant" },
-                    ].map((c) => (
-                      <div key={c.code} className="flex items-center gap-2.5">
-                        <div className="flex-shrink-0 h-9 w-9 rounded-md bg-sage flex items-center justify-center font-sans font-bold text-[10px] text-primary">
-                          {c.code}
-                        </div>
-                        <span className="text-[11px] font-medium text-ink-muted leading-tight">
-                          {c.label}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Mobile/tablet compliance row */}
-              <div className="lg:hidden mt-6 bg-canvas border border-hairline rounded-xl p-4">
-                <p className="eyebrow mb-3">Statutory Compliance</p>
-                <div className="flex flex-wrap gap-2">
-                  {["12A", "80G", "CSR-1", "FCRA"].map((c) => (
-                    <span key={c} className="px-2.5 py-1 rounded-md bg-sage text-[11px] font-sans font-bold text-primary">
-                      {c}
-                    </span>
-                  ))}
+                  <dl className="space-y-2.5 text-[12px]">
+                    <div className="flex justify-between gap-3">
+                      <dt className="text-ink-muted">Registered as</dt>
+                      <dd className="text-ink font-medium">Public Trust</dd>
+                    </div>
+                    <div className="flex justify-between gap-3">
+                      <dt className="text-ink-muted">Jurisdiction</dt>
+                      <dd className="text-ink font-medium">Maharashtra</dd>
+                    </div>
+                    <div className="flex justify-between gap-3">
+                      <dt className="text-ink-muted">12A status</dt>
+                      <dd className="text-ink font-medium">Granted</dd>
+                    </div>
+                    <div className="flex justify-between gap-3">
+                      <dt className="text-ink-muted">80G status</dt>
+                      <dd className="text-ink font-medium">Applied</dd>
+                    </div>
+                  </dl>
                 </div>
               </div>
             </FadeUp>
@@ -195,62 +193,124 @@ function Hero() {
   );
 }
 
-function ImpactCounters() {
+function FoundingMoment() {
+  const items = [
+    { n: "04", l: "Pillars defined", s: "Mental, social, inclusive, human" },
+    { n: "04", l: "Flagship programmes", s: "Designed, awaiting funding" },
+    { n: "05", l: "SDGs prioritised", s: "Led by SDG 3 — Good Health" },
+    { n: "001", l: "Day in Mumbai", s: "Founding cohort forming now" },
+  ];
   return (
-    <section className="border-y border-hairline bg-snow">
-      <div className="container-editorial py-16 lg:py-24">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6">
-          {STATS.map((s, i) => (
-            <FadeUp key={s.label} delay={i * 60}>
-              <div className="border-l border-hairline pl-5 lg:pl-6">
-                <div className="font-sans font-bold text-[clamp(2rem,4vw,3.25rem)] leading-none text-primary tabular">
-                  <CountUp value={s.value} />
+    <section className="bg-snow border-b border-hairline">
+      <div className="container-editorial py-14 lg:py-20">
+        <FadeUp>
+          <div className="flex items-center gap-3 mb-10">
+            <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-muted tabular">
+              §01 — The Founding Moment
+            </span>
+            <span className="h-px flex-1 bg-ink/15" />
+          </div>
+        </FadeUp>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4">
+          {items.map((it, i) => (
+            <FadeUp key={it.l} delay={i * 70}>
+              <div className="px-2 lg:px-6 py-4 lg:py-2 lg:border-l border-hairline first:lg:border-l-0">
+                <div
+                  className="font-serif italic leading-none text-[clamp(2.5rem,6vw,4.5rem)] tracking-tight"
+                  style={{
+                    WebkitTextStroke: "1px rgba(28,0,96,0.45)",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  {it.n}
                 </div>
-                <div className="mt-3 h-[2px] w-10 bg-coral" />
-                <div className="eyebrow mt-3">{s.label}</div>
-                <p className="mt-1.5 text-sm text-ink-muted">{s.context}</p>
+                <div className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-ink">
+                  {it.l}
+                </div>
+                <p className="mt-1.5 text-[13px] text-ink-muted leading-relaxed">
+                  {it.s}
+                </p>
               </div>
             </FadeUp>
           ))}
         </div>
-        <FadeUp className="mt-10">
-          <Link to="/impact" className="link-arrow">
-            See our full impact <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
+
+        <FadeUp delay={300}>
+          <p className="mt-10 text-[13px] text-ink-muted max-w-2xl text-pretty">
+            We are not advertising a track record we don't yet have. We are
+            advertising a model — and an honest invitation to help build it
+            from day one.
+          </p>
         </FadeUp>
       </div>
     </section>
   );
 }
 
-function WhoWeAre() {
+function WhyWeExist() {
+  const facts = [
+    {
+      stat: "≈ 70–80%",
+      body:
+        "is India's treatment gap for common mental disorders, per the National Mental Health Survey — most people who need care never receive it.",
+    },
+    {
+      stat: "1 in 4",
+      body:
+        "Indian women face a serious gap in life-cycle health services — from adolescence through menopause and elderly care.",
+    },
+    {
+      stat: "Fragmented",
+      body:
+        "Mental health, women's health, disability support and chronic care are still delivered by separate, disconnected systems.",
+    },
+  ];
   return (
     <section className="bg-canvas">
-      <div className="container-narrow py-20 lg:py-28 text-center">
-        <FadeUp>
-          <div className="eyebrow mb-4">About the Foundation</div>
-          <h2 className="display-lg">
-            A foundation built on dignity, inclusion, and community.
-          </h2>
-          <p className="lead mt-6">
-            We are an India-based foundation working at the intersection of community
-            health, mental wellbeing, inclusive care, and human potential. Our model
-            is integrated, evidence-led, and designed with — not just for — the
-            communities we serve.
-          </p>
-          <div className="mt-7 flex flex-wrap justify-center gap-2">
-            <span className="chip">Dignity & Respect</span>
-            <span className="chip">Inclusion & Equity</span>
-            <span className="chip">Community-Centred</span>
-            <span className="chip">Collaboration</span>
-            <span className="chip">Impact & Sustainability</span>
+      <div className="container-editorial py-20 lg:py-28">
+        <div className="grid lg:grid-cols-12 gap-x-10 gap-y-14 items-start">
+          <FadeUp className="lg:col-span-5">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-muted tabular">
+                Why we exist
+              </span>
+            </div>
+            <p className="font-serif text-[clamp(1.5rem,2.6vw,2.25rem)] leading-[1.2] text-ink text-balance">
+              <span className="font-display-italic text-gold">"</span>India does
+              not lack compassion. It lacks a care system that travels the last
+              mile and treats a person — not a
+              <span className="font-display-italic"> symptom.</span>
+              <span className="font-display-italic text-gold">"</span>
+            </p>
+            <p className="mt-6 text-sm text-ink-muted font-mono uppercase tracking-[0.16em]">
+              — From the founding brief, Mumbai, 2026
+            </p>
+          </FadeUp>
+
+          <div className="lg:col-span-6 lg:col-start-7 space-y-6">
+            {facts.map((f, i) => (
+              <FadeUp key={f.stat} delay={(i + 1) * 90}>
+                <div className="grid grid-cols-[auto_1fr] gap-6 border-t border-hairline pt-5">
+                  <div className="font-sans font-semibold text-2xl text-primary tabular leading-none pt-1">
+                    {f.stat}
+                  </div>
+                  <p className="text-[15px] leading-relaxed text-ink text-pretty">
+                    {f.body}
+                  </p>
+                </div>
+              </FadeUp>
+            ))}
+            <FadeUp delay={400}>
+              <p className="border-t border-hairline pt-5 text-[15px] text-ink-muted text-pretty">
+                We won't fix this alone — and we don't pretend to.{" "}
+                <span className="text-ink font-medium">
+                  We're building a system other people can plug into.
+                </span>
+              </p>
+            </FadeUp>
           </div>
-          <div className="mt-8">
-            <Link to="/about" className="link-arrow">
-              Learn about our story <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-          </div>
-        </FadeUp>
+        </div>
       </div>
     </section>
   );
@@ -259,7 +319,6 @@ function WhoWeAre() {
 function OmniCareSection() {
   return (
     <section className="relative bg-sage border-y border-hairline overflow-hidden">
-      {/* Decorative editorial backdrop */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
@@ -274,12 +333,11 @@ function OmniCareSection() {
       />
 
       <div className="container-editorial relative py-20 lg:py-32">
-        {/* Editorial header — manifesto layout */}
         <div className="grid lg:grid-cols-12 gap-x-10 gap-y-10 mb-16 lg:mb-24">
           <FadeUp className="lg:col-span-5">
             <div className="flex items-center gap-3 mb-6">
               <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-muted tabular">
-                §02 — Our Approach
+                §02 — The Omni Care Model
               </span>
               <span className="h-px flex-1 bg-ink/15" />
             </div>
@@ -293,10 +351,10 @@ function OmniCareSection() {
           <div className="lg:col-span-6 lg:col-start-7 space-y-6">
             <FadeUp delay={80}>
               <p className="lead text-pretty">
-                Health doesn't live in silos. Mental wellbeing, social growth,
-                inclusive care, and human potential move together — so our
-                programmes are designed as a single, interlocking system rather
-                than parallel projects.
+                Mental wellbeing, social growth, inclusive care and human
+                potential move together in a person's life. So they move
+                together in ours — as one interlocking system, not four
+                parallel projects.
               </p>
             </FadeUp>
             <FadeUp delay={160}>
@@ -307,7 +365,6 @@ function OmniCareSection() {
           </div>
         </div>
 
-        {/* Pillars — editorial rows with oversized numerals */}
         <div className="border-t border-ink/15">
           {PILLARS.map((p, i) => (
             <FadeUp key={p.id} delay={i * 60}>
@@ -315,55 +372,40 @@ function OmniCareSection() {
                 to={p.href}
                 className="group relative grid grid-cols-12 gap-x-6 gap-y-3 items-baseline py-8 lg:py-10 border-b border-ink/15 transition-colors duration-300 ease-out hover:bg-snow/55"
               >
-                {/* Color accent rail */}
                 <span
                   aria-hidden="true"
                   className="absolute left-0 top-0 bottom-0 w-[3px] origin-top scale-y-0 transition-transform duration-500 ease-out group-hover:scale-y-100"
                   style={{ backgroundColor: p.color }}
                 />
 
-                {/* Oversized outline numeral */}
                 <div className="col-span-3 sm:col-span-2 pl-3 sm:pl-5">
                   <div
-                    className="font-serif italic leading-none text-[clamp(2.75rem,7vw,5.5rem)] tracking-tight transition-colors duration-300"
+                    className="font-serif italic leading-none text-[clamp(2.75rem,7vw,5.5rem)] tracking-tight"
                     style={{
                       WebkitTextStroke: "1px currentColor",
                       WebkitTextFillColor: "transparent",
                       color: "rgba(28,0,96,0.35)",
                     }}
                   >
-                    <span
-                      className="transition-colors duration-300 group-hover:[--num-color:var(--pillar)]"
-                      style={
-                        {
-                          color: "currentColor",
-                          ["--pillar" as never]: p.color,
-                        } as React.CSSProperties
-                      }
-                    >
-                      {p.number}
-                    </span>
+                    {p.number}
                   </div>
                 </div>
 
-                {/* Title */}
                 <div className="col-span-9 sm:col-span-4">
                   <h3 className="font-serif text-2xl lg:text-[2rem] leading-[1.1] text-ink text-balance">
                     {p.name}
                   </h3>
                 </div>
 
-                {/* Description */}
                 <div className="col-span-12 sm:col-span-5 sm:col-start-7">
                   <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
                     {p.description}
                   </p>
                 </div>
 
-                {/* Explore arrow */}
                 <div className="col-span-12 sm:col-span-1 sm:col-start-12 sm:justify-self-end self-center">
                   <span
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/20 text-ink transition-all duration-300 ease-out group-hover:border-ink group-hover:bg-ink group-hover:text-snow group-hover:rotate-[-45deg]"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/20 text-ink transition-[transform,background-color,border-color,color] duration-300 ease-out group-hover:border-ink group-hover:bg-ink group-hover:text-snow group-hover:rotate-[-45deg]"
                     aria-hidden="true"
                   >
                     <ArrowRight className="h-4 w-4" />
@@ -388,307 +430,273 @@ function OmniCareSection() {
   );
 }
 
-function ProgramsSection() {
+function FlagshipPrograms() {
+  // Four flagship programs — one per pillar, drawn from the questionnaire.
+  const flagship = [
+    {
+      program: PROGRAMS[0],
+      pillar: "mental" as const,
+      serves: "Adolescents, women, caregivers, frontline workers",
+      sdg: "SDG 3 · SDG 10",
+    },
+    {
+      program: PROGRAMS[1],
+      pillar: "social" as const,
+      serves: "Urban-slum and underserved rural communities",
+      sdg: "SDG 3 · SDG 10",
+    },
+    {
+      program: PROGRAMS[3],
+      pillar: "inclusive" as const,
+      serves: "Elderly, persons with disability, chronic-care patients",
+      sdg: "SDG 3 · SDG 10",
+    },
+    {
+      program: PROGRAMS[2],
+      pillar: "inclusive" as const,
+      serves: "Women across adolescence, maternity, midlife and elderly care",
+      sdg: "SDG 3 · SDG 5",
+    },
+  ];
+
   return (
     <section className="bg-canvas">
       <div className="container-editorial py-20 lg:py-28">
-        <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
-          <FadeUp>
-            <div className="eyebrow mb-3">Programmes</div>
-            <h2 className="display-lg max-w-xl">
-              Nine programmes, designed to work as one.
+        <div className="grid lg:grid-cols-12 gap-x-10 gap-y-8 mb-14">
+          <FadeUp className="lg:col-span-7">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-muted tabular">
+                §03 — Programmes in motion
+              </span>
+            </div>
+            <h2 className="font-sans font-semibold text-[clamp(1.9rem,4vw,3.25rem)] leading-[1.05] tracking-[-0.02em] text-ink text-balance">
+              Four flagship programmes,{" "}
+              <span className="font-display-italic text-gold">one</span>{" "}
+              continuum of care.
             </h2>
           </FadeUp>
-          <FadeUp delay={80}>
-            <Link to="/programs" className="link-arrow">
-              View all programmes <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
+          <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
+            <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
+              These four programmes anchor our first phase of work. Each is
+              fully designed and ready for field deployment as funding and
+              partnerships fall into place.
+            </p>
           </FadeUp>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PROGRAMS.slice(0, 6).map((p, i) => (
-            <FadeUp key={p.slug} delay={i * 60}>
-              <ProgramCard program={p} />
-            </FadeUp>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ImpactSplit() {
-  return (
-    <section className="bg-snow border-y border-hairline">
-      <div className="container-editorial py-20 lg:py-28">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <FadeUp>
-            <div className="eyebrow mb-3">Where & What</div>
-            <h3 className="display-md">Where we work, what we change.</h3>
-            <div className="mt-6 grid grid-cols-1 gap-4">
-              {[
-                { v: "38%", t: "Reduction in untreated common mental disorders in Solapur intervention villages." },
-                { v: "9,200", t: "Women received life-stage screening and counselling in 2024." },
-                { v: "210", t: "Community health workers trained, certified and placed." },
-              ].map((m) => (
-                <div key={m.v} className="flex gap-5 items-start border-t border-hairline pt-4">
-                  <div className="font-sans font-bold text-2xl text-primary tabular w-20 shrink-0">
-                    {m.v}
-                  </div>
-                  <p className="text-sm text-ink-muted leading-relaxed">{m.t}</p>
-                </div>
-              ))}
-            </div>
-            <Link to="/impact" className="link-arrow mt-8">
-              Explore full impact dashboard <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-          </FadeUp>
-
-          <FadeUp delay={100}>
-            <div className="bg-sage p-6 lg:p-10 flex items-center justify-center">
-              <IndiaMap className="w-full max-w-[360px] h-auto" />
-            </div>
-          </FadeUp>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function StoriesSection() {
-  return (
-    <section className="bg-sandstone/40">
-      <div className="container-editorial py-20 lg:py-28">
-        <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
-          <FadeUp>
-            <div className="eyebrow mb-3">From the Field</div>
-            <h2 className="display-lg max-w-xl">
-              Stories from the communities we walk alongside.
-            </h2>
-          </FadeUp>
-          <FadeUp delay={80}>
-            <Link to="/impact/stories" className="link-arrow">
-              Read all stories <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-          </FadeUp>
-        </div>
-
-        <div className="grid lg:grid-cols-[1.1fr_1fr_1fr] gap-6 lg:gap-8">
-          <FadeUp>
-            <article className="bg-snow border border-hairline overflow-hidden">
-              <div className="aspect-[4/5] overflow-hidden">
-                <img
-                  src={storySunita}
-                  alt="Portrait of Sunita standing outside her home in Solapur district, Maharashtra."
-                  width={1200}
-                  height={1500}
-                  loading="lazy"
-                  className="h-full w-full object-cover outline outline-1 -outline-offset-1 outline-ink/10"
-                />
-
-              </div>
-              <div className="p-6">
-                <div className="eyebrow text-ink-muted">Mental Wellbeing · Solapur</div>
-                <p className="mt-3 font-serif text-xl italic leading-snug text-ink">
-                  "Before the Omni team came, I had nowhere to go. Now I lead the
-                  women's group in my village."
-                </p>
-                <div className="mt-4 text-sm text-ink-muted">— Sunita, 52</div>
-                <Link to="/impact/stories" className="link-arrow mt-5">
-                  Read her story <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Link>
-              </div>
-            </article>
-          </FadeUp>
-
-          {STORIES.slice(1).map((s, i) => {
-            const pillar = PILLAR_BY_ID[s.pillar];
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-hairline border border-hairline">
+          {flagship.map((f, i) => {
+            const pillar = PILLAR_BY_ID[f.pillar];
             return (
-              <FadeUp key={s.slug} delay={(i + 1) * 80}>
-                <article className="bg-snow border border-hairline p-6 h-full flex flex-col">
-                  <span className="chip self-start" style={{ color: pillar.color }}>
-                    <span className="chip-dot" />
-                    {pillar.name}
-                  </span>
-                  <h3 className="mt-4 font-serif text-xl text-ink leading-snug">
-                    {s.headline}
-                  </h3>
-                  <p className="mt-3 text-sm text-ink-muted leading-relaxed flex-1">
-                    {s.preview}
-                  </p>
-                  <div className="mt-5 text-sm text-ink-muted">
-                    — {s.name}, {s.location}
+              <FadeUp key={f.program.slug} delay={i * 70}>
+                <Link
+                  to={f.program.href}
+                  className="group relative block h-full bg-snow p-8 lg:p-10 transition-[background-color,box-shadow] duration-300 ease-out hover:bg-canvas hover:shadow-[0_1px_2px_rgba(28,0,96,0.05),0_18px_36px_-18px_rgba(28,0,96,0.18)]"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-0 top-0 bottom-0 w-[3px] origin-top scale-y-0 transition-transform duration-500 ease-out group-hover:scale-y-100"
+                    style={{ backgroundColor: pillar.color }}
+                  />
+                  <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted tabular">
+                    <span>Programme · 0{i + 1}</span>
+                    <span style={{ color: pillar.color }}>{pillar.name}</span>
                   </div>
-                  <Link to="/impact/stories" className="link-arrow mt-4">
-                    Read story <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </Link>
-                </article>
+                  <h3 className="mt-6 font-serif text-2xl lg:text-[1.65rem] leading-[1.15] text-ink text-balance">
+                    {f.program.name}
+                  </h3>
+                  <p className="mt-4 text-[14.5px] leading-relaxed text-ink-muted text-pretty">
+                    {f.program.summary ??
+                      "A community-led programme designed to meet people where they are, with dignified and continuous care."}
+                  </p>
+                  <dl className="mt-6 grid grid-cols-1 gap-3 border-t border-hairline pt-5 text-[12px]">
+                    <div className="flex gap-3">
+                      <dt className="text-ink-muted uppercase tracking-[0.14em] w-20 shrink-0">
+                        Serves
+                      </dt>
+                      <dd className="text-ink">{f.serves}</dd>
+                    </div>
+                    <div className="flex gap-3">
+                      <dt className="text-ink-muted uppercase tracking-[0.14em] w-20 shrink-0">
+                        Aligned
+                      </dt>
+                      <dd className="text-ink font-mono tabular">{f.sdg}</dd>
+                    </div>
+                  </dl>
+                  <span className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                    Read the design brief
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+                  </span>
+                </Link>
               </FadeUp>
             );
           })}
         </div>
+
+        <FadeUp className="mt-10">
+          <Link to="/programs" className="link-arrow">
+            See all nine programmes <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        </FadeUp>
       </div>
     </section>
   );
 }
 
-function CSRBand() {
-  const props = [
-    { icon: FileCheck2, title: "Schedule VII aligned", body: "Programmes map directly to CSR mandates under the Companies Act." },
-    { icon: ShieldCheck, title: "Audit-ready reporting", body: "Quarterly MIS, impact dashboards, and third-party evaluation." },
-    { icon: Building2, title: "End-to-end execution", body: "From co-designed project to last-mile delivery and reporting." },
+function FoundersLetter() {
+  const commitments = [
+    "Community-led design — every programme begins by listening, not announcing.",
+    "Independent impact audits — third-party evaluation, published in full.",
+    "Open finances — every rupee accounted for, in plain English and Marathi.",
+    "No overhead inflation — we will not grow our office faster than our work.",
+    "Public learning — what fails will be documented as honestly as what works.",
   ];
   return (
-    <section className="bg-ink text-canvas">
-      <div className="container-editorial py-20 lg:py-28">
-        <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-start">
-          <FadeUp>
-            <div className="eyebrow text-coral mb-4">For Corporate Partners</div>
-            <h2 className="display-lg text-canvas">
-              Align your CSR with measurable, audit-ready community impact.
-            </h2>
-            <p className="lead text-canvas/75 mt-5 max-w-xl">
-              We work with corporate partners across sectors to design and deliver
-              CSR programmes that meet your compliance requirements and create
-              genuine, measurable community outcomes.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <PillButton to="/partner/csr" variant="on-dark">
-                Explore CSR Partnership
-              </PillButton>
-              <PillButton href="/csr-brochure.pdf" variant="on-dark" icon={<Download size={14} />}>
-                Download CSR Brochure
-              </PillButton>
-            </div>
-            <p className="mt-6 text-xs text-canvas/55 font-mono tabular">
-              Registered under Section 135 of the Companies Act · CSR-1: CSR00045678
-            </p>
-          </FadeUp>
+    <section className="bg-sandstone/40 border-y border-hairline">
+      <div className="container-narrow py-20 lg:py-28">
+        <FadeUp>
+          <div className="flex items-center gap-3 mb-8">
+            <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-muted tabular">
+              §04 — A letter, from Mumbai
+            </span>
+            <span className="h-px flex-1 bg-ink/15" />
+          </div>
+        </FadeUp>
 
-          <FadeUp delay={120}>
-            <ul className="space-y-5">
-              {props.map((p) => (
-                <li key={p.title} className="flex gap-4 border-t border-canvas/15 pt-5">
-                  <p.icon className="h-5 w-5 text-coral shrink-0 mt-1" aria-hidden="true" />
-                  <div>
-                    <h3 className="font-serif text-lg text-canvas">{p.title}</h3>
-                    <p className="mt-1 text-sm text-canvas/70">{p.body}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </FadeUp>
-        </div>
+        <FadeUp delay={80}>
+          <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] leading-[1.1] text-ink text-balance">
+            We are starting today.{" "}
+            <span className="font-display-italic text-gold">
+              Here is what we promise.
+            </span>
+          </h2>
+        </FadeUp>
 
-        {/* Partner logos marquee placeholder */}
-        <div className="mt-14 border-t border-canvas/15 pt-8">
-          <div className="eyebrow text-canvas/50 mb-5">Founding partners and collaborators</div>
-          <div className="overflow-hidden">
-            <div className="marquee-track text-canvas/40 font-serif text-lg">
-              {["District Health Office, Solapur", "ICMR Collaboration", "NIMHANS Affiliate", "TISS Field Partner", "Karnataka Health Mission", "AIIMS Research Network"].concat(["District Health Office, Solapur", "ICMR Collaboration", "NIMHANS Affiliate", "TISS Field Partner", "Karnataka Health Mission", "AIIMS Research Network"]).map((logo, i) => (
-                <span key={i} className="whitespace-nowrap">{logo}</span>
-              ))}
+        <FadeUp delay={160}>
+          <div className="mt-10 space-y-5 text-[17px] leading-[1.75] text-ink text-pretty">
+            <p>
+              We registered Omni Life Care Foundation in Mumbai with one
+              uncomfortable observation: India's care system asks people to
+              cross it on their own. A woman with anxiety walks one road. Her
+              elderly father with diabetes walks another. Her daughter, looking
+              for a scholarship, walks a third. None of these roads meet — and
+              most of them stop short of her village.
+            </p>
+            <p>
+              We don't think a fifth road is the answer. We think the roads
+              should meet. So our work is built around a single idea: one
+              community health worker, one continuum of care, four pillars
+              that share information, training and trust.
+            </p>
+            <p>
+              We are new. We will say that on every page of this website. What
+              we can promise — today, before we have a single annual report to
+              show you — is how we will work.
+            </p>
+          </div>
+        </FadeUp>
+
+        <FadeUp delay={240}>
+          <ol className="mt-10 space-y-4 border-t border-hairline pt-8">
+            {commitments.map((c, i) => (
+              <li key={c} className="flex gap-5">
+                <span className="font-mono text-[11px] tabular text-ink-muted pt-1 w-8 shrink-0">
+                  0{i + 1}
+                </span>
+                <span className="text-[16px] leading-relaxed text-ink text-pretty">
+                  {c}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </FadeUp>
+
+        <FadeUp delay={320}>
+          <div className="mt-12 border-t border-hairline pt-8">
+            <p className="font-display-italic text-2xl text-ink">
+              The Founding Trustees
+            </p>
+            <p className="mt-2 text-sm text-ink-muted font-mono uppercase tracking-[0.16em]">
+              Omni Life Care Foundation · Mumbai · 2026
+            </p>
+            <div className="mt-6">
+              <Link to="/about/leadership" className="link-arrow">
+                Meet the trustees <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
             </div>
           </div>
-        </div>
+        </FadeUp>
       </div>
     </section>
   );
 }
 
-function ResearchTeaser() {
-  return (
-    <section className="bg-canvas">
-      <div className="container-editorial py-20 lg:py-28">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          <FadeUp>
-            <div className="eyebrow mb-3">Research & Knowledge</div>
-            <h2 className="display-md max-w-md">
-              Evidence-led practice, openly published.
-            </h2>
-            <article className="mt-8 border border-hairline bg-snow p-6 lg:p-8">
-              <div className="font-mono text-xs text-ink-muted tabular">
-                RESEARCH PAPER · MAR 2026
-              </div>
-              <h3 className="mt-3 font-serif text-2xl text-ink leading-snug">
-                Integrated community mental health in rural India: a 24-month
-                cohort study from Solapur district.
-              </h3>
-              <p className="mt-3 text-sm text-ink-muted">
-                Patil, R., Deshmukh, A., Khan, F. — Omni Life Care Research Group
-              </p>
-              <Link to="/programs/research-impact-assessment" className="link-arrow mt-5">
-                Read publication <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-            </article>
-          </FadeUp>
-
-          <FadeUp delay={100}>
-            <div className="eyebrow mb-3 invisible lg:visible">Latest insights</div>
-            <ul className="divide-y divide-hairline border-y border-hairline">
-              {[
-                { tag: "Policy Brief", title: "Pathways for integrating mental health into ASHA workflows.", date: "Feb 2026" },
-                { tag: "Working Paper", title: "Cost-effectiveness of community-delivered NCD screening at scale.", date: "Jan 2026" },
-                { tag: "Field Note", title: "Lessons from training 210 women community health workers.", date: "Dec 2025" },
-              ].map((r) => (
-                <li key={r.title}>
-                  <Link
-                    to="/programs/research-impact-assessment"
-                    className="group flex items-start gap-5 py-5 hover:bg-sage/40 -mx-2 px-2 transition-colors"
-                  >
-                    <div className="font-mono text-[11px] text-ink-muted tabular w-24 shrink-0 pt-1">
-                      {r.tag.toUpperCase()}
-                    </div>
-                    <div className="flex-1">
-                      <p className="font-serif text-lg text-ink group-hover:text-primary leading-snug">
-                        {r.title}
-                      </p>
-                      <p className="text-xs text-ink-muted mt-1">{r.date}</p>
-                    </div>
-                    <ArrowUpRight className="h-4 w-4 text-ink-muted group-hover:text-primary mt-1" aria-hidden="true" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <Link to="/programs/research-impact-assessment" className="link-arrow mt-6">
-              Browse all research <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-          </FadeUp>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function GetInvolved() {
-  const cards = [
-    { icon: HandHeart, title: "Partner with Us", sub: "CSR & Institutional", body: "Build long-term, measurable impact with us.", cta: "Become a Partner", href: "/partner/csr" },
-    { icon: Heart, title: "Donate", sub: "Support a Programme", body: "Your contribution is 80G tax-exempt.", cta: "Give Now", href: "/donate" },
-    { icon: Users, title: "Volunteer", sub: "Time & Skills", body: "Field, research, and remote opportunities.", cta: "Find a Role", href: "/get-involved/volunteer" },
+function FoundingPartners() {
+  const audiences = [
+    {
+      who: "For CSR teams",
+      title: "Anchor a pillar. Shape the model.",
+      body:
+        "Co-design a Schedule VII–aligned programme with us from the ground up. You get audit-ready reporting; we get the room to build something that lasts.",
+      cta: "Open a CSR conversation",
+      href: "/partner/csr",
+    },
+    {
+      who: "For institutions",
+      title: "Co-design a programme.",
+      body:
+        "Hospitals, district health offices, research bodies and academic institutions: bring us a question, a cohort, or a community — let's build the protocol together.",
+      cta: "Propose a collaboration",
+      href: "/get-involved",
+    },
+    {
+      who: "For individuals",
+      title: "Fund the first hundred families.",
+      body:
+        "Your contribution is 12A-receipted today and will be 80G tax-exempt the moment our application is approved. Every rupee is reported publicly.",
+      cta: "Give what you can",
+      href: "/donate",
+    },
   ];
   return (
-    <section className="bg-canvas">
+    <section className="bg-sage border-y border-hairline">
       <div className="container-editorial py-20 lg:py-28">
         <FadeUp>
-          <div className="eyebrow mb-3">Get Involved</div>
-          <h2 className="display-lg max-w-xl">Three ways to work with us.</h2>
+          <div className="flex items-center gap-3 mb-8">
+            <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-muted tabular">
+              §05 — Founding partners
+            </span>
+            <span className="h-px flex-1 bg-ink/15" />
+          </div>
         </FadeUp>
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-5">
-          {cards.map((c, i) => (
-            <FadeUp key={c.title} delay={i * 80}>
-              <Link
-                to={c.href}
-                className="group block h-full bg-snow border border-hairline p-8 lg:p-10 transition-[border-color,box-shadow,transform] duration-200 ease-out hover:border-primary hover:-translate-y-0.5 hover:shadow-[0_1px_2px_rgba(28,0,96,0.06),0_16px_32px_-14px_rgba(28,0,96,0.2)]"
-              >
+        <FadeUp delay={80}>
+          <h2 className="font-sans font-semibold text-[clamp(1.9rem,4vw,3.25rem)] leading-[1.05] tracking-[-0.02em] text-ink max-w-3xl text-balance">
+            You can fund a foundation at year ten.{" "}
+            <span className="font-display-italic text-gold">
+              Or you can help shape one at month one.
+            </span>
+          </h2>
+        </FadeUp>
 
-                <c.icon className="h-7 w-7 text-primary" aria-hidden="true" strokeWidth={1.5} />
-                <div className="mt-6 eyebrow text-ink-muted">{c.sub}</div>
-                <h3 className="mt-1 font-serif text-2xl text-ink">{c.title}</h3>
-                <p className="mt-3 text-sm text-ink-muted leading-relaxed">{c.body}</p>
-                <span className="mt-8 inline-flex items-center gap-1.5 font-semibold text-primary">
-                  {c.cta}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+        <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-px bg-hairline border border-hairline">
+          {audiences.map((a, i) => (
+            <FadeUp key={a.who} delay={i * 90}>
+              <Link
+                to={a.href}
+                className="group flex flex-col h-full bg-snow p-8 lg:p-10 transition-[background-color,box-shadow] duration-300 ease-out hover:bg-canvas hover:shadow-[0_1px_2px_rgba(28,0,96,0.05),0_18px_36px_-18px_rgba(28,0,96,0.18)]"
+              >
+                <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted tabular">
+                  {a.who}
+                </div>
+                <h3 className="mt-6 font-serif text-[1.65rem] lg:text-[1.85rem] leading-[1.1] text-ink text-balance">
+                  {a.title}
+                </h3>
+                <p className="mt-5 text-[15px] leading-relaxed text-ink-muted flex-1 text-pretty">
+                  {a.body}
+                </p>
+                <span className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                  {a.cta}
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                 </span>
               </Link>
             </FadeUp>
@@ -699,78 +707,109 @@ function GetInvolved() {
   );
 }
 
-function NewsroomStrip() {
-  const items = [
-    { date: "12 MAY 2026", cat: "EVENT", title: "Omni Life Care convenes community health roundtable in Mumbai." },
-    { date: "28 APR 2026", cat: "NEWS", title: "Partnership announced with district administration of Belgaum for CHW expansion." },
-    { date: "10 APR 2026", cat: "PRESS", title: "Annual impact report 2024–25 released, with independent third-party evaluation." },
-  ];
+function ComplianceBand() {
+  const plain: Record<string, string> = {
+    "12A": "Your donation qualifies for tax deduction under Indian law.",
+    "80G": "Application in progress — 50% deduction once approved.",
+    "CSR-1": "Required for corporate CSR contributions under the Companies Act.",
+    "FCRA": "Required to receive foreign contributions — not yet applicable.",
+  };
+
   return (
-    <section className="bg-sage border-y border-hairline">
-      <div className="container-editorial py-20 lg:py-24">
-        <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
-          <FadeUp>
-            <div className="eyebrow mb-3">Newsroom</div>
-            <h2 className="display-md max-w-md">Latest from the Foundation.</h2>
+    <section className="bg-canvas">
+      <div className="container-editorial py-20 lg:py-28">
+        <div className="grid lg:grid-cols-12 gap-x-10 gap-y-10 mb-14">
+          <FadeUp className="lg:col-span-6">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-muted tabular">
+                §06 — Compliance & Transparency
+              </span>
+            </div>
+            <h2 className="font-sans font-semibold text-[clamp(1.9rem,3.8vw,3rem)] leading-[1.05] tracking-[-0.02em] text-ink text-balance">
+              The paperwork donors{" "}
+              <span className="font-display-italic text-gold">should</span>{" "}
+              ask for.
+            </h2>
           </FadeUp>
-          <FadeUp delay={80}>
-            <Link to="/newsroom" className="link-arrow">
-              Visit newsroom <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
+          <FadeUp className="lg:col-span-5 lg:col-start-8 lg:pt-3" delay={80}>
+            <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
+              We are publishing our compliance status the day we go live —
+              including the registrations still in progress. Nothing hidden,
+              nothing implied.
+            </p>
           </FadeUp>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {items.map((n, i) => (
-            <FadeUp key={n.title} delay={i * 60}>
-              <Link
-                to="/newsroom"
-                className="block bg-snow border border-hairline p-6 h-full transition-[border-color,box-shadow,transform] duration-200 ease-out hover:border-ink-muted hover:-translate-y-0.5 hover:shadow-[0_1px_2px_rgba(28,0,96,0.06),0_12px_28px_-12px_rgba(28,0,96,0.18)]"
-              >
-
-                <div className="flex items-center gap-3 font-mono text-[11px] tabular text-ink-muted">
-                  <span>{n.date}</span>
-                  <span className="text-coral">{n.cat}</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-hairline border border-hairline">
+          {COMPLIANCE.map((c, i) => (
+            <FadeUp key={c.label} delay={i * 70}>
+              <div className="bg-snow h-full p-7 flex flex-col">
+                <ShieldCheck className="h-5 w-5 text-primary" aria-hidden="true" />
+                <div className="mt-6 font-serif text-2xl text-ink leading-none">
+                  {c.label}
                 </div>
-                <h3 className="mt-4 font-serif text-lg text-ink leading-snug">{n.title}</h3>
-              </Link>
+                <p className="mt-3 text-[13.5px] text-ink-muted leading-relaxed flex-1 text-pretty">
+                  {plain[c.label] ?? c.desc}
+                </p>
+                <div className="mt-5 font-mono text-[11px] tabular uppercase tracking-[0.14em] text-ink-muted">
+                  {c.id}
+                </div>
+              </div>
             </FadeUp>
           ))}
         </div>
+
+        <FadeUp className="mt-10 flex flex-wrap items-center justify-between gap-4">
+          <p className="text-[13px] text-ink-muted">
+            Annual report for year one will be published, in full, in 2027.
+          </p>
+          <Link to="/about/compliance" className="link-arrow">
+            View all registrations <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        </FadeUp>
       </div>
     </section>
   );
 }
 
-function ComplianceBand() {
+function ClosingCTA() {
   return (
-    <section className="bg-canvas">
-      <div className="container-editorial py-20">
-        <FadeUp>
-          <div className="text-center mb-12">
-            <div className="eyebrow mb-3">Governance</div>
-            <h2 className="display-md">Transparent, compliant, accountable.</h2>
-          </div>
-        </FadeUp>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-          {COMPLIANCE.map((c, i) => (
-            <FadeUp key={c.label} delay={i * 60}>
-              <div className="border border-hairline p-6 bg-snow h-full">
-                <ShieldCheck className="h-5 w-5 text-primary" aria-hidden="true" />
-                <div className="mt-5 font-serif text-xl text-ink">{c.label}</div>
-                <p className="mt-1 text-sm text-ink-muted">{c.desc}</p>
-                <div className="mt-4 font-mono text-[11px] tabular text-ink-muted">{c.id}</div>
-                <Link to="/about/compliance" className="link-arrow mt-4 text-sm">
-                  View certificate
-                </Link>
-              </div>
-            </FadeUp>
-          ))}
-        </div>
-        <div className="mt-10 text-center">
-          <Link to="/impact" className="btn btn-secondary">
-            <Download className="h-4 w-4" aria-hidden="true" /> Download Annual Report 2024–25
-          </Link>
+    <section className="relative bg-ink text-canvas overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.4]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 15% 20%, rgba(180,140,60,0.15), transparent 45%), radial-gradient(circle at 85% 80%, rgba(28,0,96,0.6), transparent 50%)",
+        }}
+      />
+      <div className="container-editorial relative py-24 lg:py-32">
+        <div className="grid lg:grid-cols-12 gap-x-10 gap-y-10 items-end">
+          <FadeUp className="lg:col-span-8">
+            <p className="font-mono text-[11px] tabular uppercase tracking-[0.22em] text-canvas/55 mb-8">
+              §07 — Closing
+            </p>
+            <h2 className="font-sans font-semibold text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.04] tracking-[-0.025em] text-canvas text-balance">
+              Health doesn't live in silos.{" "}
+              <span className="font-display-italic text-gold">
+                Your support shouldn't either.
+              </span>
+            </h2>
+          </FadeUp>
+          <FadeUp className="lg:col-span-4" delay={120}>
+            <p className="text-[15px] leading-relaxed text-canvas/75 text-pretty">
+              One foundation. Four pillars. One conversation away from being
+              part of it.
+            </p>
+            <div className="mt-7 flex flex-col sm:flex-row gap-3">
+              <PillButton to="/partner/csr" variant="on-dark">
+                Become a founding partner
+              </PillButton>
+              <PillButton to="/about/omni-care-model" variant="on-dark">
+                Read the model
+              </PillButton>
+            </div>
+          </FadeUp>
         </div>
       </div>
     </section>
@@ -782,9 +821,17 @@ function NewsletterBand() {
     <section className="bg-sandstone/40 border-t border-hairline">
       <div className="container-narrow py-16 lg:py-20 text-center">
         <FadeUp>
-          <h3 className="display-md">Stay informed. Stay involved.</h3>
-          <p className="lead mt-3">
-            Quarterly impact updates, research, and stories from the field. No spam.
+          <p className="font-mono text-[11px] tabular uppercase tracking-[0.22em] text-ink-muted mb-4">
+            Field notes
+          </p>
+          <h3 className="font-sans font-semibold text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
+            Quarterly field notes from Mumbai.{" "}
+            <span className="font-display-italic text-gold">
+              What we built. What failed. What we learned.
+            </span>
+          </h3>
+          <p className="lead mt-4">
+            Four honest letters a year. No fundraising drumbeats, no spam.
           </p>
           <form
             className="mt-7 flex flex-col sm:flex-row gap-2 max-w-md mx-auto"
@@ -793,7 +840,9 @@ function NewsletterBand() {
               alert("Thanks — you're in. (Newsletter wiring is Phase 2.)");
             }}
           >
-            <label htmlFor="newsletter-email" className="sr-only">Email address</label>
+            <label htmlFor="newsletter-email" className="sr-only">
+              Email address
+            </label>
             <input
               id="newsletter-email"
               type="email"
@@ -801,11 +850,16 @@ function NewsletterBand() {
               placeholder="you@example.com"
               className="flex-1 h-12 px-4 bg-snow border border-hairline focus:border-primary text-base outline-none"
             />
-            <button type="submit" className="btn btn-primary">Subscribe</button>
+            <button type="submit" className="btn btn-primary">
+              Subscribe
+            </button>
           </form>
           <p className="mt-3 text-xs text-ink-muted">
             By subscribing you agree to our{" "}
-            <Link to="/privacy-policy" className="underline">Privacy Policy</Link>.
+            <Link to="/privacy-policy" className="underline">
+              Privacy Policy
+            </Link>
+            .
           </p>
         </FadeUp>
       </div>
