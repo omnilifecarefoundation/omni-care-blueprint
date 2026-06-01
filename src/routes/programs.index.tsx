@@ -383,10 +383,21 @@ function ProgrammeDialog({
       >
         {programme && pillar && (
           <>
-            {/* Header */}
-            <div className="relative shrink-0 px-6 sm:px-8 pt-6 sm:pt-8 pb-5 border-b border-hairline bg-canvas">
+            {/* Header — tinted with pillar colour */}
+            <div
+              className="relative shrink-0 px-6 sm:px-8 pt-7 sm:pt-8 pb-5 border-b border-hairline"
+              style={{
+                background: `linear-gradient(180deg, color-mix(in oklab, ${pillar.color} 14%, var(--canvas)) 0%, var(--canvas) 100%)`,
+              }}
+            >
+              {/* Top accent rail */}
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-[3px]"
+                style={{ background: pillar.color }}
+              />
               <DialogClose
-                className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-hairline bg-snow text-ink-muted transition-colors hover:text-ink hover:border-ink/40 focus-visible:outline-2 focus-visible:outline-primary"
+                className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-hairline bg-snow text-ink-muted transition-[color,border-color,transform] duration-200 hover:text-ink hover:border-ink/40 active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-primary"
                 aria-label="Close"
               >
                 <X className="h-4 w-4" strokeWidth={1.75} />
@@ -404,8 +415,15 @@ function ProgrammeDialog({
                   />
                   {pillar.name}
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-snow px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-muted">
-                  <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-gold" />
+                <span
+                  className="inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-muted bg-snow/80"
+                  style={{ borderColor: `color-mix(in oklab, ${pillar.color} 40%, transparent)` }}
+                >
+                  <span
+                    aria-hidden="true"
+                    className="h-1.5 w-1.5 rounded-full"
+                    style={{ background: pillar.color }}
+                  />
                   In design
                 </span>
               </div>
@@ -417,6 +435,7 @@ function ProgrammeDialog({
                 {programme.oneLine}
               </DialogDescription>
             </div>
+
 
             {/* Body — scrollable */}
             <div className="overflow-y-auto px-6 sm:px-8 py-6 sm:py-7 space-y-6">
@@ -433,13 +452,18 @@ function ProgrammeDialog({
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <DetailBlock label="What we will do" items={programme.doing} />
-                <DetailBlock label="What we will publish" items={programme.publish} accent />
+                <DetailBlock
+                  label="What we will publish"
+                  items={programme.publish}
+                  accentColor={pillar.color}
+                />
               </div>
 
               <div className="pt-5 border-t border-hairline grid grid-cols-2 gap-5">
                 <Meta label="CSR entry" value={programme.schedule} />
-                <Meta label="SDG alignment" value={programme.sdg} />
+                <Meta label="SDG alignment" value={programme.sdg} accentColor={pillar.color} />
               </div>
+
             </div>
 
             {/* Footer */}
@@ -482,19 +506,20 @@ function FieldLabel({ children }: { children: React.ReactNode }) {
 function DetailBlock({
   label,
   items,
-  accent = false,
+  accentColor,
 }: {
   label: string;
   items: string[];
-  accent?: boolean;
+  accentColor?: string;
 }) {
   return (
     <div
-      className={`h-full rounded-xl border p-4 sm:p-5 ${
-        accent
-          ? "bg-canvas border-hairline shadow-[inset_3px_0_0_0_var(--gold,#caa64a)]"
-          : "bg-canvas border-hairline"
-      }`}
+      className="h-full rounded-xl border border-hairline bg-canvas p-4 sm:p-5"
+      style={
+        accentColor
+          ? { boxShadow: `inset 3px 0 0 0 ${accentColor}` }
+          : undefined
+      }
     >
       <FieldLabel>{label}</FieldLabel>
       <ul className="mt-3 space-y-2.5">
@@ -515,11 +540,29 @@ function DetailBlock({
   );
 }
 
-function Meta({ label, value }: { label: string; value: string }) {
+function Meta({
+  label,
+  value,
+  accentColor,
+}: {
+  label: string;
+  value: string;
+  accentColor?: string;
+}) {
   return (
     <div>
       <FieldLabel>{label}</FieldLabel>
-      <div className="mt-1.5 font-mono text-[13px] text-ink tabular-nums">{value}</div>
+      <div className="mt-1.5 flex items-center gap-2 font-mono text-[13px] text-ink tabular-nums">
+        {accentColor && (
+          <span
+            aria-hidden="true"
+            className="inline-block h-1.5 w-1.5 rounded-full"
+            style={{ background: accentColor }}
+          />
+        )}
+        {value}
+      </div>
     </div>
   );
 }
+
