@@ -26,7 +26,7 @@ export function ProgramCard({ program }: { program: Program }) {
           <span className="chip-dot" />
           {pillar.name}
         </span>
-        <h3 className="mt-3 font-serif text-[1.25rem] leading-snug text-ink text-balance">
+        <h3 className="mt-3 font-sans font-semibold tracking-[-0.01em] text-[1.25rem] leading-snug text-ink text-balance">
           {program.name}
         </h3>
         <p className="mt-2 text-[14px] text-ink-muted leading-relaxed text-pretty">{program.outcome}</p>
