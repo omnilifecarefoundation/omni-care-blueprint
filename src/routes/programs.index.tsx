@@ -366,15 +366,19 @@ const LEDGER: { k: string; v: string }[] = [
   { k: "What we learned", v: "One paragraph per programme — in plain language, signed by the lead." },
 ];
 
-function ProgrammeCard({ p }: { p: Programme }) {
+function ProgrammeRow({ p, onOpen }: { p: Programme; onOpen: () => void }) {
   const pillar = PILLARS.find((x) => x.id === p.pillar)!;
   return (
-    <article className="group relative h-full rounded-xl bg-snow border border-hairline p-7 lg:p-8 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_14px_30px_-22px_rgba(28,0,96,0.28)]">
-      {/* Header row */}
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex items-baseline gap-3 min-w-0">
-          <span className="font-mono text-sm text-ink-muted tabular-nums">{p.n}</span>
-          <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-ink-muted">
+    <button
+      type="button"
+      onClick={onOpen}
+      className="group w-full text-left grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-5 lg:gap-x-8 py-5 lg:py-6 transition-[background-color] duration-200 hover:bg-canvas/60 focus-visible:outline-2 focus-visible:outline-primary px-2 -mx-2 rounded-md"
+      aria-label={`Open details for ${p.name}`}
+    >
+      <span className="font-mono text-[12px] text-ink-muted tabular-nums">{p.n}</span>
+      <div className="min-w-0">
+        <div className="flex items-center gap-3 flex-wrap">
+          <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-ink-muted">
             <span
               aria-hidden="true"
               className="h-1.5 w-1.5 rounded-full"
@@ -382,43 +386,104 @@ function ProgrammeCard({ p }: { p: Programme }) {
             />
             {pillar.name}
           </span>
+          <span className="hidden sm:inline font-mono text-[11px] text-ink-muted">
+            {p.schedule} · {p.sdg}
+          </span>
         </div>
-        <StatusBadge status={p.status} />
+        <h3 className="mt-1.5 font-sans font-semibold text-[1.0625rem] lg:text-[1.15rem] tracking-[-0.005em] text-ink text-balance">
+          {p.name}
+        </h3>
+        <p className="mt-1 text-[14px] leading-[1.55] text-ink-muted text-pretty line-clamp-2 lg:max-w-[58ch]">
+          {p.intent}
+        </p>
       </div>
-
-      <h3 className="mt-4 font-sans font-semibold text-[1.25rem] lg:text-[1.4rem] tracking-[-0.01em] text-ink text-balance">
-        {p.name}
-      </h3>
-
-      <p className="mt-3 text-ink-muted text-[15px] leading-[1.65] text-pretty">
-        {p.intent}
-      </p>
-
-      <div className="mt-6 space-y-5">
-        <Detail label="Who it serves" body={p.who} />
-        <DetailList label="What we will do" items={p.doing} />
-        <DetailList label="What we will publish" items={p.publish} />
-      </div>
-
-      <div className="mt-7 pt-5 border-t border-hairline grid grid-cols-2 gap-4">
-        <Meta label="CSR entry" value={p.schedule} />
-        <Meta label="SDG" value={p.sdg} />
-      </div>
-
-      <Link
-        to="/partner/csr"
-        className="mt-6 inline-flex items-center gap-1.5 text-sm text-ink underline decoration-ink/25 underline-offset-4 transition-colors hover:decoration-ink"
-      >
-        Partner on this programme
+      <span className="inline-flex items-center gap-1.5 text-[12px] font-mono uppercase tracking-[0.14em] text-ink-muted group-hover:text-ink transition-colors">
+        <span className="hidden sm:inline">Read</span>
         <ArrowUpRight
-          className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+          className="h-4 w-4 transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
           strokeWidth={1.75}
           aria-hidden="true"
         />
-      </Link>
-    </article>
+      </span>
+    </button>
   );
 }
+
+function ProgrammeDialog({
+  programme,
+  onClose,
+}: {
+  programme: Programme | null;
+  onClose: () => void;
+}) {
+  const open = !!programme;
+  const pillar = programme ? PILLARS.find((x) => x.id === programme.pillar)! : null;
+  return (
+    <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
+      <DialogContent className="max-w-2xl bg-snow border border-hairline p-0 overflow-hidden gap-0 rounded-2xl shadow-[0_20px_60px_-20px_rgba(28,0,96,0.35)] [&>button]:hidden">
+        {programme && pillar && (
+          <>
+            <div className="flex items-start justify-between gap-4 px-7 lg:px-9 pt-7 pb-5 border-b border-hairline bg-canvas">
+              <div className="min-w-0">
+                <div className="flex items-center gap-3 flex-wrap">
+                  <span className="font-mono text-[11px] text-ink-muted tabular-nums">
+                    {programme.n}
+                  </span>
+                  <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-ink-muted">
+                    <span
+                      aria-hidden="true"
+                      className="h-1.5 w-1.5 rounded-full"
+                      style={{ background: pillar.color }}
+                    />
+                    {pillar.name}
+                  </span>
+                  <StatusBadge status={programme.status} />
+                </div>
+                <DialogTitle className="mt-3 font-sans font-semibold text-[1.375rem] lg:text-[1.5rem] tracking-[-0.01em] text-ink text-balance">
+                  {programme.name}
+                </DialogTitle>
+                <DialogDescription className="mt-2 text-[15px] leading-[1.6] text-ink-muted text-pretty">
+                  {programme.intent}
+                </DialogDescription>
+              </div>
+              <DialogClose
+                aria-label="Close"
+                className="shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-full border border-hairline bg-snow text-ink-muted transition-[color,border-color,scale] duration-200 hover:text-ink hover:border-ink/40 active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-primary"
+              >
+                <X className="h-4 w-4" strokeWidth={1.75} />
+              </DialogClose>
+            </div>
+
+            <div className="px-7 lg:px-9 py-7 space-y-6 max-h-[60vh] overflow-y-auto">
+              <Detail label="Who it serves" body={programme.who} />
+              <DetailList label="What we will do" items={programme.doing} />
+              <DetailList label="What we will publish" items={programme.publish} />
+              <div className="pt-5 border-t border-hairline grid grid-cols-2 gap-4">
+                <Meta label="CSR entry" value={programme.schedule} />
+                <Meta label="SDG" value={programme.sdg} />
+              </div>
+            </div>
+
+            <div className="px-7 lg:px-9 py-5 border-t border-hairline bg-canvas flex items-center justify-between gap-4">
+              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-muted">
+                Year one · in design
+              </span>
+              <Link
+                to="/partner/csr"
+                onClick={onClose}
+                className="inline-flex items-center gap-1.5 text-sm text-ink underline decoration-ink/25 underline-offset-4 transition-colors hover:decoration-ink"
+              >
+                Partner on this programme
+                <ArrowUpRight className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
+              </Link>
+            </div>
+          </>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 
 function Detail({ label, body }: { label: string; body: string }) {
   return (
