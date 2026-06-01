@@ -75,7 +75,7 @@ function Page() {
           <FadeUp delay={140}>
             <div className="rounded-2xl bg-snow border border-hairline p-8 lg:p-12 shadow-[0_1px_2px_rgba(28,0,96,0.04),0_8px_24px_-16px_rgba(28,0,96,0.12)]">
               <div className="flex justify-center">
-                <OmniCareDiagram width={520} height={240} className="max-w-full h-auto" />
+                <OmniCareDiagram className="w-full h-auto max-w-3xl" />
               </div>
             </div>
           </FadeUp>
