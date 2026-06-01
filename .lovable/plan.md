@@ -1,72 +1,97 @@
 
-# Home page audit — cards & surface polish
+# Site-wide card system — roll out the home page pattern
 
-Audit run against `make-interfaces-feel-better` + `frontend-design`. Scope: cards and small surface details only. Hero copy, section order, dark-band rhythm and the §07 closing all stay untouched.
+Apply the rounded, soft-shadow card language from the home page across every route and shared component. Audited via `make-interfaces-feel-better` (concentric radius, shadows over hard borders, specific transitions, hit areas) and `frontend-design` (consistent surface vocabulary).
 
-## What's off right now
+## The system (lock these tokens — every card on the site must use one of three)
 
-The page is sharp-cornered everywhere. Every card and tile uses `border-radius: 0` (the design tokens are 4–16px but the components never apply them). For a non-profit aimed at warmth + trust, square 90°-corner cards read cold and "wireframe-y." Three specific failures:
+| Tier | Use for | Classes |
+|---|---|---|
+| **Primary card** | Programmes, features, anything with media | `rounded-2xl bg-snow border border-hairline overflow-hidden shadow-[0_1px_2px_rgba(28,0,96,0.04),0_8px_24px_-16px_rgba(28,0,96,0.12)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-1 hover:border-ink/40 hover:shadow-[0_4px_8px_rgba(28,0,96,0.06),0_22px_44px_-22px_rgba(28,0,96,0.32)]` |
+| **Secondary card** | Compliance items, stat tiles, info blocks | `rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]` |
+| **Dark-band card** | Cards on `bg-ink` sections | `rounded-2xl border border-snow/15 bg-snow/[0.04] p-7 lg:p-8 transition-[background-color,border-color,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-snow/30 hover:bg-snow/[0.08]` |
 
-1. **What we do** (pillar grid) — flat 4-up tiles, no radius, no shadow, separated only by 1px `bg-hairline` lines. Looks like a spreadsheet.
-2. **Programmes** — cards have border + hover shadow, but `border-radius: 0` on both the outer card and the image, so the concentric-radius rule is violated (image and card share the same hard corner).
-3. **Partner band** (dark) — same flat 3-up grid pattern, 1px snow/10 dividers, no radius. The dark indigo deserves softer, more deliberate card shapes to feel premium.
+Plus three universal rules:
+1. **No `gap-px` divider grids** — replace with real gaps (`gap-4` / `gap-5` / `gap-6`).
+2. **Concentric radius** — images inside primary cards: card uses `overflow-hidden rounded-2xl`, image fills it (no separate radius on the image).
+3. **All hero / large feature photos**: `rounded-2xl` (not `rounded-md` or `rounded-lg`).
 
-Other smaller misses:
-- Hero photo uses `rounded-md` (~4px) — too tight against the generous spacing around it.
-- Compliance / Trust 3-up uses the same flat-tile pattern as pillars.
-- Newsletter input is `rounded-full` but the submit button is also `rounded-full` and the same height — fine, but the input border darkens on focus only; no resting-state warmth.
-- Pillar tiles have a `gap-px` divider system AND no inner radius — so we can't just round corners without re-thinking the grid (rounded children inside a `gap-px` strip look broken).
+## Shared components (highest impact — touch first)
 
-## What to change
+| File | Change |
+|---|---|
+| `src/components/ProgramCard.tsx` | Wrap the whole card in primary-card classes; remove `rounded-2xl` from inner image (let parent clip). Photo block becomes `aspect-[5/3]` to match new home page. |
+| `src/components/CTABand.tsx` | Apply dark-band card style if it uses tiles. |
+| `src/components/PageHero.tsx` | If it renders a photo, bump radius to `rounded-2xl`. |
+| `src/components/Footer.tsx` | Any boxed CTA blocks → secondary card. |
+| `src/components/MobileCTABar.tsx` | Pill chrome stays, but any `rounded-md` → `rounded-full` consistency check. |
 
-### 1. Programmes cards (biggest visual win)
-- Outer card: `rounded-2xl` (16px), keep border, keep hover lift.
-- Inner image wrapper: `rounded-t-2xl` only (concentric — same 16px on top corners).
-- Add a subtle resting shadow `shadow-[0_1px_2px_rgba(28,0,96,0.04),0_8px_24px_-16px_rgba(28,0,96,0.12)]` so cards float a touch even before hover.
-- Hover shadow stays, hover lift goes to `-translate-y-1` (more felt feedback).
+## Routes to update
 
-### 2. Pillar grid (What we do)
-- Drop the `gap-px` divider grid. Switch to `gap-4 lg:gap-5` between actual rounded tiles.
-- Each tile: `rounded-2xl bg-snow border border-hairline p-7`.
-- Hover: border darkens to `ink/30`, tile lifts `-translate-y-0.5`, subtle shadow appears.
-- Keep the colored pill rail at top (`h-1.5 w-10 rounded-full`) — it already reads well.
+Group by what they show. Each gets a sweep applying the table above.
 
-### 3. Partner band cards (dark)
-- Drop `gap-px` divider for `gap-4 lg:gap-5` rounded tiles.
-- Each tile: `rounded-2xl bg-snow/[0.04] border border-snow/12 p-8`.
-- Hover: `bg-snow/[0.07]` + border `snow/25`. Keeps the dark-band feel but tiles now read as distinct objects.
-- Gold CTA arrow stays.
+**A. Routes with media cards → primary card**
+- `src/routes/programs.index.tsx` (uses `ProgramCard` — fixed by component edit)
+- `src/routes/programs.$slug.tsx`
+- `src/routes/what-we-do.index.tsx`
+- `src/routes/what-we-do.$pillar.tsx`
+- `src/routes/about.leadership.tsx` (people cards)
+- `src/routes/impact.index.tsx` / `impact.stories.tsx` (story cards)
+- `src/routes/newsroom.tsx`
 
-### 4. Trust / Compliance 3-up
-- Same treatment: `gap-4` between `rounded-xl bg-snow border border-hairline p-6` tiles. Smaller radius (12px) than primary cards — they're secondary content.
+**B. Routes with info tiles → secondary card**
+- `src/routes/about.compliance.tsx`
+- `src/routes/about.omni-care-model.tsx`
+- `src/routes/about.values.tsx`
+- `src/routes/about.vision-mission.tsx`
+- `src/routes/about.our-story.tsx`
+- `src/routes/about.careers.tsx`
+- `src/routes/donation-policy.tsx`, `privacy-policy.tsx`, `terms.tsx`, `safeguarding-policy.tsx`, `accessibility.tsx` (any boxed callout)
 
-### 5. Hero photo
-- Bump `rounded-md` → `rounded-2xl` (16px). Matches programme cards and feels intentional against the wide negative space.
+**C. Routes with dark CTA sections → dark-band card**
+- `src/routes/partner.csr.tsx`
+- `src/routes/get-involved.index.tsx` / `get-involved.volunteer.tsx`
+- `src/routes/donate.tsx`
 
-### 6. Newsletter
-- Input gets a subtle inner shadow `shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)]` at rest.
-- Submit button: add `hover:shadow-[0_4px_12px_-4px_rgba(28,0,96,0.4)]` for tactile lift.
+**D. Form pages → secondary card + rounded inputs**
+- `src/routes/contact.tsx`
+- `src/routes/donate.tsx` (form panel)
+- All form inputs: keep `rounded-full` for single-line, `rounded-xl` for textareas; add `shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)]` resting state.
 
-## Surface details checklist (applied to all touched cards)
+**Untouched routes** (no card surfaces or already correct):
+- `src/routes/__root.tsx`, `src/routes/index.tsx` (already done), `src/routes/sitemap.tsx`, `src/routes/sitemap[.]xml.ts`, `src/routes/design-ui-inspo.tsx` (internal reference page).
 
-- [x] Concentric radius — image wrapper top corners match card radius.
-- [x] Shadows over hard borders — at rest, cards get a faint layered shadow so they don't rely on the border alone.
-- [x] `outline outline-1 -outline-offset-1 outline-ink/10` on all card images (already present, verified kept).
-- [x] All hover transitions remain specific (`transition-[border-color,box-shadow,transform,background-color]`), no `transition: all`.
-- [x] Cards keep `text-balance` on titles, `text-pretty` on body.
-- [x] Hit areas — all card `<Link>`s are full-tile, already ≥44px. Verified.
+## Make-interfaces-feel-better sweep (every file touched)
 
-## Files touched
+- Replace any `transition-all` with specific property lists (`border-color`, `box-shadow`, `transform`, `background-color`).
+- All card images get `outline outline-1 -outline-offset-1 outline-ink/10`.
+- Card titles use `text-balance`; body uses `text-pretty`.
+- Min 44px hit area on every card `<Link>` — full-tile links already satisfy this; verify small mono "Read more" links sit inside the parent tile link, not floating beside it.
+- Numbers/stats use `tabular-nums`.
 
-- **Edit only**: `src/routes/index.tsx` — four card grids (WhatWeDo, Programmes, PartnerBand, Trust), hero photo radius, newsletter input/button.
-- No changes to copy, section order, dark/light rhythm, header, footer, or tokens in `styles.css`.
+## Frontend-design sweep (every file touched)
 
-## Out of scope (per your "rest I like everything")
+- One card tier per grid — never mix primary and secondary radii in the same row.
+- Section rhythm rule from home page extended: when a route lives on `bg-canvas`, use **secondary** cards on `bg-snow`; when on `bg-sage`, use **primary** cards on `bg-snow`; when on `bg-ink`, use **dark-band** cards. No new colours.
+- Strip any literary italics (`font-display-italic`) in body copy on these routes — keep them only for the single hero word per page, matching home page restraint.
 
-- Hero copy, dark-indigo brand surface, §07 closing band, founders' note, eyebrow style, typography pairing, color tokens.
+## Out of scope
+
+- Copy rewrites on subpages (only home page got Ogilvy pass).
+- Colour token changes.
+- shadcn UI primitives in `src/components/ui/*` (they're consumed via wrappers; updating them risks cross-app regressions).
+- Header / nav surfaces (they're already pill-based and feel right).
 
 ## Verification after build
 
-- Visually scan the home page top-to-bottom — every card should have rounded corners. No remaining 90° card on the page.
-- Hover any programme card: lifts, deeper shadow, image scales — all three should fire together smoothly with no jank.
-- Mobile (<768px): rounded tiles stack with proper gap, no edge-to-edge bleed, no horizontal scroll.
+- Click through each route in the table above; every card should be rounded with a faint resting shadow and a soft hover lift.
+- No `gap-px` grids remain (`rg "gap-px" src/routes src/components` should return only `design-ui-inspo.tsx` if anything).
+- No `rounded-md` on hero photos or media cards (`rg "rounded-md" src/routes` ≈ zero on photo surfaces).
+- Mobile (<768px): rounded tiles stack with proper gap; no edge-to-edge bleed.
+- All hover/focus transitions stay smooth — no `transition: all` left on any touched file.
+
+## Files touched (summary)
+
+- 5 shared components (`ProgramCard`, `CTABand`, `PageHero`, `Footer`, `MobileCTABar`)
+- ~20 route files across groups A–D
+- No new files, no token changes, no shadcn edits
