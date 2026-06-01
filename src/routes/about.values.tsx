@@ -140,7 +140,10 @@ function Page() {
                 <span className="eyebrow">Accountability</span>
               </div>
               <h2 className="font-sans font-semibold tracking-[-0.025em] text-3xl md:text-4xl text-ink text-balance leading-[1.1]">
-                How we are held to these values.
+                How we are{" "}
+                <em className="font-serif italic font-medium text-primary">
+                  held to these values.
+                </em>
               </h2>
               <p className="mt-5 text-ink-muted text-pretty leading-relaxed">
                 Values without consequences are marketing. Here is how ours show up in governance you can inspect.
@@ -213,7 +216,7 @@ function Page() {
               className="group relative rounded-xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_14px_28px_-18px_rgba(28,0,96,0.22)]"
             >
               <div className="flex items-center justify-between mb-5">
-                <ArrowUpRight className="h-4 w-4 text-ink-muted transition-all duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink" />
+                <ArrowUpRight className="h-4 w-4 text-ink-muted transition-[color,transform] duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink" />
               </div>
               <h3 className="font-sans font-semibold tracking-[-0.01em] text-xl text-ink text-balance">
                 {l.label}

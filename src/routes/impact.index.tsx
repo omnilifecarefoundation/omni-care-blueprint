@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { FadeUp } from "@/components/FadeUp";
 import { CTABand } from "@/components/CTABand";
@@ -87,55 +88,63 @@ function Page() {
       />
 
       {/* Honesty section */}
-      <section className="container-editorial py-20 lg:py-28">
-        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20">
-          <FadeUp>
-            <div className="eyebrow">What this page is not</div>
-          </FadeUp>
-          <div className="space-y-6">
-            <FadeUp delay={80}>
-              <p className="font-serif text-[clamp(1.5rem,2.2vw,2rem)] leading-[1.3] text-ink text-balance">
-                A new foundation that publishes inflated numbers buys itself one
-                press cycle and loses a decade of trust.
-              </p>
+      <section className="bg-canvas border-b border-hairline">
+        <div className="container-editorial py-20 lg:py-28">
+          <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6">
+            <FadeUp className="lg:col-span-4">
+              <p className="eyebrow mb-4">What this page is not</p>
             </FadeUp>
-            <FadeUp delay={160}>
-              <p className="text-[1.0625rem] leading-[1.7] text-ink-muted text-pretty">
-                We will not show photos of communities we have not yet served, or
-                map states we have not yet entered. We will publish the first
-                household record, the first referral closed, the first rupee
-                spent — and every one after that. The proof comes from the
-                discipline of measurement, not the size of the claim.
-              </p>
-            </FadeUp>
+            <div className="lg:col-span-8 space-y-6">
+              <FadeUp delay={80}>
+                <p className="font-sans font-medium text-[clamp(1.375rem,2.4vw,1.875rem)] leading-[1.25] tracking-[-0.015em] text-ink text-balance">
+                  A new foundation that publishes inflated numbers buys itself
+                  one press cycle and{" "}
+                  <em className="font-serif italic font-medium text-primary">
+                    loses a decade of trust.
+                  </em>
+                </p>
+              </FadeUp>
+              <FadeUp delay={160}>
+                <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
+                  We will not show photos of communities we have not yet served,
+                  or map states we have not yet entered. We will publish the
+                  first household record, the first referral closed, the first
+                  rupee spent — and every one after that. The proof comes from
+                  the discipline of measurement, not the size of the claim.
+                </p>
+              </FadeUp>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Where we start */}
-      <section className="bg-sage border-y border-hairline">
+      <section className="bg-sage border-b border-hairline">
         <div className="container-editorial py-20 lg:py-28">
-          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-start">
-            <div className="space-y-6">
+          <div className="grid lg:grid-cols-12 gap-x-10 gap-y-10 items-start">
+            <div className="lg:col-span-7 space-y-6">
               <FadeUp>
-                <div className="eyebrow">Where we start · Mumbai</div>
+                <p className="eyebrow mb-4">Where we start · Mumbai</p>
               </FadeUp>
               <FadeUp delay={80}>
-                <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.2vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-                  In the chawls and slum settlements where care arrives last, if it arrives at all.
+                <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
+                  Where care arrives last —{" "}
+                  <em className="font-serif italic font-medium">
+                    if it arrives at all.
+                  </em>
                 </h2>
               </FadeUp>
               <FadeUp delay={160}>
-                <p className="text-[1.0625rem] leading-[1.7] text-ink-muted text-pretty">
+                <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
                   Mumbai's lowest-income neighbourhoods carry the city's hardest
                   health burdens — untreated depression, anaemia in adolescent
-                  girls, undiagnosed hypertension, elders left alone with
-                  chronic disease, women who postpone care until it becomes an
-                  emergency. The infrastructure exists. The bridge to it does not.
+                  girls, undiagnosed hypertension, elders left alone with chronic
+                  disease, women who postpone care until it becomes an emergency.
+                  The infrastructure exists. The bridge to it does not.
                 </p>
               </FadeUp>
               <FadeUp delay={220}>
-                <p className="text-[1.0625rem] leading-[1.7] text-ink-muted text-pretty">
+                <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
                   We are building that bridge — one household at a time,
                   alongside ASHA workers, municipal clinicians, and the women
                   who already hold these communities together.
@@ -143,9 +152,9 @@ function Page() {
               </FadeUp>
             </div>
 
-            <FadeUp delay={120}>
-              <div className="rounded-2xl border border-hairline bg-canvas p-8 lg:p-10 shadow-[0_1px_0_rgba(0,0,0,0.02),0_24px_60px_-30px_rgba(0,0,0,0.18)]">
-                <div className="eyebrow mb-6">First operating context</div>
+            <FadeUp className="lg:col-span-5" delay={120}>
+              <div className="rounded-2xl bg-snow border border-hairline p-7 lg:p-8 shadow-[0_1px_2px_rgba(28,0,96,0.04),0_22px_48px_-32px_rgba(28,0,96,0.22)]">
+                <p className="eyebrow mb-6">First operating context</p>
                 <dl className="space-y-5 text-[0.95rem]">
                   {[
                     ["Location", "Mumbai, Maharashtra"],
@@ -172,44 +181,47 @@ function Page() {
       </section>
 
       {/* What we will measure */}
-      <section className="container-editorial py-20 lg:py-28">
-        <div className="max-w-2xl mb-14">
-          <FadeUp>
-            <div className="eyebrow mb-4">What we will measure</div>
-          </FadeUp>
-          <FadeUp delay={80}>
-            <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.2vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-              Four numbers. Reported honestly. Reported every quarter.
-            </h2>
-          </FadeUp>
-          <FadeUp delay={160}>
-            <p className="lead mt-5 text-pretty">
-              We chose these because they are hard to game and impossible to
-              inflate. They tell the truth about whether care actually reached
-              the person who needed it.
-            </p>
-          </FadeUp>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-px bg-hairline border border-hairline rounded-2xl overflow-hidden">
-          {BASELINE.map((m, i) => (
-            <FadeUp key={m.n} delay={i * 80}>
-              <div className="bg-canvas p-8 lg:p-10 h-full transition-shadow duration-300 hover:shadow-[0_1px_0_rgba(0,0,0,0.02),0_24px_60px_-30px_rgba(0,0,0,0.18)]">
-                <div className="flex items-baseline gap-4 mb-5">
-                  <span className="font-mono text-xs text-ink-muted tabular-nums">
-                    {m.n}
-                  </span>
-                  <div className="h-px flex-1 bg-hairline" />
-                </div>
-                <h3 className="font-sans font-semibold text-xl text-ink mb-3 text-balance">
-                  {m.label}
-                </h3>
-                <p className="text-[0.95rem] leading-[1.65] text-ink-muted text-pretty">
-                  {m.detail}
-                </p>
-              </div>
+      <section className="bg-canvas border-b border-hairline">
+        <div className="container-editorial py-20 lg:py-28">
+          <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
+            <FadeUp className="lg:col-span-7">
+              <p className="eyebrow mb-4">What we will measure</p>
+              <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
+                Four numbers.{" "}
+                <em className="font-serif italic font-medium">
+                  Reported every quarter.
+                </em>
+              </h2>
             </FadeUp>
-          ))}
+            <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
+              <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
+                We chose these because they are hard to game and impossible to
+                inflate. They tell the truth about whether care actually reached
+                the person who needed it.
+              </p>
+            </FadeUp>
+          </div>
+
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
+            {BASELINE.map((m, i) => (
+              <FadeUp key={m.n} delay={i * 70} as="li">
+                <div className="h-full rounded-2xl bg-snow border border-hairline p-7 lg:p-8 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_14px_28px_-20px_rgba(28,0,96,0.22)]">
+                  <div className="flex items-center gap-3 mb-5">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted tabular-nums">
+                      {m.n}
+                    </span>
+                    <span className="h-px flex-1 bg-hairline" />
+                  </div>
+                  <h3 className="font-sans font-semibold text-[1.25rem] leading-snug text-ink text-balance mb-3">
+                    {m.label}
+                  </h3>
+                  <p className="text-[14.5px] leading-relaxed text-ink-muted text-pretty">
+                    {m.detail}
+                  </p>
+                </div>
+              </FadeUp>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -224,31 +236,39 @@ function Page() {
           }}
         />
         <div className="container-editorial relative py-20 lg:py-28">
-          <div className="max-w-2xl mb-14">
-            <FadeUp>
-              <span className="inline-flex items-center gap-2 rounded-full border border-snow/20 bg-snow/5 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-snow/80">
+          <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
+            <FadeUp className="lg:col-span-7">
+              <span className="inline-flex items-center gap-2 rounded-full border border-snow/20 bg-snow/5 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-snow/80 mb-5">
                 <span className="h-1.5 w-1.5 rounded-full bg-gold" />
                 The first hundred days
               </span>
-            </FadeUp>
-            <FadeUp delay={80}>
-              <h2 className="mt-6 font-sans font-semibold text-[clamp(1.875rem,3.2vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-snow text-balance">
-                Three phases. One neighbourhood. No shortcuts.
+              <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-snow text-balance">
+                Three phases. One neighbourhood.{" "}
+                <em className="font-serif italic font-medium text-gold">
+                  No shortcuts.
+                </em>
               </h2>
+            </FadeUp>
+            <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
+              <p className="text-[15px] leading-relaxed text-snow/80 text-pretty">
+                A new foundation earns its right to scale through what it does
+                first. Here is the order — written before the work begins, so it
+                can be checked against what actually happens.
+              </p>
             </FadeUp>
           </div>
 
           <ol className="space-y-px">
             {FIRST_HUNDRED_DAYS.map((p, i) => (
               <FadeUp key={p.phase} delay={i * 100}>
-                <li className="grid md:grid-cols-[180px_1fr_2fr] gap-6 md:gap-10 py-8 border-t border-snow/10 last:border-b">
-                  <div className="font-mono text-xs uppercase tracking-[0.18em] text-gold tabular-nums">
+                <li className="grid md:grid-cols-[180px_1fr_2fr] gap-6 md:gap-10 py-8 border-t border-snow/15 last:border-b">
+                  <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold tabular-nums">
                     {p.phase}
                   </div>
-                  <h3 className="font-sans font-semibold text-xl lg:text-2xl text-snow leading-[1.2] text-balance">
+                  <h3 className="font-sans font-semibold text-xl lg:text-2xl text-snow leading-snug text-balance">
                     {p.title}
                   </h3>
-                  <p className="text-[1rem] leading-[1.7] text-snow/75 text-pretty">
+                  <p className="text-[15px] leading-relaxed text-snow/80 text-pretty">
                     {p.body}
                   </p>
                 </li>
@@ -259,79 +279,99 @@ function Page() {
       </section>
 
       {/* What you can hold us to */}
-      <section className="container-editorial py-20 lg:py-28">
-        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20">
-          <div>
-            <FadeUp>
-              <div className="eyebrow mb-4">The public ledger</div>
-            </FadeUp>
-            <FadeUp delay={80}>
-              <h2 className="font-sans font-semibold text-[clamp(1.5rem,2.6vw,2.25rem)] leading-[1.15] tracking-[-0.02em] text-ink text-balance">
-                What you can hold us to, in writing.
-              </h2>
-            </FadeUp>
-            <FadeUp delay={160}>
-              <p className="mt-5 text-[1rem] leading-[1.7] text-ink-muted text-pretty">
-                If any of these slip, we owe you an explanation before you ask
-                for one.
-              </p>
-            </FadeUp>
-          </div>
-
-          <ul className="divide-y divide-hairline border-y border-hairline">
-            {PUBLIC_LEDGER.map((item, i) => (
-              <FadeUp key={item.label} delay={i * 70}>
-                <li className="flex items-baseline justify-between gap-6 py-5">
-                  <span className="font-sans font-semibold text-[1.0625rem] text-ink">
-                    {item.label}
-                  </span>
-                  <span className="font-mono text-xs uppercase tracking-[0.16em] text-ink-muted tabular-nums">
-                    {item.cadence}
-                  </span>
-                </li>
+      <section className="bg-canvas border-b border-hairline">
+        <div className="container-editorial py-20 lg:py-28">
+          <div className="grid lg:grid-cols-12 gap-x-10 gap-y-10">
+            <div className="lg:col-span-5">
+              <FadeUp>
+                <p className="eyebrow mb-4">The public ledger</p>
               </FadeUp>
-            ))}
-          </ul>
+              <FadeUp delay={80}>
+                <h2 className="font-sans font-semibold text-[clamp(1.75rem,3.2vw,2.5rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
+                  What you can hold us to,{" "}
+                  <em className="font-serif italic font-medium text-primary">
+                    in writing.
+                  </em>
+                </h2>
+              </FadeUp>
+              <FadeUp delay={160}>
+                <p className="mt-5 text-[15px] leading-relaxed text-ink-muted text-pretty">
+                  If any of these slip, we owe you an explanation before you ask
+                  for one.
+                </p>
+              </FadeUp>
+            </div>
+
+            <ul className="lg:col-span-7 divide-y divide-hairline border-y border-hairline">
+              {PUBLIC_LEDGER.map((item, i) => (
+                <FadeUp key={item.label} delay={i * 70}>
+                  <li className="flex items-baseline justify-between gap-6 py-5">
+                    <span className="font-sans font-semibold text-[1.0625rem] text-ink">
+                      {item.label}
+                    </span>
+                    <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted tabular-nums">
+                      {item.cadence}
+                    </span>
+                  </li>
+                </FadeUp>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
       {/* Pillars tied back to impact */}
       <section className="bg-sage border-y border-hairline">
         <div className="container-editorial py-20 lg:py-28">
-          <div className="max-w-2xl mb-12">
-            <FadeUp>
-              <div className="eyebrow mb-4">Where impact accrues</div>
-            </FadeUp>
-            <FadeUp delay={80}>
-              <h2 className="font-sans font-semibold text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-                Four pillars. Read from the ground up.
+          <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
+            <FadeUp className="lg:col-span-7">
+              <p className="eyebrow mb-4">Where impact accrues</p>
+              <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
+                Four pillars.{" "}
+                <em className="font-serif italic font-medium">
+                  Read from the ground up.
+                </em>
               </h2>
+            </FadeUp>
+            <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
+              <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
+                Mental wellbeing is the floor. Human potential is the ceiling.
+                Every household we work with sits inside that span.
+              </p>
             </FadeUp>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-hairline border border-hairline rounded-2xl overflow-hidden">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
             {[...PILLARS].reverse().map((p, i) => (
-              <FadeUp key={p.id} delay={i * 70}>
-                <a
-                  href={p.href}
-                  className="group bg-canvas p-7 lg:p-8 h-full block transition-all duration-300 hover:bg-snow"
+              <FadeUp key={p.id} delay={i * 70} as="li">
+                <Link
+                  to={p.href}
+                  className="group relative flex h-full flex-col gap-4 rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/30 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_12px_28px_-20px_rgba(28,0,96,0.22)] active:scale-[0.99]"
                 >
-                  <div className="font-mono text-xs text-ink-muted tabular-nums mb-4">
-                    {p.number}
+                  <div className="flex items-center justify-between">
+                    <span
+                      className="h-1.5 w-10 rounded-full transition-[width] duration-300 ease-out group-hover:w-16"
+                      style={{ backgroundColor: p.color }}
+                      aria-hidden="true"
+                    />
+                    <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted tabular-nums">
+                      {p.number}
+                    </span>
                   </div>
-                  <h3 className="font-sans font-semibold text-lg text-ink mb-2 text-balance">
+                  <h3 className="font-sans font-semibold text-[1.125rem] leading-snug text-ink text-balance">
                     {p.name}
                   </h3>
-                  <p className="text-[0.9rem] leading-[1.6] text-ink-muted text-pretty">
+                  <p className="text-[14px] leading-relaxed text-ink-muted text-pretty">
                     {p.description}
                   </p>
-                  <div className="mt-5 inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-[0.16em] text-ink group-hover:gap-2.5 transition-[gap] duration-200">
-                    Read <span aria-hidden>→</span>
-                  </div>
-                </a>
+                  <span className="mt-auto inline-flex items-center gap-1.5 text-[13px] font-medium text-ink transition-transform duration-300 ease-out group-hover:translate-x-1">
+                    Read{" "}
+                    <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                  </span>
+                </Link>
               </FadeUp>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 

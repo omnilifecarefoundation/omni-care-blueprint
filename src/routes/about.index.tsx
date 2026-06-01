@@ -79,7 +79,10 @@ function AboutIndex() {
                 <span className="eyebrow">Where we stand</span>
               </div>
               <h2 className="font-sans font-semibold tracking-[-0.025em] text-3xl md:text-4xl text-ink text-balance leading-[1.1]">
-                We are new. So we are saying out loud what we will be held to.
+                We are new. So we are saying out loud{" "}
+                <em className="font-serif italic font-medium text-primary">
+                  what we will be held to.
+                </em>
               </h2>
               <p className="mt-5 text-ink-muted text-pretty leading-relaxed">
                 A new foundation cannot trade on a track record it has not earned. It can trade on the discipline it brings to day one — and the willingness to publish what happens next.
@@ -157,7 +160,10 @@ function AboutIndex() {
                 <span className="eyebrow">Explore</span>
               </div>
               <h2 className="font-sans font-semibold tracking-[-0.025em] text-3xl md:text-4xl text-ink text-balance">
-                Everything you'd ask of an NGO worth funding.
+                Everything you'd ask of an NGO{" "}
+                <em className="font-serif italic font-medium text-primary">
+                  worth funding.
+                </em>
               </h2>
             </div>
             <p className="text-ink-muted max-w-md text-pretty">
