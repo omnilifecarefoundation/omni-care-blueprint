@@ -455,7 +455,6 @@ function ProgrammeDialog({
                 <DetailBlock
                   label="What we will publish"
                   items={programme.publish}
-                  accentColor={pillar.color}
                 />
               </div>
 
