@@ -53,61 +53,66 @@
   --color-pillar-inclusive: var(--pillar-inclusive);
   --color-pillar-human: var(--pillar-human);
 
-  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-serif: "General Sans", system-ui, -apple-system, sans-serif;
+  --font-sans: "General Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Excon", Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  --color-primary-glow: var(--primary-glow);
+  --color-primary-deep: var(--primary-deep);
 }
 
 :root {
   --radius: 4px;
 
-  /* Brand */
-  --primary: #0B3B3C;
-  --primary-foreground: #FBFAF6;
-  --secondary: #E8EDE8;
-  --secondary-foreground: #0B3B3C;
+  /* Brand — Indigo */
+  --primary: #3F00AC;
+  --primary-foreground: #FFFFFF;
+  --primary-glow: #735BF6;
+  --primary-deep: #1C0060;
+  --secondary: #F1EEFE;
+  --secondary-foreground: #1C0060;
 
-  --canvas: #FBFAF6;
+  --canvas: #FFFFFF;
   --snow: #FFFFFF;
-  --ink: #1A1F1E;
-  --ink-muted: #5A6464;
-  --hairline: #E4E0D7;
-  --sage: #E8EDE8;
-  --sandstone: #E5D4B8;
-  --coral: #D9573F;
+  --ink: #1C0060;
+  --ink-muted: #5A4E8C;
+  --hairline: #E5E0F5;
+  --sage: #F1EEFE;
+  --sandstone: #735BF6;
+  --coral: #735BF6;
 
-  /* Pillar accents */
-  --pillar-mental: #7A6F9B;
-  --pillar-social: #4A7C59;
-  --pillar-inclusive: #B8553A;
-  --pillar-human: #C9912C;
+  /* Pillar accents — indigo family + complements */
+  --pillar-mental: #735BF6;
+  --pillar-social: #3F00AC;
+  --pillar-inclusive: #1C0060;
+  --pillar-human: #9B86FA;
 
   /* Motion easings (Axion-style) */
   --ease-axion: cubic-bezier(0.25, 0.1, 0.25, 1);
   --ease-sheet: cubic-bezier(0.32, 0.72, 0, 1);
 
   /* Shadcn token mapping */
-  --background: #FBFAF6;
-  --foreground: #1A1F1E;
+  --background: #FFFFFF;
+  --foreground: #1C0060;
   --card: #FFFFFF;
-  --card-foreground: #1A1F1E;
+  --card-foreground: #1C0060;
   --popover: #FFFFFF;
-  --popover-foreground: #1A1F1E;
-  --muted: #E8EDE8;
-  --muted-foreground: #5A6464;
-  --accent: #E5D4B8;
-  --accent-foreground: #1A1F1E;
+  --popover-foreground: #1C0060;
+  --muted: #F1EEFE;
+  --muted-foreground: #5A4E8C;
+  --accent: #735BF6;
+  --accent-foreground: #FFFFFF;
   --destructive: #A8392B;
-  --destructive-foreground: #FBFAF6;
-  --border: #E4E0D7;
-  --input: #E4E0D7;
-  --ring: #0B3B3C;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E0F5;
+  --input: #E5E0F5;
+  --ring: #3F00AC;
 }
 
 .dark {
-  /* Phase 1: light only. Dark mode reserved for later. */
-  --background: #FBFAF6;
-  --foreground: #1A1F1E;
+  --background: #FFFFFF;
+  --foreground: #1C0060;
 }
 
 @layer base {
