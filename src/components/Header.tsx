@@ -89,17 +89,18 @@ export function Header() {
       style={{ transitionTimingFunction: "var(--ease-axion)" }}
     >
       <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6">
-        <div className="flex items-center justify-between gap-3 h-20">
+        <div className="flex items-center justify-between gap-3 h-16">
           {/* Logo */}
           <Link to="/" aria-label={SITE.name} className="shrink-0">
             <img
               src={logoSrc}
               alt="Omni Life Care Foundation"
-              className="h-14 sm:h-16 w-auto block"
+              className="h-9 sm:h-10 w-auto block"
               loading="eager"
               decoding="async"
             />
           </Link>
+
 
 
           {/* Desktop nav */}
