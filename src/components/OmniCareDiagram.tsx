@@ -20,7 +20,7 @@ type Pillar = {
   caption: string;
   detail: string;
   color: string;
-  icon: typeof Brain;
+  icon: LucideIcon;
   relatedIds: PillarId[];
 };
 
