@@ -180,7 +180,7 @@ function MentalWellbeingPage() {
                         className="grid h-10 w-10 place-items-center rounded-xl border border-hairline bg-sage text-primary"
                         aria-hidden="true"
                       >
-                        <Icon className="h-4.5 w-4.5" strokeWidth={1.75} />
+                        <Icon className="h-5 w-5" strokeWidth={1.75} />
                       </span>
                     </div>
                     <h3 className="font-sans font-semibold text-[1.125rem] leading-snug text-ink text-balance">
