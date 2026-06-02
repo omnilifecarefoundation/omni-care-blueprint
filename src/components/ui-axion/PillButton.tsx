@@ -27,16 +27,17 @@ export type PillButtonProps = AsLink | AsAnchor | AsButton;
 
 const VARIANT_BG: Record<Variant, string> = {
   primary: "bg-primary text-primary-foreground hover:bg-[#072A2B]",
-  action: "bg-coral text-white hover:bg-[#C24A33]",
-  ghost: "bg-white text-ink border border-hairline hover:border-ink-muted",
-  "on-dark": "bg-coral text-white hover:bg-[#C24A33]",
+  action: "bg-coral text-ink hover:bg-[#E6C000]",
+  ghost: "bg-transparent text-snow border border-snow/30 hover:border-snow/70 hover:bg-snow/5",
+  "on-dark":
+    "bg-coral text-ink shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_10px_30px_-12px_rgba(255,214,0,0.55)] hover:bg-[#FFDE33] hover:shadow-[0_1px_0_rgba(255,255,255,0.4)_inset,0_14px_36px_-12px_rgba(255,214,0,0.7)]",
 };
 
 const VARIANT_CIRCLE: Record<Variant, string> = {
   primary: "bg-white text-primary",
-  action: "bg-white text-coral",
-  ghost: "bg-primary text-primary-foreground",
-  "on-dark": "bg-white text-coral",
+  action: "bg-ink text-coral",
+  ghost: "bg-snow text-ink",
+  "on-dark": "bg-ink text-coral",
 };
 
 export function PillButton(props: PillButtonProps) {
