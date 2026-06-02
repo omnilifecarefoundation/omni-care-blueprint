@@ -496,12 +496,12 @@ function FoundersNote() {
    ============================================================ */
 function SDGs() {
   const goals = [
-    { n: "03", title: "Good Health & Well-Being", primary: true },
-    { n: "05", title: "Gender Equality" },
-    { n: "04", title: "Quality Education" },
-    { n: "10", title: "Reduced Inequalities" },
-    { n: "16", title: "Peace, Justice & Strong Institutions" },
-    { n: "17", title: "Partnerships for the Goals" },
+    { n: "03", title: "Good Health & Well-Being", color: "#4C9F38", primary: true },
+    { n: "05", title: "Gender Equality", color: "#FF3A21" },
+    { n: "04", title: "Quality Education", color: "#C5192D" },
+    { n: "10", title: "Reduced Inequalities", color: "#DD1367" },
+    { n: "16", title: "Peace, Justice & Strong Institutions", color: "#00689D" },
+    { n: "17", title: "Partnerships for the Goals", color: "#19486A" },
   ];
   return (
     <section className="bg-snow border-b border-hairline">
@@ -524,18 +524,44 @@ function SDGs() {
             {goals.map((g, i) => (
               <FadeUp key={g.n} delay={i * 50} as="li">
                 <div
-                  className={`h-full rounded-xl border p-5 flex flex-col gap-2 transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 ${
+                  className={`group relative h-full overflow-hidden rounded-xl border p-5 pt-[1.375rem] flex flex-col gap-2 transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 ${
                     g.primary
-                      ? "bg-ink text-snow border-ink shadow-[0_8px_24px_-16px_rgba(28,0,96,0.4)] hover:shadow-[0_14px_32px_-18px_rgba(28,0,96,0.55)]"
-                      : "bg-canvas border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04)] hover:border-ink/25 hover:shadow-[0_10px_24px_-18px_rgba(28,0,96,0.18)]"
+                      ? "bg-ink text-snow border-ink shadow-[0_8px_24px_-16px_rgba(28,0,96,0.4)]"
+                      : "bg-canvas border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04)]"
                   }`}
+                  style={{
+                    ['--sdg' as string]: g.color,
+                    boxShadow: undefined,
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = `${g.color}55`;
+                    e.currentTarget.style.boxShadow = `0 14px 32px -20px ${g.color}66, 0 1px 2px rgba(28,0,96,0.04)`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = '';
+                    e.currentTarget.style.boxShadow = '';
+                  }}
                 >
+                  {/* Top accent bar — official SDG color */}
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 top-0 h-[3px]"
+                    style={{ backgroundColor: g.color }}
+                  />
                   <div className="flex items-center justify-between">
                     <span
-                      className={`font-mono text-[11px] uppercase tracking-[0.18em] tabular-nums ${
+                      className={`inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] tabular-nums ${
                         g.primary ? "text-gold" : "text-ink-muted"
                       }`}
                     >
+                      <span
+                        aria-hidden
+                        className="h-2 w-2 rounded-full ring-2 ring-inset"
+                        style={{
+                          backgroundColor: g.color,
+                          ['--tw-ring-color' as string]: `${g.color}33`,
+                        }}
+                      />
                       SDG {g.n}
                     </span>
                     {g.primary && (
@@ -560,6 +586,7 @@ function SDGs() {
     </section>
   );
 }
+
 
 /* ============================================================
    9. PARTNER BAND — dark, three audiences
