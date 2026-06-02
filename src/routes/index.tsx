@@ -559,7 +559,6 @@ function SDGs() {
                         className="h-2 w-2 rounded-full ring-2 ring-inset"
                         style={{
                           backgroundColor: g.color,
-                          // @ts-expect-error css var fallback
                           ['--tw-ring-color' as string]: `${g.color}33`,
                         }}
                       />
