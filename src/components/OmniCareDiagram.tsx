@@ -66,7 +66,7 @@ const PILLARS: Pillar[] = [
     detail:
       "What care, done well, releases — leadership, agency, and a community that lifts itself.",
     color: "#1C0060",
-    icon: Sparkles,
+    icon: Sunrise,
     relatedIds: ["social", "inclusive"],
   },
 ];
