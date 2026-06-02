@@ -14,11 +14,11 @@ import { cn } from "@/lib/utils";
 import { SITE, MEGA_NAV } from "@/lib/site";
 import type { LucideIcon } from "lucide-react";
 import {
-  Users,
-  Layers,
-  Sparkles,
-  BarChart3,
-  Handshake,
+  Compass,
+  HeartPulse,
+  Sprout,
+  TrendingUp,
+  HandHeart,
   Newspaper,
   HeartHandshake,
   ArrowUpRight,
@@ -28,16 +28,16 @@ import logoAsset from "@/assets/omni-logo.svg.asset.json";
 const logoSrc = logoAsset.url;
 
 /* -------------------------------------------------------------------------- */
-/*  Icon mapping per section                                                   */
+/*  Icon mapping per section - chosen to match each section's intent           */
 /* -------------------------------------------------------------------------- */
 
 const SECTION_ICON: Record<string, LucideIcon> = {
-  about: Users,
-  "what-we-do": Layers,
-  programmes: Sparkles,
-  impact: BarChart3,
-  "get-involved": Handshake,
-  newsroom: Newspaper,
+  about: Compass,         // vision & direction - who we are
+  "what-we-do": HeartPulse, // health, care, the four pillars
+  programmes: Sprout,     // active programmes, growth on the ground
+  impact: TrendingUp,     // lives reached, evidence, trajectory
+  "get-involved": HandHeart, // volunteer, donate, give
+  newsroom: Newspaper,    // press, stories, updates
 };
 
 /* -------------------------------------------------------------------------- */
