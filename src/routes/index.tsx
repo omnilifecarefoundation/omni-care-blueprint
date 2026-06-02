@@ -542,12 +542,6 @@ function SDGs() {
                     e.currentTarget.style.boxShadow = '';
                   }}
                 >
-                  {/* Top accent bar — official SDG color */}
-                  <span
-                    aria-hidden
-                    className="absolute inset-x-0 top-0 h-[3px]"
-                    style={{ backgroundColor: g.color }}
-                  />
                   <div className="flex items-center justify-between">
                     <span
                       className={`inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] tabular-nums ${
