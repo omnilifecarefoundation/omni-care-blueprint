@@ -1,30 +1,76 @@
+# Plan — Programme pages (9 total, 8 new)
+
 ## Goal
-On the home page "Aligned with the UN SDGs" section, give each SDG card a subtle indicator using that goal's official UN color. Keep the existing card layout, hierarchy, and primary (SDG 03) ink treatment intact — just make the colors readable at a glance.
+Replace the generic `programs/$slug` fallback with dedicated, editorial-grade pages for every active programme. Match the depth, rhythm, and discipline of the existing `programs/research-impact-assessment` page. Honest copy — Omni Life Care is a new Mumbai foundation; no fabricated stats.
 
-## Official UN SDG colors to use
-- SDG 03 Good Health: `#4C9F38` (green)
-- SDG 04 Quality Education: `#C5192D` (red)
-- SDG 05 Gender Equality: `#FF3A21` (orange-red)
-- SDG 10 Reduced Inequalities: `#DD1367` (magenta)
-- SDG 16 Peace & Justice: `#00689D` (blue)
-- SDG 17 Partnerships: `#19486A` (deep blue)
+## Scope — 9 programmes
 
-## Design moves (applies make-interfaces-feel-better)
-1. **Color dot before "SDG NN"**: 8px circle in the official color, sitting left of the eyebrow label. On the primary (ink) card the dot stays full-color — it pops against dark.
-2. **Top accent bar**: a 3px full-width bar at the top of each card in the SDG color, with `border-radius` matching the card's inner top corners (concentric radius). Subtle but unmistakable as an indicator.
-3. **Hover lift uses the SDG color**: card border on hover shifts from `border-hairline` to a 20% alpha of the SDG color; hover shadow tinted with the same color at low opacity. Keeps depth via layered shadows instead of hard borders.
-4. **Tabular-nums + balanced wrap** already present — keep.
-5. **Reduced-motion + a11y**: dot gets `aria-hidden`; SDG number remains in text; contrast preserved (titles stay `text-ink` / `text-snow`).
+Already built (leave as reference, no changes):
+- `research-impact-assessment` (Human Potential)
 
-## Implementation
-- Edit only `src/routes/index.tsx` `SDGs()` component (~lines 497–562).
-- Add `color` field to each goal object with the hex above.
-- Render top accent bar as an absolutely positioned `<span>` inside the card (card becomes `relative overflow-hidden`).
-- Render dot as inline `<span>` with `style={{ backgroundColor: g.color }}`.
-- Use inline `style` for the SDG hexes (they are data, not theme tokens) — semantic tokens still drive the card chrome.
-- No new files, no token changes in `styles.css`, no copy changes.
+To build (8 new route files):
+1. `community-mental-health` — Mental Wellbeing
+2. `preventive-health-outreach` — Human Potential
+3. `womens-health-lifecycle` — Inclusive Care
+4. `disability-elderly-care` — Inclusive Care
+5. `womens-wellness` — Inclusive Care
+6. `training-capacity-building` — Human Potential
+7. `scholarships-education` — Social Growth
+8. `chw-development` — Social Growth
+
+The dynamic `src/routes/programs.$slug.tsx` stays as a fallback for any future slug, but TanStack will prefer the specific file routes.
+
+## Page template (every programme follows this structure)
+
+Locked from `mem://design/home-style-system` and the research page. Section rhythm: `bg-ink → bg-canvas → bg-snow → bg-sage → bg-canvas → bg-snow → bg-ink CTA`. Every light section ends with `border-b border-hairline`.
+
+1. **Hero (`bg-ink`)** — radial atmosphere, back-link to `/what-we-do`, pillar chip with coloured dot, H1 with one italic phrase, lead, two `PillButton`s (Partner / Volunteer or Donate). Per Ogilvy: brand + promise + news in the headline; one promise; specific.
+
+2. **Honest editorial (`bg-canvas`)** — 12-col split (eyebrow left, 2-paragraph case right). States the problem and our position without overclaiming.
+
+3. **Four commitments / method cards (`bg-snow`)** — 2x2 grid of numbered cards (01–04) on a `gap-px` hairline panel, exactly the research-page pattern. Each: what we will do + why it matters. (Five cards become a 2+3 grid only for `community-mental-health`.)
+
+4. **How we work — methods ledger (`bg-sage`)** — definition list of 4 standard instruments / protocols / safeguards used by the programme (validated tools, consent, cost-per-outcome, referral path).
+
+5. **First eighteen months timeline (`bg-canvas`)** — ordered list of 4 quarterly milestones. Honest cadence: methods → first cohort → baseline → public ledger.
+
+6. **Partnerships block (`bg-snow`)** — two-col: who we want to work with (academic, municipal, community) with inline `link-arrow` to `/contact` or `/partner/csr`.
+
+7. **Read next (`bg-canvas`)** — three related cards (pillar page, impact, compliance or sibling programme).
+
+8. **`CTABand` variant="dark"`** — pillar-appropriate close (Partner CSR + Donate, or Partner CSR + Volunteer for workforce programmes).
+
+Every block wrapped in `<FadeUp delay={i*70}>`. Headings use `text-balance`, body `text-pretty`, numbers `tabular-nums`. Buttons are `PillButton` only.
+
+## Copy direction — Ogilvy applied
+
+- **Positioning per programme**: psychological, not demographic. Mental Health = "the village holding its own ground." Preventive = "screening that ends with a treated condition, not a leaflet." Women's Lifecycle = "one record that follows her from menarche to menopause." Disability/Elderly = "the people the clinic hours were never written for." Wellness = "thirty minutes a week, in her own language, with women she trusts." Training = "publish the curriculum; certify the worker; pay her properly." Scholarships = "the scholarship is a job; the job is a health worker." CHW = "a paid livelihood, a trusted neighbour, a stronger PHC."
+- **One promise per page** — stated in the H1 and proven in the body.
+- **Long copy beats short copy** for an interested reader. Specific facts (NFHS-5, ASER, WHO, Census 2011, NPCDCS) cited inline; no invented numbers.
+- **Headlines 8–12 words**, brand-name implicit (this is `omnilifecare.org`), promise + news explicit.
+- **No awards/imitation/boredom.** No "transforming lives." No "empowering women" without a verb.
+
+## Honest stance on numbers
+
+Every programme repeats the foundation's truth: we are new, we have no decade of outcomes. Each page therefore lists **what we will measure**, the **cadence we will publish on**, and the **standard instruments** we will use — instead of inventing impact figures. This protects the brand and matches the research-page tone.
+
+## Technical details
+
+- File pattern: `src/routes/programs.<slug>.tsx`, each with `createFileRoute("/programs/<slug>")`, full `head()` (title, description, og:title, og:description, og:url; og:image uses the programme image already imported in `src/lib/site.ts`).
+- Components reused: `FadeUp`, `CTABand`, `PillButton` (where buttons appear), `Link` from `@tanstack/react-router`, icons from `lucide-react` chosen per programme (`Brain`, `HeartPulse`, `Stethoscope`, `HeartHandshake`, `Users`, `GraduationCap`, `Coins`, `BookOpenCheck`, etc.).
+- Pillar chip colour pulled from `PILLAR_BY_ID[<id>].color`.
+- Programme image imported through `PROGRAMS.find(...)` or duplicated import from `@/assets/...` — use existing assets only, no new image generation.
+- No edits to `routeTree.gen.ts` (auto-regenerated). No edits to `programs.$slug.tsx` (keeps working as fallback for unknown slugs and for routes I don't create in this batch).
+- No changes to `src/lib/site.ts`, `src/styles.css`, or any shared component — pages are additive only.
+
+## Build order (single batch, parallel writes)
+
+All 8 files created in one batch via parallel `code--write` calls, then verified via build output.
 
 ## Out of scope
-- Other sections, programme pages, what-we-do pillar pages.
-- Adding SDG icons/illustrations.
-- Changing the SDG list or descriptions.
+
+- The 9th already-built `research-impact-assessment` page.
+- Touching the `what-we-do/*` pillar pages, navigation, or shared components.
+- New imagery, new tokens, or new mega-nav entries.
+
+Skills applied: `ogilvy-copywriting` (positioning + one-promise discipline), `frontend-design` (editorial composition), `make-interfaces-feel-better` (staggered FadeUp, specific transitions, tabular-nums, text-balance/pretty).
