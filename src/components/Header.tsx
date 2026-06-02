@@ -79,27 +79,28 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 w-full">
-      <div className="mx-auto w-full max-w-[1280px] px-3 sm:px-4 pt-3">
-        <div
-          className={cn(
-            "flex items-center justify-between gap-3 rounded-full transition-[background-color,box-shadow,backdrop-filter,padding] duration-300",
-            scrolled
-              ? "bg-snow/85 backdrop-blur-md px-2 py-2 shadow-[0_1px_2px_rgba(11,59,60,0.04),0_12px_32px_-16px_rgba(11,59,60,0.18)]"
-              : "bg-snow/60 backdrop-blur px-3 py-2 shadow-[0_1px_2px_rgba(11,59,60,0.03)]",
-          )}
-          style={{ transitionTimingFunction: "var(--ease-axion)" }}
-        >
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full border-b transition-[background-color,box-shadow,border-color] duration-300",
+        scrolled
+          ? "bg-snow/95 backdrop-blur-md border-hairline shadow-[0_1px_2px_rgba(11,59,60,0.04),0_8px_24px_-18px_rgba(11,59,60,0.18)]"
+          : "bg-snow/90 backdrop-blur border-transparent",
+      )}
+      style={{ transitionTimingFunction: "var(--ease-axion)" }}
+    >
+      <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6">
+        <div className="flex items-center justify-between gap-3 h-20">
           {/* Logo */}
-          <Link to="/" aria-label={SITE.name} className="shrink-0 pl-1 pr-2">
+          <Link to="/" aria-label={SITE.name} className="shrink-0">
             <img
               src={logoSrc}
               alt="Omni Life Care Foundation"
-              className="h-11 sm:h-12 w-auto block"
+              className="h-14 sm:h-16 w-auto block"
               loading="eager"
               decoding="async"
             />
           </Link>
+
 
           {/* Desktop nav */}
           <NavigationMenu className="hidden lg:flex mx-auto">
