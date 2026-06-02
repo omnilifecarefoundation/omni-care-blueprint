@@ -388,14 +388,34 @@ function ListItem({
       <NavigationMenuLink asChild>
         <Link
           to={href}
-          className="group flex items-start gap-3 rounded-xl p-2.5 transition-colors hover:bg-canvas focus-visible:bg-canvas focus-visible:outline-none"
+          className="group relative flex items-start gap-3 rounded-xl p-2.5 transition-[background-color,color] duration-200 hover:bg-canvas focus-visible:bg-canvas focus-visible:outline-none"
         >
-          <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-canvas text-ink group-hover:bg-snow transition-colors">
-            <Icon size={16} aria-hidden="true" />
+          <span
+            className={cn(
+              "mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg",
+              "bg-canvas text-ink-muted ring-1 ring-ink/5",
+              "transition-[background-color,color,transform,box-shadow] duration-300",
+              "group-hover:bg-ink group-hover:text-snow group-hover:-rotate-6 group-hover:scale-105",
+              "group-hover:shadow-[0_4px_12px_-4px_rgba(11,59,60,0.25)] group-hover:ring-transparent",
+            )}
+            style={{ transitionTimingFunction: "cubic-bezier(0.2, 0, 0, 1)" }}
+          >
+            <Icon size={16} aria-hidden="true" strokeWidth={1.75} />
           </span>
-          <span className="min-w-0">
-            <span className="block text-[14px] font-medium text-ink leading-tight">
-              {title}
+          <span className="min-w-0 flex-1">
+            <span className="flex items-center gap-1.5 text-[14px] font-medium text-ink leading-tight transition-colors duration-200 group-hover:text-primary">
+              <span className="relative">
+                {title}
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 -bottom-0.5 h-px w-full origin-right scale-x-0 bg-primary/70 transition-transform duration-300 ease-out group-hover:origin-left group-hover:scale-x-100"
+                />
+              </span>
+              <ArrowUpRight
+                size={12}
+                aria-hidden="true"
+                className="opacity-0 -translate-x-1 transition-[opacity,transform] duration-200 group-hover:opacity-100 group-hover:translate-x-0"
+              />
             </span>
             {description && (
               <span
