@@ -55,6 +55,26 @@ function useScroll(threshold: number) {
   return scrolled;
 }
 
+function useHideOnScrollDown(threshold = 80) {
+  const [hidden, setHidden] = React.useState(false);
+  const lastY = React.useRef(0);
+  React.useEffect(() => {
+    lastY.current = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      const delta = y - lastY.current;
+      if (y < threshold) setHidden(false);
+      else if (delta > 6) setHidden(true);
+      else if (delta < -6) setHidden(false);
+      lastY.current = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [threshold]);
+  return hidden;
+}
+
+
 /* -------------------------------------------------------------------------- */
 /*  Header                                                                     */
 /* -------------------------------------------------------------------------- */
