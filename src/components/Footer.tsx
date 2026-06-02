@@ -53,7 +53,7 @@ export function Footer() {
               <img
                 src={footerLogo.url}
                 alt={SITE.name}
-                className="h-20 w-auto object-contain"
+                className="h-32 lg:h-40 w-auto object-contain"
               />
             </Link>
 
