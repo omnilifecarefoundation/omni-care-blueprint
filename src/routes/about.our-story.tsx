@@ -324,7 +324,7 @@ function FoundersNote() {
             <FadeUp delay={320}>
               <div className="mt-8 pt-6 border-t border-snow/15">
                 <p className="text-[0.875rem] uppercase tracking-[0.16em] text-snow/60">
-                  Founders &mdash; Omni Life Care Foundation
+                  Founders - Omni Life Care Foundation
                 </p>
                 <p className="mt-2 text-[0.9375rem] text-snow/75">
                   Mumbai, India
