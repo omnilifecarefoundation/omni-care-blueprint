@@ -56,7 +56,6 @@ import {
   ArrowUpRight,
   ChevronRight,
 } from "lucide-react";
-import type { LucideIcon as _LucideIcon } from "lucide-react";
 import logoAsset from "@/assets/omni-logo.svg.asset.json";
 const logoSrc = logoAsset.url;
 
