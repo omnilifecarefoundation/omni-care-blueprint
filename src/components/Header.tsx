@@ -95,7 +95,7 @@ export function Header() {
             <img
               src={logoSrc}
               alt="Omni Life Care Foundation"
-              className="h-8 sm:h-9 w-auto block"
+              className="h-11 sm:h-12 w-auto block"
               loading="eager"
               decoding="async"
             />
@@ -419,7 +419,7 @@ export function Logo({
       <img
         src={logoSrc}
         alt="Omni Life Care Foundation"
-        className="h-8 sm:h-9 w-auto block"
+        className="h-12 sm:h-14 w-auto block"
         loading="eager"
         decoding="async"
       />
