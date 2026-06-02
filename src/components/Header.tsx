@@ -104,9 +104,9 @@ export function Header() {
       className={cn(
         "sticky top-0 z-50 w-full border-b transition-[background-color,box-shadow,border-color,transform] duration-300 will-change-transform",
         scrolled
-
           ? "bg-snow/95 backdrop-blur-md border-hairline shadow-[0_1px_2px_rgba(11,59,60,0.04),0_8px_24px_-18px_rgba(11,59,60,0.18)]"
           : "bg-snow/90 backdrop-blur border-transparent",
+        hidden && !open ? "-translate-y-full" : "translate-y-0",
       )}
       style={{ transitionTimingFunction: "var(--ease-axion)" }}
     >
