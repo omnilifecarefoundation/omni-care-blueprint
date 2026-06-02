@@ -18,12 +18,12 @@ const PRINCIPLES = [
   {
     n: "02",
     title: "Salary bands are public",
-    body: "We do not negotiate from a hidden number. The band for every role is printed below. Your offer will sit inside it, decided by experience — not by how hard you push.",
+    body: "We do not negotiate from a hidden number. The band for every role is printed below. Your offer will sit inside it, decided by experience - not by how hard you push.",
   },
   {
     n: "03",
     title: "Field first, always",
-    body: "Every hire — including finance and communications — spends their first month in the community we serve. You will sit in a household visit before you draft a budget or a tweet.",
+    body: "Every hire - including finance and communications - spends their first month in the community we serve. You will sit in a household visit before you draft a budget or a tweet.",
   },
   {
     n: "04",
@@ -34,7 +34,7 @@ const PRINCIPLES = [
 
 const ROLES = [
   {
-    role: "Programme Lead — Community Mental Health",
+    role: "Programme Lead - Community Mental Health",
     location: "Mumbai · field travel",
     type: "Full-time",
     band: "₹9,00,000 – ₹14,00,000 / year",
@@ -89,13 +89,13 @@ const LINKS = [
 export const Route = createFileRoute("/about/careers")({
   head: () => ({
     meta: [
-      { title: "Careers — Omni Life Care Foundation" },
+      { title: "Careers - Omni Life Care Foundation" },
       {
         name: "description",
         content:
           "Published roles, published salary bands, written feedback. How a new Mumbai foundation is choosing to hire.",
       },
-      { property: "og:title", content: "Work with us — Omni Life Care Foundation" },
+      { property: "og:title", content: "Work with us - Omni Life Care Foundation" },
       {
         property: "og:description",
         content:
@@ -197,7 +197,7 @@ function Page() {
                     </span>
                     <a
                       href={`mailto:careers@omnilifecare.org?subject=${encodeURIComponent(
-                        "Talent pool — " + r.role,
+                        "Talent pool - " + r.role,
                       )}`}
                       className="inline-flex items-center gap-1.5 text-sm font-medium text-ink underline decoration-hairline underline-offset-4 transition-colors hover:decoration-ink"
                     >
@@ -212,7 +212,7 @@ function Page() {
         </div>
       </section>
 
-      {/* What we offer — tabular */}
+      {/* What we offer - tabular */}
       <section className="bg-sage border-y border-hairline">
         <div className="container-editorial py-20 lg:py-24">
           <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16">
@@ -223,7 +223,7 @@ function Page() {
               </h2>
               <p className="mt-5 text-ink-muted text-[1.0625rem] leading-[1.65] text-pretty max-w-md">
                 These terms apply to every full-time role. We will publish them in the
-                annual report alongside what we actually paid, so the gap — if any —
+                annual report alongside what we actually paid, so the gap - if any -
                 is visible.
               </p>
             </FadeUp>

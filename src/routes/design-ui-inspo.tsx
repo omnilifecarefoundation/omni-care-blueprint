@@ -6,11 +6,11 @@ import { Shader, Swirl, ChromaFlow, FlutedGlass, FilmGrain } from "shaders/react
 export const Route = createFileRoute("/design-ui-inspo")({
   head: () => ({
     meta: [
-      { title: "Axion Studio — Design UI Inspiration" },
+      { title: "Axion Studio - Design UI Inspiration" },
       {
         name: "description",
         content:
-          "Axion Studio landing page concept — strategy-led creatives delivering digital experiences.",
+          "Axion Studio landing page concept - strategy-led creatives delivering digital experiences.",
       },
     ],
   }),
@@ -396,7 +396,7 @@ function AxionStudio() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-7 px-5 sm:px-8 lg:px-12">
-            {/* Card 1 — Narrativ */}
+            {/* Card 1 - Narrativ */}
             <div>
               <div className="relative aspect-[329/246] rounded-2xl overflow-hidden bg-[#1a1d2e] group cursor-pointer">
                 <video
@@ -415,7 +415,7 @@ function AxionStudio() {
                 </div>
               </div>
               <p className="text-[13px] sm:text-[14px] text-gray-600 mt-4 leading-relaxed">
-                Winner of Site of the Month 2025 — an interactive 3D showcase driving record
+                Winner of Site of the Month 2025 - an interactive 3D showcase driving record
                 engagement
               </p>
               <h3 className="text-[14px] sm:text-[15px] font-semibold text-gray-900 mt-1">
@@ -423,7 +423,7 @@ function AxionStudio() {
               </h3>
             </div>
 
-            {/* Card 2 — Luminar */}
+            {/* Card 2 - Luminar */}
             <div>
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-[#6b6b6b] group cursor-pointer">
                 <video

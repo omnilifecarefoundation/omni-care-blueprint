@@ -76,7 +76,7 @@ export function CTABand({
     );
   }
 
-  // sage variant — light, used for softer transitions between dark hero and dark closing
+  // sage variant - light, used for softer transitions between dark hero and dark closing
   return (
     <section className="bg-sage border-y border-hairline">
       <div className="container-editorial py-16 lg:py-20">

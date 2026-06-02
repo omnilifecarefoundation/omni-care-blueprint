@@ -43,7 +43,7 @@ export const PILLARS: Pillar[] = [
     name: "Mental Wellbeing",
     short: "Mental Wellbeing",
     description: "Community-led mental health and emotional resilience.",
-    long: "Bringing mental health support to where people live — through trained community workers, peer groups, and integrated screening at every health touchpoint.",
+    long: "Bringing mental health support to where people live - through trained community workers, peer groups, and integrated screening at every health touchpoint.",
     href: "/what-we-do/mental-wellbeing",
     color: "var(--pillar-mental)",
     bgClass: "bg-[var(--pillar-mental)]",
@@ -67,7 +67,7 @@ export const PILLARS: Pillar[] = [
     name: "Inclusive Care",
     short: "Inclusive Care",
     description: "Care for women, elderly, and persons with disability.",
-    long: "Designing care around the people most often overlooked — women across life stages, the elderly, and persons with disability.",
+    long: "Designing care around the people most often overlooked - women across life stages, the elderly, and persons with disability.",
     href: "/what-we-do/inclusive-care",
     color: "var(--pillar-inclusive)",
     bgClass: "bg-[var(--pillar-inclusive)]",
@@ -79,7 +79,7 @@ export const PILLARS: Pillar[] = [
     name: "Human Potential",
     short: "Human Potential",
     description: "Training, research, and frontline worker development.",
-    long: "Strengthening the frontline workforce and the evidence base — so every rupee of community investment compounds into long-term capability.",
+    long: "Strengthening the frontline workforce and the evidence base - so every rupee of community investment compounds into long-term capability.",
     href: "/what-we-do/human-potential",
     color: "var(--pillar-human)",
     bgClass: "bg-[var(--pillar-human)]",
@@ -135,7 +135,7 @@ export const PROGRAMS: Program[] = [
     summary:
       "A single programme that walks with women through adolescence, reproductive years, and post-menopause.",
     body: [
-      "We provide age-appropriate health support across a woman's life — from menstrual health education in schools, to cervical and breast cancer screening in adulthood, to post-menopausal NCD care.",
+      "We provide age-appropriate health support across a woman's life - from menstrual health education in schools, to cervical and breast cancer screening in adulthood, to post-menopausal NCD care.",
       "Care is delivered through women community workers, ensuring access in contexts where male health-workers are not socially accepted.",
     ],
     image: womensHealthImg,
@@ -161,7 +161,7 @@ export const PROGRAMS: Program[] = [
     pillar: "inclusive",
     outcome: "4,600 women enrolled in group wellness programmes.",
     summary:
-      "Group-based mental and physical wellness for women — yoga, breath-work, and peer dialogue.",
+      "Group-based mental and physical wellness for women - yoga, breath-work, and peer dialogue.",
     body: [
       "An evidence-informed group wellness curriculum delivered weekly by trained women facilitators in community spaces. Focus areas include stress regulation, sleep, and chronic pain management.",
       "Designed as a low-cost, replicable model that integrates with the Community Mental Health programme.",
@@ -177,7 +177,7 @@ export const PROGRAMS: Program[] = [
     summary:
       "Curriculum, certification, and on-the-job mentoring for health workers and partner NGOs.",
     body: [
-      "We design and deliver short-form training programmes — from a 12-week community mental health worker certification to bespoke sessions for partner NGOs on inclusion, safeguarding, and M&E.",
+      "We design and deliver short-form training programmes - from a 12-week community mental health worker certification to bespoke sessions for partner NGOs on inclusion, safeguarding, and M&E.",
       "All curricula are open-source and freely available to the sector.",
     ],
     image: capacityImg,
@@ -315,7 +315,7 @@ export const MEGA_NAV: MegaSection[] = [
     feature: {
       eyebrow: "All work",
       title: "See every pillar",
-      body: "From mental wellbeing to the frontline workforce — one connected continuum.",
+      body: "From mental wellbeing to the frontline workforce - one connected continuum.",
       href: "/what-we-do",
       cta: "Browse all pillars",
       tone: "sage",
@@ -374,7 +374,7 @@ export const MEGA_NAV: MegaSection[] = [
       {
         items: [
           { label: "Volunteer", href: "/get-involved/volunteer", description: "Give time on the ground or remotely." },
-          { label: "Partner — CSR", href: "/partner/csr", description: "Co-design measurable corporate impact." },
+          { label: "Partner - CSR", href: "/partner/csr", description: "Co-design measurable corporate impact." },
           { label: "Donate", href: "/donate", description: "80G eligible. Every rupee tracked." },
         ],
       },

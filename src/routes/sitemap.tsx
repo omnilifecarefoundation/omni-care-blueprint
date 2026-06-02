@@ -27,7 +27,7 @@ const TOP = [
 export const Route = createFileRoute("/sitemap")({
   head: () => ({
     meta: [
-      { title: "Sitemap — Omni Life Care Foundation" },
+      { title: "Sitemap - Omni Life Care Foundation" },
       { name: "description", content: "All pages on the Omni Life Care Foundation website." },
       { property: "og:url", content: "/sitemap" },
     ],

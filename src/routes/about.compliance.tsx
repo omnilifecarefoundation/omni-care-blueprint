@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 /* ========================================================================
-   Compliance — Omni Life Care Foundation
+   Compliance - Omni Life Care Foundation
    ------------------------------------------------------------------------
    Honest ledger of registrations, filings, and audit commitments.
    No fabricated certificates. No backdated reports.
@@ -85,12 +85,12 @@ const COMMITMENTS = [
   {
     icon: Clock,
     title: "Meet every deadline",
-    body: "Income Tax returns, trust filings, and MCA updates will be filed before the due date. If we miss one, we will say so — and explain why.",
+    body: "Income Tax returns, trust filings, and MCA updates will be filed before the due date. If we miss one, we will say so - and explain why.",
   },
   {
     icon: Lock,
     title: "Independent audit",
-    body: "A statutory auditor appointed by the Board — not by management — will review our books every year. The audit mandate and scope will be published.",
+    body: "A statutory auditor appointed by the Board - not by management - will review our books every year. The audit mandate and scope will be published.",
   },
   {
     icon: FileText,
@@ -123,9 +123,9 @@ function StatusLabel({ status }: { status: "completed" | "in-progress" | "pendin
 export const Route = createFileRoute("/about/compliance")({
   head: () => ({
     meta: [
-      { title: "Compliance & Registrations — Omni Life Care Foundation" },
+      { title: "Compliance & Registrations - Omni Life Care Foundation" },
       { name: "description", content: "Our registrations, filings, and public commitment to financial transparency. Open books from day one." },
-      { property: "og:title", content: "Compliance & Registrations — Omni Life Care Foundation" },
+      { property: "og:title", content: "Compliance & Registrations - Omni Life Care Foundation" },
       { property: "og:url", content: "/about/compliance" },
     ],
     links: [{ rel: "canonical", href: "/about/compliance" }],
@@ -139,10 +139,10 @@ function Page() {
       <PageHero
         eyebrow="Governance"
         title="Open books from day one"
-        lead="We cannot point to five years of audited history. We can point to the transparency we choose to build — starting now."
+        lead="We cannot point to five years of audited history. We can point to the transparency we choose to build - starting now."
       />
 
-      {/* Section 1 — The four commitments */}
+      {/* Section 1 - The four commitments */}
       <section className="bg-canvas">
         <div className="container-editorial section-tight">
           <FadeUp>
@@ -169,7 +169,7 @@ function Page() {
         </div>
       </section>
 
-      {/* Section 2 — Registrations ledger */}
+      {/* Section 2 - Registrations ledger */}
       <section className="bg-sage border-y border-hairline">
         <div className="container-editorial section-tight">
           <FadeUp>
@@ -216,7 +216,7 @@ function Page() {
         </div>
       </section>
 
-      {/* Section 3 — What will be published, when */}
+      {/* Section 3 - What will be published, when */}
       <section className="bg-canvas">
         <div className="container-editorial section-tight">
           <FadeUp>
@@ -228,7 +228,7 @@ function Page() {
               What we will publish, and when
             </h2>
             <p className="lead mt-4 max-w-2xl">
-              The first audited annual report will cover the financial year 2025–26. Until then, this section will show our filing plan — so you can hold us to it.
+              The first audited annual report will cover the financial year 2025–26. Until then, this section will show our filing plan - so you can hold us to it.
             </p>
           </FadeUp>
 
@@ -276,7 +276,7 @@ function Page() {
         </div>
       </section>
 
-      {/* Section 4 — Accountability standards */}
+      {/* Section 4 - Accountability standards */}
       <section className="bg-sage border-y border-hairline">
         <div className="container-editorial section-tight">
           <FadeUp>
@@ -333,7 +333,7 @@ function Page() {
         </div>
       </section>
 
-      {/* Section 5 — Donor rights */}
+      {/* Section 5 - Donor rights */}
       <section className="bg-canvas">
         <div className="container-editorial section-tight">
           <FadeUp>
@@ -382,7 +382,7 @@ function Page() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-4 w-4 text-emerald-600 mt-0.5 shrink-0" />
-                    <span>Right to ask questions — answered in five working days</span>
+                    <span>Right to ask questions - answered in five working days</span>
                   </li>
                 </ul>
               </div>

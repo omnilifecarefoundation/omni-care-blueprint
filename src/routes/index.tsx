@@ -10,17 +10,17 @@ export const Route = createFileRoute("/")({
     meta: [
       {
         title:
-          "Omni Life Care Foundation — Care that arrives where people already live. Mumbai.",
+          "Omni Life Care Foundation - Care that arrives where people already live. Mumbai.",
       },
       {
         name: "description",
         content:
-          "A new Mumbai non-profit bringing mental health, women's health, inclusive care and community health under one team — so a family never has to ask in four different places.",
+          "A new Mumbai non-profit bringing mental health, women's health, inclusive care and community health under one team - so a family never has to ask in four different places.",
       },
       {
         property: "og:title",
         content:
-          "Omni Life Care Foundation — Care that arrives where people already live.",
+          "Omni Life Care Foundation - Care that arrives where people already live.",
       },
       {
         property: "og:description",
@@ -56,7 +56,7 @@ function HomePage() {
 }
 
 /* ============================================================
-   1. HERO — emotional headline, Ogilvy long subhead
+   1. HERO - emotional headline, Ogilvy long subhead
    ============================================================ */
 function Hero() {
   return (
@@ -71,7 +71,7 @@ function Hero() {
       />
       <div className="container-editorial relative pt-14 pb-16 lg:pt-20 lg:pb-24">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          {/* Left — content */}
+          {/* Left - content */}
           <div className="lg:col-span-7 space-y-7">
             <FadeUp delay={0}>
               <span className="inline-flex items-center gap-2 rounded-full border border-snow/20 bg-snow/5 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-snow/80">
@@ -95,7 +95,7 @@ function Hero() {
               <p className="max-w-xl text-[1.0625rem] lg:text-[1.15rem] leading-[1.6] text-snow/80 text-pretty">
                 Omni Life Care Foundation is a new Mumbai non-profit bringing
                 mental health, women&rsquo;s health, inclusive care and
-                community health under one team &mdash; so a family never has
+                community health under one team - so a family never has
                 to ask in four different places.
               </p>
             </FadeUp>
@@ -131,13 +131,13 @@ function Hero() {
             </FadeUp>
           </div>
 
-          {/* Right — photo */}
+          {/* Right - photo */}
           <div className="lg:col-span-5">
             <FadeUp delay={120}>
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink/40 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.55),0_2px_4px_rgba(0,0,0,0.25)]">
                 <img
                   src={heroImg}
-                  alt="A community gathered in a Mumbai neighbourhood — where Omni Life Care Foundation begins its work."
+                  alt="A community gathered in a Mumbai neighbourhood - where Omni Life Care Foundation begins its work."
                   width={1200}
                   height={1500}
                   fetchPriority="high"
@@ -159,7 +159,7 @@ function Hero() {
 }
 
 /* ============================================================
-   2. MANIFESTO — single editorial promise
+   2. MANIFESTO - single editorial promise
    ============================================================ */
 function Manifesto() {
   return (
@@ -170,7 +170,7 @@ function Manifesto() {
         </FadeUp>
         <FadeUp delay={80}>
           <p className="font-sans font-medium text-[clamp(1.375rem,2.4vw,1.875rem)] leading-[1.25] tracking-[-0.015em] text-ink text-balance max-w-4xl">
-            Health that meets people where they already live &mdash;{" "}
+            Health that meets people where they already live -{" "}
             <em className="font-serif italic font-medium text-primary">
               designed with the community, reported in the open.
             </em>
@@ -182,7 +182,7 @@ function Manifesto() {
 }
 
 /* ============================================================
-   3. WHAT WE DO — 4 pillars of the Omni Care Model
+   3. WHAT WE DO - 4 pillars of the Omni Care Model
    ============================================================ */
 function WhatWeDo() {
   return (
@@ -199,7 +199,7 @@ function WhatWeDo() {
           <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
             <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
               Most health problems arrive together. Mental, social, inclusive
-              and human &mdash; our four pillars are designed to do the same,
+              and human - our four pillars are designed to do the same,
               so a person never has to choose which kind of help to ask for
               first.
             </p>
@@ -243,14 +243,14 @@ function WhatWeDo() {
 }
 
 /* ============================================================
-   4. VALUES — five commitments you can hold us to
+   4. VALUES - five commitments you can hold us to
    ============================================================ */
 function Values() {
   const values = [
     {
       n: "01",
       title: "Dignity & Respect",
-      body: "Every person we serve is treated as a person first &mdash; never a case number.",
+      body: "Every person we serve is treated as a person first - never a case number.",
     },
     {
       n: "02",
@@ -260,12 +260,12 @@ function Values() {
     {
       n: "03",
       title: "Community-Centred",
-      body: "Programmes are designed with the people they serve &mdash; not for them.",
+      body: "Programmes are designed with the people they serve - not for them.",
     },
     {
       n: "04",
       title: "Collaboration",
-      body: "We partner with local groups, institutions and government &mdash; not around them.",
+      body: "We partner with local groups, institutions and government - not around them.",
     },
     {
       n: "05",
@@ -319,7 +319,7 @@ function Values() {
 }
 
 /* ============================================================
-   5. WHY IT MATTERS — three sourced facts
+   5. WHY IT MATTERS - three sourced facts
    ============================================================ */
 function WhyItMatters() {
   const facts = [
@@ -331,7 +331,7 @@ function WhyItMatters() {
     {
       n: "1 in 2",
       label: "Women",
-      body: "in India lack consistent access to life-cycle health services &mdash; from adolescence to elderly care.",
+      body: "in India lack consistent access to life-cycle health services - from adolescence to elderly care.",
     },
     {
       n: "Fragmented",
@@ -377,7 +377,7 @@ function WhyItMatters() {
 }
 
 /* ============================================================
-   6. PROGRAMMES — four flagship cards
+   6. PROGRAMMES - four flagship cards
    ============================================================ */
 function Programmes() {
   const flagship = [PROGRAMS[0], PROGRAMS[2], PROGRAMS[1], PROGRAMS[3]];
@@ -447,7 +447,7 @@ function Programmes() {
 }
 
 /* ============================================================
-   7. FOUNDERS NOTE — short, signed, plain
+   7. FOUNDERS NOTE - short, signed, plain
    ============================================================ */
 function FoundersNote() {
   return (
@@ -460,7 +460,7 @@ function FoundersNote() {
           <FadeUp delay={80}>
             <p className="text-[1.0625rem] lg:text-[1.15rem] leading-[1.7] text-ink text-pretty">
               We started Omni Life Care because we&rsquo;ve watched the same
-              family visit three different places for help &mdash; and walk
+              family visit three different places for help - and walk
               home with none.{" "}
               <em className="font-serif italic">We want to fix that.</em>
             </p>
@@ -492,7 +492,7 @@ function FoundersNote() {
 }
 
 /* ============================================================
-   8. SDGs — the global goals we contribute to
+   8. SDGs - the global goals we contribute to
    ============================================================ */
 function SDGs() {
   const goals = [
@@ -515,7 +515,7 @@ function SDGs() {
             </h2>
             <p className="mt-5 text-[14px] leading-relaxed text-ink-muted text-pretty">
               Every programme is mapped to the Sustainable Development Goals
-              it advances &mdash; so the impact we report can be compared, not
+              it advances - so the impact we report can be compared, not
               just admired.
             </p>
           </FadeUp>
@@ -583,7 +583,7 @@ function SDGs() {
 
 
 /* ============================================================
-   9. PARTNER BAND — dark, three audiences
+   9. PARTNER BAND - dark, three audiences
    ============================================================ */
 function PartnerBand() {
   const cards = [
@@ -759,8 +759,8 @@ function ClosingCTA() {
           <FadeUp delay={160}>
             <p className="mt-5 max-w-xl text-[1.0625rem] lg:text-[1.15rem] leading-[1.6] text-snow/80 text-pretty">
               We&rsquo;re registered, ready, and looking for our first
-              partners. Whatever your role &mdash; corporate, institutional,
-              individual &mdash; there&rsquo;s a way in.
+              partners. Whatever your role - corporate, institutional,
+              individual - there&rsquo;s a way in.
             </p>
           </FadeUp>
           <FadeUp delay={240}>
@@ -792,7 +792,7 @@ function Newsletter() {
               Field notes from Mumbai, every three months. No spam.
             </h3>
             <p className="mt-2 text-[14px] text-ink-muted text-pretty">
-              What we built, what worked, and what didn&rsquo;t &mdash;
+              What we built, what worked, and what didn&rsquo;t -
               straight from the team.
             </p>
           </FadeUp>

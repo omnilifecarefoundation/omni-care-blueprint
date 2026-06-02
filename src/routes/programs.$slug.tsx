@@ -11,7 +11,7 @@ export const Route = createFileRoute("/programs/$slug")({
   },
   head: ({ loaderData }) => ({
     meta: [
-      { title: `${loaderData?.program.name} — Omni Life Care Foundation` },
+      { title: `${loaderData?.program.name} - Omni Life Care Foundation` },
       { name: "description", content: loaderData?.program.summary ?? "" },
       { property: "og:title", content: loaderData?.program.name ?? "" },
       { property: "og:description", content: loaderData?.program.summary ?? "" },

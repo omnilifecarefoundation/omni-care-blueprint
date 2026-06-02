@@ -19,13 +19,13 @@ import { useState } from "react";
 export const Route = createFileRoute("/partner/csr")({
   head: () => ({
     meta: [
-      { title: "CSR Partnership — Omni Life Care Foundation" },
+      { title: "CSR Partnership - Omni Life Care Foundation" },
       {
         name: "description",
         content:
           "A first CSR partner gets a co-designed programme, a named project lead, and a quarterly report that an auditor can sign. Mumbai, Schedule VII aligned.",
       },
-      { property: "og:title", content: "CSR Partnership — Omni Life Care Foundation" },
+      { property: "og:title", content: "CSR Partnership - Omni Life Care Foundation" },
       {
         property: "og:description",
         content:
@@ -42,8 +42,8 @@ const FOCUS = [
   { area: "Community Mental Health & Wellbeing", entry: "Schedule VII (i)", sdg: "SDG 3, 10" },
   { area: "Preventive & Community Health Outreach", entry: "Schedule VII (i)", sdg: "SDG 3, 1" },
   { area: "Women's Health & Life-Cycle Care", entry: "Schedule VII (iii)", sdg: "SDG 5, 3" },
-  { area: "Inclusive Care — Disability & Elderly", entry: "Schedule VII (iii)", sdg: "SDG 10, 3" },
-  { area: "Women's Wellness — Cancer Screening, PCOS, Menopause", entry: "Schedule VII (i)", sdg: "SDG 5, 3" },
+  { area: "Inclusive Care - Disability & Elderly", entry: "Schedule VII (iii)", sdg: "SDG 10, 3" },
+  { area: "Women's Wellness - Cancer Screening, PCOS, Menopause", entry: "Schedule VII (i)", sdg: "SDG 5, 3" },
 ];
 
 function Page() {
@@ -52,7 +52,7 @@ function Page() {
       <PageHero
         eyebrow="For Corporate Partners"
         title="A first CSR partner gets a scope, a supervisor, and a report an auditor can sign."
-        lead="We are a new foundation in Mumbai. We will not promise scale we have not delivered. We will commit to a clearly written programme, a named project lead, quarterly MIS, and a public ledger — from rupee one."
+        lead="We are a new foundation in Mumbai. We will not promise scale we have not delivered. We will commit to a clearly written programme, a named project lead, quarterly MIS, and a public ledger - from rupee one."
       >
         <div className="flex flex-wrap gap-3 pt-2">
           <PillButton to="#enquire" variant="on-dark">
@@ -112,7 +112,7 @@ function Page() {
             {
               icon: ShieldCheck,
               title: "Quarterly MIS your CFO can defend",
-              body: "Beneficiary count, cost-per-beneficiary, geography, attendance ledgers, and exception notes — sent on a fixed date each quarter, in a format your statutory auditor has already approved.",
+              body: "Beneficiary count, cost-per-beneficiary, geography, attendance ledgers, and exception notes - sent on a fixed date each quarter, in a format your statutory auditor has already approved.",
             },
             {
               icon: Building2,
@@ -146,7 +146,7 @@ function Page() {
               </h2>
               <p className="mt-5 text-ink-muted text-pretty max-w-md">
                 Pick one. Or fund a slice across two. We will not stretch a programme to fit a
-                budget — if the fit is wrong, we will say so in the first call.
+                budget - if the fit is wrong, we will say so in the first call.
               </p>
             </FadeUp>
             <FadeUp delay={120}>
@@ -203,7 +203,7 @@ function Page() {
             {
               step: "03",
               title: "MoU & due diligence",
-              body: "We hand over the documentation pack — registration, 12A, 80G, CSR-1 status, audited finances when available, governance policies.",
+              body: "We hand over the documentation pack - registration, 12A, 80G, CSR-1 status, audited finances when available, governance policies.",
             },
             {
               step: "04",
@@ -460,8 +460,8 @@ function CSRForm() {
             <option>Community Mental Health</option>
             <option>Preventive Health Outreach</option>
             <option>Women's Health & Life-Cycle Care</option>
-            <option>Inclusive Care — Disability & Elderly</option>
-            <option>Women's Wellness — Screening & PCOS</option>
+            <option>Inclusive Care - Disability & Elderly</option>
+            <option>Women's Wellness - Screening & PCOS</option>
             <option>Open to recommendation</option>
           </select>
         </div>

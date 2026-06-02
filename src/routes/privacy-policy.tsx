@@ -8,9 +8,9 @@ import { SITE } from "@/lib/site";
 export const Route = createFileRoute("/privacy-policy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy — Your data, your right" },
+      { title: "Privacy Policy - Your data, your right" },
       { name: "description", content: "How Omni Life Care Foundation collects, uses, and protects personal information. Written in plain language, not legal code." },
-      { property: "og:title", content: "Privacy Policy — Your data, your right" },
+      { property: "og:title", content: "Privacy Policy - Your data, your right" },
       { property: "og:description", content: "How Omni Life Care Foundation collects, uses, and protects personal information. Written in plain language, not legal code." },
       { property: "og:url", content: "/privacy-policy" },
     ],
@@ -23,7 +23,7 @@ const COMMITMENTS = [
   {
     icon: Database,
     title: "What we collect",
-    body: "Name, email, phone, postal address, and PAN — only when necessary for donation receipts. For volunteers, we may collect professional background and availability. Website analytics are anonymised; we do not use tracking pixels or retargeting.",
+    body: "Name, email, phone, postal address, and PAN - only when necessary for donation receipts. For volunteers, we may collect professional background and availability. Website analytics are anonymised; we do not use tracking pixels or retargeting.",
   },
   {
     icon: Lock,
@@ -43,7 +43,7 @@ const COMMITMENTS = [
   {
     icon: Hand,
     title: "Your rights",
-    body: "You may request access, correction, or deletion of your personal data at any time. You may withdraw consent for marketing communications instantly. We respond to every request within 10 working days — no forms, no friction.",
+    body: "You may request access, correction, or deletion of your personal data at any time. You may withdraw consent for marketing communications instantly. We respond to every request within 10 working days - no forms, no friction.",
   },
 ];
 
@@ -53,7 +53,7 @@ function Page() {
       <PageHero
         eyebrow="Privacy Policy"
         title="Your data is not our asset. It is your right."
-        lead="Most organisations use privacy policies to protect themselves. We have written this one to protect you — in plain language, with nothing buried in fine print."
+        lead="Most organisations use privacy policies to protect themselves. We have written this one to protect you - in plain language, with nothing buried in fine print."
       />
 
       {/* Five commitments */}
@@ -107,7 +107,7 @@ function Page() {
             <FadeUp delay={120}>
               <div className="space-y-4 text-ink-muted leading-relaxed text-pretty">
                 <p>
-                  Omni Life Care Foundation was registered in 2025. We do not yet have a full-time Data Protection Officer, but privacy is not a job title — it is a discipline. Every staff member who handles data is trained on these principles before they touch a spreadsheet.
+                  Omni Life Care Foundation was registered in 2025. We do not yet have a full-time Data Protection Officer, but privacy is not a job title - it is a discipline. Every staff member who handles data is trained on these principles before they touch a spreadsheet.
                 </p>
                 <p>
                   Our website runs on standard, widely-used infrastructure. Payment data is handled by Razorpay, which is PCI-DSS Level 1 compliant. We do not store card numbers, CVV codes, or UPI PINs on our servers.
@@ -202,7 +202,7 @@ function Page() {
         </div>
       </section>
 
-      {/* Your rights — how to act */}
+      {/* Your rights - how to act */}
       <section className="bg-canvas border-y border-hairline">
         <div className="container-editorial py-16 lg:py-20">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
@@ -226,7 +226,7 @@ function Page() {
                   {
                     step: "02",
                     title: "We confirm within 24 hours",
-                    body: "You receive an acknowledgement with a reference number. If we need to verify your identity, we will ask one security question — nothing bureaucratic.",
+                    body: "You receive an acknowledgement with a reference number. If we need to verify your identity, we will ask one security question - nothing bureaucratic.",
                   },
                   {
                     step: "03",
@@ -292,7 +292,7 @@ function Page() {
             {[
               { label: "Privacy & data requests", email: "privacy@omnilifecare.org", desc: "Access, correction, deletion, data export" },
               { label: "Donation & receipt queries", email: "give@omnilifecare.org", desc: "Receipts, allocation questions, refunds" },
-              { label: "General enquiries", email: SITE.email, desc: "Anything else — routed within one working day" },
+              { label: "General enquiries", email: SITE.email, desc: "Anything else - routed within one working day" },
             ].map((c, i) => (
               <FadeUp key={c.label} delay={i * 60}>
                 <div className="rounded-xl bg-snow border border-hairline p-6 lg:p-7 h-full">

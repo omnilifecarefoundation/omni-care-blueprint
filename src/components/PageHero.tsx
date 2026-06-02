@@ -12,8 +12,8 @@ type Props = {
 
 /**
  * Reusable hero for sub-pages. Defaults to the dark indigo treatment used on the
- * home page — same radial gradient, gold-dot badge, sans-serif display headline,
- * staggered FadeUp reveals — so every entry point reads as one site.
+ * home page - same radial gradient, gold-dot badge, sans-serif display headline,
+ * staggered FadeUp reveals - so every entry point reads as one site.
  */
 export function PageHero({ eyebrow, title, lead, children, variant = "dark" }: Props) {
   if (variant === "light") {

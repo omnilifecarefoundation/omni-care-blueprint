@@ -6,10 +6,10 @@ import { CTABand } from "@/components/CTABand";
 export const Route = createFileRoute("/newsroom")({
   head: () => ({
     meta: [
-      { title: "Newsroom — Omni Life Care Foundation" },
-      { name: "description", content: "A new foundation with nothing yet to announce. What we will publish — and when — once the work begins in Mumbai." },
-      { property: "og:title", content: "Newsroom — Omni Life Care Foundation" },
-      { property: "og:description", content: "A new foundation with nothing yet to announce. What we will publish — and when — once the work begins in Mumbai." },
+      { title: "Newsroom - Omni Life Care Foundation" },
+      { name: "description", content: "A new foundation with nothing yet to announce. What we will publish - and when - once the work begins in Mumbai." },
+      { property: "og:title", content: "Newsroom - Omni Life Care Foundation" },
+      { property: "og:description", content: "A new foundation with nothing yet to announce. What we will publish - and when - once the work begins in Mumbai." },
       { property: "og:url", content: "/newsroom" },
     ],
     links: [{ rel: "canonical", href: "/newsroom" }],
@@ -26,17 +26,17 @@ const COMMITMENTS = [
   {
     k: "Monthly",
     t: "Cost-per-outcome dashboard",
-    d: "What it cost to reach one household and produce one measurable health outcome — updated on the first working day of each month. No reframing, no rounding up.",
+    d: "What it cost to reach one household and produce one measurable health outcome - updated on the first working day of each month. No reframing, no rounding up.",
   },
   {
     k: "Per study",
     t: "Pre-registered research",
-    d: "Hypotheses, instruments, and analysis plans published before data collection begins. Raw, de-identified datasets released alongside every finding — including the studies that found nothing.",
+    d: "Hypotheses, instruments, and analysis plans published before data collection begins. Raw, de-identified datasets released alongside every finding - including the studies that found nothing.",
   },
   {
     k: "Annual",
     t: "Independent audit",
-    d: "A third-party financial and programme audit at the end of every fiscal year, published here in full — not summarised, not paraphrased.",
+    d: "A third-party financial and programme audit at the end of every fiscal year, published here in full - not summarised, not paraphrased.",
   },
 ];
 
@@ -53,7 +53,7 @@ function Page() {
       <PageHero
         eyebrow="Newsroom"
         title="We have nothing to announce yet. That is the announcement."
-        lead="A new foundation should not have a press archive. It should have a plan, a place to start, and a public commitment to what it will publish — and when."
+        lead="A new foundation should not have a press archive. It should have a plan, a place to start, and a public commitment to what it will publish - and when."
       />
 
       {/* Editorial frame */}
@@ -61,12 +61,12 @@ function Page() {
         <div className="container-editorial py-20 lg:py-28">
           <FadeUp>
             <p className="font-serif text-2xl md:text-[28px] leading-[1.35] tracking-[-0.01em] text-ink max-w-[58ch]">
-              Most non-profit newsrooms open with a press release about a press release. Ours opens with an admission: the work has not begun. The first 500 households in Mumbai&rsquo;s low-income chawls will be enrolled in FY 2026&ndash;27. Until then, there is nothing to report — and pretending otherwise would be the first thing worth being held to account for.
+              Most non-profit newsrooms open with a press release about a press release. Ours opens with an admission: the work has not begun. The first 500 households in Mumbai&rsquo;s low-income chawls will be enrolled in FY 2026&ndash;27. Until then, there is nothing to report - and pretending otherwise would be the first thing worth being held to account for.
             </p>
           </FadeUp>
           <FadeUp delay={0.08}>
             <p className="mt-8 max-w-[62ch] text-ink-muted leading-relaxed">
-              This page exists so that when the work does begin, the standard for what gets published — and what does not — has already been set in writing, in public, by us.
+              This page exists so that when the work does begin, the standard for what gets published - and what does not - has already been set in writing, in public, by us.
             </p>
           </FadeUp>
         </div>

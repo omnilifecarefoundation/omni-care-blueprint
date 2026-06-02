@@ -7,10 +7,10 @@ import { CTABand } from "@/components/CTABand";
 export const Route = createFileRoute("/donate")({
   head: () => ({
     meta: [
-      { title: "Donate — Fund the first 500 households in Mumbai" },
-      { name: "description", content: "Your contribution funds the first cohort of low-income households in Mumbai's chawls — enrolled in FY 2026–27. Every rupee is published, audited, and accounted for at the household level." },
-      { property: "og:title", content: "Donate — Fund the first 500 households in Mumbai" },
-      { property: "og:description", content: "Your contribution funds the first cohort of low-income households in Mumbai's chawls — enrolled in FY 2026–27. Every rupee is published, audited, and accounted for at the household level." },
+      { title: "Donate - Fund the first 500 households in Mumbai" },
+      { name: "description", content: "Your contribution funds the first cohort of low-income households in Mumbai's chawls - enrolled in FY 2026–27. Every rupee is published, audited, and accounted for at the household level." },
+      { property: "og:title", content: "Donate - Fund the first 500 households in Mumbai" },
+      { property: "og:description", content: "Your contribution funds the first cohort of low-income households in Mumbai's chawls - enrolled in FY 2026–27. Every rupee is published, audited, and accounted for at the household level." },
       { property: "og:url", content: "/donate" },
     ],
     links: [{ rel: "canonical", href: "/donate" }],
@@ -19,12 +19,12 @@ export const Route = createFileRoute("/donate")({
 });
 
 // Honest unit costs framed against the FY 2026–27 Mumbai cohort.
-// Each tier maps to a concrete, deliverable input — not an inflated "lives changed" claim.
+// Each tier maps to a concrete, deliverable input - not an inflated "lives changed" claim.
 const TIERS = [
   { amount: 1500, unit: "one household screening", detail: "PHQ-9, GAD-7, anaemia and BP screening for one household in a low-income chawl, with results returned within 14 days." },
   { amount: 5000, unit: "a full household file, opened and followed for 90 days", detail: "Intake, screening, referral to a municipal clinic or ASHA worker, and three follow-ups closed against the referral." },
   { amount: 25000, unit: "a community health worker, stipended for one month", detail: "Field stipend, training, transport and supervision for one CHW embedded with ASHA and municipal teams." },
-  { amount: 150000, unit: "one chawl block, served for one quarter", detail: "Approximately 30 households enrolled, screened and tracked end-to-end for a full quarter — published in the public ledger." },
+  { amount: 150000, unit: "one chawl block, served for one quarter", detail: "Approximately 30 households enrolled, screened and tracked end-to-end for a full quarter - published in the public ledger." },
 ];
 
 const TRUST = [
@@ -49,7 +49,7 @@ function Page() {
   }, [amount, custom]);
 
   const matchedTier = useMemo(() => {
-    // Pick the largest tier that fits within `effective` — the deliverable the donor's amount funds today.
+    // Pick the largest tier that fits within `effective` - the deliverable the donor's amount funds today.
     const fit = [...TIERS].reverse().find((t) => effective >= t.amount);
     return fit ?? null;
   }, [effective]);
@@ -59,7 +59,7 @@ function Page() {
       <PageHero
         eyebrow="Donate · FY 2026–27 cohort"
         title="Fund the first household. Not the thousandth."
-        lead="A new foundation has no impact archive to sell you. It has a place to start — the low-income chawls of Mumbai — a fixed first cohort of 500 households, and a public ledger of every rupee. That is the offer."
+        lead="A new foundation has no impact archive to sell you. It has a place to start - the low-income chawls of Mumbai - a fixed first cohort of 500 households, and a public ledger of every rupee. That is the offer."
       />
 
       {/* Donation form + live tier card */}
@@ -185,7 +185,7 @@ function Page() {
                     <p className="mt-4 text-snow/80 text-[0.95rem] leading-relaxed text-pretty">
                       {matchedTier
                         ? matchedTier.detail
-                        : "Even smaller contributions are pooled into household screenings — every paisa appears in the next monthly ledger entry."}
+                        : "Even smaller contributions are pooled into household screenings - every paisa appears in the next monthly ledger entry."}
                     </p>
                     <div className="mt-6 pt-5 border-t border-snow/15 grid grid-cols-2 gap-4 text-[12px]">
                       <div>
@@ -211,7 +211,7 @@ function Page() {
                 <div className="rounded-2xl bg-sage p-6 border border-hairline">
                   <h4 className="font-sans font-semibold text-base text-ink tracking-[-0.005em]">80G tax exemption</h4>
                   <p className="mt-2 text-sm text-ink-muted leading-relaxed text-pretty">
-                    Application filed with the Income Tax Department. Receipts will be issued retrospectively to all donors upon approval. We will tell you the truth about timelines as we have them — not before.
+                    Application filed with the Income Tax Department. Receipts will be issued retrospectively to all donors upon approval. We will tell you the truth about timelines as we have them - not before.
                   </p>
                 </div>
               </aside>
@@ -268,7 +268,7 @@ function Page() {
               {
                 k: "CSR partnerships",
                 t: "For companies & foundations",
-                lines: ["Concept notes, due-diligence pack, and an MoU template are available on request. We co-design programmes against your impact thesis — not the other way round."],
+                lines: ["Concept notes, due-diligence pack, and an MoU template are available on request. We co-design programmes against your impact thesis - not the other way round."],
                 cta: { label: "Open a CSR conversation", href: "/get-involved" },
               },
               {
