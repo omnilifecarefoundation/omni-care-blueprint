@@ -14,30 +14,97 @@ import { cn } from "@/lib/utils";
 import { SITE, MEGA_NAV } from "@/lib/site";
 import type { LucideIcon } from "lucide-react";
 import {
+  // Section icons
   Compass,
   HeartPulse,
   Sprout,
   TrendingUp,
   HandHeart,
   Newspaper,
+  // About
+  Eye,
+  LayoutGrid,
+  Gem,
+  BookOpen,
+  Users,
+  ShieldCheck,
+  Briefcase,
+  // What We Do (pillars)
+  Brain,
+  GraduationCap,
+  Accessibility,
+  Sparkles,
+  // Programmes
+  MessageCircleHeart,
+  Stethoscope,
+  Baby,
+  HandHelping,
+  Flower2,
+  Dumbbell,
+  Microscope,
+  BookMarked,
+  UserRoundCheck,
+  // Impact
+  LineChart,
+  BookText,
+  FileSearch,
+  // Get Involved
+  Hand,
+  Building2,
   HeartHandshake,
+  // Misc
   ArrowUpRight,
   ChevronRight,
 } from "lucide-react";
+import type { LucideIcon as _LucideIcon } from "lucide-react";
 import logoAsset from "@/assets/omni-logo.svg.asset.json";
 const logoSrc = logoAsset.url;
 
 /* -------------------------------------------------------------------------- */
-/*  Icon mapping per section - chosen to match each section's intent           */
+/*  Icon mapping - section triggers and per-item                               */
 /* -------------------------------------------------------------------------- */
 
 const SECTION_ICON: Record<string, LucideIcon> = {
-  about: Compass,         // vision & direction - who we are
-  "what-we-do": HeartPulse, // health, care, the four pillars
-  programmes: Sprout,     // active programmes, growth on the ground
-  impact: TrendingUp,     // lives reached, evidence, trajectory
-  "get-involved": HandHeart, // volunteer, donate, give
-  newsroom: Newspaper,    // press, stories, updates
+  about: Compass,
+  "what-we-do": HeartPulse,
+  programmes: Sprout,
+  impact: TrendingUp,
+  "get-involved": HandHeart,
+  newsroom: Newspaper,
+};
+
+// Unique icon per menu item, keyed by route. Falls back to section icon.
+const ITEM_ICON: Record<string, LucideIcon> = {
+  // About
+  "/about/vision-mission": Eye,
+  "/about/omni-care-model": LayoutGrid,
+  "/about/values": Gem,
+  "/about/our-story": BookOpen,
+  "/about/leadership": Users,
+  "/about/compliance": ShieldCheck,
+  "/about/careers": Briefcase,
+  // What We Do (the four pillars)
+  "/what-we-do/mental-wellbeing": Brain,
+  "/what-we-do/social-growth": GraduationCap,
+  "/what-we-do/inclusive-care": Accessibility,
+  "/what-we-do/human-potential": Sparkles,
+  // Programmes
+  "/programs/community-mental-health": MessageCircleHeart,
+  "/programs/preventive-health-outreach": Stethoscope,
+  "/programs/womens-health-lifecycle": Baby,
+  "/programs/disability-elderly-care": HandHelping,
+  "/programs/womens-wellness": Flower2,
+  "/programs/training-capacity-building": Dumbbell,
+  "/programs/research-impact-assessment": Microscope,
+  "/programs/scholarships-education": BookMarked,
+  "/programs/chw-development": UserRoundCheck,
+  // Impact
+  "/impact": LineChart,
+  "/impact/stories": BookText,
+  // Get Involved
+  "/get-involved/volunteer": Hand,
+  "/partner/csr": Building2,
+  "/donate": HeartHandshake,
 };
 
 /* -------------------------------------------------------------------------- */
