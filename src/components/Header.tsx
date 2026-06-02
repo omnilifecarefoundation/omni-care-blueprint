@@ -404,13 +404,7 @@ function ListItem({
           </span>
           <span className="min-w-0 flex-1">
             <span className="flex items-center gap-1.5 text-[14px] font-medium text-ink leading-tight transition-colors duration-200 group-hover:text-primary">
-              <span className="relative">
-                {title}
-                <span
-                  aria-hidden="true"
-                  className="absolute left-0 -bottom-0.5 h-px w-full origin-right scale-x-0 bg-primary/70 transition-transform duration-300 ease-out group-hover:origin-left group-hover:scale-x-100"
-                />
-              </span>
+              <span>{title}</span>
               <ArrowUpRight
                 size={12}
                 aria-hidden="true"
