@@ -26,6 +26,7 @@ import { Route as ProgramsIndexRouteImport } from './routes/programs.index'
 import { Route as ImpactIndexRouteImport } from './routes/impact.index'
 import { Route as GetInvolvedIndexRouteImport } from './routes/get-involved.index'
 import { Route as AboutIndexRouteImport } from './routes/about.index'
+import { Route as WhatWeDoSocialGrowthRouteImport } from './routes/what-we-do.social-growth'
 import { Route as WhatWeDoMentalWellbeingRouteImport } from './routes/what-we-do.mental-wellbeing'
 import { Route as WhatWeDoPillarRouteImport } from './routes/what-we-do.$pillar'
 import { Route as ProgramsResearchImpactAssessmentRouteImport } from './routes/programs.research-impact-assessment'
@@ -124,6 +125,11 @@ const GetInvolvedIndexRoute = GetInvolvedIndexRouteImport.update({
 const AboutIndexRoute = AboutIndexRouteImport.update({
   id: '/about/',
   path: '/about/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhatWeDoSocialGrowthRoute = WhatWeDoSocialGrowthRouteImport.update({
+  id: '/what-we-do/social-growth',
+  path: '/what-we-do/social-growth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WhatWeDoMentalWellbeingRoute = WhatWeDoMentalWellbeingRouteImport.update({
@@ -225,6 +231,7 @@ export interface FileRoutesByFullPath {
   '/programs/research-impact-assessment': typeof ProgramsResearchImpactAssessmentRoute
   '/what-we-do/$pillar': typeof WhatWeDoPillarRoute
   '/what-we-do/mental-wellbeing': typeof WhatWeDoMentalWellbeingRoute
+  '/what-we-do/social-growth': typeof WhatWeDoSocialGrowthRoute
   '/about/': typeof AboutIndexRoute
   '/get-involved/': typeof GetInvolvedIndexRoute
   '/impact/': typeof ImpactIndexRoute
@@ -258,6 +265,7 @@ export interface FileRoutesByTo {
   '/programs/research-impact-assessment': typeof ProgramsResearchImpactAssessmentRoute
   '/what-we-do/$pillar': typeof WhatWeDoPillarRoute
   '/what-we-do/mental-wellbeing': typeof WhatWeDoMentalWellbeingRoute
+  '/what-we-do/social-growth': typeof WhatWeDoSocialGrowthRoute
   '/about': typeof AboutIndexRoute
   '/get-involved': typeof GetInvolvedIndexRoute
   '/impact': typeof ImpactIndexRoute
@@ -292,6 +300,7 @@ export interface FileRoutesById {
   '/programs/research-impact-assessment': typeof ProgramsResearchImpactAssessmentRoute
   '/what-we-do/$pillar': typeof WhatWeDoPillarRoute
   '/what-we-do/mental-wellbeing': typeof WhatWeDoMentalWellbeingRoute
+  '/what-we-do/social-growth': typeof WhatWeDoSocialGrowthRoute
   '/about/': typeof AboutIndexRoute
   '/get-involved/': typeof GetInvolvedIndexRoute
   '/impact/': typeof ImpactIndexRoute
@@ -327,6 +336,7 @@ export interface FileRouteTypes {
     | '/programs/research-impact-assessment'
     | '/what-we-do/$pillar'
     | '/what-we-do/mental-wellbeing'
+    | '/what-we-do/social-growth'
     | '/about/'
     | '/get-involved/'
     | '/impact/'
@@ -360,6 +370,7 @@ export interface FileRouteTypes {
     | '/programs/research-impact-assessment'
     | '/what-we-do/$pillar'
     | '/what-we-do/mental-wellbeing'
+    | '/what-we-do/social-growth'
     | '/about'
     | '/get-involved'
     | '/impact'
@@ -393,6 +404,7 @@ export interface FileRouteTypes {
     | '/programs/research-impact-assessment'
     | '/what-we-do/$pillar'
     | '/what-we-do/mental-wellbeing'
+    | '/what-we-do/social-growth'
     | '/about/'
     | '/get-involved/'
     | '/impact/'
@@ -427,6 +439,7 @@ export interface RootRouteChildren {
   ProgramsResearchImpactAssessmentRoute: typeof ProgramsResearchImpactAssessmentRoute
   WhatWeDoPillarRoute: typeof WhatWeDoPillarRoute
   WhatWeDoMentalWellbeingRoute: typeof WhatWeDoMentalWellbeingRoute
+  WhatWeDoSocialGrowthRoute: typeof WhatWeDoSocialGrowthRoute
   AboutIndexRoute: typeof AboutIndexRoute
   GetInvolvedIndexRoute: typeof GetInvolvedIndexRoute
   ImpactIndexRoute: typeof ImpactIndexRoute
@@ -553,6 +566,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about/'
       preLoaderRoute: typeof AboutIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/what-we-do/social-growth': {
+      id: '/what-we-do/social-growth'
+      path: '/what-we-do/social-growth'
+      fullPath: '/what-we-do/social-growth'
+      preLoaderRoute: typeof WhatWeDoSocialGrowthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/what-we-do/mental-wellbeing': {
@@ -683,6 +703,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProgramsResearchImpactAssessmentRoute: ProgramsResearchImpactAssessmentRoute,
   WhatWeDoPillarRoute: WhatWeDoPillarRoute,
   WhatWeDoMentalWellbeingRoute: WhatWeDoMentalWellbeingRoute,
+  WhatWeDoSocialGrowthRoute: WhatWeDoSocialGrowthRoute,
   AboutIndexRoute: AboutIndexRoute,
   GetInvolvedIndexRoute: GetInvolvedIndexRoute,
   ImpactIndexRoute: ImpactIndexRoute,
