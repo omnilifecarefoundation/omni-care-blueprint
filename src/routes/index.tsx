@@ -74,9 +74,10 @@ function Hero() {
           {/* Left - content */}
           <div className="lg:col-span-7 space-y-7">
             <FadeUp delay={0}>
-              <span className="inline-flex items-center gap-2 rounded-full border border-snow/20 bg-snow/5 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-snow/80">
-                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                A new non-profit · Mumbai, India
+              <span className="inline-flex items-center gap-2.5 rounded-full border border-snow/20 bg-snow/5 px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em] text-snow/85">
+                <span className="font-semibold text-gold">Non-profit</span>
+                <span className="h-3 w-px bg-snow/25" />
+                <span>Mumbai, India</span>
               </span>
             </FadeUp>
 
