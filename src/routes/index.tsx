@@ -784,43 +784,99 @@ function ClosingCTA() {
    ============================================================ */
 function Newsletter() {
   return (
-    <section className="bg-canvas border-t border-hairline">
-      <div className="container-editorial py-14 lg:py-16">
-        <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 items-center">
-          <FadeUp className="lg:col-span-6">
-            <h3 className="font-sans font-semibold text-[1.375rem] leading-snug text-ink text-balance">
-              Field notes from Mumbai, every three months. No spam.
-            </h3>
-            <p className="mt-2 text-[14px] text-ink-muted text-pretty">
-              What we built, what worked, and what didn&rsquo;t -
-              straight from the team.
-            </p>
-          </FadeUp>
-          <FadeUp className="lg:col-span-6" delay={80}>
-            <form
-              className="flex flex-col sm:flex-row gap-2"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <label htmlFor="email-newsletter" className="sr-only">
-                Your email
-              </label>
-              <input
-                id="email-newsletter"
-                type="email"
-                required
-                placeholder="you@email.com"
-                className="flex-1 h-11 px-4 rounded-full bg-snow border border-hairline text-[14px] text-ink placeholder:text-ink-muted/70 shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)] focus:outline-none focus:border-ink/50 transition-colors"
-              />
-              <button
-                type="submit"
-                className="h-11 px-5 rounded-full bg-ink text-snow text-[13px] font-medium transition-[background-color,box-shadow,scale] duration-200 ease-out hover:bg-primary-deep hover:shadow-[0_4px_12px_-4px_rgba(28,0,96,0.45)] active:scale-[0.96]"
-              >
-                Subscribe
-              </button>
-            </form>
-          </FadeUp>
-        </div>
+    <section className="bg-snow border-t border-hairline">
+      <div className="container-editorial py-16 lg:py-20">
+        <FadeUp>
+          <div
+            className="relative overflow-hidden rounded-3xl bg-ink text-snow px-6 sm:px-10 lg:px-14 py-12 lg:py-14 shadow-[0_1px_2px_rgba(11,59,60,0.06),0_30px_60px_-30px_rgba(28,0,96,0.45)]"
+          >
+            {/* atmospheric gradient */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 opacity-70"
+              style={{
+                background:
+                  "radial-gradient(60% 80% at 100% 0%, rgba(255,214,0,0.18), transparent 60%), radial-gradient(50% 70% at 0% 100%, rgba(148,133,249,0.22), transparent 65%)",
+              }}
+            />
+            {/* faint grid */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 opacity-[0.06]"
+              style={{
+                backgroundImage:
+                  "linear-gradient(to right, rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.6) 1px, transparent 1px)",
+                backgroundSize: "48px 48px",
+              }}
+            />
+
+            <div className="relative grid lg:grid-cols-12 gap-10 lg:gap-12 items-end">
+              <div className="lg:col-span-7">
+                <div className="inline-flex items-center gap-2 rounded-full border border-snow/20 bg-snow/5 backdrop-blur-sm px-3 py-1">
+                  <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                  <span className="font-mono text-[11px] uppercase tracking-[0.18em] tabular-nums text-snow/80">
+                    Issue 00 · Quarterly · Free
+                  </span>
+                </div>
+                <h3 className="mt-5 font-sans font-semibold text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.1] tracking-[-0.02em] text-snow text-balance">
+                  Field notes from Mumbai,{" "}
+                  <em className="font-serif italic font-medium text-gold">
+                    every three months.
+                  </em>
+                </h3>
+                <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-snow/75 text-pretty">
+                  What we built, what worked, and what didn't - straight from
+                  the team. No spam, no fundraising drip. Unsubscribe in one
+                  click.
+                </p>
+              </div>
+
+              <div className="lg:col-span-5">
+                <form
+                  className="group relative"
+                  onSubmit={(e) => e.preventDefault()}
+                >
+                  <label htmlFor="email-newsletter" className="sr-only">
+                    Your email
+                  </label>
+                  {/* concentric: outer rounded-full p-1.5, inner button rounded-full */}
+                  <div className="flex items-center gap-1.5 rounded-full bg-snow/10 backdrop-blur-sm p-1.5 ring-1 ring-snow/20 transition-[box-shadow,background-color] duration-200 ease-out focus-within:bg-snow/15 focus-within:ring-snow/40 focus-within:shadow-[0_0_0_4px_rgba(255,214,0,0.18)]">
+                    <input
+                      id="email-newsletter"
+                      type="email"
+                      required
+                      placeholder="you@work.com"
+                      autoComplete="email"
+                      className="flex-1 min-w-0 h-11 px-4 bg-transparent text-[14px] text-snow placeholder:text-snow/45 focus:outline-none"
+                    />
+                    <button
+                      type="submit"
+                      className="shrink-0 h-11 px-5 rounded-full bg-gold text-ink text-[13px] font-semibold tracking-[0.01em] transition-[background-color,scale,box-shadow] duration-200 ease-out hover:bg-[#E6C000] hover:shadow-[0_6px_18px_-6px_rgba(255,214,0,0.55)] active:scale-[0.96]"
+                    >
+                      Subscribe
+                    </button>
+                  </div>
+                </form>
+                <p className="mt-3 flex items-center gap-2 text-[12px] text-snow/55">
+                  <svg
+                    aria-hidden
+                    viewBox="0 0 24 24"
+                    className="h-3.5 w-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <rect x="4" y="11" width="16" height="9" rx="2" />
+                    <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+                  </svg>
+                  We never share your email. Read by ~120 partners &amp; peers.
+                </p>
+              </div>
+            </div>
+          </div>
+        </FadeUp>
       </div>
     </section>
   );
 }
+
