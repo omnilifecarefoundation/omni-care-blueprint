@@ -33,7 +33,7 @@ import {
   Brain,
   GraduationCap,
   Accessibility,
-  Sparkles,
+  Sunrise,
   // Programmes
   MessageCircleHeart,
   Stethoscope,
