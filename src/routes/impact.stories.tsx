@@ -18,13 +18,13 @@ import {
 export const Route = createFileRoute("/impact/stories")({
   head: () => ({
     meta: [
-      { title: "Stories — Told with Consent, or Not at All | Omni Life Care Foundation" },
+      { title: "Stories - Told with Consent, or Not at All | Omni Life Care Foundation" },
       {
         name: "description",
         content:
           "We are a new foundation. We have no field stories to share yet. When we do, they will be told with written consent, in the first person, and never to flatter a donor.",
       },
-      { property: "og:title", content: "Stories — Told with consent, or not at all" },
+      { property: "og:title", content: "Stories - Told with consent, or not at all" },
       { property: "og:url", content: "/impact/stories" },
     ],
     links: [{ rel: "canonical", href: "/impact/stories" }],
@@ -32,14 +32,14 @@ export const Route = createFileRoute("/impact/stories")({
   component: Page,
 });
 
-// The storytelling promise — six rules that bind us before the first story is told.
+// The storytelling promise - six rules that bind us before the first story is told.
 const PROMISE = [
   {
     n: "01",
     icon: PenLine,
     label: "Written consent, every time",
     detail:
-      "No photograph, name, or quote appears on this site without a signed consent form — in the language the person speaks, read aloud where literacy is a barrier.",
+      "No photograph, name, or quote appears on this site without a signed consent form - in the language the person speaks, read aloud where literacy is a barrier.",
   },
   {
     n: "02",
@@ -74,11 +74,11 @@ const PROMISE = [
     icon: Scale,
     label: "No story without the numbers",
     detail:
-      "Every story is paired with the cohort it belongs to — how many households, what was measured, what did not work. One person's experience is not a programme outcome.",
+      "Every story is paired with the cohort it belongs to - how many households, what was measured, what did not work. One person's experience is not a programme outcome.",
   },
 ];
 
-// What we are listening for — the seeds of future stories, by pillar.
+// What we are listening for - the seeds of future stories, by pillar.
 const LISTENING = [
   {
     pillar: "Mental Wellbeing",
@@ -94,7 +94,7 @@ const LISTENING = [
   },
   {
     pillar: "Human Potential",
-    seed: "The first community health worker we recruit, train, and place — in her own words.",
+    seed: "The first community health worker we recruit, train, and place - in her own words.",
   },
 ];
 
@@ -112,21 +112,21 @@ const PROCESS = [
     icon: PenLine,
     label: "Consent",
     detail:
-      "A second visit, in their home or a private space. Consent form read aloud. Scope agreed — what may be shared, what may not, for how long.",
+      "A second visit, in their home or a private space. Consent form read aloud. Scope agreed - what may be shared, what may not, for how long.",
   },
   {
     n: "03",
     icon: ImageIcon,
     label: "Capture",
     detail:
-      "Audio, photograph, or written notes — only what consent covered. A copy of every photograph is given back to the person.",
+      "Audio, photograph, or written notes - only what consent covered. A copy of every photograph is given back to the person.",
   },
   {
     n: "04",
     icon: Eye,
     label: "Review",
     detail:
-      "The draft — text, image selection, and caption — is shown to the person before it leaves the office. Their changes are final.",
+      "The draft - text, image selection, and caption - is shown to the person before it leaves the office. Their changes are final.",
   },
 ];
 
@@ -136,10 +136,10 @@ function Page() {
       <PageHero
         eyebrow="Stories from the Field"
         title="No stories yet. When we have them, they will be told a particular way."
-        lead="We are a new foundation. Our first programmes are still being set up in Mumbai. Rather than borrow a stock photograph or invent a composite character, this page is a contract — how we will tell the stories of the people we work alongside, when those stories are theirs to tell."
+        lead="We are a new foundation. Our first programmes are still being set up in Mumbai. Rather than borrow a stock photograph or invent a composite character, this page is a contract - how we will tell the stories of the people we work alongside, when those stories are theirs to tell."
       />
 
-      {/* Honesty band — what is NOT on this page and why */}
+      {/* Honesty band - what is NOT on this page and why */}
       <section className="bg-sage border-b border-hairline">
         <div className="container-editorial py-14 lg:py-16">
           <div className="grid lg:grid-cols-[1fr_2fr] gap-10 items-start">
@@ -152,7 +152,7 @@ function Page() {
                   No fabricated beneficiary. No stock portrait labelled with a name we made up. No composite "Sunita from Solapur" stitched together from a press release we read.
                 </p>
                 <p className="text-ink-muted">
-                  A real story is a person who can be asked, who can say no, and who can change their mind. Until we are working with real people in the field, this page stays a promise — not a gallery.
+                  A real story is a person who can be asked, who can say no, and who can change their mind. Until we are working with real people in the field, this page stays a promise - not a gallery.
                 </p>
               </div>
             </FadeUp>
@@ -160,7 +160,7 @@ function Page() {
         </div>
       </section>
 
-      {/* The Storytelling Promise — six rules */}
+      {/* The Storytelling Promise - six rules */}
       <section className="bg-canvas">
         <div className="container-editorial py-20 lg:py-24">
           <div className="max-w-2xl mb-14">
@@ -216,7 +216,7 @@ function Page() {
               </FadeUp>
               <FadeUp delay={160}>
                 <p className="mt-5 text-ink-muted leading-[1.7] text-pretty">
-                  Each pillar of the Omni Care Model has a quiet milestone — the kind of moment that means the discipline is taking root. When those moments arrive, we will ask permission to share them.
+                  Each pillar of the Omni Care Model has a quiet milestone - the kind of moment that means the discipline is taking root. When those moments arrive, we will ask permission to share them.
                 </p>
               </FadeUp>
             </div>
@@ -236,7 +236,7 @@ function Page() {
         </div>
       </section>
 
-      {/* The process — how a story gets to this page */}
+      {/* The process - how a story gets to this page */}
       <section className="bg-snow">
         <div className="container-editorial py-20 lg:py-24">
           <div className="max-w-2xl mb-14">
@@ -271,7 +271,7 @@ function Page() {
         </div>
       </section>
 
-      {/* The placeholder card — what a future story will look like */}
+      {/* The placeholder card - what a future story will look like */}
       <section className="bg-canvas">
         <div className="container-editorial py-20 lg:py-24">
           <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-16 items-start">
@@ -303,7 +303,7 @@ function Page() {
                 <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
                   <div>
                     <div className="eyebrow text-ink-muted">Name</div>
-                    <p className="mt-1 text-ink/50">— with consent</p>
+                    <p className="mt-1 text-ink/50">- with consent</p>
                   </div>
                   <div>
                     <div className="eyebrow text-ink-muted flex items-center gap-1.5">
@@ -324,7 +324,7 @@ function Page() {
                 </div>
                 <div className="mt-8 pt-6 border-t border-hairline">
                   <p className="text-xs text-ink-muted leading-relaxed">
-                    Cohort context: how many households, what was measured, what did not work. A person is not a metric — but a story without one is decoration.
+                    Cohort context: how many households, what was measured, what did not work. A person is not a metric - but a story without one is decoration.
                   </p>
                 </div>
               </article>
@@ -348,7 +348,7 @@ function Page() {
             <FadeUp delay={100}>
               <div className="space-y-4 text-[15px] leading-[1.7] text-ink-muted text-pretty">
                 <p>
-                  Once programmes are underway, we will publish a quarterly press note with anonymised aggregate data and case studies cleared for re-use. Requests for site visits are considered on a case-by-case basis and only with the community's prior agreement — never to meet a publishing deadline.
+                  Once programmes are underway, we will publish a quarterly press note with anonymised aggregate data and case studies cleared for re-use. Requests for site visits are considered on a case-by-case basis and only with the community's prior agreement - never to meet a publishing deadline.
                 </p>
                 <p>
                   Press queries:{" "}

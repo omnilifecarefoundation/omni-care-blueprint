@@ -9,17 +9,17 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 export const Route = createFileRoute("/what-we-do/")({
   head: () => ({
     meta: [
-      { title: "What We Do — Omni Life Care Foundation" },
+      { title: "What We Do - Omni Life Care Foundation" },
       {
         name: "description",
         content:
-          "Four pillars. Five programmes. One integrated approach to community health and wellbeing — the Omni Care Model.",
+          "Four pillars. Five programmes. One integrated approach to community health and wellbeing - the Omni Care Model.",
       },
-      { property: "og:title", content: "What We Do — Omni Life Care Foundation" },
+      { property: "og:title", content: "What We Do - Omni Life Care Foundation" },
       {
         property: "og:description",
         content:
-          "The Omni Care Model: mental wellbeing as the foundation, social growth, inclusive care, and human potential — delivered as one programme, not four.",
+          "The Omni Care Model: mental wellbeing as the foundation, social growth, inclusive care, and human potential - delivered as one programme, not four.",
       },
       { property: "og:url", content: "/what-we-do" },
     ],
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/what-we-do/")({
   component: Page,
 });
 
-// Five programmes, mapped to their pillar. Kept honest — no fabricated reach.
+// Five programmes, mapped to their pillar. Kept honest - no fabricated reach.
 const PROGRAMMES = [
   {
     n: "01",
@@ -36,7 +36,7 @@ const PROGRAMMES = [
     pillar: "Mental Wellbeing",
     pillarId: "mental" as const,
     intent:
-      "Counselling, awareness, and screening built into the places people already trust — schools, primary health centres, self-help groups.",
+      "Counselling, awareness, and screening built into the places people already trust - schools, primary health centres, self-help groups.",
     sdg: "SDG 3 · 10",
   },
   {
@@ -63,7 +63,7 @@ const PROGRAMMES = [
     pillar: "Inclusive Care",
     pillarId: "inclusive" as const,
     intent:
-      "Home-based rehabilitation, assistive devices, and caregiver training — plus the paperwork that unlocks government entitlements.",
+      "Home-based rehabilitation, assistive devices, and caregiver training - plus the paperwork that unlocks government entitlements.",
     sdg: "SDG 10 · 3",
   },
   {
@@ -72,7 +72,7 @@ const PROGRAMMES = [
     pillar: "Inclusive Care",
     pillarId: "inclusive" as const,
     intent:
-      "Breast and cervical cancer screening, PCOS, menopause and bone health — the conditions most often left undiagnosed.",
+      "Breast and cervical cancer screening, PCOS, menopause and bone health - the conditions most often left undiagnosed.",
     sdg: "SDG 5 · 3",
   },
 ];
@@ -93,7 +93,7 @@ const PYRAMID = [
     name: "Inclusive Care",
     keywords: "Dignity · Support · Compassion",
     blurb:
-      "Care designed around the people most often overlooked — women, the elderly, persons with disability.",
+      "Care designed around the people most often overlooked - women, the elderly, persons with disability.",
   },
   {
     id: "social" as const,
@@ -101,7 +101,7 @@ const PYRAMID = [
     name: "Social Growth",
     keywords: "Community · Awareness · Collective wellbeing",
     blurb:
-      "Education, peer groups, and health literacy — turning awareness into community-level habit.",
+      "Education, peer groups, and health literacy - turning awareness into community-level habit.",
   },
   {
     id: "mental" as const,
@@ -109,7 +109,7 @@ const PYRAMID = [
     name: "Mental Wellbeing",
     keywords: "Stability · Emotional health · Foundation",
     blurb:
-      "Mental health treated as the floor everything else rests on — not the last item on the checklist.",
+      "Mental health treated as the floor everything else rests on - not the last item on the checklist.",
   },
 ];
 
@@ -119,14 +119,14 @@ function Page() {
       <PageHero
         eyebrow="What We Do"
         title="One person. One plan. Four pillars."
-        lead="Most community health is delivered in fragments — one organisation for mental health, another for women, another for the elderly. The Omni Care Model treats a household as a household."
+        lead="Most community health is delivered in fragments - one organisation for mental health, another for women, another for the elderly. The Omni Care Model treats a household as a household."
       >
         <Link to="/about/omni-care-model" className="link-arrow text-snow/85 hover:text-snow">
           Read the model in full <ArrowRight className="h-4 w-4" />
         </Link>
       </PageHero>
 
-      {/* The case — editorial pull-quote */}
+      {/* The case - editorial pull-quote */}
       <section className="bg-canvas border-b border-hairline">
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-16">
@@ -146,7 +146,7 @@ function Page() {
                 <p className="text-ink-muted text-[1.0625rem] leading-[1.65] max-w-2xl text-pretty">
                   Four agencies will visit her village this year. None of
                   them will speak to each other. We are building the
-                  alternative — one team, one plan, one household record,
+                  alternative - one team, one plan, one household record,
                   one path back into the public system when specialist care
                   is needed.
                 </p>
@@ -156,7 +156,7 @@ function Page() {
         </div>
       </section>
 
-      {/* The Omni Care Model — pyramid, bottom-up */}
+      {/* The Omni Care Model - pyramid, bottom-up */}
       <section className="bg-ink text-snow">
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-20 items-start">
@@ -226,7 +226,7 @@ function Page() {
         </div>
       </section>
 
-      {/* Five programmes — editorial ledger */}
+      {/* Five programmes - editorial ledger */}
       <section className="bg-snow border-b border-hairline">
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16 mb-10 lg:mb-14">
@@ -284,8 +284,8 @@ function Page() {
 
           <FadeUp delay={140}>
             <p className="mt-8 text-sm text-ink-muted max-w-2xl">
-              We will publish a one-page brief for every programme — design,
-              cost per household, what we will measure — before fieldwork
+              We will publish a one-page brief for every programme - design,
+              cost per household, what we will measure - before fieldwork
               begins, so the first report can be read against the first
               promise.
             </p>
@@ -293,7 +293,7 @@ function Page() {
         </div>
       </section>
 
-      {/* What we will measure — honest, no fabricated stats */}
+      {/* What we will measure - honest, no fabricated stats */}
       <section className="bg-sage border-b border-hairline">
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-16">
@@ -346,7 +346,7 @@ function Page() {
       <CTABand
         eyebrow="Work with us"
         title="The model is open. The first year is being designed now."
-        body="If you fund community health, train the frontline, or want to bring a programme to your district — we would rather start a conversation than send a deck."
+        body="If you fund community health, train the frontline, or want to bring a programme to your district - we would rather start a conversation than send a deck."
         primary={{ label: "Partner on CSR", href: "/partner/csr" }}
         secondary={{ label: "Volunteer with us", href: "/get-involved/volunteer" }}
       />

@@ -25,9 +25,9 @@ export const Route = createFileRoute("/what-we-do/$pillar")({
   },
   head: ({ loaderData }) => ({
     meta: [
-      { title: `${loaderData?.pillar.name} — Omni Life Care Foundation` },
+      { title: `${loaderData?.pillar.name} - Omni Life Care Foundation` },
       { name: "description", content: loaderData?.pillar.long ?? "" },
-      { property: "og:title", content: `${loaderData?.pillar.name} — Omni Life Care Foundation` },
+      { property: "og:title", content: `${loaderData?.pillar.name} - Omni Life Care Foundation` },
       { property: "og:url", content: `/what-we-do/${loaderData?.pillar.id}` },
     ],
     links: [{ rel: "canonical", href: `/what-we-do/${loaderData?.pillar.id}` }],

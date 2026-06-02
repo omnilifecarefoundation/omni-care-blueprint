@@ -85,7 +85,7 @@ const GUARANTEES = [
 export const Route = createFileRoute("/get-involved/")({
   head: () => ({
     meta: [
-      { title: "Get Involved — Omni Life Care Foundation" },
+      { title: "Get Involved - Omni Life Care Foundation" },
       {
         name: "description",
         content:
@@ -93,7 +93,7 @@ export const Route = createFileRoute("/get-involved/")({
       },
       {
         property: "og:title",
-        content: "Get Involved — Omni Life Care Foundation",
+        content: "Get Involved - Omni Life Care Foundation",
       },
       { property: "og:url", content: "/get-involved" },
     ],
@@ -122,7 +122,7 @@ function Page() {
                 publish its discipline before it publishes its success, we
                 are building exactly that. The five paths below are not
                 donation tiers. They are entry points into a programme that
-                does not yet exist — and that is precisely why your input
+                does not yet exist - and that is precisely why your input
                 matters now.
               </p>
             </div>
@@ -193,7 +193,7 @@ function Page() {
       <CTABand
         eyebrow="The first cohort"
         title="The first 500 households will be enrolled in Mumbai this year."
-        body="There is still time to help design how. Whether you give, partner, volunteer, or research — you are not funding a finished machine. You are helping build it."
+        body="There is still time to help design how. Whether you give, partner, volunteer, or research - you are not funding a finished machine. You are helping build it."
         primary={{ label: "Partner on CSR", href: "/partner/csr" }}
         secondary={{ label: "Find a volunteer role", href: "/get-involved/volunteer" }}
       />

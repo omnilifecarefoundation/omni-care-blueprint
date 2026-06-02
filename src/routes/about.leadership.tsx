@@ -25,7 +25,7 @@ const PRINCIPLES = [
   {
     n: "03",
     title: "Every rupee has a name attached to it.",
-    body: "The Board reviews the audited accounts in full session, not by circulation. Programme budgets, salary bands, and overhead ratios are published in the annual report — before they are asked for.",
+    body: "The Board reviews the audited accounts in full session, not by circulation. Programme budgets, salary bands, and overhead ratios are published in the annual report - before they are asked for.",
   },
   {
     n: "04",
@@ -51,31 +51,31 @@ const STRUCTURE = [
     icon: ShieldCheck,
     label: "Advisory Council",
     summary: "Domain expertise without fiduciary control.",
-    detail: "Practitioners and researchers in public health, mental health, gender, and disability inclusion. Advisory only — no voting rights on Board matters.",
+    detail: "Practitioners and researchers in public health, mental health, gender, and disability inclusion. Advisory only - no voting rights on Board matters.",
   },
   {
     icon: FileText,
     label: "Statutory Auditors",
     summary: "Independent verification of the books.",
-    detail: "Annual statutory audit by an independent chartered-accountancy firm. Audit findings — including qualifications — are published in full.",
+    detail: "Annual statutory audit by an independent chartered-accountancy firm. Audit findings - including qualifications - are published in full.",
   },
 ];
 
 const SEATS = [
   {
-    role: "Independent Trustee — Finance & Audit",
+    role: "Independent Trustee - Finance & Audit",
     note: "Chartered Accountant or CFO background; chairs the Audit & Risk Committee.",
   },
   {
-    role: "Independent Trustee — Community Representation",
+    role: "Independent Trustee - Community Representation",
     note: "Drawn from the communities our programmes serve in Maharashtra.",
   },
   {
-    role: "Advisory Council — Mental Health",
+    role: "Advisory Council - Mental Health",
     note: "Clinical psychologist or psychiatrist with community-practice experience.",
   },
   {
-    role: "Advisory Council — Disability Inclusion",
+    role: "Advisory Council - Disability Inclusion",
     note: "Practitioner or self-advocate working on accessibility and rights.",
   },
 ];
@@ -92,13 +92,13 @@ const STANDARDS = [
 export const Route = createFileRoute("/about/leadership")({
   head: () => ({
     meta: [
-      { title: "Leadership & Governance — Omni Life Care Foundation" },
+      { title: "Leadership & Governance - Omni Life Care Foundation" },
       {
         name: "description",
         content:
           "How Omni Life Care Foundation is governed: independent Board of Trustees, separation of governance from management, published audits, and a community seat that votes.",
       },
-      { property: "og:title", content: "Leadership & Governance — Omni Life Care Foundation" },
+      { property: "og:title", content: "Leadership & Governance - Omni Life Care Foundation" },
       {
         property: "og:description",
         content:
@@ -117,7 +117,7 @@ function Page() {
       <PageHero
         eyebrow="About · Leadership & Governance"
         title="A new foundation cannot point to a track record. It can point to the governance it chooses to build."
-        lead="Most NGOs publish a wall of headshots. We are publishing the rules first — who holds the pen, who reviews the books, and who has the standing to say no. The names will follow, in public, as the Board is seated."
+        lead="Most NGOs publish a wall of headshots. We are publishing the rules first - who holds the pen, who reviews the books, and who has the standing to say no. The names will follow, in public, as the Board is seated."
       />
 
       <Principles />
@@ -138,7 +138,7 @@ function Page() {
 }
 
 /* ============================================================
-   1. PRINCIPLES — the governance commitments
+   1. PRINCIPLES - the governance commitments
    ============================================================ */
 function Principles() {
   return (
@@ -182,7 +182,7 @@ function Principles() {
 }
 
 /* ============================================================
-   2. STRUCTURE — the four bodies that govern the foundation
+   2. STRUCTURE - the four bodies that govern the foundation
    ============================================================ */
 function Structure() {
   return (
@@ -227,7 +227,7 @@ function Structure() {
 }
 
 /* ============================================================
-   3. STANDARDS — a hard, scannable table of commitments
+   3. STANDARDS - a hard, scannable table of commitments
    ============================================================ */
 function Standards() {
   return (
@@ -237,7 +237,7 @@ function Standards() {
           <FadeUp className="lg:col-span-5">
             <p className="eyebrow mb-4">The standards, in numbers</p>
             <h2 className="font-sans font-semibold text-[clamp(1.625rem,2.6vw,2.25rem)] leading-[1.12] tracking-[-0.02em] text-ink text-balance">
-              We will be measured against the same numbers every year — by the Board, by the auditor, and by you.
+              We will be measured against the same numbers every year - by the Board, by the auditor, and by you.
             </h2>
           </FadeUp>
 
@@ -257,7 +257,7 @@ function Standards() {
             <FadeUp delay={200}>
               <p className="mt-6 text-sm text-ink/75 leading-[1.6] text-pretty max-w-xl">
                 Each standard is reviewed annually by the Audit &amp; Risk Committee.
-                Where we fall short, the gap is named in the annual report — not
+                Where we fall short, the gap is named in the annual report - not
                 buried in a footnote.
               </p>
             </FadeUp>
@@ -269,19 +269,19 @@ function Standards() {
 }
 
 /* ============================================================
-   4. OPEN SEATS — what we are recruiting for, in public
+   4. OPEN SEATS - what we are recruiting for, in public
    ============================================================ */
 function OpenSeats() {
   return (
     <section className="bg-canvas border-b border-hairline">
       <div className="container-editorial py-20 lg:py-28">
         <FadeUp>
-          <p className="eyebrow mb-4">Open seats — in public</p>
+          <p className="eyebrow mb-4">Open seats - in public</p>
           <h2 className="font-sans font-semibold text-[clamp(1.625rem,2.6vw,2.25rem)] leading-[1.12] tracking-[-0.02em] text-ink text-balance max-w-3xl">
             We are recruiting four seats. We publish them here so the process is open from the first conversation.
           </h2>
           <p className="lead mt-5 max-w-2xl">
-            If you have served on a non-profit board with discipline, or if you bring lived experience the Board needs in the room — we want to hear from you.
+            If you have served on a non-profit board with discipline, or if you bring lived experience the Board needs in the room - we want to hear from you.
           </p>
         </FadeUp>
 
@@ -320,7 +320,7 @@ function OpenSeats() {
 }
 
 /* ============================================================
-   5. FOUNDING NOTE — honest framing, no fake bios
+   5. FOUNDING NOTE - honest framing, no fake bios
    ============================================================ */
 function FoundingNote() {
   return (
@@ -335,12 +335,12 @@ function FoundingNote() {
           <div className="lg:col-span-8 space-y-5">
             <FadeUp delay={80}>
               <p className="font-sans font-medium text-[1.125rem] lg:text-[1.25rem] leading-[1.55] text-snow text-pretty">
-                It would be easy to list the people we know. It would be less honest. The Board of a foundation is a fiduciary body — not a list of supporters.
+                It would be easy to list the people we know. It would be less honest. The Board of a foundation is a fiduciary body - not a list of supporters.
               </p>
             </FadeUp>
             <FadeUp delay={160}>
               <p className="text-[1rem] leading-[1.7] text-snow/80 text-pretty">
-                We are seating the Board through a written, criteria-driven process, with a nominations committee that includes one independent voice from outside the founders&rsquo; network. The first slate will be published the moment it is signed — with names, terms, and the committees each trustee chairs.
+                We are seating the Board through a written, criteria-driven process, with a nominations committee that includes one independent voice from outside the founders&rsquo; network. The first slate will be published the moment it is signed - with names, terms, and the committees each trustee chairs.
               </p>
             </FadeUp>
             <FadeUp delay={240}>

@@ -9,7 +9,7 @@ import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/about/omni-care-model")({
   head: () => ({
     meta: [
-      { title: "The Omni Care Model — Omni Life Care Foundation" },
+      { title: "The Omni Care Model - Omni Life Care Foundation" },
       {
         name: "description",
         content:
@@ -27,7 +27,7 @@ const PRINCIPLES = [
   {
     n: "01",
     title: "Integrated, not isolated.",
-    body: "A woman screened at a health camp is also offered mental-health support, life-stage counselling, and a referral pathway — in the same visit, by the same trusted worker.",
+    body: "A woman screened at a health camp is also offered mental-health support, life-stage counselling, and a referral pathway - in the same visit, by the same trusted worker.",
   },
   {
     n: "02",
@@ -37,7 +37,7 @@ const PRINCIPLES = [
   {
     n: "03",
     title: "Accountable, in public.",
-    body: "Every pillar reports the same way — who we reached, what changed, and what we got wrong. Our discipline is the proof, not our promises.",
+    body: "Every pillar reports the same way - who we reached, what changed, and what we got wrong. Our discipline is the proof, not our promises.",
   },
 ];
 
@@ -47,10 +47,10 @@ function Page() {
       <PageHero
         eyebrow="Our Approach"
         title="Four pillars. One continuum of care."
-        lead="Health doesn't live in silos — and neither do the people we serve. The Omni Care Model is how a mental-health visit, a girl's scholarship, an elder's home check-in, and a frontline worker's training all add up to the same outcome: communities that can carry their own wellbeing."
+        lead="Health doesn't live in silos - and neither do the people we serve. The Omni Care Model is how a mental-health visit, a girl's scholarship, an elder's home check-in, and a frontline worker's training all add up to the same outcome: communities that can carry their own wellbeing."
       />
 
-      {/* The model — diagram + 12-col header */}
+      {/* The model - diagram + 12-col header */}
       <section className="bg-sage border-b border-hairline">
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
@@ -66,8 +66,8 @@ function Page() {
             <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
               <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
                 The pillars are not a menu. Each stands on the same community ground; each
-                connects to the next through one continuous arc — the worker, the household,
-                the follow-up — so a single touchpoint can deliver care across more than one
+                connects to the next through one continuous arc - the worker, the household,
+                the follow-up - so a single touchpoint can deliver care across more than one
                 pillar at once.
               </p>
             </FadeUp>
@@ -97,7 +97,7 @@ function Page() {
             </FadeUp>
             <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
               <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
-                Read top to bottom, the pillars build on each other — mental wellbeing as
+                Read top to bottom, the pillars build on each other - mental wellbeing as
                 the floor, human potential as the long horizon. Each links to the
                 programmes delivering it on the ground today.
               </p>
@@ -138,7 +138,7 @@ function Page() {
         </div>
       </section>
 
-      {/* How the pillars connect — three principles */}
+      {/* How the pillars connect - three principles */}
       <section className="bg-snow border-b border-hairline">
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
@@ -154,7 +154,7 @@ function Page() {
             <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
               <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
                 Three commitments hold the four pillars together. They are what we promise
-                a funder, a community, and ourselves — every quarter.
+                a funder, a community, and ourselves - every quarter.
               </p>
             </FadeUp>
           </div>
@@ -202,7 +202,7 @@ function Page() {
                 </em>
               </h2>
               <p className="mt-5 max-w-xl text-[1.0625rem] lg:text-[1.15rem] leading-[1.6] text-snow/80 text-pretty">
-                Every programme we run sits inside one of these four pillars — and
+                Every programme we run sits inside one of these four pillars - and
                 connects to the others by design. Browse the work, or stand with us.
               </p>
             </FadeUp>

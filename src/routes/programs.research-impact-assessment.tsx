@@ -6,13 +6,13 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/programs/research-impact-assessment")({
   head: () => ({
     meta: [
-      { title: "Research & Impact Assessment — Omni Life Care Foundation" },
+      { title: "Research & Impact Assessment - Omni Life Care Foundation" },
       {
         name: "description",
         content:
-          "How a new Mumbai foundation will measure what works in community health — open data, pre-registered methods, and quarterly public reports from the very first cohort.",
+          "How a new Mumbai foundation will measure what works in community health - open data, pre-registered methods, and quarterly public reports from the very first cohort.",
       },
-      { property: "og:title", content: "Research & Impact Assessment — Omni Life Care Foundation" },
+      { property: "og:title", content: "Research & Impact Assessment - Omni Life Care Foundation" },
       {
         property: "og:description",
         content:
@@ -30,13 +30,13 @@ const COMMITMENTS = [
     n: "01",
     title: "Pre-register every study",
     body:
-      "Before a single household is enrolled, the hypothesis, the sample, the instruments and the analysis plan are published. We commit to the question in advance — and to reporting the answer whether it flatters us or not.",
+      "Before a single household is enrolled, the hypothesis, the sample, the instruments and the analysis plan are published. We commit to the question in advance - and to reporting the answer whether it flatters us or not.",
   },
   {
     n: "02",
     title: "Open the raw data",
     body:
-      "De-identified datasets and codebooks are released alongside every report. Anyone — a partner NGO, a graduate student, a state official, a journalist — can audit our math.",
+      "De-identified datasets and codebooks are released alongside every report. Anyone - a partner NGO, a graduate student, a state official, a journalist - can audit our math.",
   },
   {
     n: "03",
@@ -75,7 +75,7 @@ const TIMELINE = [
   {
     when: "Q3 FY 2026",
     title: "Methods committee convened",
-    body: "Three external researchers — public health, biostatistics, ethics — review every protocol before fieldwork begins.",
+    body: "Three external researchers - public health, biostatistics, ethics - review every protocol before fieldwork begins.",
   },
   {
     when: "Q4 FY 2026",
@@ -131,7 +131,7 @@ export default function ResearchImpactPage() {
             <FadeUp delay={200}>
               <p className="max-w-2xl text-[1.0625rem] lg:text-[1.125rem] leading-[1.6] text-snow/80 text-pretty">
                 Omni Life Care is a new foundation. We have no peer-reviewed papers, no headline statistics,
-                no decade of evaluations to point to. What we do have is a method — written down, pre-registered,
+                no decade of evaluations to point to. What we do have is a method - written down, pre-registered,
                 and open to anyone who wants to check our work.
               </p>
             </FadeUp>
@@ -150,7 +150,7 @@ export default function ResearchImpactPage() {
               <FadeUp delay={80}>
                 <p className="text-[1.125rem] lg:text-[1.25rem] leading-[1.55] tracking-[-0.005em] text-ink text-pretty">
                   Indian community-health work is full of large round numbers. One hundred thousand lives touched.
-                  Five lakh women empowered. The numbers are usually inputs — leaflets handed out, camps held —
+                  Five lakh women empowered. The numbers are usually inputs - leaflets handed out, camps held -
                   re-labelled as outcomes.
                 </p>
               </FadeUp>
@@ -283,7 +283,7 @@ export default function ResearchImpactPage() {
               <div>
                 <div className="eyebrow mb-4">Who we want to work with</div>
                 <h2 className="font-sans font-semibold text-[clamp(1.75rem,3vw,2.375rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-                  Universities, hospitals, civic data teams — and the households themselves.
+                  Universities, hospitals, civic data teams - and the households themselves.
                 </h2>
               </div>
             </FadeUp>
@@ -294,8 +294,8 @@ export default function ResearchImpactPage() {
                   science to co-design protocols and co-author the first round of reports.
                 </p>
                 <p>
-                  We are seeking municipal partners — BMC ward officers, ASHA supervisors, primary health centre
-                  clinicians — to ensure the questions we ask are the ones the system actually needs answered.
+                  We are seeking municipal partners - BMC ward officers, ASHA supervisors, primary health centre
+                  clinicians - to ensure the questions we ask are the ones the system actually needs answered.
                 </p>
                 <p>
                   And we are committing to community researchers from the chawls themselves: paid roles, on the

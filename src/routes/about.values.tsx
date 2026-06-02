@@ -8,16 +8,16 @@ const VALUES = [
   {
     n: "01",
     title: "Dignity & Respect",
-    body: "Every person we work with is treated as the protagonist of their own life — never as a recipient of charity.",
+    body: "Every person we work with is treated as the protagonist of their own life - never as a recipient of charity.",
     practice:
-      "Our consent forms are in the local language, not English. Our staff are trained to sit at eye level during home visits. We do not photograph beneficiaries without explicit, revocable consent — and we never use faces in donor decks.",
+      "Our consent forms are in the local language, not English. Our staff are trained to sit at eye level during home visits. We do not photograph beneficiaries without explicit, revocable consent - and we never use faces in donor decks.",
   },
   {
     n: "02",
     title: "Inclusion & Equity",
-    body: "We design for those most often overlooked, and measure success by how well we reach them — not by the average.",
+    body: "We design for those most often overlooked, and measure success by how well we reach them - not by the average.",
     practice:
-      "Our district dashboards disaggregate every outcome by gender, caste, disability status, and geography. If a programme lifts the village average but leaves Scheduled-Caste households behind, we classify it as under review — not a success.",
+      "Our district dashboards disaggregate every outcome by gender, caste, disability status, and geography. If a programme lifts the village average but leaves Scheduled-Caste households behind, we classify it as under review - not a success.",
   },
   {
     n: "03",
@@ -29,16 +29,16 @@ const VALUES = [
   {
     n: "04",
     title: "Collaboration",
-    body: "We work with governments, academic institutions, frontline workers, and other NGOs — because no single actor owns the whole problem.",
+    body: "We work with governments, academic institutions, frontline workers, and other NGOs - because no single actor owns the whole problem.",
     practice:
       "We share our M&E frameworks under Creative Commons licences. We publish our failures alongside our successes in annual reports. We do not require partner NGOs to rebrand their work as ours to access funding.",
   },
   {
     n: "05",
     title: "Impact & Sustainability",
-    body: "We invest in interventions whose effects continue long after our programme ends — and we verify it with follow-up data.",
+    body: "We invest in interventions whose effects continue long after our programme ends - and we verify it with follow-up data.",
     practice:
-      "Every programme budget must include a two-year post-intervention monitoring plan before it is approved. We track livelihood gains eighteen months after programme closure. If the effect decays, we redesign the model — we do not simply report the six-month peak.",
+      "Every programme budget must include a two-year post-intervention monitoring plan before it is approved. We track livelihood gains eighteen months after programme closure. If the effect decays, we redesign the model - we do not simply report the six-month peak.",
   },
 ];
 
@@ -51,13 +51,13 @@ const LINKS = [
 export const Route = createFileRoute("/about/values")({
   head: () => ({
     meta: [
-      { title: "Our Values — Omni Life Care Foundation" },
+      { title: "Our Values - Omni Life Care Foundation" },
       {
         name: "description",
         content:
-          "Dignity, inclusion, community-centred design, collaboration, and sustainable impact — the operational commitments that guide every programme, partnership, and budget decision.",
+          "Dignity, inclusion, community-centred design, collaboration, and sustainable impact - the operational commitments that guide every programme, partnership, and budget decision.",
       },
-      { property: "og:title", content: "Our Values — Omni Life Care Foundation" },
+      { property: "og:title", content: "Our Values - Omni Life Care Foundation" },
       { property: "og:url", content: "/about/values" },
     ],
     links: [{ rel: "canonical", href: "/about/values" }],
@@ -71,7 +71,7 @@ function Page() {
       <PageHero
         eyebrow="About"
         title="Five operational commitments. Not five posters on a wall."
-        lead="Values are tested in budgets, hiring decisions, audit findings, and the conversations no donor sees. These are the five we publish — because you should know what we are held to before you trust us with a rupee."
+        lead="Values are tested in budgets, hiring decisions, audit findings, and the conversations no donor sees. These are the five we publish - because you should know what we are held to before you trust us with a rupee."
       />
 
       {/* Manifesto */}
@@ -233,7 +233,7 @@ function Page() {
       <CTABand
         eyebrow="Get Involved"
         title="If these values match how you work, we should talk."
-        body="Whether you are a funder, a partner, or a practitioner — we are always looking for people who believe values are measured in actions, not words."
+        body="Whether you are a funder, a partner, or a practitioner - we are always looking for people who believe values are measured in actions, not words."
         primary={{ label: "Partner with Us", href: "/partner/csr" }}
         secondary={{ label: "View Open Roles", href: "/about/careers" }}
       />

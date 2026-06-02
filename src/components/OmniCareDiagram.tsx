@@ -1,7 +1,7 @@
 // Signature graphic: Four Pillars, One Continuum.
 // Four labelled pillars rise from a shared "community" baseline and are tied
-// together by a single integrating arc — the worker, the household, the
-// follow-up — that runs across all four.
+// together by a single integrating arc - the worker, the household, the
+// follow-up - that runs across all four.
 
 type PillarId = "mental" | "social" | "inclusive" | "human";
 
@@ -72,12 +72,12 @@ export function OmniCareDiagram({ className = "", focus = null }: Props) {
     >
       <title id="omni-care-title">The Omni Care Model</title>
       <desc id="omni-care-desc">
-        Four pillars — Mental Wellbeing, Social Growth, Inclusive Care, and Human
-        Potential — rising from a shared community baseline and tied together by one
+        Four pillars - Mental Wellbeing, Social Growth, Inclusive Care, and Human
+        Potential - rising from a shared community baseline and tied together by one
         continuous arc of integration.
       </desc>
 
-      {/* Community baseline — dotted ground */}
+      {/* Community baseline - dotted ground */}
       <g opacity="0.7" aria-hidden="true">
         {Array.from({ length: 44 }).map((_, i) =>
           Array.from({ length: 3 }).map((_, j) => (

@@ -19,7 +19,7 @@ export const Route = createFileRoute("/safeguarding-policy")({
   head: () => ({
     meta: [
       {
-        title: "Safeguarding & Child Protection Policy — Omni Life Care Foundation",
+        title: "Safeguarding & Child Protection Policy - Omni Life Care Foundation",
       },
       {
         name: "description",
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/safeguarding-policy")({
       },
       {
         property: "og:title",
-        content: "Safeguarding & Child Protection Policy — Omni Life Care Foundation",
+        content: "Safeguarding & Child Protection Policy - Omni Life Care Foundation",
       },
       {
         property: "og:description",
@@ -48,7 +48,7 @@ function Page() {
       <PageHero
         eyebrow="Governance"
         title="Zero tolerance is a policy. Named routes, mandatory training, and a public ledger make it real."
-        lead="Every person who works with us — staff, volunteer, or partner — is bound by the same safeguarding code. The policy is not a folder on a shelf. It is a set of actions we publish so anyone can hold us to them."
+        lead="Every person who works with us - staff, volunteer, or partner - is bound by the same safeguarding code. The policy is not a folder on a shelf. It is a set of actions we publish so anyone can hold us to them."
       />
 
       {/* Honesty band */}
@@ -109,7 +109,7 @@ function Page() {
             {
               icon: Users,
               title: "Background check before badge",
-              body: "Police verification, two references, and a safeguarding interview are mandatory before any person — paid or volunteer — is cleared to work with communities.",
+              body: "Police verification, two references, and a safeguarding interview are mandatory before any person - paid or volunteer - is cleared to work with communities.",
             },
             {
               icon: BookOpen,
@@ -166,9 +166,9 @@ function Page() {
                   },
                   {
                     icon: AlertTriangle,
-                    label: "Child protection — immediate risk",
+                    label: "Child protection - immediate risk",
                     email: "childprotection@omnilifecare.org",
-                    note: "Urgent — same-day response",
+                    note: "Urgent - same-day response",
                   },
                   {
                     icon: Users,
@@ -229,7 +229,7 @@ function Page() {
             {
               step: "01",
               title: "Acknowledgement",
-              body: "The reporter receives a written acknowledgement within the promised window — 24 hours for general, same day for urgent. A reference number is assigned.",
+              body: "The reporter receives a written acknowledgement within the promised window - 24 hours for general, same day for urgent. A reference number is assigned.",
             },
             {
               step: "02",
@@ -244,7 +244,7 @@ function Page() {
             {
               step: "04",
               title: "Action & closure",
-              body: "Outcome is communicated to the reporter (if safe), the survivor, and the Board. The incident is logged in the safeguarding ledger — category, date, action, closure.",
+              body: "Outcome is communicated to the reporter (if safe), the survivor, and the Board. The incident is logged in the safeguarding ledger - category, date, action, closure.",
             },
           ].map((s, i) => (
             <FadeUp key={s.step} delay={i * 70}>
@@ -382,13 +382,13 @@ function Page() {
                   />
                   <EscalationRow
                     icon={Phone}
-                    label="Mumbai police — emergency"
+                    label="Mumbai police - emergency"
                     value="Dial 100"
                     href="tel:100"
                   />
                   <EscalationRow
                     icon={AlertTriangle}
-                    label="Childline — national helpline"
+                    label="Childline - national helpline"
                     value="1098"
                     href="tel:1098"
                   />
@@ -408,7 +408,7 @@ function Page() {
                   We want this policy to be better than it is.
                 </h3>
                 <p className="mt-3 text-ink-muted text-pretty">
-                  If you have seen a safeguarding system that works — or one that failed — and
+                  If you have seen a safeguarding system that works - or one that failed - and
                   you think we should adopt or avoid a specific practice, write to{" "}
                   <a className="underline" href="mailto:safeguarding@omnilifecare.org">
                     safeguarding@omnilifecare.org
@@ -425,7 +425,7 @@ function Page() {
       <CTABand
         eyebrow="Trust is built in public"
         title="A safeguarding policy is only as strong as the person who reports a breach."
-        body="If something on this page feels incomplete, unclear, or insufficient — tell us. The fastest way to improve it is to hear from the people it is meant to protect."
+        body="If something on this page feels incomplete, unclear, or insufficient - tell us. The fastest way to improve it is to hear from the people it is meant to protect."
         primary={{ label: "Report a concern", href: "mailto:safeguarding@omnilifecare.org" }}
         secondary={{ label: "Read the Omni Care Model", href: "/about/omni-care-model" }}
       />

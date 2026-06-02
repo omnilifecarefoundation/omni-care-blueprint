@@ -10,17 +10,17 @@ export const Route = createFileRoute("/")({
     meta: [
       {
         title:
-          "Omni Life Care Foundation — Care that arrives where people already live. Mumbai.",
+          "Omni Life Care Foundation - Care that arrives where people already live. Mumbai.",
       },
       {
         name: "description",
         content:
-          "A new Mumbai non-profit bringing mental health, women's health, inclusive care and community health under one team — so a family never has to ask in four different places.",
+          "A new Mumbai non-profit bringing mental health, women's health, inclusive care and community health under one team - so a family never has to ask in four different places.",
       },
       {
         property: "og:title",
         content:
-          "Omni Life Care Foundation — Care that arrives where people already live.",
+          "Omni Life Care Foundation - Care that arrives where people already live.",
       },
       {
         property: "og:description",
@@ -56,7 +56,7 @@ function HomePage() {
 }
 
 /* ============================================================
-   1. HERO — emotional headline, Ogilvy long subhead
+   1. HERO - emotional headline, Ogilvy long subhead
    ============================================================ */
 function Hero() {
   return (
@@ -71,7 +71,7 @@ function Hero() {
       />
       <div className="container-editorial relative pt-14 pb-16 lg:pt-20 lg:pb-24">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          {/* Left — content */}
+          {/* Left - content */}
           <div className="lg:col-span-7 space-y-7">
             <FadeUp delay={0}>
               <span className="inline-flex items-center gap-2 rounded-full border border-snow/20 bg-snow/5 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-snow/80">
@@ -131,13 +131,13 @@ function Hero() {
             </FadeUp>
           </div>
 
-          {/* Right — photo */}
+          {/* Right - photo */}
           <div className="lg:col-span-5">
             <FadeUp delay={120}>
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink/40 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.55),0_2px_4px_rgba(0,0,0,0.25)]">
                 <img
                   src={heroImg}
-                  alt="A community gathered in a Mumbai neighbourhood — where Omni Life Care Foundation begins its work."
+                  alt="A community gathered in a Mumbai neighbourhood - where Omni Life Care Foundation begins its work."
                   width={1200}
                   height={1500}
                   fetchPriority="high"
@@ -159,7 +159,7 @@ function Hero() {
 }
 
 /* ============================================================
-   2. MANIFESTO — single editorial promise
+   2. MANIFESTO - single editorial promise
    ============================================================ */
 function Manifesto() {
   return (
@@ -182,7 +182,7 @@ function Manifesto() {
 }
 
 /* ============================================================
-   3. WHAT WE DO — 4 pillars of the Omni Care Model
+   3. WHAT WE DO - 4 pillars of the Omni Care Model
    ============================================================ */
 function WhatWeDo() {
   return (
@@ -243,7 +243,7 @@ function WhatWeDo() {
 }
 
 /* ============================================================
-   4. VALUES — five commitments you can hold us to
+   4. VALUES - five commitments you can hold us to
    ============================================================ */
 function Values() {
   const values = [
@@ -319,7 +319,7 @@ function Values() {
 }
 
 /* ============================================================
-   5. WHY IT MATTERS — three sourced facts
+   5. WHY IT MATTERS - three sourced facts
    ============================================================ */
 function WhyItMatters() {
   const facts = [
@@ -377,7 +377,7 @@ function WhyItMatters() {
 }
 
 /* ============================================================
-   6. PROGRAMMES — four flagship cards
+   6. PROGRAMMES - four flagship cards
    ============================================================ */
 function Programmes() {
   const flagship = [PROGRAMS[0], PROGRAMS[2], PROGRAMS[1], PROGRAMS[3]];
@@ -447,7 +447,7 @@ function Programmes() {
 }
 
 /* ============================================================
-   7. FOUNDERS NOTE — short, signed, plain
+   7. FOUNDERS NOTE - short, signed, plain
    ============================================================ */
 function FoundersNote() {
   return (
@@ -492,7 +492,7 @@ function FoundersNote() {
 }
 
 /* ============================================================
-   8. SDGs — the global goals we contribute to
+   8. SDGs - the global goals we contribute to
    ============================================================ */
 function SDGs() {
   const goals = [
@@ -583,7 +583,7 @@ function SDGs() {
 
 
 /* ============================================================
-   9. PARTNER BAND — dark, three audiences
+   9. PARTNER BAND - dark, three audiences
    ============================================================ */
 function PartnerBand() {
   const cards = [

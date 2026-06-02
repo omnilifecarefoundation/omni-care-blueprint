@@ -14,23 +14,23 @@ import { CTABand } from "@/components/CTABand";
 const CHOICES = [
   {
     n: "01",
-    title: "One household, one plan — not four schemes.",
+    title: "One household, one plan - not four schemes.",
     body: "Most NGOs are organised around a programme. We are organised around a family. A single relationship with the household holds mental health, women's health, elderly care, and child development in one conversation, not four queues.",
   },
   {
     n: "02",
     title: "Mental health as the foundation, not the afterthought.",
-    body: "Almost every health outcome in the last mile sits on top of an emotional one. We placed mental well-being at the base of the Omni Care Model — because if it is not held, nothing above it holds either.",
+    body: "Almost every health outcome in the last mile sits on top of an emotional one. We placed mental well-being at the base of the Omni Care Model - because if it is not held, nothing above it holds either.",
   },
   {
     n: "03",
     title: "Evidence before scale.",
-    body: "We would rather run one rigorously evaluated programme in one district than five plausible programmes in five. Independent measurement is built into the budget from day one — not added when a donor asks for it.",
+    body: "We would rather run one rigorously evaluated programme in one district than five plausible programmes in five. Independent measurement is built into the budget from day one - not added when a donor asks for it.",
   },
   {
     n: "04",
     title: "Open books, by default.",
-    body: "Budgets, salary bands, overhead ratios, and audit findings are published — including the qualifications. A new foundation has no track record to defend. We have decided not to build one to hide behind, either.",
+    body: "Budgets, salary bands, overhead ratios, and audit findings are published - including the qualifications. A new foundation has no track record to defend. We have decided not to build one to hide behind, either.",
   },
 ];
 
@@ -59,14 +59,14 @@ const ROADMAP = [
     items: [
       "Community Mental Health & Wellbeing cohort begins",
       "Frontline workers recruited from the wards we serve",
-      "Independent evaluator agrees the success criteria — in writing",
+      "Independent evaluator agrees the success criteria - in writing",
     ],
   },
   {
     period: "Quarter four",
     label: "First report",
     items: [
-      "First annual report published — including what did not work",
+      "First annual report published - including what did not work",
       "Audited accounts and salary bands posted",
       "Roadmap for year two opened to partners and the public",
     ],
@@ -76,17 +76,17 @@ const ROADMAP = [
 export const Route = createFileRoute("/about/our-story")({
   head: () => ({
     meta: [
-      { title: "Our Story — Omni Life Care Foundation" },
+      { title: "Our Story - Omni Life Care Foundation" },
       {
         name: "description",
         content:
-          "Why Omni Life Care Foundation exists, what we chose to build differently, and an honest roadmap of our first twelve months — written before the work, not after.",
+          "Why Omni Life Care Foundation exists, what we chose to build differently, and an honest roadmap of our first twelve months - written before the work, not after.",
       },
-      { property: "og:title", content: "Our Story — Omni Life Care Foundation" },
+      { property: "og:title", content: "Our Story - Omni Life Care Foundation" },
       {
         property: "og:description",
         content:
-          "A new Mumbai foundation. No track record yet — just an observation, four deliberate choices, and a public roadmap.",
+          "A new Mumbai foundation. No track record yet - just an observation, four deliberate choices, and a public roadmap.",
       },
       { property: "og:url", content: "/about/our-story" },
     ],
@@ -101,7 +101,7 @@ function Page() {
       <PageHero
         eyebrow="About · Our story"
         title="Most foundations write their story after the work. We are writing ours before it."
-        lead="Omni Life Care Foundation is a new non-profit, registered in Mumbai. We have no programmes to point back to and no beneficiaries to count. What we have is an observation about care in India — and four deliberate choices about how to answer it."
+        lead="Omni Life Care Foundation is a new non-profit, registered in Mumbai. We have no programmes to point back to and no beneficiaries to count. What we have is an observation about care in India - and four deliberate choices about how to answer it."
       />
 
       <TheObservation />
@@ -111,7 +111,7 @@ function Page() {
 
       <CTABand
         eyebrow="Walk with us from day one"
-        title="The most useful thing we can offer founding partners is the chance to shape the model — not to applaud it."
+        title="The most useful thing we can offer founding partners is the chance to shape the model - not to applaud it."
         body="If you are a CSR lead, an institutional funder, or a clinician with field experience, we would value a conversation while the plan is still being written."
         primary={{ label: "Partner with us", href: "/partner/csr" }}
         secondary={{ label: "Read the model", href: "/about/omni-care-model" }}
@@ -121,7 +121,7 @@ function Page() {
 }
 
 /* ============================================================
-   1. THE OBSERVATION — the why behind the foundation
+   1. THE OBSERVATION - the why behind the foundation
    ============================================================ */
 function TheObservation() {
   return (
@@ -134,13 +134,13 @@ function TheObservation() {
           <div className="lg:col-span-8 space-y-6">
             <FadeUp delay={80}>
               <p className="font-sans font-medium text-[1.25rem] lg:text-[1.5rem] leading-[1.4] tracking-[-0.01em] text-ink text-balance">
-                A family in the last mile does not have a mental-health problem, then a women&rsquo;s-health problem, then an elderly-care problem. They have one life — and a system that meets them in four different queues.
+                A family in the last mile does not have a mental-health problem, then a women&rsquo;s-health problem, then an elderly-care problem. They have one life - and a system that meets them in four different queues.
               </p>
             </FadeUp>
             <FadeUp delay={160}>
               <p className="text-[1.0625rem] lg:text-[1.125rem] leading-[1.65] text-ink text-pretty">
                 India has built some of the world&rsquo;s most ambitious public-health
-                infrastructure. The gap is not at the top. It is at the household — where
+                infrastructure. The gap is not at the top. It is at the household - where
                 a woman seeking counselling, a daughter trying to stay in school,
                 and an elderly parent needing home care often find themselves
                 served by three different teams, funded by three different budgets,
@@ -156,7 +156,7 @@ function TheObservation() {
             <FadeUp delay={320}>
               <p className="text-[1.0625rem] lg:text-[1.125rem] leading-[1.65] text-ink text-pretty">
                 Omni Life Care Foundation exists because we believe the opposite
-                is possible — and that the way to prove it is not to write another
+                is possible - and that the way to prove it is not to write another
                 paper, but to do the work, in one ward, with one team, and publish
                 every honest line of what happens next.
               </p>
@@ -169,7 +169,7 @@ function TheObservation() {
 }
 
 /* ============================================================
-   2. THE CHOICE — four deliberate decisions
+   2. THE CHOICE - four deliberate decisions
    ============================================================ */
 function TheChoice() {
   return (
@@ -224,7 +224,7 @@ function TheChoice() {
 }
 
 /* ============================================================
-   3. ROADMAP — the first twelve months, in public
+   3. ROADMAP - the first twelve months, in public
    ============================================================ */
 function Roadmap() {
   return (
@@ -236,7 +236,7 @@ function Roadmap() {
             <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
               The roadmap, written{" "}
               <em className="font-serif italic font-medium text-primary">
-                before the work — not after.
+                before the work - not after.
               </em>
             </h2>
             <p className="lead mt-5 max-w-md">
@@ -283,7 +283,7 @@ function Roadmap() {
 }
 
 /* ============================================================
-   4. FOUNDERS' NOTE — dark indigo signature
+   4. FOUNDERS' NOTE - dark indigo signature
    ============================================================ */
 function FoundersNote() {
   return (
@@ -304,8 +304,8 @@ function FoundersNote() {
             </FadeUp>
             <FadeUp delay={160}>
               <p className="text-[1rem] lg:text-[1.0625rem] leading-[1.7] text-snow/85 text-pretty">
-                Omni Life Care Foundation is our attempt — modest, deliberate,
-                and starting in a single ward of Mumbai — to test a different
+                Omni Life Care Foundation is our attempt - modest, deliberate,
+                and starting in a single ward of Mumbai - to test a different
                 architecture. One household, one plan, four pillars of care
                 working as one body. We are not asking anyone to take our word
                 for it. We are asking for the patience to let the first twelve
@@ -315,7 +315,7 @@ function FoundersNote() {
             <FadeUp delay={240}>
               <p className="text-[1rem] lg:text-[1.0625rem] leading-[1.7] text-snow/85 text-pretty">
                 If, at the end of year one, the evidence says we were wrong about
-                the model — we will say so, in the same place we are saying this
+                the model - we will say so, in the same place we are saying this
                 now. That commitment, more than anything else on this page, is
                 what we hope you will hold us to.
               </p>

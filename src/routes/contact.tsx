@@ -7,9 +7,9 @@ import { useState } from "react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Omni Life Care Foundation" },
-      { name: "description", content: "Get in touch — general enquiries, CSR partnerships, media, and government collaboration." },
-      { property: "og:title", content: "Contact — Omni Life Care Foundation" },
+      { title: "Contact - Omni Life Care Foundation" },
+      { name: "description", content: "Get in touch - general enquiries, CSR partnerships, media, and government collaboration." },
+      { property: "og:title", content: "Contact - Omni Life Care Foundation" },
       { property: "og:url", content: "/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
@@ -42,7 +42,7 @@ function Page() {
 
           {sent ? (
             <div className="rounded-2xl bg-sage p-8 border border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04)]">
-              <h2 className="font-sans font-semibold tracking-[-0.015em] text-2xl text-balance">Thanks — your message is in.</h2>
+              <h2 className="font-sans font-semibold tracking-[-0.015em] text-2xl text-balance">Thanks - your message is in.</h2>
               <p className="mt-3 text-ink-muted text-pretty">We'll get back within 3 business days.</p>
             </div>
           ) : (

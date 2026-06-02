@@ -38,7 +38,7 @@ const PATHWAYS = [
     icon: Building2,
     title: "Corporate & Group",
     body:
-      "Teams of 15 to 100. Structured half-day or full-day engagements with pre-agreed deliverables — health camps, community clean-ups, or awareness sessions. Every corporate volunteer receives a scope document one week before the event.",
+      "Teams of 15 to 100. Structured half-day or full-day engagements with pre-agreed deliverables - health camps, community clean-ups, or awareness sessions. Every corporate volunteer receives a scope document one week before the event.",
     tags: ["Team-based", "Half or full day", "Mumbai"],
   },
 ];
@@ -143,7 +143,7 @@ const STEPS = [
 export const Route = createFileRoute("/get-involved/volunteer")({
   head: () => ({
     meta: [
-      { title: "Volunteer — Omni Life Care Foundation" },
+      { title: "Volunteer - Omni Life Care Foundation" },
       {
         name: "description",
         content:
@@ -151,7 +151,7 @@ export const Route = createFileRoute("/get-involved/volunteer")({
       },
       {
         property: "og:title",
-        content: "Volunteer — Omni Life Care Foundation",
+        content: "Volunteer - Omni Life Care Foundation",
       },
       {
         property: "og:description",
@@ -430,7 +430,7 @@ function Page() {
       <CTABand
         eyebrow="The first cohort"
         title="The first volunteers shape the first programme."
-        body="If you are willing to work with a new foundation — to tolerate ambiguity, to document what you do, and to help us build discipline from day one — we would like to hear from you."
+        body="If you are willing to work with a new foundation - to tolerate ambiguity, to document what you do, and to help us build discipline from day one - we would like to hear from you."
         primary={{
           label: "Apply now",
           href: "mailto:volunteer@omnilifecare.org?subject=Volunteer%20application",

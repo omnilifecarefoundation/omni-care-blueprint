@@ -7,9 +7,9 @@ import { Globe, Copyright, Scale, AlertTriangle, RefreshCw } from "lucide-react"
 export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
-      { title: "Terms of Use — Written in plain language" },
+      { title: "Terms of Use - Written in plain language" },
       { name: "description", content: "Terms and conditions for using the Omni Life Care Foundation website. Written in plain language, not legal code." },
-      { property: "og:title", content: "Terms of Use — Written in plain language" },
+      { property: "og:title", content: "Terms of Use - Written in plain language" },
       { property: "og:description", content: "Terms and conditions for using the Omni Life Care Foundation website. Written in plain language, not legal code." },
       { property: "og:url", content: "/terms" },
     ],
@@ -27,12 +27,12 @@ const COMMITMENTS = [
   {
     icon: Copyright,
     title: "Content is ours. Attribution is yours.",
-    body: "All content on this site — text, images, programme descriptions, and research — is owned by Omni Life Care Foundation unless otherwise indicated. You may share, quote, and cite it freely, provided you include attribution and a link back to the source page. Commercial reproduction requires written permission.",
+    body: "All content on this site - text, images, programme descriptions, and research - is owned by Omni Life Care Foundation unless otherwise indicated. You may share, quote, and cite it freely, provided you include attribution and a link back to the source page. Commercial reproduction requires written permission.",
   },
   {
     icon: Scale,
     title: "Donations are binding. Refunds are fair.",
-    body: "When you make a donation, you enter into a simple agreement: we promise to use your contribution for the purpose stated at the point of donation, and we promise to report on its use. If you donated in error, our Donation Policy governs refunds — no questions asked within seven days.",
+    body: "When you make a donation, you enter into a simple agreement: we promise to use your contribution for the purpose stated at the point of donation, and we promise to report on its use. If you donated in error, our Donation Policy governs refunds - no questions asked within seven days.",
   },
   {
     icon: AlertTriangle,
@@ -52,7 +52,7 @@ function Page() {
       <PageHero
         eyebrow="Terms of Use"
         title="A contract should be readable by the person it binds."
-        lead="Most terms of use are written to protect lawyers. We have written this one to protect you — and us — in language a fourteen-year-old can understand."
+        lead="Most terms of use are written to protect lawyers. We have written this one to protect you - and us - in language a fourteen-year-old can understand."
       />
 
       {/* Five commitments */}
@@ -106,7 +106,7 @@ function Page() {
             <FadeUp delay={120}>
               <div className="space-y-4 text-ink-muted leading-relaxed text-pretty">
                 <p>
-                  This website contains links to third-party websites and resources — payment processors, government portals, research databases, and partner organisations. These links are provided for your convenience and information.
+                  This website contains links to third-party websites and resources - payment processors, government portals, research databases, and partner organisations. These links are provided for your convenience and information.
                 </p>
                 <p>
                   We do not endorse, control, or assume responsibility for the content, privacy practices, or terms of any third-party site. When you leave our website, the terms and policies of the destination site apply. We encourage you to read them before you proceed.
@@ -127,7 +127,7 @@ function Page() {
                 We are a small team. We try hard. We are not perfect.
               </h2>
               <p className="mt-6 max-w-[42ch] text-ink-muted leading-relaxed text-pretty">
-                To the fullest extent permitted by Indian law, Omni Life Care Foundation and its trustees, staff, and volunteers are not liable for any loss or damage — direct or indirect — arising from your use of this website or reliance on any information published here.
+                To the fullest extent permitted by Indian law, Omni Life Care Foundation and its trustees, staff, and volunteers are not liable for any loss or damage - direct or indirect - arising from your use of this website or reliance on any information published here.
               </p>
             </FadeUp>
             <FadeUp delay={120}>
@@ -136,7 +136,7 @@ function Page() {
                   {
                     step: "01",
                     title: "Accuracy, not infallibility",
-                    body: "We verify every statistic, programme detail, and financial figure before publication. But organisations grow, data updates, and errors slip through. If you spot something wrong, tell us — we will fix it within 48 hours.",
+                    body: "We verify every statistic, programme detail, and financial figure before publication. But organisations grow, data updates, and errors slip through. If you spot something wrong, tell us - we will fix it within 48 hours.",
                   },
                   {
                     step: "02",
@@ -209,7 +209,7 @@ function Page() {
             {[
               { label: "Legal & compliance", email: "legal@omnilifecare.org", desc: "Terms questions, copyright, dispute resolution" },
               { label: "Privacy & data", email: "privacy@omnilifecare.org", desc: "Data access, correction, deletion requests" },
-              { label: "General enquiries", email: "hello@omnilifecare.org", desc: "Anything else — routed within one working day" },
+              { label: "General enquiries", email: "hello@omnilifecare.org", desc: "Anything else - routed within one working day" },
             ].map((c, i) => (
               <FadeUp key={c.label} delay={i * 60}>
                 <div className="rounded-xl bg-snow border border-hairline p-6 lg:p-7 h-full">
@@ -250,7 +250,7 @@ function Page() {
       <CTABand
         eyebrow="Trust is built here"
         title="A terms page is a promise. We keep ours in plain sight."
-        body="Read it, question it, and then — if it holds up — explore what we are building."
+        body="Read it, question it, and then - if it holds up - explore what we are building."
         primary={{ label: "Make a donation", href: "/donate" }}
         secondary={{ label: "Contact the team", href: "/contact" }}
       />

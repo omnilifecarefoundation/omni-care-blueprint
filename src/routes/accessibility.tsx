@@ -8,9 +8,9 @@ import { Keyboard, Eye, MonitorPlay, Volume2, HeartHandshake, AlertCircle, Mail 
 export const Route = createFileRoute("/accessibility")({
   head: () => ({
     meta: [
-      { title: "Accessibility — Omni Life Care Foundation" },
+      { title: "Accessibility - Omni Life Care Foundation" },
       { name: "description", content: "How we make this site usable for everyone, and what we are still learning." },
-      { property: "og:title", content: "Accessibility — Omni Life Care Foundation" },
+      { property: "og:title", content: "Accessibility - Omni Life Care Foundation" },
       { property: "og:description", content: "How we make this site usable for everyone, and what we are still learning." },
       { property: "og:url", content: "/accessibility" },
     ],
@@ -23,7 +23,7 @@ const STANDARDS = [
   {
     icon: MonitorPlay,
     title: "Semantic structure",
-    body: "We build with native HTML landmarks — nav, main, section, article — so screen readers and keyboard users can navigate by meaning, not just visual position.",
+    body: "We build with native HTML landmarks - nav, main, section, article - so screen readers and keyboard users can navigate by meaning, not just visual position.",
   },
   {
     icon: Eye,
@@ -33,7 +33,7 @@ const STANDARDS = [
   {
     icon: Keyboard,
     title: "Keyboard navigation",
-    body: "Every interactive element — links, buttons, forms, dropdowns — is reachable and operable with a keyboard alone. Tab order follows the visual flow.",
+    body: "Every interactive element - links, buttons, forms, dropdowns - is reachable and operable with a keyboard alone. Tab order follows the visual flow.",
   },
   {
     icon: Volume2,
@@ -56,7 +56,7 @@ function Page() {
         lead="We design this site the way we design our programmes: around the person who has been left out before."
       />
 
-      {/* Standards grid — secondary cards on bg-canvas */}
+      {/* Standards grid - secondary cards on bg-canvas */}
       <section className="bg-canvas">
         <div className="container-editorial py-16 lg:py-24">
           <FadeUp>
@@ -86,7 +86,7 @@ function Page() {
         </div>
       </section>
 
-      {/* Honest editorial — bg-sage */}
+      {/* Honest editorial - bg-sage */}
       <section className="bg-sage border-y border-hairline">
         <div className="container-editorial py-16 lg:py-20">
           <div className="grid lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-16 items-start">
@@ -110,7 +110,7 @@ function Page() {
         </div>
       </section>
 
-      {/* Reporting — bg-canvas */}
+      {/* Reporting - bg-canvas */}
       <section className="bg-canvas">
         <div className="container-editorial py-16 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
@@ -164,7 +164,7 @@ function Page() {
       <CTABand
         eyebrow="Get in touch"
         title="Accessibility is a conversation, not a certificate."
-        body="If this site failed you in any way, we owe you a fix and an explanation. Reach out — we read every message."
+        body="If this site failed you in any way, we owe you a fix and an explanation. Reach out - we read every message."
         primary={{ label: "Contact us", href: "/contact" }}
         secondary={{ label: "Read our privacy policy", href: "/privacy-policy" }}
       />

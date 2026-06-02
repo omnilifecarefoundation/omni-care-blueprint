@@ -16,17 +16,17 @@ import {
 export const Route = createFileRoute("/programs/")({
   head: () => ({
     meta: [
-      { title: "Programmes — Omni Life Care Foundation" },
+      { title: "Programmes - Omni Life Care Foundation" },
       {
         name: "description",
         content:
           "Five programmes designed under the Omni Care Model. Honest about what is being built, what each programme will do, and the numbers we will publish each quarter.",
       },
-      { property: "og:title", content: "Programmes — Omni Life Care Foundation" },
+      { property: "og:title", content: "Programmes - Omni Life Care Foundation" },
       {
         property: "og:description",
         content:
-          "Five programmes, one model. Mental wellbeing, preventive health, women's life-cycle care, inclusive care, and women's wellness — built from rupee one with public reporting.",
+          "Five programmes, one model. Mental wellbeing, preventive health, women's life-cycle care, inclusive care, and women's wellness - built from rupee one with public reporting.",
       },
       { property: "og:url", content: "/programs" },
     ],
@@ -59,7 +59,7 @@ const PROGRAMMES: Programme[] = [
     name: "Community Mental Health & Wellbeing",
     oneLine: "Mental health out of the clinic, into the neighbourhood.",
     intent:
-      "Bring screening, peer support, and a named clinical referral into the schools, primary health centres, and self-help groups people already trust — so the first step toward help is not a 90-minute commute.",
+      "Bring screening, peer support, and a named clinical referral into the schools, primary health centres, and self-help groups people already trust - so the first step toward help is not a 90-minute commute.",
     who: "Adolescents, young adults, women, and informal workers in low-income Mumbai neighbourhoods.",
     doing: [
       "Train community facilitators in PHQ-9 and GAD-7 screening with stepped support.",
@@ -80,14 +80,14 @@ const PROGRAMMES: Programme[] = [
     slug: "preventive-health-outreach",
     n: "02",
     name: "Preventive & Community Health Outreach",
-    oneLine: "Early detection paired with a funded referral — not a camp that ends at sundown.",
+    oneLine: "Early detection paired with a funded referral - not a camp that ends at sundown.",
     intent:
-      "Hold preventive camps for blood pressure, blood sugar, and basic cancer markers — and pair every camp with a structured referral into the nearest public facility. Publish camp-by-camp results inside fourteen days.",
+      "Hold preventive camps for blood pressure, blood sugar, and basic cancer markers - and pair every camp with a structured referral into the nearest public facility. Publish camp-by-camp results inside fourteen days.",
     who: "Peri-urban Mumbai households that fall between the BMC mainstream and private care.",
     doing: [
       "Hold preventive camps for BP, blood sugar, and basic cancer markers.",
       "Pair every camp with a structured referral into the nearest public facility.",
-      "Publish camp results — counts, positives, follow-ups — within fourteen days.",
+      "Publish camp results - counts, positives, follow-ups - within fourteen days.",
     ],
     publish: [
       "Screenings completed, by camp.",
@@ -105,7 +105,7 @@ const PROGRAMMES: Programme[] = [
     name: "Women's Health & Life-Cycle Care",
     oneLine: "One programme that walks with a woman from adolescence through menopause.",
     intent:
-      "Most women's health work is fragmented — one NGO for menstruation, another for maternal care, a third for cancer screening. We are building a single programme that walks with a woman across her life, not three programmes pretending to coordinate.",
+      "Most women's health work is fragmented - one NGO for menstruation, another for maternal care, a third for cancer screening. We are building a single programme that walks with a woman across her life, not three programmes pretending to coordinate.",
     who: "Adolescent girls in school, women in reproductive years, and post-menopausal women.",
     doing: [
       "Facilitator-led menstrual health sessions inside partner schools.",
@@ -125,14 +125,14 @@ const PROGRAMMES: Programme[] = [
   {
     slug: "disability-elderly-care",
     n: "04",
-    name: "Inclusive Care — Disability & Elderly Support",
+    name: "Inclusive Care - Disability & Elderly Support",
     oneLine: "Care designed around the people most often left out of the design.",
     intent:
       "A household needs assessment with a written care plan signed by the family. Linkage to entitlements that already exist on paper but rarely reach the home. Caregiver training for the family member who actually does the daily work.",
     who: "Persons with disability, frail elderly, and the family members who care for them.",
     doing: [
       "Household needs assessment with a written care plan, signed by the family.",
-      "Linkage to entitlements — disability pension, Niramaya, Ayushman Bharat.",
+      "Linkage to entitlements - disability pension, Niramaya, Ayushman Bharat.",
       "Caregiver training for the family member who actually does the daily work.",
     ],
     publish: [
@@ -171,12 +171,12 @@ const PROGRAMMES: Programme[] = [
 ];
 
 const LEDGER: { k: string; v: string }[] = [
-  { k: "Scope", v: "Wards, partner sites, and the eligible population — written down, not estimated." },
+  { k: "Scope", v: "Wards, partner sites, and the eligible population - written down, not estimated." },
   { k: "Activity", v: "Sessions held, screenings completed, referrals made. Counted from the register." },
   { k: "Linkage", v: "Share of positive screens that completed a follow-up within fourteen days." },
-  { k: "Spend", v: "Rupees in, rupees out, by line item — reconciled to the bank statement." },
+  { k: "Spend", v: "Rupees in, rupees out, by line item - reconciled to the bank statement." },
   { k: "What did not work", v: "A short, named list. Closed by the next quarter, or escalated in writing." },
-  { k: "What we learned", v: "One paragraph per programme — in plain language, signed by the lead." },
+  { k: "What we learned", v: "One paragraph per programme - in plain language, signed by the lead." },
 ];
 
 function pillarOf(id: PillarId) {
@@ -191,7 +191,7 @@ function Page() {
       <PageHero
         eyebrow="Five programmes · year one"
         title="Five programmes. One model. Built honestly from rupee one."
-        lead="A new Mumbai foundation. What follows is each programme’s scope, the population it is built for, the work we will actually do, and the numbers we will publish — quarter by quarter — so progress can be checked, not assumed."
+        lead="A new Mumbai foundation. What follows is each programme’s scope, the population it is built for, the work we will actually do, and the numbers we will publish - quarter by quarter - so progress can be checked, not assumed."
       >
         <a
           href="#index"
@@ -210,7 +210,7 @@ function Page() {
           </FadeUp>
           <FadeUp delay={80}>
             <p className="font-sans font-medium text-[clamp(1.375rem,2.4vw,1.875rem)] leading-[1.25] tracking-[-0.015em] text-ink text-balance max-w-4xl">
-              We will not lead with reach numbers we have not yet earned —{" "}
+              We will not lead with reach numbers we have not yet earned -{" "}
               <em className="font-serif italic font-medium text-primary">
                 we will publish the same six lines, every programme, every quarter.
               </em>
@@ -219,7 +219,7 @@ function Page() {
         </div>
       </section>
 
-      {/* Programme cards — open modal */}
+      {/* Programme cards - open modal */}
       <section id="index" className="bg-snow border-b border-hairline scroll-mt-20">
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
@@ -298,7 +298,7 @@ function Page() {
             </FadeUp>
             <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
               <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
-                A quarterly report is a contract — with the people who fund us
+                A quarterly report is a contract - with the people who fund us
                 and the people we serve. Ours is short, identical in shape
                 across programmes, and published on the same day each quarter,
                 so it can be compared, not just read.
@@ -378,7 +378,7 @@ function ProgrammeDialog({
       >
         {programme && pillar && (
           <>
-            {/* Header — tinted with pillar colour */}
+            {/* Header - tinted with pillar colour */}
             <div
               className="relative shrink-0 px-6 sm:px-8 pt-7 sm:pt-8 pb-5 border-b border-hairline"
               style={{
@@ -426,7 +426,7 @@ function ProgrammeDialog({
             </div>
 
 
-            {/* Body — scrollable */}
+            {/* Body - scrollable */}
             <div className="overflow-y-auto px-6 sm:px-8 py-6 sm:py-7 space-y-6">
               <p className="text-[15px] sm:text-[15.5px] leading-[1.65] text-ink-muted text-pretty">
                 {programme.intent}

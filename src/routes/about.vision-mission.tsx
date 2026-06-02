@@ -8,9 +8,9 @@ import { PILLARS } from "@/lib/site";
 export const Route = createFileRoute("/about/vision-mission")({
   head: () => ({
     meta: [
-      { title: "Vision & Mission — Omni Life Care Foundation" },
-      { name: "description", content: "Our vision of equitable, dignified care for every community in India, and our mission to make it real — one family at a time." },
-      { property: "og:title", content: "Vision & Mission — Omni Life Care Foundation" },
+      { title: "Vision & Mission - Omni Life Care Foundation" },
+      { name: "description", content: "Our vision of equitable, dignified care for every community in India, and our mission to make it real - one family at a time." },
+      { property: "og:title", content: "Vision & Mission - Omni Life Care Foundation" },
       { property: "og:description", content: "Our vision of equitable, dignified care for every community in India, and our mission to make it real." },
       { property: "og:url", content: "/about/vision-mission" },
     ],
@@ -28,7 +28,7 @@ function Page() {
       <PageHero
         eyebrow="About"
         title="One team. One plan. One family at a time."
-        lead="Most health problems show up together. The care system should too. Omni Life Care Foundation exists to build an integrated model of community health and wellbeing — starting in Mumbai, designed for India."
+        lead="Most health problems show up together. The care system should too. Omni Life Care Foundation exists to build an integrated model of community health and wellbeing - starting in Mumbai, designed for India."
       />
 
       <TheProblem />
@@ -48,7 +48,7 @@ function Page() {
 }
 
 /* ============================================================
-   1. THE PROBLEM — editorial, factual, specific
+   1. THE PROBLEM - editorial, factual, specific
    ============================================================ */
 function TheProblem() {
   return (
@@ -62,7 +62,7 @@ function TheProblem() {
             <FadeUp delay={80}>
               <p className="text-[1.0625rem] lg:text-[1.125rem] leading-[1.65] text-ink text-pretty">
                 India has some of the world&rsquo;s most ambitious public-health
-                infrastructure — and some of the deepest gaps in the last mile.
+                infrastructure - and some of the deepest gaps in the last mile.
                 A woman seeking mental-health support, an elderly parent needing
                 home care, and a girl trying to stay in school often find
                 themselves in three different queues, run by three different
@@ -78,7 +78,7 @@ function TheProblem() {
             <FadeUp delay={240}>
               <p className="text-[1.0625rem] lg:text-[1.125rem] leading-[1.65] text-ink text-pretty">
                 We believe the opposite is possible: a single team, a single plan,
-                and a single relationship with the household — so that help
+                and a single relationship with the household - so that help
                 arrives as a circle, not a set of fragments.
               </p>
             </FadeUp>
@@ -90,7 +90,7 @@ function TheProblem() {
 }
 
 /* ============================================================
-   2. VISION STATEMENT — large, manifesto-style
+   2. VISION STATEMENT - large, manifesto-style
    ============================================================ */
 function VisionStatement() {
   return (
@@ -104,7 +104,7 @@ function VisionStatement() {
             <p className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
               A future where every individual in India has equitable access to
               dignified, inclusive, and comprehensive health and wellbeing
-              support — delivered as one integrated experience, not a
+              support - delivered as one integrated experience, not a
               collection of separate programmes.
             </p>
           </blockquote>
@@ -113,7 +113,7 @@ function VisionStatement() {
           <p className="mt-8 max-w-2xl text-[1.0625rem] leading-[1.65] text-ink-muted text-pretty">
             We do not imagine a future of bigger hospitals or more apps.
             We imagine a future where the community itself is the first line of
-            care — trained, supported, and never left alone.
+            care - trained, supported, and never left alone.
           </p>
         </FadeUp>
       </div>
@@ -122,14 +122,14 @@ function VisionStatement() {
 }
 
 /* ============================================================
-   3. MISSION — 3 numbered commitments, concrete and specific
+   3. MISSION - 3 numbered commitments, concrete and specific
    ============================================================ */
 function MissionCommitments() {
   const commitments = [
     {
       n: "01",
       title: "Build the Omni Care Model",
-      body: "Design, pilot, and refine an integrated care framework that combines mental health, community health, inclusive care, and human potential into one operating system — tested in real communities, measured openly, and shared freely.",
+      body: "Design, pilot, and refine an integrated care framework that combines mental health, community health, inclusive care, and human potential into one operating system - tested in real communities, measured openly, and shared freely.",
     },
     {
       n: "02",
@@ -138,7 +138,7 @@ function MissionCommitments() {
     },
     {
       n: "03",
-      title: "Publish everything — including the failures",
+      title: "Publish everything - including the failures",
       body: "Share our finances, our methods, our data, and our mistakes. We believe trust is earned through transparency, not claimed through marketing. External audits start in year one.",
     },
   ];
@@ -184,7 +184,7 @@ function MissionCommitments() {
 }
 
 /* ============================================================
-   4. PILLARS MAP — how the four pillars serve the vision
+   4. PILLARS MAP - how the four pillars serve the vision
    ============================================================ */
 function PillarsMap() {
   return (

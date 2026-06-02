@@ -6,13 +6,13 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 export const Route = createFileRoute("/about/")({
   head: () => ({
     meta: [
-      { title: "About — Omni Life Care Foundation" },
+      { title: "About - Omni Life Care Foundation" },
       {
         name: "description",
         content:
           "An India-based foundation reaching 120,000 lives across six states through an integrated, evidence-led model of community health, mental wellbeing, and inclusive care.",
       },
-      { property: "og:title", content: "About — Omni Life Care Foundation" },
+      { property: "og:title", content: "About - Omni Life Care Foundation" },
       { property: "og:url", content: "/about" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
@@ -24,12 +24,12 @@ const PRINCIPLES = [
   {
     n: "01",
     title: "We start with the household, not the headline.",
-    body: "Health, mind, ability and livelihood show up in the same family. We design programmes that travel together — not four parallel projects that never speak.",
+    body: "Health, mind, ability and livelihood show up in the same family. We design programmes that travel together - not four parallel projects that never speak.",
   },
   {
     n: "02",
     title: "Evidence before scale.",
-    body: "We would rather serve fifty families well and measure it honestly than claim a number we cannot defend. Outcomes are published — including the ones that disappoint us.",
+    body: "We would rather serve fifty families well and measure it honestly than claim a number we cannot defend. Outcomes are published - including the ones that disappoint us.",
   },
   {
     n: "03",
@@ -39,7 +39,7 @@ const PRINCIPLES = [
   {
     n: "04",
     title: "Open books, by default.",
-    body: "Governance, finances, donor reports and field learnings are public. If you fund us, you see everything — not a curated highlight reel.",
+    body: "Governance, finances, donor reports and field learnings are public. If you fund us, you see everything - not a curated highlight reel.",
   },
 ];
 
@@ -47,16 +47,16 @@ const FEATURE = {
   href: "/about/omni-care-model",
   eyebrow: "The model",
   title: "One family. Four pillars of care. Measured outcomes.",
-  body: "Most NGOs run one programme well. We integrate community health, mental wellbeing, inclusive care, and livelihoods around the same household — because the problems show up together, and so should the answers.",
+  body: "Most NGOs run one programme well. We integrate community health, mental wellbeing, inclusive care, and livelihoods around the same household - because the problems show up together, and so should the answers.",
   cta: "See how the model works",
 };
 
 const SECTIONS = [
-  { href: "/about/vision-mission", eyebrow: "01", title: "Vision & Mission", body: "The promise we make to the families we serve — and the discipline behind it." },
+  { href: "/about/vision-mission", eyebrow: "01", title: "Vision & Mission", body: "The promise we make to the families we serve - and the discipline behind it." },
   { href: "/about/values", eyebrow: "02", title: "Our Values", body: "Dignity first. Evidence always. Community in the lead." },
   { href: "/about/leadership", eyebrow: "03", title: "Leadership & Governance", body: "An independent board, a working advisory council, and a programmes team trained on the ground." },
   { href: "/about/our-story", eyebrow: "04", title: "Our Story", body: "From one Maharashtra district to programmes across six states." },
-  { href: "/about/compliance", eyebrow: "05", title: "Compliance & Registrations", body: "12A, 80G, CSR-1, FCRA and annual returns — all on the record." },
+  { href: "/about/compliance", eyebrow: "05", title: "Compliance & Registrations", body: "12A, 80G, CSR-1, FCRA and annual returns - all on the record." },
   { href: "/about/careers", eyebrow: "06", title: "Careers", body: "Join a mission-driven, evidence-led team of practitioners." },
 ];
 
@@ -65,8 +65,8 @@ function AboutIndex() {
     <>
       <PageHero
         eyebrow="About"
-        title="An integrated model of care, built around the family — not the funder."
-        lead="Omni Life Care Foundation is a new India-based foundation working at the intersection of community health, mental wellbeing, inclusive care, and human potential. One model. Four pillars. Designed with the people it serves — and held to the receipts."
+        title="An integrated model of care, built around the family - not the funder."
+        lead="Omni Life Care Foundation is a new India-based foundation working at the intersection of community health, mental wellbeing, inclusive care, and human potential. One model. Four pillars. Designed with the people it serves - and held to the receipts."
       />
 
       {/* Where we stand on day one */}
@@ -85,7 +85,7 @@ function AboutIndex() {
                 </em>
               </h2>
               <p className="mt-5 text-ink-muted text-pretty leading-relaxed">
-                A new foundation cannot trade on a track record it has not earned. It can trade on the discipline it brings to day one — and the willingness to publish what happens next.
+                A new foundation cannot trade on a track record it has not earned. It can trade on the discipline it brings to day one - and the willingness to publish what happens next.
               </p>
             </div>
 
@@ -167,7 +167,7 @@ function AboutIndex() {
               </h2>
             </div>
             <p className="text-ink-muted max-w-md text-pretty">
-              Mission, governance, model, money. Open by default — because trust is earned in the details.
+              Mission, governance, model, money. Open by default - because trust is earned in the details.
             </p>
           </div>
 

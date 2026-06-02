@@ -8,13 +8,13 @@ import { PILLARS } from "@/lib/site";
 export const Route = createFileRoute("/impact/")({
   head: () => ({
     meta: [
-      { title: "Impact — Starting in Mumbai | Omni Life Care Foundation" },
+      { title: "Impact - Starting in Mumbai | Omni Life Care Foundation" },
       {
         name: "description",
         content:
           "We are a new foundation. Our first programmes begin in low-income neighbourhoods of Mumbai. Here is what we will measure, publish, and stand behind.",
       },
-      { property: "og:title", content: "Impact — Starting in Mumbai" },
+      { property: "og:title", content: "Impact - Starting in Mumbai" },
       { property: "og:url", content: "/impact" },
     ],
     links: [{ rel: "canonical", href: "/impact" }],
@@ -22,13 +22,13 @@ export const Route = createFileRoute("/impact/")({
   component: Page,
 });
 
-// Honest baseline — what we will measure from day one in Mumbai.
+// Honest baseline - what we will measure from day one in Mumbai.
 const BASELINE = [
   {
     n: "01",
     label: "Households enrolled",
     detail:
-      "One household record per family. Tracked from first contact through every follow-up — not counted twice.",
+      "One household record per family. Tracked from first contact through every follow-up - not counted twice.",
   },
   {
     n: "02",
@@ -61,13 +61,13 @@ const FIRST_HUNDRED_DAYS = [
     phase: "Days 31–60",
     title: "One household, one record.",
     body:
-      "Open the first 500 household files. Each file maps mental health, women's health, disability, elderly care, and child wellbeing in one place — not five disconnected forms.",
+      "Open the first 500 household files. Each file maps mental health, women's health, disability, elderly care, and child wellbeing in one place - not five disconnected forms.",
   },
   {
     phase: "Days 61–100",
     title: "Close the first referrals.",
     body:
-      "Every positive screen routed to a clinician inside the public system. We measure how many actually reached care — and where the system failed them.",
+      "Every positive screen routed to a clinician inside the public system. We measure how many actually reached care - and where the system failed them.",
   },
 ];
 
@@ -84,7 +84,7 @@ function Page() {
       <PageHero
         eyebrow="Impact · Day one"
         title="We have not reached a hundred thousand lives. We have reached zero. Here is how we plan to count the first."
-        lead="Omni Life Care Foundation is new. Our first programmes begin in low-income neighbourhoods of Mumbai. This page is not a track record — it is the commitment we are signing in public before the work begins."
+        lead="Omni Life Care Foundation is new. Our first programmes begin in low-income neighbourhoods of Mumbai. This page is not a track record - it is the commitment we are signing in public before the work begins."
       />
 
       {/* Honesty section */}
@@ -109,7 +109,7 @@ function Page() {
                   We will not show photos of communities we have not yet served,
                   or map states we have not yet entered. We will publish the
                   first household record, the first referral closed, the first
-                  rupee spent — and every one after that. The proof comes from
+                  rupee spent - and every one after that. The proof comes from
                   the discipline of measurement, not the size of the claim.
                 </p>
               </FadeUp>
@@ -128,7 +128,7 @@ function Page() {
               </FadeUp>
               <FadeUp delay={80}>
                 <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-                  Where care arrives last —{" "}
+                  Where care arrives last -{" "}
                   <em className="font-serif italic font-medium">
                     if it arrives at all.
                   </em>
@@ -137,7 +137,7 @@ function Page() {
               <FadeUp delay={160}>
                 <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
                   Mumbai's lowest-income neighbourhoods carry the city's hardest
-                  health burdens — untreated depression, anaemia in adolescent
+                  health burdens - untreated depression, anaemia in adolescent
                   girls, undiagnosed hypertension, elders left alone with chronic
                   disease, women who postpone care until it becomes an emergency.
                   The infrastructure exists. The bridge to it does not.
@@ -145,7 +145,7 @@ function Page() {
               </FadeUp>
               <FadeUp delay={220}>
                 <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
-                  We are building that bridge — one household at a time,
+                  We are building that bridge - one household at a time,
                   alongside ASHA workers, municipal clinicians, and the women
                   who already hold these communities together.
                 </p>
@@ -252,7 +252,7 @@ function Page() {
             <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
               <p className="text-[15px] leading-relaxed text-snow/80 text-pretty">
                 A new foundation earns its right to scale through what it does
-                first. Here is the order — written before the work begins, so it
+                first. Here is the order - written before the work begins, so it
                 can be checked against what actually happens.
               </p>
             </FadeUp>
@@ -378,7 +378,7 @@ function Page() {
       <CTABand
         eyebrow="Be in the first hundred"
         title="The first households will be enrolled this year. Stand with the work before the numbers exist."
-        body="CSR partners, individual donors, and clinicians who want to be on the ground from day one — write to us. We will tell you exactly where the money goes and exactly what we cannot yet promise."
+        body="CSR partners, individual donors, and clinicians who want to be on the ground from day one - write to us. We will tell you exactly where the money goes and exactly what we cannot yet promise."
         primary={{ label: "Partner on CSR", href: "/partner/csr" }}
         secondary={{ label: "Volunteer", href: "/get-involved/volunteer" }}
       />
