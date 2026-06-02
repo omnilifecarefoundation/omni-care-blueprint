@@ -4,7 +4,7 @@
 // Click a pillar to pause rotation and read the detail.
 
 import { useEffect, useRef, useState } from "react";
-import { Brain, Users, HeartHandshake, Sparkles, ArrowUpRight } from "lucide-react";
+import { Brain, Users, HeartHandshake, Sunrise, ArrowUpRight, type LucideIcon } from "lucide-react";
 
 type PillarId = "mental" | "social" | "inclusive" | "human";
 
@@ -20,7 +20,7 @@ type Pillar = {
   caption: string;
   detail: string;
   color: string;
-  icon: typeof Brain;
+  icon: LucideIcon;
   relatedIds: PillarId[];
 };
 
@@ -66,7 +66,7 @@ const PILLARS: Pillar[] = [
     detail:
       "What care, done well, releases — leadership, agency, and a community that lifts itself.",
     color: "#1C0060",
-    icon: Sparkles,
+    icon: Sunrise,
     relatedIds: ["social", "inclusive"],
   },
 ];
