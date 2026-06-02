@@ -43,44 +43,81 @@ const COLUMNS = [
   },
 ];
 
+function FooterLink({ to, children }: { to: string; children: React.ReactNode }) {
+  return (
+    <Link
+      to={to}
+      className="group inline-flex items-center text-sm text-canvas/75 hover:text-canvas transition-colors duration-200"
+    >
+      <span className="relative">
+        {children}
+        <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-canvas/60 transition-[width] duration-300 ease-out group-hover:w-full" />
+      </span>
+    </Link>
+  );
+}
+
 export function Footer() {
   return (
-    <footer className="bg-ink text-canvas mt-24">
-      <div className="container-editorial py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
-          <div className="lg:col-span-2">
-            <Link to="/" className="inline-block mb-4">
+    <footer className="bg-ink text-canvas mt-24 relative overflow-hidden">
+      {/* subtle top hairline accent */}
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-canvas/20 to-transparent" />
+
+      <div className="container-editorial py-16 lg:py-24">
+        {/* Top grid: brand + nav columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-y-12 gap-x-10">
+          {/* Brand block */}
+          <div className="md:col-span-2 lg:col-span-4 lg:pr-8">
+            <Link
+              to="/"
+              aria-label={`${SITE.name} - home`}
+              className="inline-block transition-transform duration-200 active:scale-[0.97]"
+            >
               <img
                 src={footerLogo.url}
                 alt={SITE.name}
-                className="h-32 lg:h-40 w-auto object-contain"
+                className="h-20 sm:h-24 w-auto object-contain select-none"
+                draggable={false}
               />
             </Link>
 
-            <p className="text-sm text-canvas/70 max-w-xs leading-relaxed">
+            <p
+              className="mt-6 text-sm text-canvas/70 max-w-sm leading-relaxed"
+              style={{ textWrap: "pretty" } as React.CSSProperties}
+            >
               {SITE.tagline} An India-based foundation strengthening community health and wellbeing.
             </p>
-            <address className="not-italic text-sm text-canvas/70 mt-4">
-              {SITE.address}
-              <br />
-              <a href={`mailto:${SITE.email}`} className="hover:text-canvas">{SITE.email}</a>
+
+            <address className="not-italic mt-6 space-y-1.5 text-sm text-canvas/70">
+              <div>{SITE.address}</div>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3">
+                <a
+                  href={`mailto:${SITE.email}`}
+                  className="text-canvas/85 hover:text-canvas transition-colors"
+                >
+                  {SITE.email}
+                </a>
+                <span aria-hidden className="hidden sm:inline text-canvas/30">·</span>
+                <a
+                  href={`tel:${SITE.phone.replace(/\s+/g, "")}`}
+                  className="text-canvas/85 hover:text-canvas transition-colors tabular-nums"
+                >
+                  {SITE.phone}
+                </a>
+              </div>
             </address>
           </div>
 
+          {/* Nav columns */}
           {COLUMNS.map((col) => (
-            <div key={col.title}>
-              <h4 className="font-sans text-[12px] uppercase tracking-[0.12em] text-canvas/50 mb-4">
+            <div key={col.title} className="lg:col-span-2">
+              <h4 className="font-sans text-[11px] uppercase tracking-[0.16em] text-canvas/45 mb-5">
                 {col.title}
               </h4>
-              <ul className="space-y-2.5">
+              <ul className="space-y-3">
                 {col.links.map((l) => (
                   <li key={l.href}>
-                    <Link
-                      to={l.href}
-                      className="text-sm text-canvas/85 hover:text-canvas transition-colors"
-                    >
-                      {l.label}
-                    </Link>
+                    <FooterLink to={l.href}>{l.label}</FooterLink>
                   </li>
                 ))}
               </ul>
@@ -89,32 +126,47 @@ export function Footer() {
         </div>
 
         {/* Compliance row */}
-        <div className="mt-12 pt-8 border-t border-canvas/15">
-          <div className="font-sans text-[12px] uppercase tracking-[0.12em] text-canvas/50 mb-4">
+        <div className="mt-16 pt-10 border-t border-canvas/10">
+          <div className="font-sans text-[11px] uppercase tracking-[0.16em] text-canvas/45 mb-6">
             Compliance & Registrations
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
             {COMPLIANCE.map((c) => (
               <div key={c.label}>
-                <div className="text-canvas font-semibold">{c.label}</div>
-                <div className="text-canvas/60 text-xs">{c.desc}</div>
-                <div className="font-mono text-[11px] text-canvas/50 tabular mt-1">{c.id}</div>
+                <div className="text-canvas font-semibold leading-tight">{c.label}</div>
+                <div className="text-canvas/55 text-xs mt-1 leading-snug">{c.desc}</div>
+                <div className="font-mono text-[11px] text-canvas/50 tabular-nums mt-1.5">
+                  {c.id}
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-canvas/10 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between text-xs text-canvas/60">
-          <p>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
+        {/* Legal row */}
+        <div className="mt-12 pt-6 border-t border-canvas/10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-xs text-canvas/55">
+          <p className="tabular-nums">
+            © {new Date().getFullYear()} {SITE.name}. All rights reserved.
+          </p>
           <nav aria-label="Legal" className="flex flex-wrap gap-x-5 gap-y-2">
-            <Link to="/privacy-policy" className="hover:text-canvas">Privacy</Link>
-            <Link to="/terms" className="hover:text-canvas">Terms</Link>
-            <Link to="/donation-policy" className="hover:text-canvas">Donation Policy</Link>
-            <Link to="/safeguarding-policy" className="hover:text-canvas">Safeguarding</Link>
-            <Link to="/accessibility" className="hover:text-canvas">Accessibility</Link>
-            <Link to="/sitemap" className="hover:text-canvas">Sitemap</Link>
+            {[
+              { to: "/privacy-policy", label: "Privacy" },
+              { to: "/terms", label: "Terms" },
+              { to: "/donation-policy", label: "Donation Policy" },
+              { to: "/safeguarding-policy", label: "Safeguarding" },
+              { to: "/accessibility", label: "Accessibility" },
+              { to: "/sitemap", label: "Sitemap" },
+            ].map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="hover:text-canvas transition-colors"
+              >
+                {l.label}
+              </Link>
+            ))}
           </nav>
-          <span>Made in India</span>
+          <span className="text-canvas/45">Made in India</span>
         </div>
       </div>
     </footer>
