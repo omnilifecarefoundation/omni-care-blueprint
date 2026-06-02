@@ -27,16 +27,17 @@ export type PillButtonProps = AsLink | AsAnchor | AsButton;
 
 const VARIANT_BG: Record<Variant, string> = {
   primary: "bg-primary text-primary-foreground hover:bg-[#072A2B]",
-  action: "bg-coral text-white hover:bg-[#C24A33]",
-  ghost: "bg-white text-ink border border-hairline hover:border-ink-muted",
-  "on-dark": "bg-coral text-white hover:bg-[#C24A33]",
+  action: "bg-coral text-ink hover:bg-[#E6C000]",
+  ghost: "bg-transparent text-snow border border-snow/30 hover:border-snow/70 hover:bg-snow/5",
+  "on-dark":
+    "bg-coral text-ink shadow-[0_1px_0_rgba(255,255,255,0.35)_inset,0_10px_30px_-12px_rgba(255,214,0,0.55)] hover:bg-[#FFDE33] hover:shadow-[0_1px_0_rgba(255,255,255,0.4)_inset,0_14px_36px_-12px_rgba(255,214,0,0.7)]",
 };
 
 const VARIANT_CIRCLE: Record<Variant, string> = {
   primary: "bg-white text-primary",
-  action: "bg-white text-coral",
-  ghost: "bg-primary text-primary-foreground",
-  "on-dark": "bg-white text-coral",
+  action: "bg-ink text-coral",
+  ghost: "bg-snow text-ink",
+  "on-dark": "bg-ink text-coral",
 };
 
 export function PillButton(props: PillButtonProps) {
@@ -64,7 +65,7 @@ export function PillButton(props: PillButtonProps) {
     </>
   );
 
-  const cls = `group inline-flex items-center gap-3 rounded-full font-medium w-fit transition-[background-color,border-color,scale] duration-200 ease-out active:scale-[0.96] ${padding} ${text} ${VARIANT_BG[variant]} ${className}`;
+  const cls = `group inline-flex items-center gap-3 rounded-full font-semibold tracking-[-0.005em] w-fit transition-[background-color,border-color,box-shadow,scale] duration-200 ease-out active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-ink focus-visible:ring-coral ${padding} ${text} ${VARIANT_BG[variant]} ${className}`;
 
   if ("to" in props && props.to) {
     return (
