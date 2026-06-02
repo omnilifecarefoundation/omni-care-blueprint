@@ -31,7 +31,15 @@ import { Route as WhatWeDoMentalWellbeingRouteImport } from './routes/what-we-do
 import { Route as WhatWeDoInclusiveCareRouteImport } from './routes/what-we-do.inclusive-care'
 import { Route as WhatWeDoHumanPotentialRouteImport } from './routes/what-we-do.human-potential'
 import { Route as WhatWeDoPillarRouteImport } from './routes/what-we-do.$pillar'
+import { Route as ProgramsWomensWellnessRouteImport } from './routes/programs.womens-wellness'
+import { Route as ProgramsWomensHealthLifecycleRouteImport } from './routes/programs.womens-health-lifecycle'
+import { Route as ProgramsTrainingCapacityBuildingRouteImport } from './routes/programs.training-capacity-building'
+import { Route as ProgramsScholarshipsEducationRouteImport } from './routes/programs.scholarships-education'
 import { Route as ProgramsResearchImpactAssessmentRouteImport } from './routes/programs.research-impact-assessment'
+import { Route as ProgramsPreventiveHealthOutreachRouteImport } from './routes/programs.preventive-health-outreach'
+import { Route as ProgramsDisabilityElderlyCareRouteImport } from './routes/programs.disability-elderly-care'
+import { Route as ProgramsCommunityMentalHealthRouteImport } from './routes/programs.community-mental-health'
+import { Route as ProgramsChwDevelopmentRouteImport } from './routes/programs.chw-development'
 import { Route as ProgramsSlugRouteImport } from './routes/programs.$slug'
 import { Route as PartnerCsrRouteImport } from './routes/partner.csr'
 import { Route as ImpactStoriesRouteImport } from './routes/impact.stories'
@@ -154,12 +162,58 @@ const WhatWeDoPillarRoute = WhatWeDoPillarRouteImport.update({
   path: '/what-we-do/$pillar',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProgramsWomensWellnessRoute = ProgramsWomensWellnessRouteImport.update({
+  id: '/programs/womens-wellness',
+  path: '/programs/womens-wellness',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramsWomensHealthLifecycleRoute =
+  ProgramsWomensHealthLifecycleRouteImport.update({
+    id: '/programs/womens-health-lifecycle',
+    path: '/programs/womens-health-lifecycle',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProgramsTrainingCapacityBuildingRoute =
+  ProgramsTrainingCapacityBuildingRouteImport.update({
+    id: '/programs/training-capacity-building',
+    path: '/programs/training-capacity-building',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProgramsScholarshipsEducationRoute =
+  ProgramsScholarshipsEducationRouteImport.update({
+    id: '/programs/scholarships-education',
+    path: '/programs/scholarships-education',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProgramsResearchImpactAssessmentRoute =
   ProgramsResearchImpactAssessmentRouteImport.update({
     id: '/programs/research-impact-assessment',
     path: '/programs/research-impact-assessment',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ProgramsPreventiveHealthOutreachRoute =
+  ProgramsPreventiveHealthOutreachRouteImport.update({
+    id: '/programs/preventive-health-outreach',
+    path: '/programs/preventive-health-outreach',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProgramsDisabilityElderlyCareRoute =
+  ProgramsDisabilityElderlyCareRouteImport.update({
+    id: '/programs/disability-elderly-care',
+    path: '/programs/disability-elderly-care',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProgramsCommunityMentalHealthRoute =
+  ProgramsCommunityMentalHealthRouteImport.update({
+    id: '/programs/community-mental-health',
+    path: '/programs/community-mental-health',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProgramsChwDevelopmentRoute = ProgramsChwDevelopmentRouteImport.update({
+  id: '/programs/chw-development',
+  path: '/programs/chw-development',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProgramsSlugRoute = ProgramsSlugRouteImport.update({
   id: '/programs/$slug',
   path: '/programs/$slug',
@@ -240,7 +294,15 @@ export interface FileRoutesByFullPath {
   '/impact/stories': typeof ImpactStoriesRoute
   '/partner/csr': typeof PartnerCsrRoute
   '/programs/$slug': typeof ProgramsSlugRoute
+  '/programs/chw-development': typeof ProgramsChwDevelopmentRoute
+  '/programs/community-mental-health': typeof ProgramsCommunityMentalHealthRoute
+  '/programs/disability-elderly-care': typeof ProgramsDisabilityElderlyCareRoute
+  '/programs/preventive-health-outreach': typeof ProgramsPreventiveHealthOutreachRoute
   '/programs/research-impact-assessment': typeof ProgramsResearchImpactAssessmentRoute
+  '/programs/scholarships-education': typeof ProgramsScholarshipsEducationRoute
+  '/programs/training-capacity-building': typeof ProgramsTrainingCapacityBuildingRoute
+  '/programs/womens-health-lifecycle': typeof ProgramsWomensHealthLifecycleRoute
+  '/programs/womens-wellness': typeof ProgramsWomensWellnessRoute
   '/what-we-do/$pillar': typeof WhatWeDoPillarRoute
   '/what-we-do/human-potential': typeof WhatWeDoHumanPotentialRoute
   '/what-we-do/inclusive-care': typeof WhatWeDoInclusiveCareRoute
@@ -276,7 +338,15 @@ export interface FileRoutesByTo {
   '/impact/stories': typeof ImpactStoriesRoute
   '/partner/csr': typeof PartnerCsrRoute
   '/programs/$slug': typeof ProgramsSlugRoute
+  '/programs/chw-development': typeof ProgramsChwDevelopmentRoute
+  '/programs/community-mental-health': typeof ProgramsCommunityMentalHealthRoute
+  '/programs/disability-elderly-care': typeof ProgramsDisabilityElderlyCareRoute
+  '/programs/preventive-health-outreach': typeof ProgramsPreventiveHealthOutreachRoute
   '/programs/research-impact-assessment': typeof ProgramsResearchImpactAssessmentRoute
+  '/programs/scholarships-education': typeof ProgramsScholarshipsEducationRoute
+  '/programs/training-capacity-building': typeof ProgramsTrainingCapacityBuildingRoute
+  '/programs/womens-health-lifecycle': typeof ProgramsWomensHealthLifecycleRoute
+  '/programs/womens-wellness': typeof ProgramsWomensWellnessRoute
   '/what-we-do/$pillar': typeof WhatWeDoPillarRoute
   '/what-we-do/human-potential': typeof WhatWeDoHumanPotentialRoute
   '/what-we-do/inclusive-care': typeof WhatWeDoInclusiveCareRoute
@@ -313,7 +383,15 @@ export interface FileRoutesById {
   '/impact/stories': typeof ImpactStoriesRoute
   '/partner/csr': typeof PartnerCsrRoute
   '/programs/$slug': typeof ProgramsSlugRoute
+  '/programs/chw-development': typeof ProgramsChwDevelopmentRoute
+  '/programs/community-mental-health': typeof ProgramsCommunityMentalHealthRoute
+  '/programs/disability-elderly-care': typeof ProgramsDisabilityElderlyCareRoute
+  '/programs/preventive-health-outreach': typeof ProgramsPreventiveHealthOutreachRoute
   '/programs/research-impact-assessment': typeof ProgramsResearchImpactAssessmentRoute
+  '/programs/scholarships-education': typeof ProgramsScholarshipsEducationRoute
+  '/programs/training-capacity-building': typeof ProgramsTrainingCapacityBuildingRoute
+  '/programs/womens-health-lifecycle': typeof ProgramsWomensHealthLifecycleRoute
+  '/programs/womens-wellness': typeof ProgramsWomensWellnessRoute
   '/what-we-do/$pillar': typeof WhatWeDoPillarRoute
   '/what-we-do/human-potential': typeof WhatWeDoHumanPotentialRoute
   '/what-we-do/inclusive-care': typeof WhatWeDoInclusiveCareRoute
@@ -351,7 +429,15 @@ export interface FileRouteTypes {
     | '/impact/stories'
     | '/partner/csr'
     | '/programs/$slug'
+    | '/programs/chw-development'
+    | '/programs/community-mental-health'
+    | '/programs/disability-elderly-care'
+    | '/programs/preventive-health-outreach'
     | '/programs/research-impact-assessment'
+    | '/programs/scholarships-education'
+    | '/programs/training-capacity-building'
+    | '/programs/womens-health-lifecycle'
+    | '/programs/womens-wellness'
     | '/what-we-do/$pillar'
     | '/what-we-do/human-potential'
     | '/what-we-do/inclusive-care'
@@ -387,7 +473,15 @@ export interface FileRouteTypes {
     | '/impact/stories'
     | '/partner/csr'
     | '/programs/$slug'
+    | '/programs/chw-development'
+    | '/programs/community-mental-health'
+    | '/programs/disability-elderly-care'
+    | '/programs/preventive-health-outreach'
     | '/programs/research-impact-assessment'
+    | '/programs/scholarships-education'
+    | '/programs/training-capacity-building'
+    | '/programs/womens-health-lifecycle'
+    | '/programs/womens-wellness'
     | '/what-we-do/$pillar'
     | '/what-we-do/human-potential'
     | '/what-we-do/inclusive-care'
@@ -423,7 +517,15 @@ export interface FileRouteTypes {
     | '/impact/stories'
     | '/partner/csr'
     | '/programs/$slug'
+    | '/programs/chw-development'
+    | '/programs/community-mental-health'
+    | '/programs/disability-elderly-care'
+    | '/programs/preventive-health-outreach'
     | '/programs/research-impact-assessment'
+    | '/programs/scholarships-education'
+    | '/programs/training-capacity-building'
+    | '/programs/womens-health-lifecycle'
+    | '/programs/womens-wellness'
     | '/what-we-do/$pillar'
     | '/what-we-do/human-potential'
     | '/what-we-do/inclusive-care'
@@ -460,7 +562,15 @@ export interface RootRouteChildren {
   ImpactStoriesRoute: typeof ImpactStoriesRoute
   PartnerCsrRoute: typeof PartnerCsrRoute
   ProgramsSlugRoute: typeof ProgramsSlugRoute
+  ProgramsChwDevelopmentRoute: typeof ProgramsChwDevelopmentRoute
+  ProgramsCommunityMentalHealthRoute: typeof ProgramsCommunityMentalHealthRoute
+  ProgramsDisabilityElderlyCareRoute: typeof ProgramsDisabilityElderlyCareRoute
+  ProgramsPreventiveHealthOutreachRoute: typeof ProgramsPreventiveHealthOutreachRoute
   ProgramsResearchImpactAssessmentRoute: typeof ProgramsResearchImpactAssessmentRoute
+  ProgramsScholarshipsEducationRoute: typeof ProgramsScholarshipsEducationRoute
+  ProgramsTrainingCapacityBuildingRoute: typeof ProgramsTrainingCapacityBuildingRoute
+  ProgramsWomensHealthLifecycleRoute: typeof ProgramsWomensHealthLifecycleRoute
+  ProgramsWomensWellnessRoute: typeof ProgramsWomensWellnessRoute
   WhatWeDoPillarRoute: typeof WhatWeDoPillarRoute
   WhatWeDoHumanPotentialRoute: typeof WhatWeDoHumanPotentialRoute
   WhatWeDoInclusiveCareRoute: typeof WhatWeDoInclusiveCareRoute
@@ -629,11 +739,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WhatWeDoPillarRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/programs/womens-wellness': {
+      id: '/programs/womens-wellness'
+      path: '/programs/womens-wellness'
+      fullPath: '/programs/womens-wellness'
+      preLoaderRoute: typeof ProgramsWomensWellnessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/womens-health-lifecycle': {
+      id: '/programs/womens-health-lifecycle'
+      path: '/programs/womens-health-lifecycle'
+      fullPath: '/programs/womens-health-lifecycle'
+      preLoaderRoute: typeof ProgramsWomensHealthLifecycleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/training-capacity-building': {
+      id: '/programs/training-capacity-building'
+      path: '/programs/training-capacity-building'
+      fullPath: '/programs/training-capacity-building'
+      preLoaderRoute: typeof ProgramsTrainingCapacityBuildingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/scholarships-education': {
+      id: '/programs/scholarships-education'
+      path: '/programs/scholarships-education'
+      fullPath: '/programs/scholarships-education'
+      preLoaderRoute: typeof ProgramsScholarshipsEducationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/programs/research-impact-assessment': {
       id: '/programs/research-impact-assessment'
       path: '/programs/research-impact-assessment'
       fullPath: '/programs/research-impact-assessment'
       preLoaderRoute: typeof ProgramsResearchImpactAssessmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/preventive-health-outreach': {
+      id: '/programs/preventive-health-outreach'
+      path: '/programs/preventive-health-outreach'
+      fullPath: '/programs/preventive-health-outreach'
+      preLoaderRoute: typeof ProgramsPreventiveHealthOutreachRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/disability-elderly-care': {
+      id: '/programs/disability-elderly-care'
+      path: '/programs/disability-elderly-care'
+      fullPath: '/programs/disability-elderly-care'
+      preLoaderRoute: typeof ProgramsDisabilityElderlyCareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/community-mental-health': {
+      id: '/programs/community-mental-health'
+      path: '/programs/community-mental-health'
+      fullPath: '/programs/community-mental-health'
+      preLoaderRoute: typeof ProgramsCommunityMentalHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/chw-development': {
+      id: '/programs/chw-development'
+      path: '/programs/chw-development'
+      fullPath: '/programs/chw-development'
+      preLoaderRoute: typeof ProgramsChwDevelopmentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/programs/$slug': {
@@ -740,7 +906,15 @@ const rootRouteChildren: RootRouteChildren = {
   ImpactStoriesRoute: ImpactStoriesRoute,
   PartnerCsrRoute: PartnerCsrRoute,
   ProgramsSlugRoute: ProgramsSlugRoute,
+  ProgramsChwDevelopmentRoute: ProgramsChwDevelopmentRoute,
+  ProgramsCommunityMentalHealthRoute: ProgramsCommunityMentalHealthRoute,
+  ProgramsDisabilityElderlyCareRoute: ProgramsDisabilityElderlyCareRoute,
+  ProgramsPreventiveHealthOutreachRoute: ProgramsPreventiveHealthOutreachRoute,
   ProgramsResearchImpactAssessmentRoute: ProgramsResearchImpactAssessmentRoute,
+  ProgramsScholarshipsEducationRoute: ProgramsScholarshipsEducationRoute,
+  ProgramsTrainingCapacityBuildingRoute: ProgramsTrainingCapacityBuildingRoute,
+  ProgramsWomensHealthLifecycleRoute: ProgramsWomensHealthLifecycleRoute,
+  ProgramsWomensWellnessRoute: ProgramsWomensWellnessRoute,
   WhatWeDoPillarRoute: WhatWeDoPillarRoute,
   WhatWeDoHumanPotentialRoute: WhatWeDoHumanPotentialRoute,
   WhatWeDoInclusiveCareRoute: WhatWeDoInclusiveCareRoute,
