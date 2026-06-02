@@ -76,7 +76,7 @@ export function Footer() {
               <img
                 src={footerLogo.url}
                 alt={SITE.name}
-                className="h-20 sm:h-24 w-auto object-contain select-none"
+                className="h-32 sm:h-40 lg:h-48 w-auto object-contain select-none"
                 draggable={false}
               />
             </Link>
