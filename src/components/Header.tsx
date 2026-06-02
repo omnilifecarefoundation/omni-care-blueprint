@@ -467,18 +467,28 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
                 </Link>
                 {section.columns.length > 0 && (
                   <ul className="mt-3 grid grid-cols-1 gap-1">
-                    {section.columns.flatMap((c) => c.items).map((item) => (
-                      <li key={item.href}>
-                        <Link
-                          to={item.href}
-                          onClick={onClose}
-                          className="flex items-center justify-between rounded-lg px-2 py-2 text-[14px] text-ink-muted hover:text-ink hover:bg-canvas"
-                        >
-                          <span>{item.label}</span>
-                          <ChevronRight size={14} aria-hidden="true" />
-                        </Link>
-                      </li>
-                    ))}
+                    {section.columns.flatMap((c) => c.items).map((item) => {
+                      const ItemIcon = ITEM_ICON[item.href] ?? Icon;
+                      return (
+                        <li key={item.href}>
+                          <Link
+                            to={item.href}
+                            onClick={onClose}
+                            className="group flex items-center gap-3 rounded-lg px-2 py-2.5 text-[14px] text-ink-muted hover:text-ink hover:bg-canvas active:scale-[0.98] transition-[background-color,color,transform]"
+                          >
+                            <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-canvas text-ink-muted ring-1 ring-ink/5 group-hover:bg-ink group-hover:text-snow group-hover:ring-transparent transition-[background-color,color] duration-200">
+                              <ItemIcon size={14} aria-hidden="true" strokeWidth={1.75} />
+                            </span>
+                            <span className="flex-1">{item.label}</span>
+                            <ChevronRight
+                              size={14}
+                              aria-hidden="true"
+                              className="text-ink-muted/60 transition-transform duration-200 group-hover:translate-x-0.5"
+                            />
+                          </Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 )}
               </div>
