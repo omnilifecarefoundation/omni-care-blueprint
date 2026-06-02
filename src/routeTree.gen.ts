@@ -28,6 +28,7 @@ import { Route as GetInvolvedIndexRouteImport } from './routes/get-involved.inde
 import { Route as AboutIndexRouteImport } from './routes/about.index'
 import { Route as WhatWeDoSocialGrowthRouteImport } from './routes/what-we-do.social-growth'
 import { Route as WhatWeDoMentalWellbeingRouteImport } from './routes/what-we-do.mental-wellbeing'
+import { Route as WhatWeDoInclusiveCareRouteImport } from './routes/what-we-do.inclusive-care'
 import { Route as WhatWeDoPillarRouteImport } from './routes/what-we-do.$pillar'
 import { Route as ProgramsResearchImpactAssessmentRouteImport } from './routes/programs.research-impact-assessment'
 import { Route as ProgramsSlugRouteImport } from './routes/programs.$slug'
@@ -137,6 +138,11 @@ const WhatWeDoMentalWellbeingRoute = WhatWeDoMentalWellbeingRouteImport.update({
   path: '/what-we-do/mental-wellbeing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WhatWeDoInclusiveCareRoute = WhatWeDoInclusiveCareRouteImport.update({
+  id: '/what-we-do/inclusive-care',
+  path: '/what-we-do/inclusive-care',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WhatWeDoPillarRoute = WhatWeDoPillarRouteImport.update({
   id: '/what-we-do/$pillar',
   path: '/what-we-do/$pillar',
@@ -230,6 +236,7 @@ export interface FileRoutesByFullPath {
   '/programs/$slug': typeof ProgramsSlugRoute
   '/programs/research-impact-assessment': typeof ProgramsResearchImpactAssessmentRoute
   '/what-we-do/$pillar': typeof WhatWeDoPillarRoute
+  '/what-we-do/inclusive-care': typeof WhatWeDoInclusiveCareRoute
   '/what-we-do/mental-wellbeing': typeof WhatWeDoMentalWellbeingRoute
   '/what-we-do/social-growth': typeof WhatWeDoSocialGrowthRoute
   '/about/': typeof AboutIndexRoute
@@ -264,6 +271,7 @@ export interface FileRoutesByTo {
   '/programs/$slug': typeof ProgramsSlugRoute
   '/programs/research-impact-assessment': typeof ProgramsResearchImpactAssessmentRoute
   '/what-we-do/$pillar': typeof WhatWeDoPillarRoute
+  '/what-we-do/inclusive-care': typeof WhatWeDoInclusiveCareRoute
   '/what-we-do/mental-wellbeing': typeof WhatWeDoMentalWellbeingRoute
   '/what-we-do/social-growth': typeof WhatWeDoSocialGrowthRoute
   '/about': typeof AboutIndexRoute
@@ -299,6 +307,7 @@ export interface FileRoutesById {
   '/programs/$slug': typeof ProgramsSlugRoute
   '/programs/research-impact-assessment': typeof ProgramsResearchImpactAssessmentRoute
   '/what-we-do/$pillar': typeof WhatWeDoPillarRoute
+  '/what-we-do/inclusive-care': typeof WhatWeDoInclusiveCareRoute
   '/what-we-do/mental-wellbeing': typeof WhatWeDoMentalWellbeingRoute
   '/what-we-do/social-growth': typeof WhatWeDoSocialGrowthRoute
   '/about/': typeof AboutIndexRoute
@@ -335,6 +344,7 @@ export interface FileRouteTypes {
     | '/programs/$slug'
     | '/programs/research-impact-assessment'
     | '/what-we-do/$pillar'
+    | '/what-we-do/inclusive-care'
     | '/what-we-do/mental-wellbeing'
     | '/what-we-do/social-growth'
     | '/about/'
@@ -369,6 +379,7 @@ export interface FileRouteTypes {
     | '/programs/$slug'
     | '/programs/research-impact-assessment'
     | '/what-we-do/$pillar'
+    | '/what-we-do/inclusive-care'
     | '/what-we-do/mental-wellbeing'
     | '/what-we-do/social-growth'
     | '/about'
@@ -403,6 +414,7 @@ export interface FileRouteTypes {
     | '/programs/$slug'
     | '/programs/research-impact-assessment'
     | '/what-we-do/$pillar'
+    | '/what-we-do/inclusive-care'
     | '/what-we-do/mental-wellbeing'
     | '/what-we-do/social-growth'
     | '/about/'
@@ -438,6 +450,7 @@ export interface RootRouteChildren {
   ProgramsSlugRoute: typeof ProgramsSlugRoute
   ProgramsResearchImpactAssessmentRoute: typeof ProgramsResearchImpactAssessmentRoute
   WhatWeDoPillarRoute: typeof WhatWeDoPillarRoute
+  WhatWeDoInclusiveCareRoute: typeof WhatWeDoInclusiveCareRoute
   WhatWeDoMentalWellbeingRoute: typeof WhatWeDoMentalWellbeingRoute
   WhatWeDoSocialGrowthRoute: typeof WhatWeDoSocialGrowthRoute
   AboutIndexRoute: typeof AboutIndexRoute
@@ -582,6 +595,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WhatWeDoMentalWellbeingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/what-we-do/inclusive-care': {
+      id: '/what-we-do/inclusive-care'
+      path: '/what-we-do/inclusive-care'
+      fullPath: '/what-we-do/inclusive-care'
+      preLoaderRoute: typeof WhatWeDoInclusiveCareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/what-we-do/$pillar': {
       id: '/what-we-do/$pillar'
       path: '/what-we-do/$pillar'
@@ -702,6 +722,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProgramsSlugRoute: ProgramsSlugRoute,
   ProgramsResearchImpactAssessmentRoute: ProgramsResearchImpactAssessmentRoute,
   WhatWeDoPillarRoute: WhatWeDoPillarRoute,
+  WhatWeDoInclusiveCareRoute: WhatWeDoInclusiveCareRoute,
   WhatWeDoMentalWellbeingRoute: WhatWeDoMentalWellbeingRoute,
   WhatWeDoSocialGrowthRoute: WhatWeDoSocialGrowthRoute,
   AboutIndexRoute: AboutIndexRoute,
@@ -713,3 +734,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
