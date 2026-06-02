@@ -307,15 +307,18 @@ function MegaContent({
                 </p>
               )}
               <ul className={cn("grid gap-1", gridItemsCols)}>
-                {col.items.map((item) => (
-                  <ListItem
-                    key={item.href}
-                    href={item.href}
-                    title={item.label}
-                    description={item.description}
-                    Icon={Icon}
-                  />
-                ))}
+                {col.items.map((item) => {
+                  const ItemIcon = ITEM_ICON[item.href] ?? Icon;
+                  return (
+                    <ListItem
+                      key={item.href}
+                      href={item.href}
+                      title={item.label}
+                      description={item.description}
+                      Icon={ItemIcon}
+                    />
+                  );
+                })}
               </ul>
             </div>
           ))}
