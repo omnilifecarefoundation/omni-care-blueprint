@@ -56,8 +56,7 @@ import {
   ArrowUpRight,
   ChevronRight,
 } from "lucide-react";
-import logoAsset from "@/assets/omni-logo.svg.asset.json";
-const logoSrc = logoAsset.url;
+const logoSrc = "/omni-logo.png";
 
 /* -------------------------------------------------------------------------- */
 /*  Icon mapping - section triggers and per-item                               */

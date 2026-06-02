@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { COMPLIANCE, SITE } from "@/lib/site";
-import footerLogo from "@/assets/omni-logo-footer.png.asset.json";
+const footerLogo = { url: "/omni-logo-footer.png" };
 
 const COLUMNS = [
   {
