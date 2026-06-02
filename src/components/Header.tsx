@@ -82,6 +82,7 @@ function useHideOnScrollDown(threshold = 80) {
 export function Header() {
   const [open, setOpen] = React.useState(false);
   const scrolled = useScroll(10);
+  const hidden = useHideOnScrollDown(80);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   // Close mobile on route change
@@ -101,8 +102,9 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full border-b transition-[background-color,box-shadow,border-color] duration-300",
+        "sticky top-0 z-50 w-full border-b transition-[background-color,box-shadow,border-color,transform] duration-300 will-change-transform",
         scrolled
+
           ? "bg-snow/95 backdrop-blur-md border-hairline shadow-[0_1px_2px_rgba(11,59,60,0.04),0_8px_24px_-18px_rgba(11,59,60,0.18)]"
           : "bg-snow/90 backdrop-blur border-transparent",
       )}
