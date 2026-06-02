@@ -33,7 +33,7 @@ import {
   Brain,
   GraduationCap,
   Accessibility,
-  Sparkles,
+  Sunrise,
   // Programmes
   MessageCircleHeart,
   Stethoscope,
@@ -85,7 +85,7 @@ const ITEM_ICON: Record<string, LucideIcon> = {
   "/what-we-do/mental-wellbeing": Brain,
   "/what-we-do/social-growth": GraduationCap,
   "/what-we-do/inclusive-care": Accessibility,
-  "/what-we-do/human-potential": Sparkles,
+  "/what-we-do/human-potential": Sunrise,
   // Programmes
   "/programs/community-mental-health": MessageCircleHeart,
   "/programs/preventive-health-outreach": Stethoscope,
