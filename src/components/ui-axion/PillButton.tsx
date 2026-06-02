@@ -65,7 +65,7 @@ export function PillButton(props: PillButtonProps) {
     </>
   );
 
-  const cls = `group inline-flex items-center gap-3 rounded-full font-medium w-fit transition-[background-color,border-color,scale] duration-200 ease-out active:scale-[0.96] ${padding} ${text} ${VARIANT_BG[variant]} ${className}`;
+  const cls = `group inline-flex items-center gap-3 rounded-full font-semibold tracking-[-0.005em] w-fit transition-[background-color,border-color,box-shadow,scale] duration-200 ease-out active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-ink focus-visible:ring-coral ${padding} ${text} ${VARIANT_BG[variant]} ${className}`;
 
   if ("to" in props && props.to) {
     return (
