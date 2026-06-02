@@ -1,51 +1,51 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, GraduationCap, Stethoscope, Coins } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Activity, GraduationCap, FlaskConical } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { FadeUp } from "@/components/FadeUp";
 import { PillButton } from "@/components/ui-axion/PillButton";
 import { CTABand } from "@/components/CTABand";
-import scholarshipsImg from "@/assets/program-scholarships.jpg";
-import chwImg from "@/assets/program-chw-training.jpg";
+import preventiveImg from "@/assets/program-preventive-health.jpg";
+import capacityImg from "@/assets/program-capacity-building.jpg";
+import researchImg from "@/assets/program-research.jpg";
 
-export const Route = createFileRoute("/what-we-do/social-growth")({
+export const Route = createFileRoute("/what-we-do/human-potential")({
   head: () => ({
     meta: [
-      { title: "Social Growth — Pillar 02 — Omni Life Care Foundation" },
+      { title: "Human Potential — Pillar 04 — Omni Life Care Foundation" },
       {
         name: "description",
         content:
-          "Education, scholarships and frontline livelihoods — so the village holds its own growth long after we leave. Pillar 02 of the Omni Care Model.",
+          "Frontline workforce, preventive screening, and open-source evidence — so every rupee of community investment compounds. Pillar 04 of the Omni Care Model.",
       },
       {
         property: "og:title",
-        content: "Social Growth — Omni Life Care Foundation",
+        content: "Human Potential — Omni Life Care Foundation",
       },
       {
         property: "og:description",
         content:
-          "The scholarship is a job. The job is a health worker. The health worker is the village holding its own ground.",
+          "Train the frontline. Catch the disease early. Publish the evidence. The pillar that makes every other pillar last.",
       },
-      { property: "og:image", content: "/og-social-growth.jpg" },
+      { property: "og:image", content: "/og-human-potential.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/what-we-do/social-growth" }],
+    links: [{ rel: "canonical", href: "/what-we-do/human-potential" }],
   }),
-  component: SocialGrowthPage,
+  component: HumanPotentialPage,
 });
 
 // Publicly cited figures — never fabricate.
-// NFHS-5 = National Family Health Survey, India 2019-21.
-// ASER = Annual Status of Education Report (Rural), Pratham 2023.
-// WHO = WHO Workforce 2030 / Health Workforce in India brief.
+// WHO India NCD Country Profile 2018; WHO Health Workforce 2030 projections;
+// NHM Annual Report (Ministry of Health & Family Welfare, GoI).
 const EVIDENCE = [
   {
-    stat: "41%",
-    label: "of Indian women have 10+ years of schooling",
-    note: "NFHS-5, 2019–21",
+    stat: "63%",
+    label: "of all deaths in India are caused by NCDs",
+    note: "WHO India NCD Country Profile",
   },
   {
-    stat: "1 in 4",
-    label: "rural youth (14–18) can read a Std II English text",
-    note: "ASER 2023, Pratham",
+    stat: "~10 lakh",
+    label: "ASHA workers carry India’s rural health system",
+    note: "National Health Mission, MoHFW",
   },
   {
     stat: "1.8M",
@@ -57,94 +57,104 @@ const EVIDENCE = [
 const METHOD = [
   {
     n: "01",
-    icon: GraduationCap,
-    title: "Pay the full cost of staying in school.",
+    icon: Activity,
+    title: "Catch the disease before the hospital does.",
     body:
-      "Tuition is the easy part. We cover materials, transport and a modest stipend, paired with monthly mentoring — so a first-generation learner doesn’t drop out the first time a fee notice arrives.",
+      "Hypertension, diabetes and cancer markers caught at a village camp cost a fraction of what they cost in a district hospital. We run preventive screening in partnership with district administrations — with a funded path to follow-up before the camp packs up.",
   },
   {
     n: "02",
-    icon: Stethoscope,
-    title: "Turn the scholarship into a livelihood.",
+    icon: GraduationCap,
+    title: "Train the people the system runs on.",
     body:
-      "We bias support toward nursing, allied health and social work — fields where the village is short and the salary is real. The qualification is paid; the placement is the point.",
+      "Frontline workers, ASHAs, and partner-NGO staff get short-form certified training — from a 12-week community mental health worker course to bespoke sessions on safeguarding, inclusion and M&E. Every curriculum we build, we publish.",
   },
   {
     n: "03",
-    icon: Coins,
-    title: "Place the worker back inside their own community.",
+    icon: FlaskConical,
+    title: "Publish the evidence — open, peer-reviewed, in public.",
     body:
-      "Trained scholars are recruited, certified and placed in paid frontline roles with health systems or NGO partners. The community gains capacity; the worker earns a livelihood; both compound.",
+      "Our research function evaluates programmes with rigorous, often quasi-experimental methods, in partnership with academic institutions. Findings go into peer-reviewed journals and into state and national policy briefings — not into a locked PDF.",
   },
 ] as const;
 
 const PROMISES = [
-  "Retention through Class 12 and into a qualification — reported, not just enrolment.",
-  "Placement rate of trained workers into paid roles, published annually.",
-  "Cost per scholar through to qualification, audited and shared with funders.",
-  "Independent feedback from scholars and workers, reported unedited.",
+  "Positive screens converted to follow-up care, published — not just camp footfall.",
+  "Cost per trainee through to certification, audited and shared with funders.",
+  "All curricula released under an open licence, free for the sector to use.",
+  "Research findings published openly, including the ones that didn’t work.",
 ];
 
 const PROGRAMMES = [
   {
-    href: "/programs/scholarships-education",
-    img: scholarshipsImg,
-    alt: "A young woman studying with course materials and a mentor's notebook open beside her.",
-    badge: "Education pathway",
+    href: "/programs/preventive-health-outreach",
+    img: preventiveImg,
+    alt: "A village preventive health camp with community members being screened for blood pressure and diabetes.",
+    badge: "Preventive care",
     title:
-      "Scholarships & Education Support — staying in school long enough for it to count.",
+      "Preventive & Community Health Outreach — early detection where formal healthcare rarely arrives.",
     body:
-      "Multi-year, needs-based scholarships paired with monthly mentoring for first-generation learners — priority to girls pursuing nursing, allied health and social work.",
+      "NCD screening — hypertension, diabetes, cancer markers — combined with health literacy and a structured referral pathway into the public health system, in partnership with district administrations.",
   },
   {
-    href: "/programs/chw-development",
-    img: chwImg,
-    alt: "A community health worker in uniform standing with her training cohort outside a rural health centre.",
-    badge: "Livelihood pathway",
+    href: "/programs/training-capacity-building",
+    img: capacityImg,
+    alt: "A community health worker cohort mid-session with a trainer and printed open-source curricula.",
+    badge: "Workforce",
     title:
-      "Community Health Worker Development — a paid frontline role, recruited from the village itself.",
+      "Training & Capacity Building — open-source curriculum for the people the system runs on.",
     body:
-      "Recruiting, certifying and placing women from the community as paid community health workers — a livelihood for her, a trusted neighbour for the village, capacity for the system.",
+      "Short-form certified training for frontline workers and partner-NGO staff — community mental health, safeguarding, inclusion, M&E. Every curriculum is open-source and free for the sector to use.",
+  },
+  {
+    href: "/programs/research-impact-assessment",
+    img: researchImg,
+    alt: "A researcher reviewing field data alongside a community worker in a programme office.",
+    badge: "Evidence",
+    title:
+      "Research & Impact Assessment — rigorous evaluation, published in the open.",
+    body:
+      "An in-house research function partnering with academic institutions on quasi-experimental evaluations of community health, NCD prevention, and integrated care — briefed openly to state and national authorities.",
   },
 ];
 
-function SocialGrowthPage() {
+function HumanPotentialPage() {
   return (
     <>
       <PageHero
-        eyebrow="Pillar 02 · Social Growth"
-        title="The scholarship is a job. The job is a health worker. The worker is the village holding its own ground."
-        lead="Most ‘education programmes’ end the day the certificate is handed over. We design ours to end the day they draw their first salary — inside the community they grew up in."
+        eyebrow="Pillar 04 · Human Potential"
+        title="A community health worker costs less than a hospital bed — and arrives before the ambulance has to."
+        lead="Human Potential is the pillar that makes the other three last. We strengthen the frontline workforce, catch disease early at the village level, and publish the evidence — so every rupee of community investment compounds into long-term capability."
       >
         <div className="flex flex-col sm:flex-row gap-3">
           <PillButton to="/partner/csr" variant="on-dark">
-            Fund a scholar
+            Fund the frontline
           </PillButton>
           <PillButton to="/get-involved/volunteer" variant="ghost">
-            Mentor or volunteer
+            Volunteer with us
           </PillButton>
         </div>
       </PageHero>
 
-      {/* Why this pillar — evidence on a soft band */}
+      {/* Why this pillar — evidence */}
       <section className="bg-sage border-b border-hairline">
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
             <FadeUp className="lg:col-span-7">
-              <p className="eyebrow mb-4">Why social growth comes next</p>
+              <p className="eyebrow mb-4">Why human potential underwrites the rest</p>
               <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-                Care without a livelihood is{" "}
+                Programmes end. The workforce, and the evidence,{" "}
                 <em className="font-serif italic font-medium text-primary">
-                  a single season of help.
+                  are what stays.
                 </em>
               </h2>
             </FadeUp>
             <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
               <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
-                A village that can keep its girls in school, and turn that
-                schooling into a paid role inside its own borders, doesn’t need
-                rescuing every monsoon. The numbers below are the gap we’re
-                building against — public, sourced, uncomfortable.
+                India’s frontline workforce already carries the load.
+                Preventive screening is still where most progress against
+                non-communicable disease will be won. The numbers below are
+                public, sourced, and the reason this pillar exists.
               </p>
             </FadeUp>
           </div>
@@ -176,18 +186,17 @@ function SocialGrowthPage() {
             <FadeUp className="lg:col-span-7">
               <p className="eyebrow mb-4">How we work</p>
               <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-                Three moves, designed to end{" "}
+                Three moves that{" "}
                 <em className="font-serif italic font-medium text-primary">
-                  in a paid role at home.
+                  outlast the programme.
                 </em>
               </h2>
             </FadeUp>
             <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
               <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
-                Education is the input, not the outcome. We line up scholarship,
-                qualification and placement as one continuous pathway — so the
-                investment compounds inside the village instead of leaking out
-                of it.
+                Screen early, train the people who stay, and publish what
+                worked and what didn’t. None of this generates headlines.
+                All of it compounds.
               </p>
             </FadeUp>
           </div>
@@ -223,29 +232,29 @@ function SocialGrowthPage() {
         </div>
       </section>
 
-      {/* The two programmes delivering this pillar */}
+      {/* The three programmes */}
       <section className="bg-snow border-b border-hairline">
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-12">
             <FadeUp className="lg:col-span-7">
               <p className="eyebrow mb-4">The programmes delivering this</p>
               <h2 className="font-sans font-semibold text-[clamp(1.75rem,3.2vw,2.5rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-                Two programmes,{" "}
+                Three programmes,{" "}
                 <em className="font-serif italic font-medium text-primary">
-                  one pathway.
+                  one durable workforce.
                 </em>
               </h2>
             </FadeUp>
             <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
               <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
-                The scholarship is the on-ramp. The community health worker
-                role is the destination. Both are designed to be replicated,
-                not romanticised.
+                Preventive screening in the village. Open-source training for
+                the people the system runs on. Evaluation rigorous enough to
+                brief into state and national policy.
               </p>
             </FadeUp>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-5 lg:gap-6">
+          <div className="grid lg:grid-cols-3 gap-5 lg:gap-6">
             {PROGRAMMES.map((p, i) => (
               <FadeUp key={p.href} delay={140 + i * 90}>
                 <Link
@@ -260,18 +269,18 @@ function SocialGrowthPage() {
                       className="h-full w-full object-cover outline outline-1 -outline-offset-1 outline-ink/10 transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                     />
                   </div>
-                  <div className="flex flex-col gap-4 p-7 lg:p-8">
+                  <div className="flex flex-col gap-4 p-6 lg:p-7">
                     <span className="inline-flex w-fit items-center gap-2 rounded-full border border-hairline bg-sage px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-ink-muted">
                       <span
                         className="h-1.5 w-1.5 rounded-full"
-                        style={{ background: "var(--pillar-social)" }}
+                        style={{ background: "var(--pillar-human)" }}
                       />
                       {p.badge}
                     </span>
-                    <h3 className="font-sans font-semibold text-[1.375rem] lg:text-[1.5rem] leading-[1.18] tracking-[-0.015em] text-ink text-balance">
+                    <h3 className="font-sans font-semibold text-[1.25rem] lg:text-[1.375rem] leading-[1.2] tracking-[-0.01em] text-ink text-balance">
                       {p.title}
                     </h3>
-                    <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
+                    <p className="text-[14.5px] leading-relaxed text-ink-muted text-pretty">
                       {p.body}
                     </p>
                     <span className="mt-auto inline-flex items-center gap-1.5 text-[13px] font-medium text-ink transition-transform duration-300 ease-out group-hover:translate-x-1">
@@ -293,17 +302,17 @@ function SocialGrowthPage() {
             <FadeUp className="lg:col-span-7">
               <p className="eyebrow mb-4">How we’ll measure</p>
               <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-                We don’t report enrolment.{" "}
+                We publish the method,{" "}
                 <em className="font-serif italic font-medium text-primary">
-                  We report what stuck.
+                  including what failed.
                 </em>
               </h2>
             </FadeUp>
             <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
               <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
-                Headcounts at orientation are the easiest, cheapest number to
-                publish. We won’t lead with them. We’ll publish the four
-                things below, from day one.
+                Camp footfall and trainee headcounts are easy numbers. We
+                lead with the harder, more useful ones — and we release the
+                curriculum and the evidence into the public domain.
               </p>
             </FadeUp>
           </div>
@@ -338,8 +347,8 @@ function SocialGrowthPage() {
 
       <CTABand
         eyebrow="Stand with this pillar"
-        title="Help us turn a scholarship into a salary inside the village."
-        body="CSR partners can fund a full cohort — scholarship, qualification, mentoring and placement into a paid frontline role. Volunteers can mentor scholars or support curriculum."
+        title="Fund the workforce and the evidence that outlast every programme."
+        body="CSR partners can underwrite a preventive-health route, a training cohort, or a multi-year evaluation. Volunteers can support curriculum, research, and field-data work."
         primary={{ label: "Partner with us", href: "/partner/csr" }}
         secondary={{ label: "Volunteer", href: "/get-involved/volunteer" }}
       />

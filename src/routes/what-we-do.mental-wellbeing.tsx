@@ -65,7 +65,7 @@ const METHOD = [
     icon: Users,
     title: "The worker is from the village.",
     body:
-      "We recruit and train women from the communities we serve. They earn a livelihood; the community gains a trusted neighbour who knows the names, the homes, the histories.",
+      "We recruit and train community workers — many of them women — from the villages we serve. They earn a livelihood; the community gains a trusted neighbour who knows the names, the homes, the histories.",
   },
   {
     n: "03",
@@ -89,7 +89,7 @@ function MentalWellbeingPage() {
       <PageHero
         eyebrow="Pillar 01 · Mental Wellbeing"
         title="The first health worker your village ever had — the one who asks how you’re sleeping."
-        lead="India has more people who need mental health care than there are doctors in the whole country. We start where the system stops — at the front door — with women trained from inside the community."
+        lead="India has more people who need mental health care than there are doctors in the whole country. We start where the system stops — at the front door — with community workers trained from inside the village itself."
       >
         <div className="flex flex-col sm:flex-row gap-3">
           <PillButton to="/partner/csr" variant="on-dark">
