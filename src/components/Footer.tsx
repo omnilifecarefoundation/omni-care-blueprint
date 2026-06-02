@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Logo } from "./Header";
 import { COMPLIANCE, SITE } from "@/lib/site";
+import footerLogo from "@/assets/omni-logo-footer.png.asset.json";
 
 const COLUMNS = [
   {
@@ -49,9 +49,13 @@ export function Footer() {
       <div className="container-editorial py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
           <div className="lg:col-span-2">
-            <div className="mb-4">
-              <Logo onDark />
-            </div>
+            <Link to="/" className="inline-block mb-4">
+              <img
+                src={footerLogo.url}
+                alt={SITE.name}
+                className="h-20 w-auto object-contain"
+              />
+            </Link>
 
             <p className="text-sm text-canvas/70 max-w-xs leading-relaxed">
               {SITE.tagline} An India-based foundation strengthening community health and wellbeing.
