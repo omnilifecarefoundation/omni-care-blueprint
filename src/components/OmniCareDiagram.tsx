@@ -4,7 +4,7 @@
 // Click a pillar to pause rotation and read the detail.
 
 import { useEffect, useRef, useState } from "react";
-import { Brain, Users, HeartHandshake, Sparkles, ArrowUpRight } from "lucide-react";
+import { Brain, Users, HeartHandshake, Sunrise, ArrowUpRight, type LucideIcon } from "lucide-react";
 
 type PillarId = "mental" | "social" | "inclusive" | "human";
 
