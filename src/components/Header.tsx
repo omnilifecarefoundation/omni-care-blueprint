@@ -244,6 +244,13 @@ export function Header() {
           {/* Right CTAs */}
           <div className="hidden lg:flex items-center gap-2 pr-1">
             <Link
+              to="/get-help"
+              className="inline-flex h-9 items-center gap-1.5 rounded-full bg-coral px-4 text-[14px] font-medium text-ink hover:bg-[#FFDE33] active:scale-[0.96] transition-[background-color,transform]"
+            >
+              Get Help
+              <ArrowUpRight size={14} aria-hidden="true" />
+            </Link>
+            <Link
               to="/donate"
               className="inline-flex h-9 items-center rounded-full px-3 text-[14px] text-ink hover:text-primary transition-colors"
             >
@@ -490,6 +497,14 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
         </nav>
 
         <div className="mt-8 flex flex-col gap-2">
+          <Link
+            to="/get-help"
+            onClick={onClose}
+            className="inline-flex h-12 items-center justify-center gap-1.5 rounded-full bg-coral text-ink text-[15px] font-medium active:scale-[0.98] transition-transform"
+          >
+            Get Help
+            <ArrowUpRight size={15} aria-hidden="true" />
+          </Link>
           <Link
             to="/donate"
             onClick={onClose}

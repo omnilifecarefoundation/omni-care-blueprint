@@ -15,6 +15,7 @@ import { Route as SitemapRouteImport } from './routes/sitemap'
 import { Route as SafeguardingPolicyRouteImport } from './routes/safeguarding-policy'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as NewsroomRouteImport } from './routes/newsroom'
+import { Route as GetHelpRouteImport } from './routes/get-help'
 import { Route as DonationPolicyRouteImport } from './routes/donation-policy'
 import { Route as DonateRouteImport } from './routes/donate'
 import { Route as DesignUiInspoRouteImport } from './routes/design-ui-inspo'
@@ -80,6 +81,11 @@ const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
 const NewsroomRoute = NewsroomRouteImport.update({
   id: '/newsroom',
   path: '/newsroom',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GetHelpRoute = GetHelpRouteImport.update({
+  id: '/get-help',
+  path: '/get-help',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DonationPolicyRoute = DonationPolicyRouteImport.update({
@@ -277,6 +283,7 @@ export interface FileRoutesByFullPath {
   '/design-ui-inspo': typeof DesignUiInspoRoute
   '/donate': typeof DonateRoute
   '/donation-policy': typeof DonationPolicyRoute
+  '/get-help': typeof GetHelpRoute
   '/newsroom': typeof NewsroomRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/safeguarding-policy': typeof SafeguardingPolicyRoute
@@ -321,6 +328,7 @@ export interface FileRoutesByTo {
   '/design-ui-inspo': typeof DesignUiInspoRoute
   '/donate': typeof DonateRoute
   '/donation-policy': typeof DonationPolicyRoute
+  '/get-help': typeof GetHelpRoute
   '/newsroom': typeof NewsroomRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/safeguarding-policy': typeof SafeguardingPolicyRoute
@@ -366,6 +374,7 @@ export interface FileRoutesById {
   '/design-ui-inspo': typeof DesignUiInspoRoute
   '/donate': typeof DonateRoute
   '/donation-policy': typeof DonationPolicyRoute
+  '/get-help': typeof GetHelpRoute
   '/newsroom': typeof NewsroomRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/safeguarding-policy': typeof SafeguardingPolicyRoute
@@ -412,6 +421,7 @@ export interface FileRouteTypes {
     | '/design-ui-inspo'
     | '/donate'
     | '/donation-policy'
+    | '/get-help'
     | '/newsroom'
     | '/privacy-policy'
     | '/safeguarding-policy'
@@ -456,6 +466,7 @@ export interface FileRouteTypes {
     | '/design-ui-inspo'
     | '/donate'
     | '/donation-policy'
+    | '/get-help'
     | '/newsroom'
     | '/privacy-policy'
     | '/safeguarding-policy'
@@ -500,6 +511,7 @@ export interface FileRouteTypes {
     | '/design-ui-inspo'
     | '/donate'
     | '/donation-policy'
+    | '/get-help'
     | '/newsroom'
     | '/privacy-policy'
     | '/safeguarding-policy'
@@ -545,6 +557,7 @@ export interface RootRouteChildren {
   DesignUiInspoRoute: typeof DesignUiInspoRoute
   DonateRoute: typeof DonateRoute
   DonationPolicyRoute: typeof DonationPolicyRoute
+  GetHelpRoute: typeof GetHelpRoute
   NewsroomRoute: typeof NewsroomRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SafeguardingPolicyRoute: typeof SafeguardingPolicyRoute
@@ -625,6 +638,13 @@ declare module '@tanstack/react-router' {
       path: '/newsroom'
       fullPath: '/newsroom'
       preLoaderRoute: typeof NewsroomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/get-help': {
+      id: '/get-help'
+      path: '/get-help'
+      fullPath: '/get-help'
+      preLoaderRoute: typeof GetHelpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/donation-policy': {
@@ -889,6 +909,7 @@ const rootRouteChildren: RootRouteChildren = {
   DesignUiInspoRoute: DesignUiInspoRoute,
   DonateRoute: DonateRoute,
   DonationPolicyRoute: DonationPolicyRoute,
+  GetHelpRoute: GetHelpRoute,
   NewsroomRoute: NewsroomRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   SafeguardingPolicyRoute: SafeguardingPolicyRoute,
