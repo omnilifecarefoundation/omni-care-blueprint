@@ -161,6 +161,120 @@ function Hero() {
 }
 
 /* ============================================================
+   1b. NEED HELP - direct routing for visitors seeking support
+   ============================================================ */
+function NeedHelp() {
+  const categories = [
+    {
+      slug: "mental-health",
+      name: "Mental Health",
+      body: "Counselling, emotional support, and referrals.",
+      Icon: Brain,
+      tint: "var(--pillar-mental)",
+    },
+    {
+      slug: "elder-care",
+      name: "Elder Care",
+      body: "Support for ageing adults and caregivers.",
+      Icon: HandHeart,
+      tint: "var(--pillar-inclusive)",
+    },
+    {
+      slug: "community-support",
+      name: "Community Support",
+      body: "Local resources, outreach, and assistance.",
+      Icon: Users,
+      tint: "var(--pillar-social)",
+    },
+    {
+      slug: "care-navigation",
+      name: "Care Navigation",
+      body: "Help finding the right services and next steps.",
+      Icon: Compass,
+      tint: "var(--pillar-human)",
+    },
+  ];
+
+  return (
+    <section className="bg-canvas border-b border-hairline">
+      <div className="container-editorial py-20 lg:py-28">
+        <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-12">
+          <FadeUp className="lg:col-span-7">
+            <p className="eyebrow mb-4">Need support</p>
+            <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
+              Need help{" "}
+              <em className="font-serif italic font-medium">now?</em>
+            </h2>
+          </FadeUp>
+          <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
+            <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
+              Whether you're looking for elder support, mental health
+              guidance, community assistance, or help navigating care
+              services, we're here to point you in the right direction.
+            </p>
+          </FadeUp>
+        </div>
+
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+          {categories.map((c, i) => (
+            <FadeUp key={c.slug} delay={i * 70} as="li">
+              <Link
+                to="/get-help"
+                search={{ topic: c.slug }}
+                className="group relative flex h-full flex-col gap-4 overflow-hidden rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_18px_36px_-22px_rgba(28,0,96,0.28)] active:scale-[0.99]"
+              >
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 opacity-70 transition-opacity duration-500 ease-out group-hover:opacity-100"
+                  style={{
+                    background: `radial-gradient(120% 80% at 0% 0%, color-mix(in oklab, ${c.tint} 14%, transparent) 0%, transparent 55%), linear-gradient(180deg, color-mix(in oklab, ${c.tint} 6%, transparent) 0%, transparent 70%)`,
+                  }}
+                />
+                <div className="relative flex items-center justify-between">
+                  <span
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-canvas ring-1 ring-ink/5 transition-[background-color,color,transform] duration-300 group-hover:bg-ink group-hover:text-snow group-hover:-rotate-6 group-hover:ring-transparent"
+                    style={{ color: `color-mix(in oklab, ${c.tint} 75%, var(--ink))` }}
+                  >
+                    <c.Icon size={18} aria-hidden="true" strokeWidth={1.75} />
+                  </span>
+                </div>
+                <h3 className="relative font-sans font-semibold text-[1.125rem] leading-snug text-ink text-balance">
+                  {c.name}
+                </h3>
+                <p className="relative text-[14px] leading-relaxed text-ink-muted text-pretty">
+                  {c.body}
+                </p>
+                <span className="relative mt-auto inline-flex items-center gap-1.5 text-[13px] font-medium text-ink transition-transform duration-300 ease-out group-hover:translate-x-1">
+                  Start here{" "}
+                  <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </span>
+              </Link>
+            </FadeUp>
+          ))}
+        </ul>
+
+        <FadeUp delay={120}>
+          <div className="mt-12 flex flex-col gap-5 rounded-2xl bg-sage border border-hairline p-6 lg:p-8 lg:flex-row lg:items-center lg:justify-between">
+            <p className="font-serif italic text-[clamp(1rem,1.4vw,1.125rem)] leading-relaxed text-ink text-pretty max-w-2xl">
+              You don't need to know exactly what kind of help you need. Start
+              with a conversation and we'll help guide you.
+            </p>
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <PillButton to="/get-help" variant="action">
+                Get Help
+              </PillButton>
+              <PillButton to="/contact" variant="primary">
+                Contact Our Team
+              </PillButton>
+            </div>
+          </div>
+        </FadeUp>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================
    2. MANIFESTO - single editorial promise
    ============================================================ */
 function Manifesto() {
