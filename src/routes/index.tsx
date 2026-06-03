@@ -40,6 +40,7 @@ function HomePage() {
   return (
     <>
       <Hero />
+      <NeedHelp />
       <Manifesto />
       <WhatWeDo />
       <Values />
