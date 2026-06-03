@@ -12,6 +12,7 @@ import {
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
 import { cn } from "@/lib/utils";
 import { SITE, MEGA_NAV } from "@/lib/site";
+import { CrisisResourcesBanner } from "@/components/CrisisResources";
 import type { LucideIcon } from "lucide-react";
 import {
   // Section icons
@@ -175,6 +176,7 @@ export function Header() {
       )}
       style={{ transitionTimingFunction: "var(--ease-axion)" }}
     >
+      <CrisisResourcesBanner />
       <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6">
         <div className="flex items-center justify-between gap-3 h-16">
           {/* Logo */}
