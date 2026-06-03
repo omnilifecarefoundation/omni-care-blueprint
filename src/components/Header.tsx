@@ -498,6 +498,14 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
 
         <div className="mt-8 flex flex-col gap-2">
           <Link
+            to="/get-help"
+            onClick={onClose}
+            className="inline-flex h-12 items-center justify-center gap-1.5 rounded-full bg-coral text-ink text-[15px] font-medium active:scale-[0.98] transition-transform"
+          >
+            Get Help
+            <ArrowUpRight size={15} aria-hidden="true" />
+          </Link>
+          <Link
             to="/donate"
             onClick={onClose}
             className="inline-flex h-12 items-center justify-center rounded-full border border-ink/15 text-ink text-[15px] font-medium"
