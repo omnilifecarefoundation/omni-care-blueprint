@@ -12,6 +12,7 @@ import {
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
 import { cn } from "@/lib/utils";
 import { SITE, MEGA_NAV } from "@/lib/site";
+import { CrisisResourcesBanner } from "@/components/CrisisResources";
 import type { LucideIcon } from "lucide-react";
 import {
   // Section icons
