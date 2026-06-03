@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck, Brain, HandHeart, Users, Compass } from "lucide-react";
 import heroImg from "@/assets/hero-community.jpg";
 import { PROGRAMS, PILLARS } from "@/lib/site";
 import { FadeUp } from "@/components/FadeUp";
