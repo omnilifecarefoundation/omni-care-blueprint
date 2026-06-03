@@ -220,7 +220,7 @@ function NeedHelp() {
             <FadeUp key={c.slug} delay={i * 70} as="li">
               <Link
                 to="/get-help"
-                search={{ topic: c.slug }}
+                hash={c.slug}
                 className="group relative flex h-full flex-col gap-4 overflow-hidden rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_18px_36px_-22px_rgba(28,0,96,0.28)] active:scale-[0.99]"
               >
                 <span
