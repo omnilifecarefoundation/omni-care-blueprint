@@ -86,31 +86,41 @@ export function CrisisResourcesBanner() {
           <DialogTrigger asChild>
             <button
               type="button"
-              className="group flex w-full items-center justify-center gap-2 py-2 text-[12.5px] font-medium leading-tight tracking-[0.005em] text-ink transition-[transform,filter] duration-200 hover:brightness-[1.02] active:scale-[0.997] sm:gap-2.5 sm:text-[13px]"
+              className="group flex w-full items-center justify-center gap-2 py-2 text-[12.5px] font-medium leading-tight tracking-[0.005em] text-ink transition-[transform,filter] duration-200 hover:brightness-[1.03] active:scale-[0.997] sm:gap-2.5 sm:text-[13px]"
             >
               <span
                 aria-hidden="true"
                 className="relative inline-flex h-4 w-4 shrink-0 items-center justify-center"
               >
-                <span className="absolute inset-0 rounded-full bg-ink/85 animate-ping opacity-60" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-ink" />
+                <span
+                  className="absolute inset-0 rounded-full opacity-70 animate-ping"
+                  style={{ backgroundColor: "#D7263D" }}
+                />
+                <span
+                  className="relative inline-flex h-[7px] w-[7px] rounded-full"
+                  style={{
+                    backgroundColor: "#D7263D",
+                    boxShadow: "0 0 0 1.5px var(--gold), 0 0 0 2.5px rgba(28,0,96,0.35)",
+                  }}
+                />
               </span>
               <span
-                className="hidden shrink-0 items-center rounded-full bg-ink px-2 py-[3px] text-[10px] font-semibold uppercase tracking-[0.14em] text-gold sm:inline-flex"
+                className="hidden shrink-0 items-center rounded-full px-2 py-[3px] text-[10px] font-bold uppercase tracking-[0.16em] text-snow sm:inline-flex"
+                style={{ backgroundColor: "#C81E33" }}
               >
                 Urgent
               </span>
-              <span className="text-balance">
+              <span className="text-balance text-ink">
                 <span className="sm:hidden font-semibold">Crisis help · </span>
-                <span className="hidden sm:inline">Need urgent help? </span>
-                <span className="font-semibold underline decoration-ink/30 decoration-1 underline-offset-[5px] transition-colors group-hover:decoration-ink">
+                <span className="hidden sm:inline font-medium">Need urgent help? </span>
+                <span className="font-semibold underline decoration-ink/45 decoration-1 underline-offset-[5px] transition-colors group-hover:decoration-ink">
                   Tap for crisis resources &amp; emergency numbers
                 </span>
               </span>
               <ArrowRight
                 size={13}
                 aria-hidden="true"
-                className="shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
+                className="shrink-0 text-ink transition-transform duration-200 group-hover:translate-x-0.5"
               />
             </button>
           </DialogTrigger>
