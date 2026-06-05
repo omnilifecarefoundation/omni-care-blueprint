@@ -68,27 +68,49 @@ function telHref(n: string) {
 export function CrisisResourcesBanner() {
   return (
     <Dialog>
-      <div className="w-full bg-ink text-snow">
-        <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6">
+      <div
+        className="relative w-full overflow-hidden bg-gold text-ink"
+        style={{
+          backgroundImage:
+            "linear-gradient(90deg, color-mix(in oklab, var(--gold) 88%, #ffffff 12%) 0%, var(--gold) 35%, color-mix(in oklab, var(--gold) 80%, #ff8a3d 20%) 100%)",
+          boxShadow:
+            "inset 0 -1px 0 0 color-mix(in oklab, var(--ink) 18%, transparent), 0 1px 0 0 color-mix(in oklab, var(--ink) 8%, transparent)",
+        }}
+      >
+        {/* Subtle sheen sweep */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 animate-[crisisSheen_6s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/35 to-transparent"
+        />
+        <div className="relative mx-auto w-full max-w-[1280px] px-3 sm:px-6">
           <DialogTrigger asChild>
             <button
               type="button"
-              className="group flex w-full items-center justify-center gap-2 py-2 text-[12.5px] tracking-[0.01em] text-snow/85 hover:text-snow transition-colors"
+              className="group flex w-full items-center justify-center gap-2 py-2 text-[12.5px] font-medium leading-tight tracking-[0.005em] text-ink transition-[transform,filter] duration-200 hover:brightness-[1.02] active:scale-[0.997] sm:gap-2.5 sm:text-[13px]"
             >
               <span
                 aria-hidden="true"
-                className="inline-flex h-1.5 w-1.5 rounded-full bg-gold animate-pulse"
-              />
-              <span className="text-pretty">
-                Need urgent help?{" "}
-                <span className="text-gold underline-offset-4 group-hover:underline">
-                  Access crisis resources and emergency support
+                className="relative inline-flex h-4 w-4 shrink-0 items-center justify-center"
+              >
+                <span className="absolute inset-0 rounded-full bg-ink/85 animate-ping opacity-60" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-ink" />
+              </span>
+              <span
+                className="hidden shrink-0 items-center rounded-full bg-ink px-2 py-[3px] text-[10px] font-semibold uppercase tracking-[0.14em] text-gold sm:inline-flex"
+              >
+                Urgent
+              </span>
+              <span className="text-balance">
+                <span className="sm:hidden font-semibold">Crisis help · </span>
+                <span className="hidden sm:inline">Need urgent help? </span>
+                <span className="font-semibold underline decoration-ink/30 decoration-1 underline-offset-[5px] transition-colors group-hover:decoration-ink">
+                  Tap for crisis resources &amp; emergency numbers
                 </span>
               </span>
               <ArrowRight
                 size={13}
                 aria-hidden="true"
-                className="transition-transform duration-200 group-hover:translate-x-0.5"
+                className="shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
               />
             </button>
           </DialogTrigger>
