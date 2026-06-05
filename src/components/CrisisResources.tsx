@@ -1,13 +1,14 @@
 import * as React from "react";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { AlertTriangle, Brain, User, Baby, HeartPulse, Phone, ArrowRight } from "lucide-react";
+import { AlertTriangle, ArrowRight, Baby, Brain, HeartPulse, Phone, User, X } from "lucide-react";
 
 type Resource = { label: string; number: string };
 type Group = {
@@ -94,28 +95,37 @@ export function CrisisResourcesBanner() {
         </div>
       </div>
 
-      <DialogContent className="max-w-2xl bg-snow border-hairline p-0 overflow-hidden rounded-2xl">
-        <div className="bg-ink text-snow px-6 sm:px-8 pt-7 pb-6">
-          <DialogHeader className="text-left space-y-2">
-            <p className="text-[11px] uppercase tracking-[0.18em] text-gold">
-              Help is one call away
-            </p>
-            <DialogTitle className="font-sans font-semibold text-[clamp(1.4rem,2.4vw,1.75rem)] leading-[1.15] tracking-[-0.02em] text-snow">
-              Crisis Resources
-            </DialogTitle>
-            <DialogDescription className="text-[14px] leading-relaxed text-snow/75 text-pretty pt-1">
-              If you or someone you know is facing an immediate crisis, please use the
-              resources below. Omni Lifecare is not an emergency response service.
-            </DialogDescription>
-          </DialogHeader>
+      <DialogContent className="flex max-h-[88vh] w-[calc(100vw-0.75rem)] max-w-[42rem] flex-col gap-0 overflow-hidden rounded-[20px] border-hairline bg-snow p-0 shadow-lg sm:w-[calc(100vw-2rem)] [&>button]:hidden">
+        <div className="shrink-0 bg-ink px-4 pb-5 pt-4 text-snow sm:px-8 sm:pb-6 sm:pt-7">
+          <div className="flex items-start justify-between gap-4">
+            <DialogHeader className="space-y-2 text-left">
+              <p className="text-[11px] uppercase tracking-[0.18em] text-gold">
+                Help is one call away
+              </p>
+              <DialogTitle className="pr-2 font-sans text-[clamp(1.35rem,2.4vw,1.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-snow text-balance">
+                Crisis Resources
+              </DialogTitle>
+              <DialogDescription className="max-w-[34rem] pt-1 text-[14px] leading-relaxed text-pretty text-snow/78 sm:text-[15px]">
+                If you or someone you know is facing an immediate crisis, please use the
+                resources below. Omni Lifecare is not an emergency response service.
+              </DialogDescription>
+            </DialogHeader>
+
+            <DialogClose
+              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-snow/20 bg-snow/8 text-snow transition-[background-color,border-color,transform,opacity] duration-200 hover:border-snow/35 hover:bg-snow/14 active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+              aria-label="Close crisis resources"
+            >
+              <X size={18} strokeWidth={1.9} aria-hidden="true" />
+            </DialogClose>
+          </div>
         </div>
 
-        <div className="px-6 sm:px-8 py-6 max-h-[60vh] overflow-y-auto">
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4 sm:px-8 sm:py-6">
+          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {GROUPS.map((g) => (
               <li
                 key={g.title}
-                className="relative overflow-hidden rounded-xl border border-hairline bg-canvas p-4"
+                className="relative overflow-hidden rounded-2xl border border-hairline bg-canvas p-3.5 sm:p-4"
               >
                 <span
                   aria-hidden="true"
@@ -124,14 +134,14 @@ export function CrisisResourcesBanner() {
                     background: `radial-gradient(120% 80% at 0% 0%, color-mix(in oklab, ${g.tint} 12%, transparent) 0%, transparent 60%)`,
                   }}
                 />
-                <div className="relative flex items-center gap-2.5 mb-3">
+                <div className="relative mb-3 flex items-center gap-2.5">
                   <span
-                    className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-snow ring-1 ring-ink/5"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-snow ring-1 ring-border"
                     style={{ color: `color-mix(in oklab, ${g.tint} 75%, var(--ink))` }}
                   >
-                    <g.Icon size={15} aria-hidden={true} />
+                    <g.Icon size={16} aria-hidden={true} />
                   </span>
-                  <h3 className="font-sans font-semibold text-[14px] tracking-[-0.01em] text-ink">
+                  <h3 className="font-sans text-[15px] font-semibold tracking-[-0.01em] text-ink">
                     {g.title}
                   </h3>
                 </div>
@@ -140,10 +150,12 @@ export function CrisisResourcesBanner() {
                     <li key={`${g.title}-${r.number}`}>
                       <a
                         href={telHref(r.number)}
-                        className="group flex items-center justify-between gap-3 rounded-md px-2 py-1.5 -mx-2 hover:bg-snow transition-colors"
+                        className="group -mx-1 flex min-h-10 items-start justify-between gap-2 rounded-xl px-2.5 py-2 transition-[background-color,transform] duration-200 hover:bg-snow active:scale-[0.99] sm:items-center"
                       >
-                        <span className="text-[13px] text-ink-muted">{r.label}</span>
-                        <span className="flex items-center gap-1.5 font-mono text-[13px] font-medium text-ink tabular-nums">
+                        <span className="pr-2 text-[13px] leading-snug text-ink-muted sm:text-[13.5px]">
+                          {r.label}
+                        </span>
+                        <span className="flex shrink-0 items-center gap-1.5 font-mono text-[13px] font-medium text-ink tabular-nums sm:text-[13.5px]">
                           <Phone
                             size={11}
                             aria-hidden="true"
@@ -160,8 +172,8 @@ export function CrisisResourcesBanner() {
           </ul>
         </div>
 
-        <div className="border-t border-hairline bg-gold/15 px-6 sm:px-8 py-4">
-          <p className="text-[13px] leading-relaxed text-ink text-pretty">
+        <div className="shrink-0 border-t border-hairline bg-gold/15 px-4 py-4 sm:px-8">
+          <p className="text-[13px] leading-relaxed text-pretty text-ink sm:text-[13.5px]">
             <strong className="font-semibold">
               If this is a life-threatening emergency, call{" "}
               <a href="tel:112" className="underline underline-offset-2 hover:text-primary">
