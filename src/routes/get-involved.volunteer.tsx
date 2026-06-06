@@ -203,7 +203,7 @@ function Page() {
         <div className="grid md:grid-cols-3 gap-5">
           {PATHWAYS.map((p, i) => (
             <FadeUp key={p.title} delay={i * 80}>
-              <div className="h-full rounded-xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]">
+              <div className="h-full rounded-xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_10px_24px_-18px_rgba(4, 55, 242,0.18)]">
                 <p.icon
                   className="h-7 w-7 text-primary"
                   strokeWidth={1.5}
@@ -359,7 +359,7 @@ function Page() {
           </FadeUp>
           <div className="grid md:grid-cols-3 gap-8">
             <FadeUp delay={60}>
-              <div className="rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(28,0,96,0.04)]">
+              <div className="rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)]">
                 <Mail
                   className="h-5 w-5 text-primary mb-4"
                   strokeWidth={1.5}
@@ -376,7 +376,7 @@ function Page() {
               </div>
             </FadeUp>
             <FadeUp delay={120}>
-              <div className="rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(28,0,96,0.04)]">
+              <div className="rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)]">
                 <Briefcase
                   className="h-5 w-5 text-primary mb-4"
                   strokeWidth={1.5}
@@ -393,7 +393,7 @@ function Page() {
               </div>
             </FadeUp>
             <FadeUp delay={180}>
-              <div className="rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(28,0,96,0.04)]">
+              <div className="rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)]">
                 <Heart
                   className="h-5 w-5 text-primary mb-4"
                   strokeWidth={1.5}

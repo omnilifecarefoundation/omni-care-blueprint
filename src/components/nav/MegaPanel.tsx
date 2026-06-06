@@ -110,7 +110,7 @@ export function MegaPanel({ section, onNavigate }: Props) {
           }`}
           style={{
             boxShadow:
-              "0 1px 2px rgba(28,0,96,0.04), 0 16px 32px -20px rgba(28,0,96,0.18)",
+              "0 1px 2px rgba(4, 55, 242,0.04), 0 16px 32px -20px rgba(4, 55, 242,0.18)",
             transitionTimingFunction: "var(--ease-axion)",
           }}
         >

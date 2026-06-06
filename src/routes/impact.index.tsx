@@ -153,7 +153,7 @@ function Page() {
             </div>
 
             <FadeUp className="lg:col-span-5" delay={120}>
-              <div className="rounded-2xl bg-snow border border-hairline p-7 lg:p-8 shadow-[0_1px_2px_rgba(28,0,96,0.04),0_22px_48px_-32px_rgba(28,0,96,0.22)]">
+              <div className="rounded-2xl bg-snow border border-hairline p-7 lg:p-8 shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_22px_48px_-32px_rgba(4, 55, 242,0.22)]">
                 <p className="eyebrow mb-6">First operating context</p>
                 <dl className="space-y-5 text-[0.95rem]">
                   {[
@@ -205,7 +205,7 @@ function Page() {
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
             {BASELINE.map((m, i) => (
               <FadeUp key={m.n} delay={i * 70} as="li">
-                <div className="h-full rounded-2xl bg-snow border border-hairline p-7 lg:p-8 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_14px_28px_-20px_rgba(28,0,96,0.22)]">
+                <div className="h-full rounded-2xl bg-snow border border-hairline p-7 lg:p-8 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_14px_28px_-20px_rgba(4, 55, 242,0.22)]">
                   <div className="flex items-center gap-3 mb-5">
                     <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted tabular-nums">
                       {m.n}
@@ -346,7 +346,7 @@ function Page() {
               <FadeUp key={p.id} delay={i * 70} as="li">
                 <Link
                   to={p.href}
-                  className="group relative flex h-full flex-col gap-4 rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/30 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_12px_28px_-20px_rgba(28,0,96,0.22)] active:scale-[0.99]"
+                  className="group relative flex h-full flex-col gap-4 rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/30 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_12px_28px_-20px_rgba(4, 55, 242,0.22)] active:scale-[0.99]"
                 >
                   <div className="flex items-center justify-between">
                     <span

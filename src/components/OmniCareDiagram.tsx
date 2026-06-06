@@ -65,7 +65,7 @@ const PILLARS: Pillar[] = [
     caption: "The long horizon",
     detail:
       "What care, done well, releases — leadership, agency, and a community that lifts itself.",
-    color: "#1C0060",
+    color: "#0437F2",
     icon: Sunrise,
     relatedIds: ["social", "inclusive"],
   },

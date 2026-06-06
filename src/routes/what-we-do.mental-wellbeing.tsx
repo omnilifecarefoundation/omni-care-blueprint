@@ -171,7 +171,7 @@ function MentalWellbeingPage() {
               const Icon = m.icon;
               return (
                 <FadeUp key={m.n} as="li" delay={i * 80}>
-                  <article className="group relative flex h-full flex-col gap-4 rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_14px_30px_-20px_rgba(28,0,96,0.22)]">
+                  <article className="group relative flex h-full flex-col gap-4 rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_14px_30px_-20px_rgba(4, 55, 242,0.22)]">
                     <div className="flex items-center justify-between">
                       <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted tabular-nums">
                         {m.n}
@@ -222,7 +222,7 @@ function MentalWellbeingPage() {
           <FadeUp delay={140}>
             <Link
               to="/programs/community-mental-health"
-              className="group block overflow-hidden rounded-2xl bg-snow border border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04),0_8px_24px_-16px_rgba(28,0,96,0.12)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-1 hover:border-ink/40 hover:shadow-[0_4px_8px_rgba(28,0,96,0.06),0_22px_44px_-22px_rgba(28,0,96,0.32)] active:scale-[0.995]"
+              className="group block overflow-hidden rounded-2xl bg-snow border border-hairline shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_8px_24px_-16px_rgba(4, 55, 242,0.12)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-1 hover:border-ink/40 hover:shadow-[0_4px_8px_rgba(4, 55, 242,0.06),0_22px_44px_-22px_rgba(4, 55, 242,0.32)] active:scale-[0.995]"
             >
               <div className="grid lg:grid-cols-[1.05fr_1fr]">
                 <div className="aspect-[5/3] lg:aspect-auto overflow-hidden bg-sage">
@@ -285,7 +285,7 @@ function MentalWellbeingPage() {
           <ul className="grid md:grid-cols-2 gap-4 lg:gap-5 list-none p-0">
             {PROMISES.map((p, i) => (
               <FadeUp key={p} as="li" delay={i * 70}>
-                <div className="flex items-start gap-4 rounded-xl bg-canvas border border-hairline p-5 lg:p-6 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]">
+                <div className="flex items-start gap-4 rounded-xl bg-canvas border border-hairline p-5 lg:p-6 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_10px_24px_-18px_rgba(4, 55, 242,0.18)]">
                   <span
                     className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-gold"
                     aria-hidden="true"

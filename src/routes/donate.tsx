@@ -74,7 +74,7 @@ function Page() {
                   alert("Payment partner integration goes live with the FY 2026–27 cohort. Until then, please use the bank/UPI details below.");
                 }}
                 aria-label="Donation form"
-                className="rounded-2xl bg-snow border border-hairline p-7 lg:p-10 shadow-[0_1px_2px_rgba(28,0,96,0.04),0_24px_60px_-36px_rgba(28,0,96,0.18)]"
+                className="rounded-2xl bg-snow border border-hairline p-7 lg:p-10 shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_24px_60px_-36px_rgba(4, 55, 242,0.18)]"
               >
                 <div className="flex items-baseline justify-between">
                   <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-ink-muted">Choose an amount</span>
@@ -91,7 +91,7 @@ function Page() {
                         onClick={() => { setAmount(t.amount); setCustom(""); }}
                         className={`group relative h-14 rounded-xl border text-base font-semibold tabular-nums transition-[background-color,border-color,color,box-shadow] duration-200 ease-[cubic-bezier(0.2,0,0,1)] active:scale-[0.96] ${
                           active
-                            ? "bg-ink text-snow border-ink shadow-[0_1px_2px_rgba(28,0,96,0.10),0_10px_24px_-12px_rgba(28,0,96,0.35)]"
+                            ? "bg-ink text-snow border-ink shadow-[0_1px_2px_rgba(4, 55, 242,0.10),0_10px_24px_-12px_rgba(4, 55, 242,0.35)]"
                             : "bg-canvas text-ink border-hairline hover:border-ink-muted hover:bg-snow"
                         }`}
                         aria-pressed={active}
@@ -114,7 +114,7 @@ function Page() {
                       placeholder="Any amount from ₹500"
                       value={custom}
                       onChange={(e) => setCustom(e.target.value)}
-                      className="w-full h-12 pl-8 pr-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)] focus:border-ink focus:bg-snow outline-none transition-[border-color,background-color] tabular-nums"
+                      className="w-full h-12 pl-8 pr-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(4, 55, 242,0.04)] focus:border-ink focus:bg-snow outline-none transition-[border-color,background-color] tabular-nums"
                     />
                   </div>
                 </div>
@@ -133,7 +133,7 @@ function Page() {
                           type="button"
                           onClick={() => setFreq(o.v as "one" | "monthly")}
                           className={`h-10 px-5 rounded-full text-sm font-semibold transition-[background-color,color,box-shadow] duration-200 ease-[cubic-bezier(0.2,0,0,1)] active:scale-[0.96] ${
-                            active ? "bg-ink text-snow shadow-[0_1px_2px_rgba(28,0,96,0.08)]" : "text-ink-muted hover:text-ink"
+                            active ? "bg-ink text-snow shadow-[0_1px_2px_rgba(4, 55, 242,0.08)]" : "text-ink-muted hover:text-ink"
                           }`}
                           aria-pressed={active}
                         >
@@ -153,7 +153,7 @@ function Page() {
 
                 <button
                   type="submit"
-                  className="mt-8 w-full h-14 rounded-full bg-ink text-snow font-semibold text-base tracking-[-0.005em] transition-[background-color,box-shadow,transform] duration-200 ease-[cubic-bezier(0.2,0,0,1)] hover:bg-ink/90 active:scale-[0.985] shadow-[0_1px_2px_rgba(28,0,96,0.10),0_18px_40px_-18px_rgba(28,0,96,0.35)]"
+                  className="mt-8 w-full h-14 rounded-full bg-ink text-snow font-semibold text-base tracking-[-0.005em] transition-[background-color,box-shadow,transform] duration-200 ease-[cubic-bezier(0.2,0,0,1)] hover:bg-ink/90 active:scale-[0.985] shadow-[0_1px_2px_rgba(4, 55, 242,0.10),0_18px_40px_-18px_rgba(4, 55, 242,0.35)]"
                 >
                   Continue · ₹<span className="tabular-nums">{inr(effective)}</span>
                   {freq === "monthly" ? " / month" : ""}
@@ -168,7 +168,7 @@ function Page() {
             {/* Live tier card */}
             <FadeUp delay={120}>
               <aside className="lg:sticky lg:top-24 space-y-5">
-                <div className="rounded-2xl bg-ink text-snow p-7 lg:p-8 overflow-hidden relative shadow-[0_24px_60px_-30px_rgba(28,0,96,0.45)]">
+                <div className="rounded-2xl bg-ink text-snow p-7 lg:p-8 overflow-hidden relative shadow-[0_24px_60px_-30px_rgba(4, 55, 242,0.45)]">
                   <div
                     aria-hidden="true"
                     className="pointer-events-none absolute inset-0 opacity-60"
@@ -332,7 +332,7 @@ function Field({ id, label, type = "text", required }: { id: string; label: stri
         type={type}
         required={required}
         autoComplete={id === "name" ? "name" : id === "email" ? "email" : id === "phone" ? "tel" : "off"}
-        className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)] focus:border-ink focus:bg-snow outline-none transition-[border-color,background-color] duration-200"
+        className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(4, 55, 242,0.04)] focus:border-ink focus:bg-snow outline-none transition-[border-color,background-color] duration-200"
       />
     </div>
   );

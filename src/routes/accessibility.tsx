@@ -71,7 +71,7 @@ function Page() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {STANDARDS.map((s, i) => (
               <FadeUp key={s.title} delay={i * 80}>
-                <div className="rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)] h-full">
+                <div className="rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_10px_24px_-18px_rgba(4, 55, 242,0.18)] h-full">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sage text-primary">
                       <s.icon className="h-5 w-5" aria-hidden="true" />
@@ -135,7 +135,7 @@ function Page() {
             </FadeUp>
 
             <FadeUp delay={80}>
-              <div className="rounded-2xl bg-snow border border-hairline p-7 lg:p-10 shadow-[0_1px_2px_rgba(28,0,96,0.04),0_8px_24px_-16px_rgba(28,0,96,0.12)]">
+              <div className="rounded-2xl bg-snow border border-hairline p-7 lg:p-10 shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_8px_24px_-16px_rgba(4, 55, 242,0.12)]">
                 <h3 className="font-sans font-semibold text-xl tracking-[-0.01em] text-ink mb-6">Useful tools</h3>
                 <dl className="space-y-5">
                   <div>

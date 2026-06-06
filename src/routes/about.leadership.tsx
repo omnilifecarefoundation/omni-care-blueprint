@@ -200,7 +200,7 @@ function Structure() {
             const Icon = s.icon;
             return (
               <FadeUp key={s.label} delay={120 + i * 80}>
-                <article className="group h-full rounded-2xl bg-canvas border border-hairline p-7 lg:p-8 transition-[transform,border-color,box-shadow] duration-300 ease-out will-change-transform hover:-translate-y-0.5 hover:border-ink/30 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_18px_38px_-26px_rgba(28,0,96,0.28)]">
+                <article className="group h-full rounded-2xl bg-canvas border border-hairline p-7 lg:p-8 transition-[transform,border-color,box-shadow] duration-300 ease-out will-change-transform hover:-translate-y-0.5 hover:border-ink/30 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_18px_38px_-26px_rgba(4, 55, 242,0.28)]">
                   <div className="flex items-start justify-between gap-4">
                     <div className="inline-flex items-center justify-center h-11 w-11 rounded-xl bg-ink/[0.06] text-ink">
                       <Icon className="h-5 w-5" strokeWidth={1.6} aria-hidden="true" />
@@ -288,7 +288,7 @@ function OpenSeats() {
         <ul className="mt-12 lg:mt-14 grid md:grid-cols-2 gap-4">
           {SEATS.map((s, i) => (
             <FadeUp key={s.role} delay={120 + i * 70}>
-              <li className="group relative rounded-xl bg-snow border border-hairline p-6 transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/30 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_14px_30px_-22px_rgba(28,0,96,0.24)]">
+              <li className="group relative rounded-xl bg-snow border border-hairline p-6 transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/30 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_14px_30px_-22px_rgba(4, 55, 242,0.24)]">
                 <div className="flex items-start justify-between gap-4">
                   <div className="min-w-0">
                     <h3 className="font-sans font-semibold text-base lg:text-[1.0625rem] tracking-[-0.005em] text-ink text-balance">

@@ -121,7 +121,7 @@ function Page() {
             },
           ].map((c, i) => (
             <FadeUp key={c.title} delay={i * 80}>
-              <div className="h-full rounded-xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]">
+              <div className="h-full rounded-xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_10px_24px_-18px_rgba(4, 55, 242,0.18)]">
                 <c.icon className="h-6 w-6 text-primary" aria-hidden="true" strokeWidth={1.5} />
                 <h3 className="font-sans font-semibold tracking-[-0.01em] text-xl mt-5 text-balance">
                   {c.title}
@@ -413,7 +413,7 @@ function CSRForm() {
   const [submitted, setSubmitted] = useState(false);
   if (submitted) {
     return (
-      <div className="rounded-2xl bg-sage p-8 border border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04)]">
+      <div className="rounded-2xl bg-sage p-8 border border-hairline shadow-[0_1px_2px_rgba(4, 55, 242,0.04)]">
         <h3 className="font-sans font-semibold tracking-[-0.015em] text-2xl text-balance">
           Thank you. Note received.
         </h3>
@@ -434,7 +434,7 @@ function CSRForm() {
         e.preventDefault();
         setSubmitted(true);
       }}
-      className="rounded-2xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04),0_8px_24px_-16px_rgba(28,0,96,0.10)]"
+      className="rounded-2xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_8px_24px_-16px_rgba(4, 55, 242,0.10)]"
       aria-label="CSR enquiry form"
     >
       <h3 className="font-sans font-semibold tracking-[-0.015em] text-2xl">
@@ -455,7 +455,7 @@ function CSRForm() {
           </label>
           <select
             id="focus"
-            className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)] focus:border-primary outline-none transition-colors"
+            className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(4, 55, 242,0.04)] focus:border-primary outline-none transition-colors"
           >
             <option>Community Mental Health</option>
             <option>Preventive Health Outreach</option>
@@ -473,7 +473,7 @@ function CSRForm() {
             id="msg"
             rows={4}
             placeholder="Budget range, geography, reporting needs, anything we should know."
-            className="w-full px-4 py-3 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)] focus:border-primary outline-none transition-colors"
+            className="w-full px-4 py-3 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(4, 55, 242,0.04)] focus:border-primary outline-none transition-colors"
           />
         </div>
         <label className="flex items-start gap-2 text-xs text-ink-muted">
@@ -521,7 +521,7 @@ function Field({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(28,0,96,0.04)] focus:border-primary outline-none transition-colors"
+        className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(4, 55, 242,0.04)] focus:border-primary outline-none transition-colors"
       />
     </div>
   );
