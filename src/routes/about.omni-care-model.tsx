@@ -73,7 +73,7 @@ function Page() {
             </FadeUp>
           </div>
           <FadeUp delay={140}>
-            <div className="rounded-2xl bg-snow border border-hairline p-8 lg:p-12 shadow-[0_1px_2px_rgba(28,0,96,0.04),0_8px_24px_-16px_rgba(28,0,96,0.12)]">
+            <div className="rounded-2xl bg-snow border border-hairline p-8 lg:p-12 shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_8px_24px_-16px_rgba(4, 55, 242,0.12)]">
               <div className="flex justify-center">
                 <OmniCareDiagram className="w-full h-auto max-w-3xl" />
               </div>
@@ -109,7 +109,7 @@ function Page() {
               <FadeUp key={p.id} as="li" delay={i * 70}>
                 <Link
                   to={p.href}
-                  className="group relative flex h-full flex-col gap-4 rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-1 hover:border-ink/30 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_12px_28px_-20px_rgba(28,0,96,0.22)] active:scale-[0.995]"
+                  className="group relative flex h-full flex-col gap-4 rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-1 hover:border-ink/30 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_12px_28px_-20px_rgba(4, 55, 242,0.22)] active:scale-[0.995]"
                 >
                   <span
                     className="h-1.5 w-10 rounded-full transition-[width] duration-300 ease-out group-hover:w-16"
@@ -161,7 +161,7 @@ function Page() {
           <ul className="grid md:grid-cols-3 gap-4 lg:gap-5 list-none p-0">
             {PRINCIPLES.map((pr, i) => (
               <FadeUp key={pr.n} as="li" delay={i * 70}>
-                <div className="h-full rounded-xl bg-canvas border border-hairline p-6 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]">
+                <div className="h-full rounded-xl bg-canvas border border-hairline p-6 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_10px_24px_-18px_rgba(4, 55, 242,0.18)]">
                   <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted tabular-nums">
                     {pr.n}
                   </span>

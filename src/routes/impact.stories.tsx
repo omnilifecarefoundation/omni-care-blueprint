@@ -177,7 +177,7 @@ function Page() {
           <div className="grid md:grid-cols-2 gap-5">
             {PROMISE.map((p, i) => (
               <FadeUp key={p.n} delay={80 + i * 60}>
-                <article className="h-full rounded-xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]">
+                <article className="h-full rounded-xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_10px_24px_-18px_rgba(4, 55, 242,0.18)]">
                   <div className="flex items-start gap-5">
                     <div className="flex-none rounded-lg bg-ink/[0.04] p-2.5">
                       <p.icon className="h-5 w-5 text-ink" aria-hidden="true" />
@@ -223,7 +223,7 @@ function Page() {
             <div className="space-y-3">
               {LISTENING.map((l, i) => (
                 <FadeUp key={l.pillar} delay={120 + i * 70}>
-                  <div className="rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25">
+                  <div className="rounded-xl bg-snow border border-hairline p-6 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25">
                     <div className="eyebrow text-ink-muted">{l.pillar}</div>
                     <p className="mt-2 text-[1.0625rem] leading-[1.55] text-ink text-pretty">
                       {l.seed}

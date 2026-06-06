@@ -123,7 +123,7 @@ function Page() {
             },
           ].map((p, i) => (
             <FadeUp key={p.title} delay={i * 70}>
-              <div className="h-full rounded-xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]">
+              <div className="h-full rounded-xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_10px_24px_-18px_rgba(4, 55, 242,0.18)]">
                 <p.icon
                   className="h-6 w-6 text-primary"
                   aria-hidden="true"
@@ -403,7 +403,7 @@ function Page() {
               </FadeUp>
             </div>
             <FadeUp delay={160}>
-              <div className="rounded-2xl bg-sage p-8 border border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04)]">
+              <div className="rounded-2xl bg-sage p-8 border border-hairline shadow-[0_1px_2px_rgba(4, 55, 242,0.04)]">
                 <h3 className="font-sans font-semibold tracking-[-0.015em] text-2xl text-balance">
                   We want this policy to be better than it is.
                 </h3>

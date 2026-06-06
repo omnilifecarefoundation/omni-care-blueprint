@@ -221,7 +221,7 @@ function NeedHelp() {
               <Link
                 to="/get-help"
                 hash={c.slug}
-                className="group relative flex h-full flex-col gap-4 overflow-hidden rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_18px_36px_-22px_rgba(28,0,96,0.28)] active:scale-[0.99]"
+                className="group relative flex h-full flex-col gap-4 overflow-hidden rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_18px_36px_-22px_rgba(4, 55, 242,0.28)] active:scale-[0.99]"
               >
                 <span
                   aria-hidden="true"
@@ -327,7 +327,7 @@ function WhatWeDo() {
             <FadeUp key={p.id} delay={i * 70} as="li">
               <Link
                 to={p.href}
-                className="group relative flex h-full flex-col gap-4 overflow-hidden rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_18px_36px_-22px_rgba(28,0,96,0.28)] active:scale-[0.99]"
+                className="group relative flex h-full flex-col gap-4 overflow-hidden rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_18px_36px_-22px_rgba(4, 55, 242,0.28)] active:scale-[0.99]"
               >
                 {/* Subtle pillar-tinted gradient wash */}
                 <span
@@ -425,7 +425,7 @@ function Values() {
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
           {values.map((v, i) => (
             <FadeUp key={v.n} delay={i * 60} as="li">
-              <div className="h-full rounded-xl bg-canvas border border-hairline p-6 flex flex-col gap-3 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]">
+              <div className="h-full rounded-xl bg-canvas border border-hairline p-6 flex flex-col gap-3 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_10px_24px_-18px_rgba(4, 55, 242,0.18)]">
                 <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted tabular-nums">
                   {v.n}
                 </span>
@@ -533,7 +533,7 @@ function Programmes() {
             <FadeUp key={p.slug} delay={i * 70} as="li">
               <Link
                 to={p.href}
-                className="group block overflow-hidden rounded-2xl bg-snow border border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04),0_8px_24px_-16px_rgba(28,0,96,0.12)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-1 hover:border-ink/40 hover:shadow-[0_4px_8px_rgba(28,0,96,0.06),0_22px_44px_-22px_rgba(28,0,96,0.32)] active:scale-[0.995]"
+                className="group block overflow-hidden rounded-2xl bg-snow border border-hairline shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_8px_24px_-16px_rgba(4, 55, 242,0.12)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-1 hover:border-ink/40 hover:shadow-[0_4px_8px_rgba(4, 55, 242,0.06),0_22px_44px_-22px_rgba(4, 55, 242,0.32)] active:scale-[0.995]"
               >
                 <div className="relative aspect-[5/3] overflow-hidden bg-sage">
                   <img
@@ -653,8 +653,8 @@ function SDGs() {
                 <div
                   className={`group relative h-full overflow-hidden rounded-xl border p-5 pt-[1.375rem] flex flex-col gap-2 transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 ${
                     g.primary
-                      ? "bg-ink text-snow border-ink shadow-[0_8px_24px_-16px_rgba(28,0,96,0.4)]"
-                      : "bg-canvas border-hairline shadow-[0_1px_2px_rgba(28,0,96,0.04)]"
+                      ? "bg-ink text-snow border-ink shadow-[0_8px_24px_-16px_rgba(4, 55, 242,0.4)]"
+                      : "bg-canvas border-hairline shadow-[0_1px_2px_rgba(4, 55, 242,0.04)]"
                   }`}
                   style={{
                     ['--sdg' as string]: g.color,
@@ -662,7 +662,7 @@ function SDGs() {
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.borderColor = `${g.color}55`;
-                    e.currentTarget.style.boxShadow = `0 14px 32px -20px ${g.color}66, 0 1px 2px rgba(28,0,96,0.04)`;
+                    e.currentTarget.style.boxShadow = `0 14px 32px -20px ${g.color}66, 0 1px 2px rgba(4, 55, 242,0.04)`;
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.borderColor = '';
@@ -831,7 +831,7 @@ function Trust() {
           <ul className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
             {items.map((it, i) => (
               <FadeUp key={it.label} delay={i * 70} as="li">
-                <div className="h-full rounded-xl bg-snow border border-hairline p-6 flex flex-col gap-3 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_10px_24px_-18px_rgba(28,0,96,0.18)]">
+                <div className="h-full rounded-xl bg-snow border border-hairline p-6 flex flex-col gap-3 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_10px_24px_-18px_rgba(4, 55, 242,0.18)]">
                   <div className="flex items-center gap-2">
                     <ShieldCheck className="h-4 w-4 text-primary" aria-hidden="true" />
                     <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink tabular-nums">
@@ -915,7 +915,7 @@ function Newsletter() {
       <div className="container-editorial py-16 lg:py-20">
         <FadeUp>
           <div
-            className="relative overflow-hidden rounded-3xl bg-ink text-snow px-6 sm:px-10 lg:px-14 py-12 lg:py-14 shadow-[0_1px_2px_rgba(11,59,60,0.06),0_30px_60px_-30px_rgba(28,0,96,0.45)]"
+            className="relative overflow-hidden rounded-3xl bg-ink text-snow px-6 sm:px-10 lg:px-14 py-12 lg:py-14 shadow-[0_1px_2px_rgba(11,59,60,0.06),0_30px_60px_-30px_rgba(4, 55, 242,0.45)]"
           >
             {/* atmospheric gradient */}
             <div

@@ -325,7 +325,7 @@ function Page() {
                 },
               ].map((m, i) => (
                 <FadeUp key={m.k} delay={80 + i * 70}>
-                  <article className="rounded-2xl bg-snow border border-hairline p-6 h-full transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_14px_30px_-22px_rgba(28,0,96,0.28)]">
+                  <article className="rounded-2xl bg-snow border border-hairline p-6 h-full transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_14px_30px_-22px_rgba(4, 55, 242,0.28)]">
                     <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted">
                       Metric
                     </div>

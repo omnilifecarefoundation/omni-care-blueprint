@@ -129,7 +129,7 @@ export function MegaNav() {
           className="mx-auto w-full max-w-[1100px] bg-snow rounded-2xl border border-hairline overflow-hidden"
           style={{
             boxShadow:
-              "0 1px 2px rgba(28,0,96,0.04), 0 24px 48px -24px rgba(28,0,96,0.22)",
+              "0 1px 2px rgba(4, 55, 242,0.04), 0 24px 48px -24px rgba(4, 55, 242,0.22)",
           }}
         >
           {activeSection && hasPanel && (

@@ -65,11 +65,11 @@ function ProgramPage() {
       <section className="container-editorial py-16 lg:py-24">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-12">
           <aside className="space-y-5">
-            <div className="rounded-xl bg-snow border border-hairline p-5 shadow-[0_1px_2px_rgba(28,0,96,0.04)]">
+            <div className="rounded-xl bg-snow border border-hairline p-5 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)]">
               <div className="eyebrow mb-2">Outcome to date</div>
               <p className="font-sans font-semibold text-xl tracking-[-0.015em] text-ink text-balance">{program.outcome}</p>
             </div>
-            <div className="rounded-xl bg-snow border border-hairline p-5 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25">
+            <div className="rounded-xl bg-snow border border-hairline p-5 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow] duration-300 ease-out hover:border-ink/25">
               <div className="eyebrow mb-2">Pillar</div>
               <Link to={pillar.href} className="link-arrow">
                 {pillar.name} <ArrowRight className="h-4 w-4" />

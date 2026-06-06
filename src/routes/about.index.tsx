@@ -121,7 +121,7 @@ function AboutIndex() {
         </div>
         <Link
           to={FEATURE.href}
-          className="group block rounded-2xl bg-ink text-snow overflow-hidden border border-ink/10 shadow-[0_1px_2px_rgba(28,0,96,0.06),0_22px_44px_-22px_rgba(28,0,96,0.32)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_4px_8px_rgba(28,0,96,0.10),0_30px_60px_-24px_rgba(28,0,96,0.42)]"
+          className="group block rounded-2xl bg-ink text-snow overflow-hidden border border-ink/10 shadow-[0_1px_2px_rgba(4, 55, 242,0.06),0_22px_44px_-22px_rgba(4, 55, 242,0.32)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_4px_8px_rgba(4, 55, 242,0.10),0_30px_60px_-24px_rgba(4, 55, 242,0.42)]"
         >
           <div className="relative p-8 lg:p-14 grid lg:grid-cols-12 gap-10 items-end">
             <div
@@ -176,7 +176,7 @@ function AboutIndex() {
               <Link
                 key={s.href}
                 to={s.href}
-                className="group relative rounded-xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_14px_28px_-18px_rgba(28,0,96,0.22)]"
+                className="group relative rounded-xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_14px_28px_-18px_rgba(4, 55, 242,0.22)]"
               >
                 <div className="flex items-center justify-between mb-6">
                   <span className="font-sans text-xs tabular-nums tracking-[0.12em] text-ink-muted">

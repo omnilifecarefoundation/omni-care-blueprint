@@ -248,7 +248,7 @@ function Page() {
                   <button
                     type="button"
                     onClick={() => setActive(p)}
-                    className="group relative h-full w-full text-left rounded-2xl border border-hairline bg-canvas p-5 lg:p-6 transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/35 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_18px_36px_-20px_rgba(28,0,96,0.22)] focus-visible:outline-2 focus-visible:outline-primary active:scale-[0.99]"
+                    className="group relative h-full w-full text-left rounded-2xl border border-hairline bg-canvas p-5 lg:p-6 transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/35 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_18px_36px_-20px_rgba(4, 55, 242,0.22)] focus-visible:outline-2 focus-visible:outline-primary active:scale-[0.99]"
                   >
                     <div className="flex items-center justify-between gap-3">
                       <span className="font-mono text-[11px] text-ink-muted tabular-nums">
@@ -307,7 +307,7 @@ function Page() {
           </div>
 
           <FadeUp delay={140}>
-            <div className="rounded-2xl bg-snow border border-hairline overflow-hidden shadow-[0_1px_2px_rgba(28,0,96,0.04),0_22px_48px_-32px_rgba(28,0,96,0.22)]">
+            <div className="rounded-2xl bg-snow border border-hairline overflow-hidden shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_22px_48px_-32px_rgba(4, 55, 242,0.22)]">
               <div className="flex items-center justify-between gap-4 px-6 lg:px-8 py-4 border-b border-hairline bg-canvas">
                 <div className="flex items-center gap-3 min-w-0">
                   <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-muted">

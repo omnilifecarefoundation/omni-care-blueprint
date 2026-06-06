@@ -117,7 +117,7 @@ function Page() {
                 </div>
 
                 <div className="lg:col-span-3">
-                  <div className="rounded-xl bg-snow border border-hairline p-5 lg:p-6 shadow-[0_1px_2px_rgba(28,0,96,0.04)]">
+                  <div className="rounded-xl bg-snow border border-hairline p-5 lg:p-6 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)]">
                     <div className="eyebrow text-[11px] mb-3">In practice</div>
                     <p className="text-sm text-ink-muted text-pretty leading-relaxed">
                       {v.practice}
@@ -213,7 +213,7 @@ function Page() {
             <Link
               key={l.href}
               to={l.href}
-              className="group relative rounded-xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(28,0,96,0.04)] transition-[border-color,box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(28,0,96,0.04),0_14px_28px_-18px_rgba(28,0,96,0.22)]"
+              className="group relative rounded-xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_14px_28px_-18px_rgba(4, 55, 242,0.22)]"
             >
               <div className="flex items-center justify-between mb-5">
                 <ArrowUpRight className="h-4 w-4 text-ink-muted transition-[color,transform] duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink" />
