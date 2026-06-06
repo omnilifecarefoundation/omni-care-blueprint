@@ -978,7 +978,7 @@ function Newsletter() {
                     />
                     <button
                       type="submit"
-                      className="shrink-0 h-11 px-5 rounded-full bg-gold text-ink text-[13px] font-semibold tracking-[0.01em] transition-[background-color,scale,box-shadow] duration-200 ease-out hover:bg-[#E6C000] hover:shadow-[0_6px_18px_-6px_rgba(255,214,0,0.55)] active:scale-[0.96]"
+                      className="shrink-0 h-11 px-5 rounded-full bg-snow text-ink text-[13px] font-semibold tracking-[0.01em] transition-[background-color,scale,box-shadow] duration-200 ease-out hover:bg-[#F1F1F4] hover:shadow-[0_6px_18px_-6px_rgba(0,0,0,0.45)] active:scale-[0.96]"
                     >
                       Subscribe
                     </button>
