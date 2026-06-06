@@ -66,19 +66,19 @@
 :root {
   --radius: 4px;
 
-  /* Brand — Indigo family + Yellow accent */
-  --primary: #735BF6;
+  /* Brand — Blue primary, Black ink for text */
+  --primary: #0437F2;
   --primary-foreground: #FFFFFF;
-  --primary-glow: #9485F9;
+  --primary-glow: #3B63F5;
   --primary-deep: #0226C7;
   --secondary: #F4F2FE;
-  --secondary-foreground: #0437F2;
+  --secondary-foreground: #0F1117;
 
   --canvas: #FFFFFF;
   --snow: #FFFFFF;
-  --ink: #0437F2;
-  --ink-muted: #5A4E8C;
-  --hairline: #E4E0F7;
+  --ink: #0F1117;
+  --ink-muted: #4A4F5C;
+  --hairline: #E6E7EC;
   --sage: #F4F2FE;
   --sandstone: #FFD600;
   --coral: #FFD600;
@@ -96,26 +96,27 @@
 
   /* Shadcn token mapping */
   --background: #FFFFFF;
-  --foreground: #0437F2;
+  --foreground: #0F1117;
   --card: #FFFFFF;
-  --card-foreground: #0437F2;
+  --card-foreground: #0F1117;
   --popover: #FFFFFF;
-  --popover-foreground: #0437F2;
+  --popover-foreground: #0F1117;
   --muted: #F4F2FE;
-  --muted-foreground: #5A4E8C;
+  --muted-foreground: #4A4F5C;
   --accent: #FFD600;
-  --accent-foreground: #0437F2;
+  --accent-foreground: #0F1117;
   --destructive: #A8392B;
   --destructive-foreground: #FFFFFF;
-  --border: #E4E0F7;
-  --input: #E4E0F7;
-  --ring: #735BF6;
+  --border: #E6E7EC;
+  --input: #E6E7EC;
+  --ring: #0437F2;
 }
 
 .dark {
   --background: #FFFFFF;
-  --foreground: #0437F2;
+  --foreground: #0F1117;
 }
+
 
 
 @layer base {
