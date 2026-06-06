@@ -70,13 +70,13 @@
   --primary: #735BF6;
   --primary-foreground: #FFFFFF;
   --primary-glow: #9485F9;
-  --primary-deep: #3F00AC;
+  --primary-deep: #0226C7;
   --secondary: #F4F2FE;
-  --secondary-foreground: #1C0060;
+  --secondary-foreground: #0437F2;
 
   --canvas: #FFFFFF;
   --snow: #FFFFFF;
-  --ink: #1C0060;
+  --ink: #0437F2;
   --ink-muted: #5A4E8C;
   --hairline: #E4E0F7;
   --sage: #F4F2FE;
@@ -88,7 +88,7 @@
   --pillar-mental: #FFD600;     /* Yellow — vitality */
   --pillar-social: #735BF6;     /* Light indigo — partnerships */
   --pillar-inclusive: #DD1367;  /* Magenta — SDG 10 */
-  --pillar-human: #1C0060;      /* Deep indigo — knowledge */
+  --pillar-human: #0437F2;      /* Deep indigo — knowledge */
 
   /* Motion easings (Axion-style) */
   --ease-axion: cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -96,15 +96,15 @@
 
   /* Shadcn token mapping */
   --background: #FFFFFF;
-  --foreground: #1C0060;
+  --foreground: #0437F2;
   --card: #FFFFFF;
-  --card-foreground: #1C0060;
+  --card-foreground: #0437F2;
   --popover: #FFFFFF;
-  --popover-foreground: #1C0060;
+  --popover-foreground: #0437F2;
   --muted: #F4F2FE;
   --muted-foreground: #5A4E8C;
   --accent: #FFD600;
-  --accent-foreground: #1C0060;
+  --accent-foreground: #0437F2;
   --destructive: #A8392B;
   --destructive-foreground: #FFFFFF;
   --border: #E4E0F7;
@@ -114,7 +114,7 @@
 
 .dark {
   --background: #FFFFFF;
-  --foreground: #1C0060;
+  --foreground: #0437F2;
 }
 
 
@@ -272,7 +272,7 @@
     background-color: var(--color-primary);
     color: var(--color-primary-foreground);
   }
-  .btn-primary:hover { background-color: #3F00AC; }
+  .btn-primary:hover { background-color: #0226C7; }
 
   .btn-coral {
     background-color: var(--color-gold);
