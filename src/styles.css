@@ -54,7 +54,7 @@
   --color-pillar-inclusive: var(--pillar-inclusive);
   --color-pillar-human: var(--pillar-human);
 
-  --font-serif: "Tillana", Georgia, "Times New Roman", serif;
+  --font-serif: "Paprika", Georgia, "Times New Roman", serif;
   --font-sans: "Fira Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-body: "Telex", system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
@@ -146,15 +146,15 @@
     color: var(--color-ink);
   }
 
-  /* Italic accents within headings use Tillana (script display) */
+  /* Italic accents within headings use Paprika (display script) */
   h1 em, h2 em, h3 em, h4 em,
   h1 i, h2 i, h3 i, h4 i,
   .display-xl em, .display-lg em, .display-md em,
   .headline-axion em,
   .font-display-italic {
     font-family: var(--font-serif);
-    font-style: italic;
-    font-weight: 500;
+    font-style: normal;
+    font-weight: 400;
   }
 
   ::selection {
