@@ -69,63 +69,58 @@ export function CrisisResourcesBanner() {
   return (
     <Dialog>
       <div
-        className="relative w-full overflow-hidden bg-gold text-ink"
+        className="relative w-full overflow-hidden text-snow"
         style={{
           backgroundImage:
-            "linear-gradient(90deg, color-mix(in oklab, var(--gold) 88%, #ffffff 12%) 0%, var(--gold) 35%, color-mix(in oklab, var(--gold) 80%, #ff8a3d 20%) 100%)",
+            "linear-gradient(90deg, #A8101F 0%, #C81E33 45%, #D7263D 100%)",
           boxShadow:
-            "inset 0 -1px 0 0 color-mix(in oklab, var(--ink) 18%, transparent), 0 1px 0 0 color-mix(in oklab, var(--ink) 8%, transparent)",
+            "inset 0 -1px 0 0 rgba(0,0,0,0.22), 0 1px 0 0 rgba(0,0,0,0.10)",
         }}
       >
         {/* Subtle sheen sweep */}
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 animate-[crisisSheen_6s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/35 to-transparent"
+          className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 animate-[crisisSheen_7s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/25 to-transparent"
         />
         <div className="relative mx-auto w-full max-w-[1280px] px-3 sm:px-6">
           <DialogTrigger asChild>
             <button
               type="button"
-              className="group flex w-full items-center justify-center gap-2 py-2 text-[12.5px] font-medium leading-tight tracking-[0.005em] text-ink transition-[transform,filter] duration-200 hover:brightness-[1.03] active:scale-[0.997] sm:gap-2.5 sm:text-[13px]"
+              className="group flex w-full items-center justify-center gap-2 py-2 text-[12.5px] font-medium leading-tight tracking-[0.005em] text-snow transition-[transform,filter] duration-200 hover:brightness-[1.06] active:scale-[0.997] sm:gap-2.5 sm:text-[13px]"
             >
               <span
                 aria-hidden="true"
                 className="relative inline-flex h-4 w-4 shrink-0 items-center justify-center"
               >
+                <span className="absolute inset-0 rounded-full bg-snow/70 opacity-70 animate-ping" />
                 <span
-                  className="absolute inset-0 rounded-full opacity-70 animate-ping"
-                  style={{ backgroundColor: "#D7263D" }}
-                />
-                <span
-                  className="relative inline-flex h-[7px] w-[7px] rounded-full"
-                  style={{
-                    backgroundColor: "#D7263D",
-                    boxShadow: "0 0 0 1.5px var(--gold), 0 0 0 2.5px rgba(28,0,96,0.35)",
-                  }}
+                  className="relative inline-flex h-[7px] w-[7px] rounded-full bg-snow"
+                  style={{ boxShadow: "0 0 0 1.5px rgba(255,255,255,0.45)" }}
                 />
               </span>
               <span
-                className="hidden shrink-0 items-center rounded-full px-2 py-[3px] text-[10px] font-bold uppercase tracking-[0.16em] text-snow sm:inline-flex"
-                style={{ backgroundColor: "#C81E33" }}
+                className="hidden shrink-0 items-center rounded-full bg-snow px-2 py-[3px] text-[10px] font-bold uppercase tracking-[0.18em] sm:inline-flex"
+                style={{ color: "#A8101F" }}
               >
                 Urgent
               </span>
-              <span className="text-balance text-ink">
+              <span className="text-balance text-snow">
                 <span className="sm:hidden font-semibold">Crisis help · </span>
-                <span className="hidden sm:inline font-medium">Need urgent help? </span>
-                <span className="font-semibold underline decoration-ink/45 decoration-1 underline-offset-[5px] transition-colors group-hover:decoration-ink">
-                  Tap for crisis resources &amp; emergency numbers
+                <span className="hidden sm:inline font-medium">In a crisis right now? </span>
+                <span className="font-semibold underline decoration-snow/60 decoration-1 underline-offset-[5px] transition-colors group-hover:decoration-snow">
+                  Get emergency numbers
                 </span>
               </span>
               <ArrowRight
                 size={13}
                 aria-hidden="true"
-                className="shrink-0 text-ink transition-transform duration-200 group-hover:translate-x-0.5"
+                className="shrink-0 text-snow transition-transform duration-200 group-hover:translate-x-0.5"
               />
             </button>
           </DialogTrigger>
         </div>
       </div>
+
 
       <DialogContent className="flex max-h-[88vh] w-[calc(100vw-0.75rem)] max-w-[42rem] flex-col gap-0 overflow-hidden rounded-[20px] border-hairline bg-snow p-0 shadow-lg sm:w-[calc(100vw-2rem)] [&>button]:hidden">
         <div className="shrink-0 bg-ink px-4 pb-5 pt-4 text-snow sm:px-8 sm:pb-6 sm:pt-7">
