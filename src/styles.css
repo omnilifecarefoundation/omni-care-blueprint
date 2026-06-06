@@ -276,10 +276,10 @@
   .btn-primary:hover { background-color: #0226C7; }
 
   .btn-coral {
-    background-color: var(--color-gold);
-    color: var(--color-ink);
+    background-color: var(--color-ink);
+    color: var(--color-snow);
   }
-  .btn-coral:hover { background-color: #E6C000; }
+  .btn-coral:hover { background-color: #000000; }
 
   .btn-secondary {
     background-color: var(--color-snow);
@@ -298,10 +298,11 @@
   .btn-ghost:hover { background-color: var(--color-hairline); }
 
   .btn-on-dark {
-    background-color: var(--color-gold);
+    background-color: var(--color-snow);
     color: var(--color-ink);
   }
-  .btn-on-dark:hover { background-color: #E6C000; }
+  .btn-on-dark:hover { background-color: #F1F1F4; }
+
 
   .btn-secondary-on-dark {
     background-color: transparent;
