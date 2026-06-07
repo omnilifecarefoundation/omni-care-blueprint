@@ -8,7 +8,7 @@ type Props = {
 };
 
 const TONE: Record<NonNullable<MegaSection["feature"]>["tone"] & string, string> = {
-  ink: "bg-ink text-snow",
+  ink: "bg-primary text-snow",
   sage: "bg-sage text-ink",
   snow: "bg-snow text-ink border border-hairline",
 };

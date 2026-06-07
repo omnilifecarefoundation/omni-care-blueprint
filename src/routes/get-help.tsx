@@ -59,7 +59,7 @@ function GetHelpPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-ink text-snow overflow-hidden">
+      <section className="relative bg-primary text-snow overflow-hidden">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-60"
@@ -120,7 +120,7 @@ function GetHelpPage() {
                     }}
                   />
                   <span
-                    className="relative mt-0.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-canvas ring-1 ring-ink/5 transition-[background-color,color,transform] duration-300 group-hover:bg-ink group-hover:text-snow group-hover:-rotate-6 group-hover:ring-transparent"
+                    className="relative mt-0.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-canvas ring-1 ring-ink/5 transition-[background-color,color,transform] duration-300 group-hover:bg-primary group-hover:text-snow group-hover:-rotate-6 group-hover:ring-transparent"
                     style={{ color: `color-mix(in oklab, ${t.tint} 75%, var(--ink))` }}
                   >
                     <t.Icon size={20} aria-hidden="true" strokeWidth={1.75} />

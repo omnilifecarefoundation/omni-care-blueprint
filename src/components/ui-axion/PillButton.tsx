@@ -35,9 +35,9 @@ const VARIANT_BG: Record<Variant, string> = {
 
 const VARIANT_CIRCLE: Record<Variant, string> = {
   primary: "bg-white text-primary",
-  action: "bg-ink text-coral",
+  action: "bg-primary text-coral",
   ghost: "bg-snow text-ink",
-  "on-dark": "bg-ink text-coral",
+  "on-dark": "bg-primary text-coral",
 };
 
 export function PillButton(props: PillButtonProps) {

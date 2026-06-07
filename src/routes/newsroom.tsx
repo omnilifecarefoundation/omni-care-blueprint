@@ -97,7 +97,7 @@ function Page() {
       </section>
 
       {/* What we won't do */}
-      <section className="bg-ink text-snow">
+      <section className="bg-primary text-snow">
         <div className="container-editorial py-20 lg:py-28">
           <FadeUp>
             <p className="font-mono text-xs tracking-[0.18em] uppercase text-snow/60">What this newsroom will not do</p>

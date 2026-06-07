@@ -36,7 +36,7 @@ function ProgramPage() {
 
   return (
     <>
-      <section className="relative bg-ink text-snow overflow-hidden">
+      <section className="relative bg-primary text-snow overflow-hidden">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-60"

@@ -121,7 +121,7 @@ function AboutIndex() {
         </div>
         <Link
           to={FEATURE.href}
-          className="group block rounded-2xl bg-ink text-snow overflow-hidden border border-ink/10 shadow-[0_1px_2px_rgba(4, 55, 242,0.06),0_22px_44px_-22px_rgba(4, 55, 242,0.32)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_4px_8px_rgba(4, 55, 242,0.10),0_30px_60px_-24px_rgba(4, 55, 242,0.42)]"
+          className="group block rounded-2xl bg-primary text-snow overflow-hidden border border-ink/10 shadow-[0_1px_2px_rgba(4, 55, 242,0.06),0_22px_44px_-22px_rgba(4, 55, 242,0.32)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_4px_8px_rgba(4, 55, 242,0.10),0_30px_60px_-24px_rgba(4, 55, 242,0.42)]"
         >
           <div className="relative p-8 lg:p-14 grid lg:grid-cols-12 gap-10 items-end">
             <div

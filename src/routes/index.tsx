@@ -61,7 +61,7 @@ function HomePage() {
    ============================================================ */
 function Hero() {
   return (
-    <section className="relative bg-ink text-snow overflow-hidden">
+    <section className="relative bg-primary text-snow overflow-hidden">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-60"
@@ -232,7 +232,7 @@ function NeedHelp() {
                 />
                 <div className="relative flex items-center justify-between">
                   <span
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-canvas ring-1 ring-ink/5 transition-[background-color,color,transform] duration-300 group-hover:bg-ink group-hover:text-snow group-hover:-rotate-6 group-hover:ring-transparent"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-canvas ring-1 ring-ink/5 transition-[background-color,color,transform] duration-300 group-hover:bg-primary group-hover:text-snow group-hover:-rotate-6 group-hover:ring-transparent"
                     style={{ color: `color-mix(in oklab, ${c.tint} 75%, var(--ink))` }}
                   >
                     <c.Icon size={18} aria-hidden="true" strokeWidth={1.75} />
@@ -653,7 +653,7 @@ function SDGs() {
                 <div
                   className={`group relative h-full overflow-hidden rounded-xl border p-5 pt-[1.375rem] flex flex-col gap-2 transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 ${
                     g.primary
-                      ? "bg-ink text-snow border-ink shadow-[0_8px_24px_-16px_rgba(4, 55, 242,0.4)]"
+                      ? "bg-primary text-snow border-ink shadow-[0_8px_24px_-16px_rgba(4, 55, 242,0.4)]"
                       : "bg-canvas border-hairline shadow-[0_1px_2px_rgba(4, 55, 242,0.04)]"
                   }`}
                   style={{
@@ -738,7 +738,7 @@ function PartnerBand() {
   ];
 
   return (
-    <section className="bg-ink text-snow">
+    <section className="bg-primary text-snow">
       <div className="container-editorial py-20 lg:py-28">
         <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-12">
           <FadeUp className="lg:col-span-7">
@@ -859,7 +859,7 @@ function Trust() {
    ============================================================ */
 function ClosingCTA() {
   return (
-    <section className="relative bg-ink text-snow overflow-hidden">
+    <section className="relative bg-primary text-snow overflow-hidden">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-60"
@@ -915,7 +915,7 @@ function Newsletter() {
       <div className="container-editorial py-16 lg:py-20">
         <FadeUp>
           <div
-            className="relative overflow-hidden rounded-3xl bg-ink text-snow px-6 sm:px-10 lg:px-14 py-12 lg:py-14 shadow-[0_1px_2px_rgba(11,59,60,0.06),0_30px_60px_-30px_rgba(4, 55, 242,0.45)]"
+            className="relative overflow-hidden rounded-3xl bg-primary text-snow px-6 sm:px-10 lg:px-14 py-12 lg:py-14 shadow-[0_1px_2px_rgba(11,59,60,0.06),0_30px_60px_-30px_rgba(4, 55, 242,0.45)]"
           >
             {/* atmospheric gradient */}
             <div

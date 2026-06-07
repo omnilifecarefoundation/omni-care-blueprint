@@ -260,7 +260,7 @@ export function Header() {
             </Link>
             <Link
               to="/partner/csr"
-              className="inline-flex h-9 items-center gap-1.5 rounded-full bg-ink px-4 text-[14px] text-snow hover:bg-ink/90 active:scale-[0.96] transition-[background-color,transform]"
+              className="inline-flex h-9 items-center gap-1.5 rounded-full bg-primary px-4 text-[14px] text-snow hover:bg-ink/90 active:scale-[0.96] transition-[background-color,transform]"
             >
               Partner with us
               <ArrowUpRight size={14} aria-hidden="true" />
@@ -274,7 +274,7 @@ export function Header() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className="lg:hidden w-10 h-10 rounded-full bg-ink text-snow flex items-center justify-center active:scale-[0.96] transition-transform"
+            className="lg:hidden w-10 h-10 rounded-full bg-primary text-snow flex items-center justify-center active:scale-[0.96] transition-transform"
           >
             <MenuToggleIcon open={open} className="w-[18px] h-[18px]" />
           </button>
@@ -338,7 +338,7 @@ function MegaContent({
             to={feature.href}
             className={cn(
               "group relative flex flex-col justify-between rounded-2xl p-5 overflow-hidden transition-colors",
-              feature.tone === "ink" && "bg-ink text-snow",
+              feature.tone === "ink" && "bg-primary text-snow",
               feature.tone === "sage" && "bg-sage text-ink",
               feature.tone === "snow" && "bg-canvas text-ink",
             )}
@@ -403,7 +403,7 @@ function ListItem({
               "mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg",
               "bg-canvas text-ink-muted ring-1 ring-ink/5",
               "transition-[background-color,color,transform,box-shadow] duration-300",
-              "group-hover:bg-ink group-hover:text-snow group-hover:-rotate-6 group-hover:scale-105",
+              "group-hover:bg-primary group-hover:text-snow group-hover:-rotate-6 group-hover:scale-105",
               "group-hover:shadow-[0_4px_12px_-4px_rgba(11,59,60,0.25)] group-hover:ring-transparent",
             )}
             style={{ transitionTimingFunction: "cubic-bezier(0.2, 0, 0, 1)" }}
@@ -478,7 +478,7 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
                             onClick={onClose}
                             className="group flex items-center gap-3 rounded-lg px-2 py-2.5 text-[14px] text-ink-muted hover:text-ink hover:bg-canvas active:scale-[0.98] transition-[background-color,color,transform]"
                           >
-                            <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-canvas text-ink-muted ring-1 ring-ink/5 group-hover:bg-ink group-hover:text-snow group-hover:ring-transparent transition-[background-color,color] duration-200">
+                            <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-canvas text-ink-muted ring-1 ring-ink/5 group-hover:bg-primary group-hover:text-snow group-hover:ring-transparent transition-[background-color,color] duration-200">
                               <ItemIcon size={14} aria-hidden="true" strokeWidth={1.75} />
                             </span>
                             <span className="flex-1">{item.label}</span>
@@ -518,7 +518,7 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
           <Link
             to="/partner/csr"
             onClick={onClose}
-            className="inline-flex h-12 items-center justify-center gap-1.5 rounded-full bg-ink text-snow text-[15px] font-medium active:scale-[0.98] transition-transform"
+            className="inline-flex h-12 items-center justify-center gap-1.5 rounded-full bg-primary text-snow text-[15px] font-medium active:scale-[0.98] transition-transform"
           >
             Partner with us
             <ArrowUpRight size={15} aria-hidden="true" />

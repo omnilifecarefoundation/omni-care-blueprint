@@ -157,7 +157,7 @@ function Page() {
       </section>
 
       {/* The Omni Care Model - pyramid, bottom-up */}
-      <section className="bg-ink text-snow">
+      <section className="bg-primary text-snow">
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-20 items-start">
             <div className="space-y-8 lg:sticky lg:top-24">

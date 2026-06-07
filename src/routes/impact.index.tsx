@@ -226,7 +226,7 @@ function Page() {
       </section>
 
       {/* First 100 days */}
-      <section className="bg-ink text-snow relative overflow-hidden">
+      <section className="bg-primary text-snow relative overflow-hidden">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-60"
