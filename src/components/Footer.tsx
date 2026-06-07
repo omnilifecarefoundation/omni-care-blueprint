@@ -59,7 +59,7 @@ function FooterLink({ to, children }: { to: string; children: React.ReactNode })
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-canvas mt-24 relative overflow-hidden">
+    <footer className="bg-ink text-canvas mt-24 relative overflow-hidden">
       {/* subtle top hairline accent */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-canvas/20 to-transparent" />
 
