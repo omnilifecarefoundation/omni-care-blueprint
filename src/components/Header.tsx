@@ -247,11 +247,12 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-2 pr-1">
             <Link
               to="/get-help"
-              className="group inline-flex h-9 items-center gap-1.5 rounded-full bg-ink px-4 text-[14px] font-medium text-snow hover:bg-coral hover:text-ink active:scale-[0.96] transition-[background-color,color,transform] duration-200"
+              className="group inline-flex h-9 items-center gap-1.5 rounded-full bg-primary px-4 text-[14px] font-medium text-primary-foreground hover:bg-[color:var(--primary-deep)] active:scale-[0.96] transition-[background-color,transform] duration-200 shadow-[0_1px_0_rgba(255,255,255,0.18)_inset,0_8px_22px_-10px_rgba(4,55,242,0.55)]"
             >
               Get Help
               <ArrowUpRight size={14} aria-hidden="true" className="transition-transform duration-300 group-hover:-rotate-45" />
             </Link>
+
 
             <Link
               to="/donate"
