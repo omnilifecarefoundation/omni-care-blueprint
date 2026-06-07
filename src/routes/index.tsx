@@ -61,7 +61,7 @@ function HomePage() {
    ============================================================ */
 function Hero() {
   return (
-    <section className="relative bg-ink text-snow overflow-hidden">
+    <section className="relative bg-primary text-snow overflow-hidden">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-60"
@@ -738,7 +738,7 @@ function PartnerBand() {
   ];
 
   return (
-    <section className="bg-ink text-snow">
+    <section className="bg-primary text-snow">
       <div className="container-editorial py-20 lg:py-28">
         <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-12">
           <FadeUp className="lg:col-span-7">
@@ -859,7 +859,7 @@ function Trust() {
    ============================================================ */
 function ClosingCTA() {
   return (
-    <section className="relative bg-ink text-snow overflow-hidden">
+    <section className="relative bg-primary text-snow overflow-hidden">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-60"
@@ -915,7 +915,7 @@ function Newsletter() {
       <div className="container-editorial py-16 lg:py-20">
         <FadeUp>
           <div
-            className="relative overflow-hidden rounded-3xl bg-ink text-snow px-6 sm:px-10 lg:px-14 py-12 lg:py-14 shadow-[0_1px_2px_rgba(11,59,60,0.06),0_30px_60px_-30px_rgba(4, 55, 242,0.45)]"
+            className="relative overflow-hidden rounded-3xl bg-primary text-snow px-6 sm:px-10 lg:px-14 py-12 lg:py-14 shadow-[0_1px_2px_rgba(11,59,60,0.06),0_30px_60px_-30px_rgba(4, 55, 242,0.45)]"
           >
             {/* atmospheric gradient */}
             <div

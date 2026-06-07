@@ -258,7 +258,7 @@ function Page() {
           </div>
 
           <FadeUp delay={200}>
-            <div className="mt-10 p-6 lg:p-8 rounded-xl bg-ink text-snow">
+            <div className="mt-10 p-6 lg:p-8 rounded-xl bg-primary text-snow">
               <h3 className="font-sans font-semibold text-lg tracking-[-0.01em] text-snow">
                 Quarterly updates in the meantime
               </h3>

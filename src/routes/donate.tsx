@@ -91,7 +91,7 @@ function Page() {
                         onClick={() => { setAmount(t.amount); setCustom(""); }}
                         className={`group relative h-14 rounded-xl border text-base font-semibold tabular-nums transition-[background-color,border-color,color,box-shadow] duration-200 ease-[cubic-bezier(0.2,0,0,1)] active:scale-[0.96] ${
                           active
-                            ? "bg-ink text-snow border-ink shadow-[0_1px_2px_rgba(4, 55, 242,0.10),0_10px_24px_-12px_rgba(4, 55, 242,0.35)]"
+                            ? "bg-ink text-snow border-ink shadow-[0_1px_2px_rgba(4,55,242,0.10),0_10px_24px_-12px_rgba(4,55,242,0.35)]"
                             : "bg-canvas text-ink border-hairline hover:border-ink-muted hover:bg-snow"
                         }`}
                         aria-pressed={active}
@@ -168,7 +168,7 @@ function Page() {
             {/* Live tier card */}
             <FadeUp delay={120}>
               <aside className="lg:sticky lg:top-24 space-y-5">
-                <div className="rounded-2xl bg-ink text-snow p-7 lg:p-8 overflow-hidden relative shadow-[0_24px_60px_-30px_rgba(4, 55, 242,0.45)]">
+                <div className="rounded-2xl bg-primary text-snow p-7 lg:p-8 overflow-hidden relative shadow-[0_24px_60px_-30px_rgba(4, 55, 242,0.45)]">
                   <div
                     aria-hidden="true"
                     className="pointer-events-none absolute inset-0 opacity-60"

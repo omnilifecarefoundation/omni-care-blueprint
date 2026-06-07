@@ -287,7 +287,7 @@ function Roadmap() {
    ============================================================ */
 function FoundersNote() {
   return (
-    <section className="bg-ink text-snow">
+    <section className="bg-primary text-snow">
       <div className="container-editorial py-20 lg:py-28">
         <div className="grid lg:grid-cols-12 gap-x-10 gap-y-8 items-start">
           <FadeUp className="lg:col-span-4">
