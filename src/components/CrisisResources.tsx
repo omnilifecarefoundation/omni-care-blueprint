@@ -123,7 +123,7 @@ export function CrisisResourcesBanner() {
 
 
       <DialogContent className="flex max-h-[88vh] w-[calc(100vw-0.75rem)] max-w-[42rem] flex-col gap-0 overflow-hidden rounded-[20px] border-hairline bg-snow p-0 shadow-lg sm:w-[calc(100vw-2rem)] [&>button]:hidden">
-        <div className="shrink-0 bg-primary px-4 pb-5 pt-4 text-snow sm:px-8 sm:pb-6 sm:pt-7">
+        <div className="shrink-0 bg-ink px-4 pb-5 pt-4 text-snow sm:px-8 sm:pb-6 sm:pt-7">
           <div className="flex items-start justify-between gap-4">
             <DialogHeader className="space-y-2 text-left">
               <p className="text-[11px] uppercase tracking-[0.18em] text-gold">

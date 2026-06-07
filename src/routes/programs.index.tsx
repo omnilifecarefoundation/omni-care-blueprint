@@ -466,7 +466,7 @@ function ProgrammeDialog({
               <Link
                 to="/partner/csr"
                 onClick={onClose}
-                className="group/cta inline-flex items-center justify-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-snow transition-[transform,background-color] duration-200 hover:bg-ink/90 active:scale-[0.98]"
+                className="group/cta inline-flex items-center justify-center gap-1.5 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-snow transition-[transform,background-color] duration-200 hover:bg-ink/90 active:scale-[0.98]"
               >
                 Partner on this programme
                 <ArrowUpRight

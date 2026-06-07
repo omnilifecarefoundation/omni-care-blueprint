@@ -91,7 +91,7 @@ function Page() {
                         onClick={() => { setAmount(t.amount); setCustom(""); }}
                         className={`group relative h-14 rounded-xl border text-base font-semibold tabular-nums transition-[background-color,border-color,color,box-shadow] duration-200 ease-[cubic-bezier(0.2,0,0,1)] active:scale-[0.96] ${
                           active
-                            ? "bg-primary text-snow border-ink shadow-[0_1px_2px_rgba(4, 55, 242,0.10),0_10px_24px_-12px_rgba(4, 55, 242,0.35)]"
+                            ? "bg-ink text-snow border-ink shadow-[0_1px_2px_rgba(4,55,242,0.10),0_10px_24px_-12px_rgba(4,55,242,0.35)]"
                             : "bg-canvas text-ink border-hairline hover:border-ink-muted hover:bg-snow"
                         }`}
                         aria-pressed={active}
@@ -133,7 +133,7 @@ function Page() {
                           type="button"
                           onClick={() => setFreq(o.v as "one" | "monthly")}
                           className={`h-10 px-5 rounded-full text-sm font-semibold transition-[background-color,color,box-shadow] duration-200 ease-[cubic-bezier(0.2,0,0,1)] active:scale-[0.96] ${
-                            active ? "bg-primary text-snow shadow-[0_1px_2px_rgba(4, 55, 242,0.08)]" : "text-ink-muted hover:text-ink"
+                            active ? "bg-ink text-snow shadow-[0_1px_2px_rgba(4, 55, 242,0.08)]" : "text-ink-muted hover:text-ink"
                           }`}
                           aria-pressed={active}
                         >
@@ -153,7 +153,7 @@ function Page() {
 
                 <button
                   type="submit"
-                  className="mt-8 w-full h-14 rounded-full bg-primary text-snow font-semibold text-base tracking-[-0.005em] transition-[background-color,box-shadow,transform] duration-200 ease-[cubic-bezier(0.2,0,0,1)] hover:bg-ink/90 active:scale-[0.985] shadow-[0_1px_2px_rgba(4, 55, 242,0.10),0_18px_40px_-18px_rgba(4, 55, 242,0.35)]"
+                  className="mt-8 w-full h-14 rounded-full bg-ink text-snow font-semibold text-base tracking-[-0.005em] transition-[background-color,box-shadow,transform] duration-200 ease-[cubic-bezier(0.2,0,0,1)] hover:bg-ink/90 active:scale-[0.985] shadow-[0_1px_2px_rgba(4, 55, 242,0.10),0_18px_40px_-18px_rgba(4, 55, 242,0.35)]"
                 >
                   Continue · ₹<span className="tabular-nums">{inr(effective)}</span>
                   {freq === "monthly" ? " / month" : ""}

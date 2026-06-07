@@ -63,7 +63,7 @@ export function MobileNav({ open, onClose }: Props) {
             type="button"
             onClick={onClose}
             aria-label="Close menu"
-            className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground active:scale-[0.96] transition-transform"
+            className="w-10 h-10 bg-ink rounded-full flex items-center justify-center text-primary-foreground active:scale-[0.96] transition-transform"
           >
             <X size={18} aria-hidden="true" />
           </button>

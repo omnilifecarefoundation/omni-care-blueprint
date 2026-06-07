@@ -26,7 +26,7 @@ type AsButton = CommonProps & {
 export type PillButtonProps = AsLink | AsAnchor | AsButton;
 
 const VARIANT_BG: Record<Variant, string> = {
-  primary: "bg-primary text-primary-foreground hover:bg-[#072A2B]",
+  primary: "bg-ink text-primary-foreground hover:bg-[#072A2B]",
   action: "bg-coral text-ink hover:bg-[#E6C000]",
   ghost: "bg-transparent text-snow border border-snow/30 hover:border-snow/70 hover:bg-snow/5",
   "on-dark":
@@ -35,9 +35,9 @@ const VARIANT_BG: Record<Variant, string> = {
 
 const VARIANT_CIRCLE: Record<Variant, string> = {
   primary: "bg-white text-primary",
-  action: "bg-primary text-coral",
+  action: "bg-ink text-coral",
   ghost: "bg-snow text-ink",
-  "on-dark": "bg-primary text-coral",
+  "on-dark": "bg-ink text-coral",
 };
 
 export function PillButton(props: PillButtonProps) {
