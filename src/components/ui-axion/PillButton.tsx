@@ -27,7 +27,8 @@ export type PillButtonProps = AsLink | AsAnchor | AsButton;
 
 const VARIANT_BG: Record<Variant, string> = {
   primary: "bg-ink text-primary-foreground hover:bg-coral hover:text-ink",
-  action: "bg-ink text-snow hover:bg-coral hover:text-ink",
+  action:
+    "bg-primary text-primary-foreground shadow-[0_1px_0_rgba(255,255,255,0.18)_inset,0_10px_28px_-12px_rgba(4,55,242,0.55)] hover:bg-[color:var(--primary-deep)] hover:shadow-[0_1px_0_rgba(255,255,255,0.22)_inset,0_14px_36px_-12px_rgba(4,55,242,0.7)]",
   ghost: "bg-transparent text-snow border border-snow/30 hover:border-snow/70 hover:bg-snow/5",
   "on-dark":
     "bg-ink text-snow shadow-[0_1px_0_rgba(255,255,255,0.08)_inset,0_10px_30px_-12px_rgba(0,0,0,0.55)] hover:bg-coral hover:text-ink hover:shadow-[0_1px_0_rgba(255,255,255,0.4)_inset,0_14px_36px_-12px_rgba(255,214,0,0.55)]",
@@ -35,7 +36,7 @@ const VARIANT_BG: Record<Variant, string> = {
 
 const VARIANT_CIRCLE: Record<Variant, string> = {
   primary: "bg-snow text-ink transition-colors group-hover:bg-ink group-hover:text-coral",
-  action: "bg-snow text-ink transition-colors group-hover:bg-ink group-hover:text-coral",
+  action: "bg-snow text-primary",
   ghost: "bg-snow text-ink",
   "on-dark": "bg-snow text-ink transition-colors group-hover:bg-ink group-hover:text-coral",
 };
