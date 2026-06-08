@@ -170,29 +170,33 @@ function NeedHelp() {
       slug: "mental-health",
       name: "Mental Health",
       body: "Counselling, emotional support, and referrals.",
-      Icon: Brain,
-      tint: "var(--pillar-mental)",
+      themeColor: "232 97% 49%",
+      image:
+        "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1200&q=80",
     },
     {
       slug: "elder-care",
       name: "Elder Care",
       body: "Support for ageing adults and caregivers.",
-      Icon: HandHeart,
-      tint: "var(--pillar-inclusive)",
+      themeColor: "333 84% 47%",
+      image:
+        "https://images.unsplash.com/photo-1581579186913-45ac3e6efe93?auto=format&fit=crop&w=1200&q=80",
     },
     {
       slug: "community-support",
       name: "Community Support",
       body: "Local resources, outreach, and assistance.",
-      Icon: Users,
-      tint: "var(--pillar-social)",
+      themeColor: "247 91% 66%",
+      image:
+        "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80",
     },
     {
       slug: "care-navigation",
       name: "Care Navigation",
       body: "Help finding the right services and next steps.",
-      Icon: Compass,
-      tint: "var(--pillar-human)",
+      themeColor: "232 97% 49%",
+      image:
+        "https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=1200&q=80",
     },
   ];
 
@@ -219,37 +223,14 @@ function NeedHelp() {
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
           {categories.map((c, i) => (
             <FadeUp key={c.slug} delay={i * 70} as="li">
-              <Link
-                to="/get-help"
-                hash={c.slug}
-                className="group relative flex h-full flex-col gap-4 overflow-hidden rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_18px_36px_-22px_rgba(4, 55, 242,0.28)] active:scale-[0.99]"
-              >
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 opacity-70 transition-opacity duration-500 ease-out group-hover:opacity-100"
-                  style={{
-                    background: `radial-gradient(120% 80% at 0% 0%, color-mix(in oklab, ${c.tint} 14%, transparent) 0%, transparent 55%), linear-gradient(180deg, color-mix(in oklab, ${c.tint} 6%, transparent) 0%, transparent 70%)`,
-                  }}
-                />
-                <div className="relative flex items-center justify-between">
-                  <span
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-canvas ring-1 ring-ink/5 transition-[background-color,color,transform] duration-300 group-hover:bg-ink group-hover:text-snow group-hover:-rotate-6 group-hover:ring-transparent"
-                    style={{ color: `color-mix(in oklab, ${c.tint} 75%, var(--ink))` }}
-                  >
-                    <c.Icon size={18} aria-hidden="true" strokeWidth={1.75} />
-                  </span>
-                </div>
-                <h3 className="relative font-sans font-semibold text-[1.125rem] leading-snug text-ink text-balance">
-                  {c.name}
-                </h3>
-                <p className="relative text-[14px] leading-relaxed text-ink-muted text-pretty">
-                  {c.body}
-                </p>
-                <span className="relative mt-auto inline-flex items-center gap-1.5 text-[13px] font-medium text-ink transition-transform duration-300 ease-out group-hover:translate-x-1">
-                  Start here{" "}
-                  <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-                </span>
-              </Link>
+              <DestinationCard
+                imageUrl={c.image}
+                location={c.name}
+                stats={c.body}
+                href={`/get-help#${c.slug}`}
+                themeColor={c.themeColor}
+                ctaLabel="Start here"
+              />
             </FadeUp>
           ))}
         </ul>
