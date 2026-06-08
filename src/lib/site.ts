@@ -50,6 +50,8 @@ export const PILLARS: Pillar[] = [
     color: "var(--pillar-mental)",
     bgClass: "bg-[var(--pillar-mental)]",
     textClass: "text-[var(--pillar-mental)]",
+    themeColor: "150 70% 36%",
+    sdg: "SDG 3 · Good Health",
   },
   {
     id: "social",
@@ -62,6 +64,8 @@ export const PILLARS: Pillar[] = [
     color: "var(--pillar-social)",
     bgClass: "bg-[var(--pillar-social)]",
     textClass: "text-[var(--pillar-social)]",
+    themeColor: "354 78% 48%",
+    sdg: "SDG 4 · Quality Education",
   },
   {
     id: "inclusive",
@@ -74,6 +78,8 @@ export const PILLARS: Pillar[] = [
     color: "var(--pillar-inclusive)",
     bgClass: "bg-[var(--pillar-inclusive)]",
     textClass: "text-[var(--pillar-inclusive)]",
+    themeColor: "333 84% 47%",
+    sdg: "SDG 5 · Gender Equality",
   },
   {
     id: "human",
@@ -86,6 +92,8 @@ export const PILLARS: Pillar[] = [
     color: "var(--pillar-human)",
     bgClass: "bg-[var(--pillar-human)]",
     textClass: "text-[var(--pillar-human)]",
+    themeColor: "232 97% 49%",
+    sdg: "SDG 8 · Decent Work",
   },
 ];
 
