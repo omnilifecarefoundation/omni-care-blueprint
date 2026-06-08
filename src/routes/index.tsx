@@ -304,45 +304,17 @@ function WhatWeDo() {
           </FadeUp>
         </div>
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 list-none p-0">
           {PILLARS.map((p, i) => (
             <FadeUp key={p.id} delay={i * 70} as="li">
-              <Link
-                to={p.href}
-                className="group relative flex h-full flex-col gap-4 overflow-hidden rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_18px_36px_-22px_rgba(4, 55, 242,0.28)] active:scale-[0.99]"
-              >
-                {/* Subtle pillar-tinted gradient wash */}
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 opacity-70 transition-opacity duration-500 ease-out group-hover:opacity-100"
-                  style={{
-                    background: `radial-gradient(120% 80% at 0% 0%, color-mix(in oklab, ${p.color} 14%, transparent) 0%, transparent 55%), linear-gradient(180deg, color-mix(in oklab, ${p.color} 6%, transparent) 0%, transparent 70%)`,
-                  }}
-                />
-                <div className="relative flex items-center justify-between">
-                  <span
-                    className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] tabular-nums"
-                    style={{ color: `color-mix(in oklab, ${p.color} 75%, var(--ink))` }}
-                  >
-                    <span
-                      className="h-1.5 w-1.5 rounded-full"
-                      style={{ backgroundColor: p.color }}
-                      aria-hidden="true"
-                    />
-                    {p.number}
-                  </span>
-                </div>
-                <h3 className="relative font-sans font-semibold text-[1.25rem] leading-snug text-ink text-balance">
-                  {p.name}
-                </h3>
-                <p className="relative text-[14px] leading-relaxed text-ink-muted text-pretty">
-                  {p.description}
-                </p>
-                <span className="relative mt-auto inline-flex items-center gap-1.5 text-[13px] font-medium text-ink transition-transform duration-300 ease-out group-hover:translate-x-1">
-                  Learn more{" "}
-                  <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-                </span>
-              </Link>
+              <PillarCard
+                number={p.number}
+                name={p.name}
+                description={p.description}
+                href={p.href}
+                themeColor={p.themeColor}
+                sdg={p.sdg}
+              />
             </FadeUp>
           ))}
         </ul>
