@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Brain, HandHeart, Users, Compass, Phone, Mail } from "lucide-react";
+import { Brain, HandHeart, Users, Compass, Phone, Mail } from "lucide-react";
 import { FadeUp } from "@/components/FadeUp";
 import { PillButton } from "@/components/ui-axion/PillButton";
+import { DestinationCard } from "@/components/ui/card-21";
 import { SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/get-help")({
@@ -31,6 +32,9 @@ const TOPICS = [
     body: "Counselling, emotional support, and referrals.",
     Icon: Brain,
     tint: "var(--pillar-mental)",
+    themeColor: "232 97% 49%", // brand blue for legibility on yellow pillar
+    image:
+      "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1200&q=80",
   },
   {
     slug: "elder-care",
@@ -38,6 +42,9 @@ const TOPICS = [
     body: "Support for ageing adults and caregivers.",
     Icon: HandHeart,
     tint: "var(--pillar-inclusive)",
+    themeColor: "333 84% 47%",
+    image:
+      "https://images.unsplash.com/photo-1581579186913-45ac3e6efe93?auto=format&fit=crop&w=1200&q=80",
   },
   {
     slug: "community-support",
@@ -45,6 +52,9 @@ const TOPICS = [
     body: "Local resources, outreach, and assistance.",
     Icon: Users,
     tint: "var(--pillar-social)",
+    themeColor: "247 91% 66%",
+    image:
+      "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80",
   },
   {
     slug: "care-navigation",
@@ -52,6 +62,9 @@ const TOPICS = [
     body: "Help finding the right services and next steps.",
     Icon: Compass,
     tint: "var(--pillar-human)",
+    themeColor: "232 97% 49%",
+    image:
+      "https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=1200&q=80",
   },
 ];
 
@@ -104,39 +117,19 @@ function GetHelpPage() {
               <em className="font-serif italic font-medium">Not sure? Any of them is fine.</em>
             </h2>
           </FadeUp>
-          <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
+          <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
             {TOPICS.map((t, i) => (
               <FadeUp key={t.slug} delay={i * 70} as="li">
-                <a
-                  id={t.slug}
-                  href="#intake"
-                  className="group relative flex h-full items-start gap-5 overflow-hidden rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_18px_36px_-22px_rgba(4, 55, 242,0.28)] active:scale-[0.99]"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 opacity-70 transition-opacity duration-500 ease-out group-hover:opacity-100"
-                    style={{
-                      background: `radial-gradient(120% 80% at 0% 0%, color-mix(in oklab, ${t.tint} 14%, transparent) 0%, transparent 55%)`,
-                    }}
+                <div id={t.slug} className="h-full scroll-mt-24">
+                  <DestinationCard
+                    imageUrl={t.image}
+                    location={t.name}
+                    stats={t.body}
+                    href="#intake"
+                    themeColor={t.themeColor}
+                    ctaLabel="Start here"
                   />
-                  <span
-                    className="relative mt-0.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-canvas ring-1 ring-ink/5 transition-[background-color,color,transform] duration-300 group-hover:bg-ink group-hover:text-snow group-hover:-rotate-6 group-hover:ring-transparent"
-                    style={{ color: `color-mix(in oklab, ${t.tint} 75%, var(--ink))` }}
-                  >
-                    <t.Icon size={20} aria-hidden="true" strokeWidth={1.75} />
-                  </span>
-                  <span className="relative min-w-0 flex-1">
-                    <span className="block font-sans font-semibold text-[1.125rem] leading-snug text-ink">
-                      {t.name}
-                    </span>
-                    <span className="mt-1 block text-[14px] leading-relaxed text-ink-muted text-pretty">
-                      {t.body}
-                    </span>
-                    <span className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-medium text-ink transition-transform duration-300 ease-out group-hover:translate-x-1">
-                      Start here <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-                    </span>
-                  </span>
-                </a>
+                </div>
               </FadeUp>
             ))}
           </ul>
