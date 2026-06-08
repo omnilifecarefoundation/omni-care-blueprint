@@ -119,15 +119,17 @@ function GetHelpPage() {
           </FadeUp>
           <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
             {TOPICS.map((t, i) => (
-              <FadeUp key={t.slug} delay={i * 70} as="li" id={t.slug}>
-                <DestinationCard
-                  imageUrl={t.image}
-                  location={t.name}
-                  stats={t.body}
-                  href="#intake"
-                  themeColor={t.themeColor}
-                  ctaLabel="Start here"
-                />
+              <FadeUp key={t.slug} delay={i * 70} as="li">
+                <div id={t.slug} className="h-full scroll-mt-24">
+                  <DestinationCard
+                    imageUrl={t.image}
+                    location={t.name}
+                    stats={t.body}
+                    href="#intake"
+                    themeColor={t.themeColor}
+                    ctaLabel="Start here"
+                  />
+                </div>
               </FadeUp>
             ))}
           </ul>
