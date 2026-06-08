@@ -71,7 +71,7 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
 
           {/* Content */}
           <div className="absolute inset-x-0 bottom-0 p-6 lg:p-7 text-snow">
-            <h3 className="font-sans font-semibold text-[1.35rem] leading-tight tracking-[-0.01em] text-balance">
+            <h3 className="font-sans font-semibold text-[1.35rem] leading-tight tracking-[-0.01em] text-snow text-balance">
               {location} {flag ? <span aria-hidden="true">{flag}</span> : null}
             </h3>
             <p className="mt-2 text-[14px] leading-relaxed text-snow/85 text-pretty">
