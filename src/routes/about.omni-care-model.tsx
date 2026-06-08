@@ -104,34 +104,18 @@ function Page() {
             </FadeUp>
           </div>
 
-          <ul className="grid md:grid-cols-2 gap-4 lg:gap-5 list-none p-0">
+          <ul className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 list-none p-0">
             {PILLARS.map((p, i) => (
               <FadeUp key={p.id} as="li" delay={i * 70}>
-                <Link
-                  to={p.href}
-                  className="group relative flex h-full flex-col gap-4 rounded-2xl bg-snow border border-hairline p-6 lg:p-7 shadow-[0_1px_2px_rgba(4, 55, 242,0.04)] transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-1 hover:border-ink/30 hover:shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_12px_28px_-20px_rgba(4, 55, 242,0.22)] active:scale-[0.995]"
-                >
-                  <span
-                    className="h-1.5 w-10 rounded-full transition-[width] duration-300 ease-out group-hover:w-16"
-                    style={{ backgroundColor: p.color }}
-                    aria-hidden="true"
-                  />
-                  <div className="flex items-baseline gap-3">
-                    <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted tabular-nums">
-                      {p.number}
-                    </span>
-                    <h3 className="font-sans font-semibold text-[1.25rem] leading-snug text-ink text-balance">
-                      {p.name}
-                    </h3>
-                  </div>
-                  <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
-                    {p.long}
-                  </p>
-                  <span className="mt-auto inline-flex items-center gap-1.5 text-[13px] font-medium text-ink transition-transform duration-300 ease-out group-hover:translate-x-1">
-                    Explore pillar
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
-                </Link>
+                <PillarCard
+                  number={p.number}
+                  name={p.name}
+                  description={p.long}
+                  href={p.href}
+                  themeColor={p.themeColor}
+                  sdg={p.sdg}
+                  ctaLabel="Explore pillar"
+                />
               </FadeUp>
             ))}
           </ul>
