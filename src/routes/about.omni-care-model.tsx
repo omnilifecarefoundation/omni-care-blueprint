@@ -5,7 +5,7 @@ import { OmniCareDiagram } from "@/components/OmniCareDiagram";
 import { FadeUp } from "@/components/FadeUp";
 import { PillButton } from "@/components/ui-axion/PillButton";
 import { PILLARS } from "@/lib/site";
-import { ArrowRight } from "lucide-react";
+
 
 export const Route = createFileRoute("/about/omni-care-model")({
   head: () => ({
