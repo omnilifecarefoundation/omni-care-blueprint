@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
+import { PillarCard } from "@/components/PillarCard";
 import { OmniCareDiagram } from "@/components/OmniCareDiagram";
 import { FadeUp } from "@/components/FadeUp";
 import { PillButton } from "@/components/ui-axion/PillButton";
