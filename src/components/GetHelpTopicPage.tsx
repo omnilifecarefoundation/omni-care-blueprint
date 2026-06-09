@@ -75,7 +75,7 @@ export function GetHelpTopicPage({ topic }: { topic: GetHelpTopic }) {
                 {topic.lead}
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <PillButton to="/get-help" hash="intake" variant="on-dark">
+                <PillButton to="/get-help#intake" variant="on-dark">
                   Write to our team
                 </PillButton>
                 <a
