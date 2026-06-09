@@ -125,9 +125,9 @@ function GetHelpPage() {
                     imageUrl={t.image}
                     location={t.name}
                     stats={t.body}
-                    href="#intake"
+                    href={`/get-help/${t.slug}`}
                     themeColor={t.themeColor}
-                    ctaLabel="Start here"
+                    ctaLabel="Explore"
                   />
                 </div>
               </FadeUp>
