@@ -242,7 +242,6 @@ export const NAV: Array<{ label: string; href: string }> = [
   { label: "What We Do", href: "/what-we-do" },
   { label: "Programmes", href: "/programs" },
   { label: "Impact", href: "/impact" },
-  { label: "Get Help", href: "/get-help" },
   { label: "Get Involved", href: "/get-involved" },
   { label: "Newsroom", href: "/newsroom" },
 ];
@@ -374,30 +373,6 @@ export const MEGA_NAV: MegaSection[] = [
       href: "/impact",
       cta: "Read the ledger",
       tone: "ink",
-    },
-  },
-  {
-    key: "get-help",
-    label: "Get Help",
-    href: "/get-help",
-    blurb: "Four ways our team can help — pick whichever is closest.",
-    columns: [
-      {
-        items: [
-          { label: "Mental Health", href: "/get-help/mental-health", description: "A trained listener within two working days." },
-          { label: "Elder Care", href: "/get-help/elder-care", description: "Home visit, written care plan, monthly check-in." },
-          { label: "Community Support", href: "/get-help/community-support", description: "A local, verified resource list — in your language." },
-          { label: "Care Navigation", href: "/get-help/care-navigation", description: "One named navigator from first call to first appointment." },
-        ],
-      },
-    ],
-    feature: {
-      eyebrow: "Not sure where to start?",
-      title: "One paragraph is enough",
-      body: "Write to our care team. A real person reads it and replies within two working days.",
-      href: "/get-help",
-      cta: "Start a conversation",
-      tone: "sage",
     },
   },
   {

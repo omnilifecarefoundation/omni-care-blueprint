@@ -228,9 +228,9 @@ function NeedHelp() {
                 imageUrl={c.image}
                 location={c.name}
                 stats={c.body}
-                href={`/get-help/${c.slug}`}
+                href={`/get-help#${c.slug}`}
                 themeColor={c.themeColor}
-                ctaLabel="Explore"
+                ctaLabel="Start here"
               />
             </FadeUp>
           ))}

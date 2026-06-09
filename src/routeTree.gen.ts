@@ -45,7 +45,6 @@ import { Route as ProgramsSlugRouteImport } from './routes/programs.$slug'
 import { Route as PartnerCsrRouteImport } from './routes/partner.csr'
 import { Route as ImpactStoriesRouteImport } from './routes/impact.stories'
 import { Route as GetInvolvedVolunteerRouteImport } from './routes/get-involved.volunteer'
-import { Route as GetHelpTopicRouteImport } from './routes/get-help.$topic'
 import { Route as AboutVisionMissionRouteImport } from './routes/about.vision-mission'
 import { Route as AboutValuesRouteImport } from './routes/about.values'
 import { Route as AboutOurStoryRouteImport } from './routes/about.our-story'
@@ -241,11 +240,6 @@ const GetInvolvedVolunteerRoute = GetInvolvedVolunteerRouteImport.update({
   path: '/get-involved/volunteer',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GetHelpTopicRoute = GetHelpTopicRouteImport.update({
-  id: '/$topic',
-  path: '/$topic',
-  getParentRoute: () => GetHelpRoute,
-} as any)
 const AboutVisionMissionRoute = AboutVisionMissionRouteImport.update({
   id: '/about/vision-mission',
   path: '/about/vision-mission',
@@ -289,7 +283,7 @@ export interface FileRoutesByFullPath {
   '/design-ui-inspo': typeof DesignUiInspoRoute
   '/donate': typeof DonateRoute
   '/donation-policy': typeof DonationPolicyRoute
-  '/get-help': typeof GetHelpRouteWithChildren
+  '/get-help': typeof GetHelpRoute
   '/newsroom': typeof NewsroomRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/safeguarding-policy': typeof SafeguardingPolicyRoute
@@ -303,7 +297,6 @@ export interface FileRoutesByFullPath {
   '/about/our-story': typeof AboutOurStoryRoute
   '/about/values': typeof AboutValuesRoute
   '/about/vision-mission': typeof AboutVisionMissionRoute
-  '/get-help/$topic': typeof GetHelpTopicRoute
   '/get-involved/volunteer': typeof GetInvolvedVolunteerRoute
   '/impact/stories': typeof ImpactStoriesRoute
   '/partner/csr': typeof PartnerCsrRoute
@@ -335,7 +328,7 @@ export interface FileRoutesByTo {
   '/design-ui-inspo': typeof DesignUiInspoRoute
   '/donate': typeof DonateRoute
   '/donation-policy': typeof DonationPolicyRoute
-  '/get-help': typeof GetHelpRouteWithChildren
+  '/get-help': typeof GetHelpRoute
   '/newsroom': typeof NewsroomRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/safeguarding-policy': typeof SafeguardingPolicyRoute
@@ -349,7 +342,6 @@ export interface FileRoutesByTo {
   '/about/our-story': typeof AboutOurStoryRoute
   '/about/values': typeof AboutValuesRoute
   '/about/vision-mission': typeof AboutVisionMissionRoute
-  '/get-help/$topic': typeof GetHelpTopicRoute
   '/get-involved/volunteer': typeof GetInvolvedVolunteerRoute
   '/impact/stories': typeof ImpactStoriesRoute
   '/partner/csr': typeof PartnerCsrRoute
@@ -382,7 +374,7 @@ export interface FileRoutesById {
   '/design-ui-inspo': typeof DesignUiInspoRoute
   '/donate': typeof DonateRoute
   '/donation-policy': typeof DonationPolicyRoute
-  '/get-help': typeof GetHelpRouteWithChildren
+  '/get-help': typeof GetHelpRoute
   '/newsroom': typeof NewsroomRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/safeguarding-policy': typeof SafeguardingPolicyRoute
@@ -396,7 +388,6 @@ export interface FileRoutesById {
   '/about/our-story': typeof AboutOurStoryRoute
   '/about/values': typeof AboutValuesRoute
   '/about/vision-mission': typeof AboutVisionMissionRoute
-  '/get-help/$topic': typeof GetHelpTopicRoute
   '/get-involved/volunteer': typeof GetInvolvedVolunteerRoute
   '/impact/stories': typeof ImpactStoriesRoute
   '/partner/csr': typeof PartnerCsrRoute
@@ -444,7 +435,6 @@ export interface FileRouteTypes {
     | '/about/our-story'
     | '/about/values'
     | '/about/vision-mission'
-    | '/get-help/$topic'
     | '/get-involved/volunteer'
     | '/impact/stories'
     | '/partner/csr'
@@ -490,7 +480,6 @@ export interface FileRouteTypes {
     | '/about/our-story'
     | '/about/values'
     | '/about/vision-mission'
-    | '/get-help/$topic'
     | '/get-involved/volunteer'
     | '/impact/stories'
     | '/partner/csr'
@@ -536,7 +525,6 @@ export interface FileRouteTypes {
     | '/about/our-story'
     | '/about/values'
     | '/about/vision-mission'
-    | '/get-help/$topic'
     | '/get-involved/volunteer'
     | '/impact/stories'
     | '/partner/csr'
@@ -569,7 +557,7 @@ export interface RootRouteChildren {
   DesignUiInspoRoute: typeof DesignUiInspoRoute
   DonateRoute: typeof DonateRoute
   DonationPolicyRoute: typeof DonationPolicyRoute
-  GetHelpRoute: typeof GetHelpRouteWithChildren
+  GetHelpRoute: typeof GetHelpRoute
   NewsroomRoute: typeof NewsroomRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SafeguardingPolicyRoute: typeof SafeguardingPolicyRoute
@@ -862,13 +850,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GetInvolvedVolunteerRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/get-help/$topic': {
-      id: '/get-help/$topic'
-      path: '/$topic'
-      fullPath: '/get-help/$topic'
-      preLoaderRoute: typeof GetHelpTopicRouteImport
-      parentRoute: typeof GetHelpRoute
-    }
     '/about/vision-mission': {
       id: '/about/vision-mission'
       path: '/about/vision-mission'
@@ -921,17 +902,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface GetHelpRouteChildren {
-  GetHelpTopicRoute: typeof GetHelpTopicRoute
-}
-
-const GetHelpRouteChildren: GetHelpRouteChildren = {
-  GetHelpTopicRoute: GetHelpTopicRoute,
-}
-
-const GetHelpRouteWithChildren =
-  GetHelpRoute._addFileChildren(GetHelpRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccessibilityRoute: AccessibilityRoute,
@@ -939,7 +909,7 @@ const rootRouteChildren: RootRouteChildren = {
   DesignUiInspoRoute: DesignUiInspoRoute,
   DonateRoute: DonateRoute,
   DonationPolicyRoute: DonationPolicyRoute,
-  GetHelpRoute: GetHelpRouteWithChildren,
+  GetHelpRoute: GetHelpRoute,
   NewsroomRoute: NewsroomRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   SafeguardingPolicyRoute: SafeguardingPolicyRoute,
