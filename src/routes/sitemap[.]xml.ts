@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { PROGRAMS, PILLARS } from "@/lib/site";
+import { TOPICS } from "@/lib/get-help-topics";
 
 // TODO: replace with your project URL once a custom domain is set.
 const BASE_URL = "";
@@ -54,7 +55,16 @@ export const Route = createFileRoute("/sitemap.xml")({
           priority: "0.7",
         }));
 
-        const entries = [...staticPaths, ...pillarPaths, ...programPaths];
+        const getHelpPaths: SitemapEntry[] = [
+          { path: "/get-help", changefreq: "monthly", priority: "0.9" },
+          ...TOPICS.map((t) => ({
+            path: `/get-help/${t.slug}`,
+            changefreq: "monthly" as const,
+            priority: "0.8",
+          })),
+        ];
+
+        const entries = [...staticPaths, ...pillarPaths, ...programPaths, ...getHelpPaths];
 
         const urls = entries.map((e) =>
           [
