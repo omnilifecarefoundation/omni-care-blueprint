@@ -70,6 +70,22 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
             }}
           />
 
+          {/* Top chrome: pillar number + SDG chip */}
+          {(eyebrow || number) && (
+            <div className="absolute inset-x-0 top-0 z-10 flex items-start justify-between p-5 lg:p-6">
+              {number ? (
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] tabular-nums text-snow/90 drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
+                  {number}
+                </span>
+              ) : <span />}
+              {eyebrow ? (
+                <span className="rounded-full border border-snow/40 bg-ink/30 px-2.5 py-0.5 text-[9.5px] uppercase tracking-[0.14em] text-snow backdrop-blur-md">
+                  {eyebrow}
+                </span>
+              ) : null}
+            </div>
+          )}
+
           {/* Aspect ratio spacer */}
           <div className="aspect-[4/5] sm:aspect-[3/4]" />
 
