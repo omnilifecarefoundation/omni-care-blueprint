@@ -1,7 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { DestinationCard } from "@/components/ui/card-21";
-import { PillarCard } from "@/components/PillarCard";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import heroImg from "@/assets/hero-community.jpg";
 import { PROGRAMS, PILLARS } from "@/lib/site";
 import { FadeUp } from "@/components/FadeUp";
