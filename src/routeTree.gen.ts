@@ -52,6 +52,7 @@ import { Route as AboutOmniCareModelRouteImport } from './routes/about.omni-care
 import { Route as AboutLeadershipRouteImport } from './routes/about.leadership'
 import { Route as AboutComplianceRouteImport } from './routes/about.compliance'
 import { Route as AboutCareersRouteImport } from './routes/about.careers'
+import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -275,6 +276,12 @@ const AboutCareersRoute = AboutCareersRouteImport.update({
   path: '/about/careers',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LovableEmailQueueProcessRoute =
+  LovableEmailQueueProcessRouteImport.update({
+    id: '/lovable/email/queue/process',
+    path: '/lovable/email/queue/process',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -320,6 +327,7 @@ export interface FileRoutesByFullPath {
   '/impact/': typeof ImpactIndexRoute
   '/programs/': typeof ProgramsIndexRoute
   '/what-we-do/': typeof WhatWeDoIndexRoute
+  '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -365,6 +373,7 @@ export interface FileRoutesByTo {
   '/impact': typeof ImpactIndexRoute
   '/programs': typeof ProgramsIndexRoute
   '/what-we-do': typeof WhatWeDoIndexRoute
+  '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -411,6 +420,7 @@ export interface FileRoutesById {
   '/impact/': typeof ImpactIndexRoute
   '/programs/': typeof ProgramsIndexRoute
   '/what-we-do/': typeof WhatWeDoIndexRoute
+  '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -458,6 +468,7 @@ export interface FileRouteTypes {
     | '/impact/'
     | '/programs/'
     | '/what-we-do/'
+    | '/lovable/email/queue/process'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -503,6 +514,7 @@ export interface FileRouteTypes {
     | '/impact'
     | '/programs'
     | '/what-we-do'
+    | '/lovable/email/queue/process'
   id:
     | '__root__'
     | '/'
@@ -548,6 +560,7 @@ export interface FileRouteTypes {
     | '/impact/'
     | '/programs/'
     | '/what-we-do/'
+    | '/lovable/email/queue/process'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -594,6 +607,7 @@ export interface RootRouteChildren {
   ImpactIndexRoute: typeof ImpactIndexRoute
   ProgramsIndexRoute: typeof ProgramsIndexRoute
   WhatWeDoIndexRoute: typeof WhatWeDoIndexRoute
+  LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -899,6 +913,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutCareersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lovable/email/queue/process': {
+      id: '/lovable/email/queue/process'
+      path: '/lovable/email/queue/process'
+      fullPath: '/lovable/email/queue/process'
+      preLoaderRoute: typeof LovableEmailQueueProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -946,6 +967,7 @@ const rootRouteChildren: RootRouteChildren = {
   ImpactIndexRoute: ImpactIndexRoute,
   ProgramsIndexRoute: ProgramsIndexRoute,
   WhatWeDoIndexRoute: WhatWeDoIndexRoute,
+  LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
