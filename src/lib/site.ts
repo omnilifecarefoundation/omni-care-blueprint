@@ -69,6 +69,8 @@ export const PILLARS: Pillar[] = [
     textClass: "text-[var(--pillar-social)]",
     themeColor: "354 78% 48%",
     sdg: "SDG 4 · Quality Education",
+    image:
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1400&q=80",
   },
   {
     id: "inclusive",
