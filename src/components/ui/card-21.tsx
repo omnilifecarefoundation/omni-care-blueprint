@@ -25,6 +25,8 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
       href,
       themeColor,
       ctaLabel = "Explore Now",
+      eyebrow,
+      number,
       ...props
     },
     ref,
