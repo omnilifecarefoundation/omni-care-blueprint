@@ -4,13 +4,13 @@ import { ProgrammePage, type ProgrammePageData } from "@/components/ProgrammePag
 export const Route = createFileRoute("/programs/chw-development")({
   head: () => ({
     meta: [
-      { title: "Community Health Worker Development — Omni Life Care Foundation" },
+      { title: "Community Health Worker Development - Omni Life Care Foundation" },
       {
         name: "description",
         content:
           "Recruit, certify, and place adults from the community as paid frontline health workers. A livelihood for the worker, a trusted neighbour for the household, capacity for the public health system.",
       },
-      { property: "og:title", content: "Community Health Worker Development — Omni Life Care Foundation" },
+      { property: "og:title", content: "Community Health Worker Development - Omni Life Care Foundation" },
       {
         property: "og:description",
         content:
@@ -29,7 +29,7 @@ const data: ProgrammePageData = {
   headlineLead: "A paid livelihood, a trusted neighbour,",
   headlineEm: "a stronger primary health centre.",
   lead:
-    "India runs the largest community health workforce in the world — roughly ten lakh ASHAs alone — and still falls short of the WHO estimate of 1.8 million additional health workers needed by 2030. This programme is one answer to that gap: recruit from the community, certify on a structured course, and place into paid frontline roles.",
+    "India runs the largest community health workforce in the world - roughly ten lakh ASHAs alone - and still falls short of the WHO estimate of 1.8 million additional health workers needed by 2030. This programme is one answer to that gap: recruit from the community, certify on a structured course, and place into paid frontline roles.",
   primary: { label: "Partner on CSR", href: "/partner/csr" },
   secondary: { label: "Volunteer with us", href: "/get-involved/volunteer" },
 
@@ -37,7 +37,7 @@ const data: ProgrammePageData = {
   editorialParagraphs: [
     "A health worker who is also a neighbour does work no outside professional can: they are trusted at the doorstep, they speak the household language without translation, and they stay in the system for years rather than rotating out after a short posting.",
     "But the pathway from interest to certification to a paid role is rarely written down. Most community members never see it. We write it down, then walk people through it.",
-    "Recruitment, training, supervised field work, certification, and active placement into a paid public-health or NGO role — one programme, one cohort, one accountable timeline.",
+    "Recruitment, training, supervised field work, certification, and active placement into a paid public-health or NGO role - one programme, one cohort, one accountable timeline.",
   ],
 
   commitmentsEyebrow: "Four working commitments",
@@ -63,7 +63,7 @@ const data: ProgrammePageData = {
     },
     {
       n: "04",
-      title: "Place into a paid role — actively, not passively",
+      title: "Place into a paid role - actively, not passively",
       body:
         "We do not run a programme that ends at certification. We have written employer MoUs and we walk graduates into interviews. Placement and 6-month retention are the metrics that matter.",
     },
@@ -115,17 +115,17 @@ const data: ProgrammePageData = {
       when: "Q2 FY 2027",
       title: "First placement ledger",
       body:
-        "Recruits selected, certified, placed, and retained at six months — broken out by employer, role, and gender. Honest write-up of recruits who did not complete or did not get placed.",
+        "Recruits selected, certified, placed, and retained at six months - broken out by employer, role, and gender. Honest write-up of recruits who did not complete or did not get placed.",
     },
   ],
 
   partnershipsEyebrow: "Who we want to work with",
   partnershipsTitle: "Employers, supervisors, community organisations, and CSR partners who fund the long arc.",
   partnershipsParagraphs: [
-    "We are looking for public health systems — PHCs, urban health units, District Mental Health Programme cells — willing to interview and absorb certified community health workers into existing roles.",
+    "We are looking for public health systems - PHCs, urban health units, District Mental Health Programme cells - willing to interview and absorb certified community health workers into existing roles.",
     "We are looking for NGO partners running community health, women's health, or disability work who need a steady pipeline of well-prepared paid workers.",
     "We are looking for senior community health workers, ANMs, and nurses willing to act as field supervisors during the first 90 days post-certification.",
-    "And we are looking for CSR partners who understand that the cost of producing a placed and retained community health worker is higher than the cost of a training certificate — and far more useful.",
+    "And we are looking for CSR partners who understand that the cost of producing a placed and retained community health worker is higher than the cost of a training certificate - and far more useful.",
   ],
   partnershipsLink: { label: "Talk to the workforce team", href: "/contact" },
 

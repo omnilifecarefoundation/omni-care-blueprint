@@ -4,13 +4,13 @@ import { ProgrammePage, type ProgrammePageData } from "@/components/ProgrammePag
 export const Route = createFileRoute("/programs/disability-elderly-care")({
   head: () => ({
     meta: [
-      { title: "Disability Inclusion & Elderly Support — Omni Life Care Foundation" },
+      { title: "Disability Inclusion & Elderly Support - Omni Life Care Foundation" },
       {
         name: "description",
         content:
-          "Home-based care, assistive devices, caregiver training, and entitlement linkage for persons with disability and older adults — the people clinic hours were never written for.",
+          "Home-based care, assistive devices, caregiver training, and entitlement linkage for persons with disability and older adults - the people clinic hours were never written for.",
       },
-      { property: "og:title", content: "Disability Inclusion & Elderly Support — Omni Life Care Foundation" },
+      { property: "og:title", content: "Disability Inclusion & Elderly Support - Omni Life Care Foundation" },
       {
         property: "og:description",
         content:
@@ -53,7 +53,7 @@ const data: ProgrammePageData = {
       n: "02",
       title: "Assistive devices, fitted at home",
       body:
-        "Mobility aids, hearing aids, spectacles, low-cost adaptive equipment — sourced through partners and fitted in the home, not handed out at a camp. We follow up at 30 days to check the device is actually being used.",
+        "Mobility aids, hearing aids, spectacles, low-cost adaptive equipment - sourced through partners and fitted in the home, not handed out at a camp. We follow up at 30 days to check the device is actually being used.",
     },
     {
       n: "03",
@@ -65,7 +65,7 @@ const data: ProgrammePageData = {
       n: "04",
       title: "Entitlement linkage you can verify",
       body:
-        "Disability certificate (UDID), disability pension, Niramaya health insurance, Rashtriya Vayoshri Yojana, widow pension where applicable. We do not advertise the schemes — we walk the household through the paperwork until the benefit lands.",
+        "Disability certificate (UDID), disability pension, Niramaya health insurance, Rashtriya Vayoshri Yojana, widow pension where applicable. We do not advertise the schemes - we walk the household through the paperwork until the benefit lands.",
     },
   ],
 
@@ -74,7 +74,7 @@ const data: ProgrammePageData = {
   methods: [
     {
       label: "WHODAS 2.0 for function",
-      body: "Functional assessment at enrolment and annually thereafter. The same instrument used by district hospitals and academic researchers — no bespoke scoring.",
+      body: "Functional assessment at enrolment and annually thereafter. The same instrument used by district hospitals and academic researchers - no bespoke scoring.",
     },
     {
       label: "Mini-Cog and PHQ-9 for elders",
@@ -82,7 +82,7 @@ const data: ProgrammePageData = {
     },
     {
       label: "Caregiver burden index",
-      body: "Zarit Burden Interview (short form) every six months. We track the caregiver as carefully as the patient — burnout is the single largest cause of programme drop-off.",
+      body: "Zarit Burden Interview (short form) every six months. We track the caregiver as carefully as the patient - burnout is the single largest cause of programme drop-off.",
     },
     {
       label: "Entitlement tracker",
@@ -91,7 +91,7 @@ const data: ProgrammePageData = {
   ],
 
   timelineEyebrow: "First eighteen months",
-  timelineTitle: "How we open this programme — one ward, one cohort, on purpose.",
+  timelineTitle: "How we open this programme - one ward, one cohort, on purpose.",
   timeline: [
     {
       when: "Q3 FY 2026",
@@ -122,8 +122,8 @@ const data: ProgrammePageData = {
   partnershipsEyebrow: "Who we want to work with",
   partnershipsTitle: "Geriatricians, rehab specialists, disability rights groups, and entitlement-system partners.",
   partnershipsParagraphs: [
-    "We are looking for geriatricians and rehabilitation specialists willing to act as clinical mentors — one session a month is enough to keep the case load safe.",
-    "We are looking for disability-led organisations to co-design our work with persons with disability — we will not design care for, only with.",
+    "We are looking for geriatricians and rehabilitation specialists willing to act as clinical mentors - one session a month is enough to keep the case load safe.",
+    "We are looking for disability-led organisations to co-design our work with persons with disability - we will not design care for, only with.",
     "We are looking for partners who can move on the entitlement side: district social welfare officers, UDID enrolment camps, and CSR teams who will sponsor specific device cohorts (wheelchairs, hearing aids, spectacles).",
   ],
   partnershipsLink: { label: "Talk to the programme team", href: "/contact" },

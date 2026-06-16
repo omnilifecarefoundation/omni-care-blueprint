@@ -4,13 +4,13 @@ import { ProgrammePage, type ProgrammePageData } from "@/components/ProgrammePag
 export const Route = createFileRoute("/programs/training-capacity-building")({
   head: () => ({
     meta: [
-      { title: "Training & Capacity Building — Omni Life Care Foundation" },
+      { title: "Training & Capacity Building - Omni Life Care Foundation" },
       {
         name: "description",
         content:
           "Open-source curricula, certified frontline workers, and mentoring for partner NGOs. We publish what we teach so the sector can build on it.",
       },
-      { property: "og:title", content: "Training & Capacity Building — Omni Life Care Foundation" },
+      { property: "og:title", content: "Training & Capacity Building - Omni Life Care Foundation" },
       {
         property: "og:description",
         content:
@@ -29,19 +29,19 @@ const data: ProgrammePageData = {
   headlineLead: "Publish the curriculum. Certify the worker.",
   headlineEm: "Pay her properly.",
   lead:
-    "The Indian community-health sector spends crores on training every year. Most of it walks out of the room with the trainer. This programme treats curriculum as public infrastructure — written, version-controlled, openly licensed, and used to certify workers who are paid for the job we trained them for.",
+    "The Indian community-health sector spends crores on training every year. Most of it walks out of the room with the trainer. This programme treats curriculum as public infrastructure - written, version-controlled, openly licensed, and used to certify workers who are paid for the job we trained them for.",
   primary: { label: "Partner on CSR", href: "/partner/csr" },
   secondary: { label: "Volunteer with us", href: "/get-involved/volunteer" },
 
   editorialEyebrow: "Why training, done seriously",
   editorialParagraphs: [
-    "The WHO estimates India will need an additional 1.8 million health workers by 2030 to meet basic primary-care needs. Most of that workforce will come from the communities they serve. The bottleneck is not interest — it is structured, repeatable training, and a credential the employer recognises.",
+    "The WHO estimates India will need an additional 1.8 million health workers by 2030 to meet basic primary-care needs. Most of that workforce will come from the communities they serve. The bottleneck is not interest - it is structured, repeatable training, and a credential the employer recognises.",
     "We build that infrastructure. Each curriculum is written down end to end: learning outcomes, contact hours, assessment rubric, supervisor guide, and a competency check the worker has to clear before certification.",
-    "Then we publish it. Anyone — a partner NGO in Belgaum, a district training cell in Solapur, a graduate programme in Mumbai — can pick it up and run it without paying us a licence fee. That is the only honest definition of capacity building.",
+    "Then we publish it. Anyone - a partner NGO in Belgaum, a district training cell in Solapur, a graduate programme in Mumbai - can pick it up and run it without paying us a licence fee. That is the only honest definition of capacity building.",
   ],
 
   commitmentsEyebrow: "Four working commitments",
-  commitmentsTitle: "What this programme produces — and what it gives away.",
+  commitmentsTitle: "What this programme produces - and what it gives away.",
   commitments: [
     {
       n: "01",
@@ -53,7 +53,7 @@ const data: ProgrammePageData = {
       n: "02",
       title: "Partner-NGO modules",
       body:
-        "Short-form modules for partner organisations on safeguarding, monitoring & evaluation, consent and data practice, and inclusive design — designed for staff who do not have time to leave the field for a week.",
+        "Short-form modules for partner organisations on safeguarding, monitoring & evaluation, consent and data practice, and inclusive design - designed for staff who do not have time to leave the field for a week.",
     },
     {
       n: "03",
@@ -123,9 +123,9 @@ const data: ProgrammePageData = {
   partnershipsTitle: "State training cells, partner NGOs, academic institutions, and CSR partners who fund infrastructure.",
   partnershipsParagraphs: [
     "We are looking for state training cells and District Mental Health Programme leads who want a turnkey, openly-licensed curriculum to run themselves.",
-    "We are looking for partner NGOs in community health, women's rights, and disability who want structured short-form training for their own staff — and who will feed field experience back into the next version.",
+    "We are looking for partner NGOs in community health, women's rights, and disability who want structured short-form training for their own staff - and who will feed field experience back into the next version.",
     "We are looking for academic partners in public health and nursing schools to co-design, peer-review, and accredit the curriculum where appropriate.",
-    "We are looking for CSR funders who understand that paying for curriculum infrastructure is the highest-leverage rupee in the sector — and the hardest to take credit for.",
+    "We are looking for CSR funders who understand that paying for curriculum infrastructure is the highest-leverage rupee in the sector - and the hardest to take credit for.",
   ],
   partnershipsLink: { label: "Talk to the training team", href: "/contact" },
 

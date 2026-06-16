@@ -4,13 +4,13 @@ import { ProgrammePage, type ProgrammePageData } from "@/components/ProgrammePag
 export const Route = createFileRoute("/programs/womens-wellness")({
   head: () => ({
     meta: [
-      { title: "Women's Health & Wellness Initiative — Omni Life Care Foundation" },
+      { title: "Women's Health & Wellness Initiative - Omni Life Care Foundation" },
       {
         name: "description",
         content:
           "A weekly women-only wellness group: breath-work, gentle movement, sleep and stress education, peer dialogue. Designed to plug into mental health, life-cycle, and NCD pathways.",
       },
-      { property: "og:title", content: "Women's Health & Wellness Initiative — Omni Life Care Foundation" },
+      { property: "og:title", content: "Women's Health & Wellness Initiative - Omni Life Care Foundation" },
       {
         property: "og:description",
         content:
@@ -29,15 +29,15 @@ const data: ProgrammePageData = {
   headlineLead: "Thirty minutes a week, in her own language,",
   headlineEm: "with women she trusts.",
   lead:
-    "Most wellness programmes for Indian women cost more than the day's wage, run in English, and assume a yoga mat. This one runs in the community hall, in Marathi or Hindi, with a trained woman facilitator and a structured curriculum — and it costs nothing to attend.",
+    "Most wellness programmes for Indian women cost more than the day's wage, run in English, and assume a yoga mat. This one runs in the community hall, in Marathi or Hindi, with a trained woman facilitator and a structured curriculum - and it costs nothing to attend.",
   primary: { label: "Partner on CSR", href: "/partner/csr" },
   secondary: { label: "Volunteer with us", href: "/get-involved/volunteer" },
 
   editorialEyebrow: "Why a group programme",
   editorialParagraphs: [
-    "A one-to-one clinical session is rare, expensive, and stigmatising in the wards we serve. A weekly group of eight to twelve women, facilitated by a trained neighbour, is none of those things — and the evidence on group-delivered mental and physical wellness programmes is consistent across low-resource settings.",
+    "A one-to-one clinical session is rare, expensive, and stigmatising in the wards we serve. A weekly group of eight to twelve women, facilitated by a trained neighbour, is none of those things - and the evidence on group-delivered mental and physical wellness programmes is consistent across low-resource settings.",
     "This is not a yoga class. The curriculum borrows from cognitive-behavioural-style structured group work, simple breath regulation, and peer-supported chronic-pain and sleep modules. Each session is forty-five minutes, with a clear arc and a take-home practice.",
-    "We designed it as the connective tissue between the Community Mental Health programme and the Life-Cycle programme — a low-stakes door that opens onto the rest of our work.",
+    "We designed it as the connective tissue between the Community Mental Health programme and the Life-Cycle programme - a low-stakes door that opens onto the rest of our work.",
   ],
 
   commitmentsEyebrow: "Four working commitments",
@@ -47,7 +47,7 @@ const data: ProgrammePageData = {
       n: "01",
       title: "A structured 12-week arc",
       body:
-        "Twelve weekly sessions, each with a defined topic — sleep, stress, breath, chronic pain, intimate health, mental wellbeing — and a simple practice the participant can carry home. After week 12, an open continuation track.",
+        "Twelve weekly sessions, each with a defined topic - sleep, stress, breath, chronic pain, intimate health, mental wellbeing - and a simple practice the participant can carry home. After week 12, an open continuation track.",
     },
     {
       n: "02",
@@ -57,9 +57,9 @@ const data: ProgrammePageData = {
     },
     {
       n: "03",
-      title: "A safe room — by design",
+      title: "A safe room - by design",
       body:
-        "Women-only, community-owned space. Confidentiality agreed at session one. A clear, written safeguarding protocol the facilitator carries — including a referral path for disclosures of violence or acute distress.",
+        "Women-only, community-owned space. Confidentiality agreed at session one. A clear, written safeguarding protocol the facilitator carries - including a referral path for disclosures of violence or acute distress.",
     },
     {
       n: "04",
@@ -86,12 +86,12 @@ const data: ProgrammePageData = {
     },
     {
       label: "Cost per retained participant",
-      body: "We track cost per woman who completed at least eight of twelve sessions — the threshold the curriculum needs to work.",
+      body: "We track cost per woman who completed at least eight of twelve sessions - the threshold the curriculum needs to work.",
     },
   ],
 
   timelineEyebrow: "First eighteen months",
-  timelineTitle: "How we open the groups — slow on purpose, then steady.",
+  timelineTitle: "How we open the groups - slow on purpose, then steady.",
   timeline: [
     {
       when: "Q3 FY 2026",
@@ -122,8 +122,8 @@ const data: ProgrammePageData = {
   partnershipsEyebrow: "Who we want to work with",
   partnershipsTitle: "Clinical psychologists, community spaces, and partners who fund the unglamorous middle.",
   partnershipsParagraphs: [
-    "We are looking for clinical psychologists and psychiatric social workers willing to act as group supervisors — two hours a month per group is enough.",
-    "We are looking for community space partners — schools, community halls, NGOs — that can host a recurring women-only group at a fixed time.",
+    "We are looking for clinical psychologists and psychiatric social workers willing to act as group supervisors - two hours a month per group is enough.",
+    "We are looking for community space partners - schools, community halls, NGOs - that can host a recurring women-only group at a fixed time.",
     "We are looking for funders who will commit to retention, not reach. A group that runs for two years with thirty consistent participants will outperform a campaign that touches three thousand women once.",
   ],
   partnershipsLink: { label: "Talk to the programme team", href: "/contact" },
@@ -137,7 +137,7 @@ const data: ProgrammePageData = {
   ctaEyebrow: "Sponsor a group",
   ctaTitle: "Underwrite twelve weeks for ten women, in one community hall, with one trained facilitator.",
   ctaBody:
-    "A CSR partnership funds a facilitator and a group through a full 12-week arc — the minimum unit of useful work in this programme.",
+    "A CSR partnership funds a facilitator and a group through a full 12-week arc - the minimum unit of useful work in this programme.",
   ctaPrimary: { label: "Partner on CSR", href: "/partner/csr" },
   ctaSecondary: { label: "Volunteer with us", href: "/get-involved/volunteer" },
 };

@@ -4,13 +4,13 @@ import { ProgrammePage, type ProgrammePageData } from "@/components/ProgrammePag
 export const Route = createFileRoute("/programs/community-mental-health")({
   head: () => ({
     meta: [
-      { title: "Community Mental Health & Wellbeing — Omni Life Care Foundation" },
+      { title: "Community Mental Health & Wellbeing - Omni Life Care Foundation" },
       {
         name: "description",
         content:
           "Mental health that begins at the doorstep, not the clinic. A community-led pathway from screening to support, designed for India's villages and chawls.",
       },
-      { property: "og:title", content: "Community Mental Health & Wellbeing — Omni Life Care Foundation" },
+      { property: "og:title", content: "Community Mental Health & Wellbeing - Omni Life Care Foundation" },
       {
         property: "og:description",
         content:
@@ -29,25 +29,25 @@ const data: ProgrammePageData = {
   headlineLead: "The village does not need another awareness day. It needs",
   headlineEm: "someone who knocks on the door.",
   lead:
-    "India has roughly one psychiatrist for every 1,00,000 people, and most of them sit in cities. The Community Mental Health & Wellbeing programme is built around a simpler unit: a trained neighbour, a validated screen, and a referral that ends in care — not in a leaflet.",
+    "India has roughly one psychiatrist for every 1,00,000 people, and most of them sit in cities. The Community Mental Health & Wellbeing programme is built around a simpler unit: a trained neighbour, a validated screen, and a referral that ends in care - not in a leaflet.",
   primary: { label: "Partner on CSR", href: "/partner/csr" },
   secondary: { label: "Volunteer with us", href: "/get-involved/volunteer" },
 
   editorialEyebrow: "The case we are working on",
   editorialParagraphs: [
-    "The 2015–16 National Mental Health Survey (NIMHANS) found that nearly 150 million Indians need active mental-health intervention, and that the treatment gap for common mental disorders runs above 80 percent. The shortfall is not awareness. It is access — and trust at the household level.",
+    "The 2015–16 National Mental Health Survey (NIMHANS) found that nearly 150 million Indians need active mental-health intervention, and that the treatment gap for common mental disorders runs above 80 percent. The shortfall is not awareness. It is access - and trust at the household level.",
     "A camp once a quarter does not close that gap. What closes it is a trained worker from the same lane, walking the same route every month, asking the same nine questions from the PHQ-9, and knowing the name of the medical officer who will take the call.",
     "That is the unit we are building. Not a campaign. A standing capability inside the community, anchored to the public health system that already exists.",
   ],
 
   commitmentsEyebrow: "Four working commitments",
-  commitmentsTitle: "What this programme actually does — and what it refuses to do.",
+  commitmentsTitle: "What this programme actually does - and what it refuses to do.",
   commitments: [
     {
       n: "01",
       title: "Train workers from inside the community",
       body:
-        "We recruit literate adults from the wards we serve — many of them women — and certify them on a 12-week curriculum covering screening, first-line counselling, and safe referral. They are paid, supervised, and on the household's doorstep, not in a distant clinic.",
+        "We recruit literate adults from the wards we serve - many of them women - and certify them on a 12-week curriculum covering screening, first-line counselling, and safe referral. They are paid, supervised, and on the household's doorstep, not in a distant clinic.",
     },
     {
       n: "02",
@@ -122,7 +122,7 @@ const data: ProgrammePageData = {
   partnershipsEyebrow: "Who we want to work with",
   partnershipsTitle: "Public health systems, clinicians, and the households themselves.",
   partnershipsParagraphs: [
-    "We are looking for District Mental Health Programme leads, BMC ward officers, and PHC medical officers who want a steady stream of well-prepared referrals — and a structured way to follow what happens to them.",
+    "We are looking for District Mental Health Programme leads, BMC ward officers, and PHC medical officers who want a steady stream of well-prepared referrals - and a structured way to follow what happens to them.",
     "We are looking for psychiatrists and clinical psychologists willing to take three referrals a week from a community pathway, and to sit on a clinical review every quarter.",
     "We are looking for funders who will commit for at least 24 months. A six-month grant cannot build a community trust relationship; please do not ask us to pretend otherwise.",
   ],

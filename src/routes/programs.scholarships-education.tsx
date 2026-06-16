@@ -4,13 +4,13 @@ import { ProgrammePage, type ProgrammePageData } from "@/components/ProgrammePag
 export const Route = createFileRoute("/programs/scholarships-education")({
   head: () => ({
     meta: [
-      { title: "Scholarships & Education Support — Omni Life Care Foundation" },
+      { title: "Scholarships & Education Support - Omni Life Care Foundation" },
       {
         name: "description",
         content:
           "Multi-year scholarships and structured mentoring for first-generation learners pursuing nursing, allied health, and social-work pathways. The scholarship ends with a job.",
       },
-      { property: "og:title", content: "Scholarships & Education Support — Omni Life Care Foundation" },
+      { property: "og:title", content: "Scholarships & Education Support - Omni Life Care Foundation" },
       {
         property: "og:description",
         content:
@@ -35,13 +35,13 @@ const data: ProgrammePageData = {
 
   editorialEyebrow: "Why we fund the full arc",
   editorialParagraphs: [
-    "A one-year scholarship rarely survives a household emergency, an unexpected hostel fee, or a tough first-year semester. The drop-off in higher-education attainment for first-generation learners is concentrated in the gaps between scholarships — not inside them.",
+    "A one-year scholarship rarely survives a household emergency, an unexpected hostel fee, or a tough first-year semester. The drop-off in higher-education attainment for first-generation learners is concentrated in the gaps between scholarships - not inside them.",
     "Our scholarships are multi-year by design, covering tuition, materials, transport, and a small monthly stipend that absorbs the household-level shocks that would otherwise end the course.",
-    "And we have a narrow focus on purpose: nursing, allied health, and social work — the pathways that turn a first-generation learner into a paid frontline worker. The scholarship is structured to end with a job in the system, not a certificate in a drawer.",
+    "And we have a narrow focus on purpose: nursing, allied health, and social work - the pathways that turn a first-generation learner into a paid frontline worker. The scholarship is structured to end with a job in the system, not a certificate in a drawer.",
   ],
 
   commitmentsEyebrow: "Four working commitments",
-  commitmentsTitle: "What this scholarship actually covers — and what it expects.",
+  commitmentsTitle: "What this scholarship actually covers - and what it expects.",
   commitments: [
     {
       n: "01",
@@ -122,9 +122,9 @@ const data: ProgrammePageData = {
   partnershipsEyebrow: "Who we want to work with",
   partnershipsTitle: "Colleges, employers, mentors, and CSR partners who fund the long horizon.",
   partnershipsParagraphs: [
-    "We are looking for nursing colleges, allied-health institutes, and schools of social work willing to share semester progress data with us under written consent — and to nominate mentors from their alumni.",
-    "We are looking for employer partners — public health systems, NGOs, hospital networks — willing to commit interview slots for graduating scholars in shortage-area roles.",
-    "We are looking for senior nurses, allied-health professionals, and social workers willing to mentor — one scholar, one hour a month, for a full year at a time.",
+    "We are looking for nursing colleges, allied-health institutes, and schools of social work willing to share semester progress data with us under written consent - and to nominate mentors from their alumni.",
+    "We are looking for employer partners - public health systems, NGOs, hospital networks - willing to commit interview slots for graduating scholars in shortage-area roles.",
+    "We are looking for senior nurses, allied-health professionals, and social workers willing to mentor - one scholar, one hour a month, for a full year at a time.",
     "We are looking for CSR partners who will fund a scholar through their entire course, not a single year of it. The first year is the easiest to fund and the least decisive.",
   ],
   partnershipsLink: { label: "Talk to the scholarships team", href: "/contact" },

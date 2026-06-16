@@ -4,13 +4,13 @@ import { ProgrammePage, type ProgrammePageData } from "@/components/ProgrammePag
 export const Route = createFileRoute("/programs/womens-health-lifecycle")({
   head: () => ({
     meta: [
-      { title: "Women's Health & Life-Cycle Care — Omni Life Care Foundation" },
+      { title: "Women's Health & Life-Cycle Care - Omni Life Care Foundation" },
       {
         name: "description",
         content:
           "One health record that follows a woman from menarche through menopause. Adolescent, maternal, reproductive, and post-menopausal care delivered by women community workers.",
       },
-      { property: "og:title", content: "Women's Health & Life-Cycle Care — Omni Life Care Foundation" },
+      { property: "og:title", content: "Women's Health & Life-Cycle Care - Omni Life Care Foundation" },
       {
         property: "og:description",
         content:
@@ -29,14 +29,14 @@ const data: ProgrammePageData = {
   headlineLead: "One record that follows her from",
   headlineEm: "menarche to menopause.",
   lead:
-    "India's health system meets women in pieces. A school session at fifteen. An ANC visit at twenty-five. A camp at fifty. The pieces rarely connect. This programme builds the connection — one household record, a single trusted worker, and the full life-stage curriculum from adolescence to post-menopause.",
+    "India's health system meets women in pieces. A school session at fifteen. An ANC visit at twenty-five. A camp at fifty. The pieces rarely connect. This programme builds the connection - one household record, a single trusted worker, and the full life-stage curriculum from adolescence to post-menopause.",
   primary: { label: "Partner on CSR", href: "/partner/csr" },
   secondary: { label: "Volunteer with us", href: "/get-involved/volunteer" },
 
   editorialEyebrow: "Why life-cycle, not life-event",
   editorialParagraphs: [
     "NFHS-5 (2019–21) found that fewer than 2 percent of Indian women aged 30–49 have ever been screened for cervical cancer, that 57 percent of women aged 15–49 are anaemic, and that menstrual hygiene practices remain uneven outside metros. Each statistic gets its own programme. Each woman gets a fragmented file.",
-    "The Life-Cycle programme refuses that fragmentation. The same woman community worker visits a household across years — through a daughter's first period, a daughter-in-law's first pregnancy, an aunt's perimenopause, a grandmother's bone-density concern.",
+    "The Life-Cycle programme refuses that fragmentation. The same woman community worker visits a household across years - through a daughter's first period, a daughter-in-law's first pregnancy, an aunt's perimenopause, a grandmother's bone-density concern.",
     "It is a slower model, and a more honest one. Continuity is the intervention.",
   ],
 
@@ -57,7 +57,7 @@ const data: ProgrammePageData = {
     },
     {
       n: "03",
-      title: "Mid-life screening — cancer and NCDs",
+      title: "Mid-life screening - cancer and NCDs",
       body:
         "Breast self-examination training and visual-inspection-with-acetic-acid (VIA) cervical screening, both delivered in a women-only space by a trained female worker. Positive findings referred to a designated clinician, with accompaniment if requested.",
     },
@@ -91,7 +91,7 @@ const data: ProgrammePageData = {
   ],
 
   timelineEyebrow: "First eighteen months",
-  timelineTitle: "How we open the programme — slowly, on purpose.",
+  timelineTitle: "How we open the programme - slowly, on purpose.",
   timeline: [
     {
       when: "Q3 FY 2026",
@@ -122,8 +122,8 @@ const data: ProgrammePageData = {
   partnershipsEyebrow: "Who we want to work with",
   partnershipsTitle: "PHC obstetricians, schools, and partners who fund continuity over campaigns.",
   partnershipsParagraphs: [
-    "We are looking for women clinicians — obstetricians, gynaecologists, oncologists, primary-care physicians — willing to take community referrals on a fixed weekly cadence.",
-    "We are looking for school principals and adolescent-health programme leads ready to embed structured menstrual-health and mental-health sessions inside the school calendar — not as one-off events.",
+    "We are looking for women clinicians - obstetricians, gynaecologists, oncologists, primary-care physicians - willing to take community referrals on a fixed weekly cadence.",
+    "We are looking for school principals and adolescent-health programme leads ready to embed structured menstrual-health and mental-health sessions inside the school calendar - not as one-off events.",
     "We are looking for corporate partners whose CSR teams understand that a multi-year commitment to one woman, across her life stages, outperforms a single-year campaign reaching ten times as many.",
   ],
   partnershipsLink: { label: "Talk to the programme team", href: "/contact" },

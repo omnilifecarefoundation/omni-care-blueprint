@@ -26,7 +26,7 @@ export function MobileCTABar() {
           boxShadow: "0 -1px 0 rgba(15,17,23,0.04), 0 -8px 24px -12px rgba(15,17,23,0.18)",
         }}
       >
-        {/* Donate — black, refined, white text, yellow on hover */}
+        {/* Donate - black, refined, white text, yellow on hover */}
         <Link
           to="/donate"
           tabIndex={show ? 0 : -1}
@@ -41,7 +41,7 @@ export function MobileCTABar() {
           Donate
         </Link>
 
-        {/* Partner — blue, primary signature */}
+        {/* Partner - blue, primary signature */}
         <Link
           to="/partner/csr"
           tabIndex={show ? 0 : -1}

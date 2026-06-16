@@ -9,20 +9,20 @@ import mentalImg from "@/assets/program-mental-health.jpg";
 export const Route = createFileRoute("/what-we-do/mental-wellbeing")({
   head: () => ({
     meta: [
-      { title: "Mental Wellbeing — Pillar 01 — Omni Life Care Foundation" },
+      { title: "Mental Wellbeing - Pillar 01 - Omni Life Care Foundation" },
       {
         name: "description",
         content:
-          "Mental healthcare brought to the doorstep — by women trained from inside the community. Pillar 01 of the Omni Care Model.",
+          "Mental healthcare brought to the doorstep - by women trained from inside the community. Pillar 01 of the Omni Care Model.",
       },
       {
         property: "og:title",
-        content: "Mental Wellbeing — Omni Life Care Foundation",
+        content: "Mental Wellbeing - Omni Life Care Foundation",
       },
       {
         property: "og:description",
         content:
-          "The first health worker your village ever had — the one who asks how you're sleeping.",
+          "The first health worker your village ever had - the one who asks how you're sleeping.",
       },
       { property: "og:image", content: "/og-mental-wellbeing.jpg" },
     ],
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/what-we-do/mental-wellbeing")({
   component: MentalWellbeingPage,
 });
 
-// Real, citable public-source figures — never fabricate.
+// Real, citable public-source figures - never fabricate.
 // NMHS = National Mental Health Survey of India 2015-16 (NIMHANS).
 // WHO Atlas = WHO Mental Health Atlas 2020.
 const EVIDENCE = [
@@ -58,21 +58,21 @@ const METHOD = [
     icon: Ear,
     title: "Listen at home, not in a waiting room.",
     body:
-      "We don't ask people to travel to be heard. Trained community workers visit households, run weekly peer circles, and screen with validated tools (PHQ-9, GAD-7) — in the language of the home.",
+      "We don't ask people to travel to be heard. Trained community workers visit households, run weekly peer circles, and screen with validated tools (PHQ-9, GAD-7) - in the language of the home.",
   },
   {
     n: "02",
     icon: Users,
     title: "The worker is from the village.",
     body:
-      "We recruit and train community workers — many of them women — from the villages we serve. They earn a livelihood; the community gains a trusted neighbour who knows the names, the homes, the histories.",
+      "We recruit and train community workers - many of them women - from the villages we serve. They earn a livelihood; the community gains a trusted neighbour who knows the names, the homes, the histories.",
   },
   {
     n: "03",
     icon: Stethoscope,
     title: "A clear bridge to clinical care.",
     body:
-      "Every positive screen has a named path — to the nearest PHC, district hospital, or tele-mental-health line. We don't refer and walk away; we follow up until care has actually begun.",
+      "Every positive screen has a named path - to the nearest PHC, district hospital, or tele-mental-health line. We don't refer and walk away; we follow up until care has actually begun.",
   },
 ] as const;
 
@@ -88,8 +88,8 @@ function MentalWellbeingPage() {
     <>
       <PageHero
         eyebrow="Pillar 01 · Mental Wellbeing"
-        title="The first health worker your village ever had — the one who asks how you’re sleeping."
-        lead="India has more people who need mental health care than there are doctors in the whole country. We start where the system stops — at the front door — with community workers trained from inside the village itself."
+        title="The first health worker your village ever had - the one who asks how you’re sleeping."
+        lead="India has more people who need mental health care than there are doctors in the whole country. We start where the system stops - at the front door - with community workers trained from inside the village itself."
       >
         <div className="flex flex-col sm:flex-row gap-3">
           <PillButton to="/partner/csr" variant="on-dark">
@@ -101,7 +101,7 @@ function MentalWellbeingPage() {
         </div>
       </PageHero>
 
-      {/* Why this pillar — evidence on a soft band */}
+      {/* Why this pillar - evidence on a soft band */}
       <section className="bg-sage border-b border-hairline">
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
@@ -144,7 +144,7 @@ function MentalWellbeingPage() {
         </div>
       </section>
 
-      {/* How we work — three methods on white */}
+      {/* How we work - three methods on white */}
       <section className="bg-canvas border-b border-hairline">
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
@@ -159,8 +159,8 @@ function MentalWellbeingPage() {
             </FadeUp>
             <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
               <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
-                We don’t run a campaign and leave. We run a route — household to
-                household, week after week — until trust, screening, and a path
+                We don’t run a campaign and leave. We run a route - household to
+                household, week after week - until trust, screening, and a path
                 to clinical care all live in the same place.
               </p>
             </FadeUp>
@@ -197,14 +197,14 @@ function MentalWellbeingPage() {
         </div>
       </section>
 
-      {/* The flagship programme — primary media card */}
+      {/* The flagship programme - primary media card */}
       <section className="bg-snow border-b border-hairline">
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-12">
             <FadeUp className="lg:col-span-7">
               <p className="eyebrow mb-4">The programme delivering this</p>
               <h2 className="font-sans font-semibold text-[clamp(1.75rem,3.2vw,2.5rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-                Community Mental Health & Wellbeing —{" "}
+                Community Mental Health & Wellbeing -{" "}
                 <em className="font-serif italic font-medium text-primary">
                   the route we walk every week.
                 </em>
@@ -260,7 +260,7 @@ function MentalWellbeingPage() {
         </div>
       </section>
 
-      {/* How we'll measure — transparency, not vanity numbers */}
+      {/* How we'll measure - transparency, not vanity numbers */}
       <section className="bg-sage border-b border-hairline">
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-12">
@@ -313,7 +313,7 @@ function MentalWellbeingPage() {
       <CTABand
         eyebrow="Stand with this pillar"
         title="Help us put a trained listener inside every village we serve."
-        body="CSR partners can fund a full community route — worker, training, screening, and a year of follow-up. Volunteers can support content, training, or research."
+        body="CSR partners can fund a full community route - worker, training, screening, and a year of follow-up. Volunteers can support content, training, or research."
         primary={{ label: "Partner with us", href: "/partner/csr" }}
         secondary={{ label: "Volunteer", href: "/get-involved/volunteer" }}
       />
