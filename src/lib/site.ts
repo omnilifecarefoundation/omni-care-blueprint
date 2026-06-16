@@ -36,6 +36,7 @@ export type Pillar = {
   textClass: string;
   themeColor: string; // HSL components, e.g. "150 75% 38%" — for gradient cards
   sdg: string; // SDG tag, e.g. "SDG 3 · Good Health"
+  image: string; // hero image for carousel/destination cards
 };
 
 export const PILLARS: Pillar[] = [
@@ -52,6 +53,8 @@ export const PILLARS: Pillar[] = [
     textClass: "text-[var(--pillar-mental)]",
     themeColor: "150 70% 36%",
     sdg: "SDG 3 · Good Health",
+    image:
+      "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1400&q=80",
   },
   {
     id: "social",
@@ -66,6 +69,8 @@ export const PILLARS: Pillar[] = [
     textClass: "text-[var(--pillar-social)]",
     themeColor: "354 78% 48%",
     sdg: "SDG 4 · Quality Education",
+    image:
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1400&q=80",
   },
   {
     id: "inclusive",
@@ -80,6 +85,8 @@ export const PILLARS: Pillar[] = [
     textClass: "text-[var(--pillar-inclusive)]",
     themeColor: "333 84% 47%",
     sdg: "SDG 5 · Gender Equality",
+    image:
+      "https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=1400&q=80",
   },
   {
     id: "human",
@@ -94,6 +101,8 @@ export const PILLARS: Pillar[] = [
     textClass: "text-[var(--pillar-human)]",
     themeColor: "232 97% 49%",
     sdg: "SDG 8 · Decent Work",
+    image:
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=80",
   },
 ];
 

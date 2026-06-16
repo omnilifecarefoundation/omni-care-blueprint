@@ -10,6 +10,8 @@ interface DestinationCardProps extends React.HTMLAttributes<HTMLDivElement> {
   href: string;
   themeColor: string; // HSL components, e.g. "232 97% 49%"
   ctaLabel?: string;
+  eyebrow?: string;
+  number?: string;
 }
 
 const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
@@ -23,6 +25,8 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
       href,
       themeColor,
       ctaLabel = "Explore Now",
+      eyebrow,
+      number,
       ...props
     },
     ref,
@@ -65,6 +69,22 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
                 "linear-gradient(180deg, hsl(var(--theme-color) / 0.10) 0%, hsl(var(--theme-color) / 0.55) 55%, hsl(var(--theme-color) / 0.96) 100%)",
             }}
           />
+
+          {/* Top chrome: pillar number + SDG chip */}
+          {(eyebrow || number) && (
+            <div className="absolute inset-x-0 top-0 z-10 flex items-start justify-between p-5 lg:p-6">
+              {number ? (
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] tabular-nums text-snow/90 drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
+                  {number}
+                </span>
+              ) : <span />}
+              {eyebrow ? (
+                <span className="rounded-full border border-snow/40 bg-ink/30 px-2.5 py-0.5 text-[9.5px] uppercase tracking-[0.14em] text-snow backdrop-blur-md">
+                  {eyebrow}
+                </span>
+              ) : null}
+            </div>
+          )}
 
           {/* Aspect ratio spacer */}
           <div className="aspect-[4/5] sm:aspect-[3/4]" />

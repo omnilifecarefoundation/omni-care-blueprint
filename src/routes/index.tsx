@@ -1,7 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { DestinationCard } from "@/components/ui/card-21";
-import { PillarCard } from "@/components/PillarCard";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import heroImg from "@/assets/hero-community.jpg";
 import { PROGRAMS, PILLARS } from "@/lib/site";
 import { FadeUp } from "@/components/FadeUp";
@@ -305,20 +311,41 @@ function WhatWeDo() {
           </FadeUp>
         </div>
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 list-none p-0">
-          {PILLARS.map((p, i) => (
-            <FadeUp key={p.id} delay={i * 70} as="li">
-              <PillarCard
-                number={p.number}
-                name={p.name}
-                description={p.description}
-                href={p.href}
-                themeColor={p.themeColor}
-                sdg={p.sdg}
-              />
-            </FadeUp>
-          ))}
-        </ul>
+        <FadeUp delay={120}>
+          <Carousel
+            opts={{ align: "start", loop: true }}
+            className="relative -mx-2"
+          >
+            <CarouselContent className="-ml-3 lg:-ml-4">
+              {PILLARS.map((p) => (
+                <CarouselItem
+                  key={p.id}
+                  className="pl-3 lg:pl-4 basis-[82%] sm:basis-1/2 lg:basis-1/3"
+                >
+                  <DestinationCard
+                    imageUrl={p.image}
+                    location={p.name}
+                    stats={p.description}
+                    href={p.href}
+                    themeColor={p.themeColor}
+                    eyebrow={p.sdg}
+                    number={`Pillar ${p.number}`}
+                    ctaLabel="Explore pillar"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="mt-8 flex items-center justify-between gap-4">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink-muted">
+                Swipe / drag · {PILLARS.length} pillars
+              </p>
+              <div className="flex items-center gap-2">
+                <CarouselPrevious className="static translate-y-0 h-10 w-10 rounded-full border-ink/15 bg-snow text-ink hover:bg-ink hover:text-snow transition-colors" />
+                <CarouselNext className="static translate-y-0 h-10 w-10 rounded-full border-ink/15 bg-snow text-ink hover:bg-ink hover:text-snow transition-colors" />
+              </div>
+            </div>
+          </Carousel>
+        </FadeUp>
       </div>
     </section>
   );
