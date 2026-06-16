@@ -85,6 +85,8 @@ export const PILLARS: Pillar[] = [
     textClass: "text-[var(--pillar-inclusive)]",
     themeColor: "333 84% 47%",
     sdg: "SDG 5 · Gender Equality",
+    image:
+      "https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=1400&q=80",
   },
   {
     id: "human",
