@@ -36,6 +36,7 @@ export type Pillar = {
   textClass: string;
   themeColor: string; // HSL components, e.g. "150 75% 38%" — for gradient cards
   sdg: string; // SDG tag, e.g. "SDG 3 · Good Health"
+  image: string; // hero image for carousel/destination cards
 };
 
 export const PILLARS: Pillar[] = [
