@@ -11,15 +11,15 @@ import researchImg from "@/assets/program-research.jpg";
 export const Route = createFileRoute("/what-we-do/human-potential")({
   head: () => ({
     meta: [
-      { title: "Human Potential — Pillar 04 — Omni Life Care Foundation" },
+      { title: "Human Potential - Pillar 04 - Omni Life Care Foundation" },
       {
         name: "description",
         content:
-          "Frontline workforce, preventive screening, and open-source evidence — so every rupee of community investment compounds. Pillar 04 of the Omni Care Model.",
+          "Frontline workforce, preventive screening, and open-source evidence - so every rupee of community investment compounds. Pillar 04 of the Omni Care Model.",
       },
       {
         property: "og:title",
-        content: "Human Potential — Omni Life Care Foundation",
+        content: "Human Potential - Omni Life Care Foundation",
       },
       {
         property: "og:description",
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/what-we-do/human-potential")({
   component: HumanPotentialPage,
 });
 
-// Publicly cited figures — never fabricate.
+// Publicly cited figures - never fabricate.
 // WHO India NCD Country Profile 2018; WHO Health Workforce 2030 projections;
 // NHM Annual Report (Ministry of Health & Family Welfare, GoI).
 const EVIDENCE = [
@@ -60,26 +60,26 @@ const METHOD = [
     icon: Activity,
     title: "Catch the disease before the hospital does.",
     body:
-      "Hypertension, diabetes and cancer markers caught at a village camp cost a fraction of what they cost in a district hospital. We run preventive screening in partnership with district administrations — with a funded path to follow-up before the camp packs up.",
+      "Hypertension, diabetes and cancer markers caught at a village camp cost a fraction of what they cost in a district hospital. We run preventive screening in partnership with district administrations - with a funded path to follow-up before the camp packs up.",
   },
   {
     n: "02",
     icon: GraduationCap,
     title: "Train the people the system runs on.",
     body:
-      "Frontline workers, ASHAs, and partner-NGO staff get short-form certified training — from a 12-week community mental health worker course to bespoke sessions on safeguarding, inclusion and M&E. Every curriculum we build, we publish.",
+      "Frontline workers, ASHAs, and partner-NGO staff get short-form certified training - from a 12-week community mental health worker course to bespoke sessions on safeguarding, inclusion and M&E. Every curriculum we build, we publish.",
   },
   {
     n: "03",
     icon: FlaskConical,
-    title: "Publish the evidence — open, peer-reviewed, in public.",
+    title: "Publish the evidence - open, peer-reviewed, in public.",
     body:
-      "Our research function evaluates programmes with rigorous, often quasi-experimental methods, in partnership with academic institutions. Findings go into peer-reviewed journals and into state and national policy briefings — not into a locked PDF.",
+      "Our research function evaluates programmes with rigorous, often quasi-experimental methods, in partnership with academic institutions. Findings go into peer-reviewed journals and into state and national policy briefings - not into a locked PDF.",
   },
 ] as const;
 
 const PROMISES = [
-  "Positive screens converted to follow-up care, published — not just camp footfall.",
+  "Positive screens converted to follow-up care, published - not just camp footfall.",
   "Cost per trainee through to certification, audited and shared with funders.",
   "All curricula released under an open licence, free for the sector to use.",
   "Research findings published openly, including the ones that didn’t work.",
@@ -92,9 +92,9 @@ const PROGRAMMES = [
     alt: "A village preventive health camp with community members being screened for blood pressure and diabetes.",
     badge: "Preventive care",
     title:
-      "Preventive & Community Health Outreach — early detection where formal healthcare rarely arrives.",
+      "Preventive & Community Health Outreach - early detection where formal healthcare rarely arrives.",
     body:
-      "NCD screening — hypertension, diabetes, cancer markers — combined with health literacy and a structured referral pathway into the public health system, in partnership with district administrations.",
+      "NCD screening - hypertension, diabetes, cancer markers - combined with health literacy and a structured referral pathway into the public health system, in partnership with district administrations.",
   },
   {
     href: "/programs/training-capacity-building",
@@ -102,9 +102,9 @@ const PROGRAMMES = [
     alt: "A community health worker cohort mid-session with a trainer and printed open-source curricula.",
     badge: "Workforce",
     title:
-      "Training & Capacity Building — open-source curriculum for the people the system runs on.",
+      "Training & Capacity Building - open-source curriculum for the people the system runs on.",
     body:
-      "Short-form certified training for frontline workers and partner-NGO staff — community mental health, safeguarding, inclusion, M&E. Every curriculum is open-source and free for the sector to use.",
+      "Short-form certified training for frontline workers and partner-NGO staff - community mental health, safeguarding, inclusion, M&E. Every curriculum is open-source and free for the sector to use.",
   },
   {
     href: "/programs/research-impact-assessment",
@@ -112,9 +112,9 @@ const PROGRAMMES = [
     alt: "A researcher reviewing field data alongside a community worker in a programme office.",
     badge: "Evidence",
     title:
-      "Research & Impact Assessment — rigorous evaluation, published in the open.",
+      "Research & Impact Assessment - rigorous evaluation, published in the open.",
     body:
-      "An in-house research function partnering with academic institutions on quasi-experimental evaluations of community health, NCD prevention, and integrated care — briefed openly to state and national authorities.",
+      "An in-house research function partnering with academic institutions on quasi-experimental evaluations of community health, NCD prevention, and integrated care - briefed openly to state and national authorities.",
   },
 ];
 
@@ -123,8 +123,8 @@ function HumanPotentialPage() {
     <>
       <PageHero
         eyebrow="Pillar 04 · Human Potential"
-        title="A community health worker costs less than a hospital bed — and arrives before the ambulance has to."
-        lead="Human Potential is the pillar that makes the other three last. We strengthen the frontline workforce, catch disease early at the village level, and publish the evidence — so every rupee of community investment compounds into long-term capability."
+        title="A community health worker costs less than a hospital bed - and arrives before the ambulance has to."
+        lead="Human Potential is the pillar that makes the other three last. We strengthen the frontline workforce, catch disease early at the village level, and publish the evidence - so every rupee of community investment compounds into long-term capability."
       >
         <div className="flex flex-col sm:flex-row gap-3">
           <PillButton to="/partner/csr" variant="on-dark">
@@ -136,7 +136,7 @@ function HumanPotentialPage() {
         </div>
       </PageHero>
 
-      {/* Why this pillar — evidence */}
+      {/* Why this pillar - evidence */}
       <section className="bg-sage border-b border-hairline">
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
@@ -311,7 +311,7 @@ function HumanPotentialPage() {
             <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
               <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
                 Camp footfall and trainee headcounts are easy numbers. We
-                lead with the harder, more useful ones — and we release the
+                lead with the harder, more useful ones - and we release the
                 curriculum and the evidence into the public domain.
               </p>
             </FadeUp>

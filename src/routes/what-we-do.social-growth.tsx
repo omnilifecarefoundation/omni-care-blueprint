@@ -10,15 +10,15 @@ import chwImg from "@/assets/program-chw-training.jpg";
 export const Route = createFileRoute("/what-we-do/social-growth")({
   head: () => ({
     meta: [
-      { title: "Social Growth — Pillar 02 — Omni Life Care Foundation" },
+      { title: "Social Growth - Pillar 02 - Omni Life Care Foundation" },
       {
         name: "description",
         content:
-          "Education, scholarships and frontline livelihoods — so the village holds its own growth long after we leave. Pillar 02 of the Omni Care Model.",
+          "Education, scholarships and frontline livelihoods - so the village holds its own growth long after we leave. Pillar 02 of the Omni Care Model.",
       },
       {
         property: "og:title",
-        content: "Social Growth — Omni Life Care Foundation",
+        content: "Social Growth - Omni Life Care Foundation",
       },
       {
         property: "og:description",
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/what-we-do/social-growth")({
   component: SocialGrowthPage,
 });
 
-// Publicly cited figures — never fabricate.
+// Publicly cited figures - never fabricate.
 // NFHS-5 = National Family Health Survey, India 2019-21.
 // ASER = Annual Status of Education Report (Rural), Pratham 2023.
 // WHO = WHO Workforce 2030 / Health Workforce in India brief.
@@ -60,14 +60,14 @@ const METHOD = [
     icon: GraduationCap,
     title: "Pay the full cost of staying in school.",
     body:
-      "Tuition is the easy part. We cover materials, transport and a modest stipend, paired with monthly mentoring — so a first-generation learner doesn’t drop out the first time a fee notice arrives.",
+      "Tuition is the easy part. We cover materials, transport and a modest stipend, paired with monthly mentoring - so a first-generation learner doesn’t drop out the first time a fee notice arrives.",
   },
   {
     n: "02",
     icon: Stethoscope,
     title: "Turn the scholarship into a livelihood.",
     body:
-      "We bias support toward nursing, allied health and social work — fields where the village is short and the salary is real. The qualification is paid; the placement is the point.",
+      "We bias support toward nursing, allied health and social work - fields where the village is short and the salary is real. The qualification is paid; the placement is the point.",
   },
   {
     n: "03",
@@ -79,7 +79,7 @@ const METHOD = [
 ] as const;
 
 const PROMISES = [
-  "Retention through Class 12 and into a qualification — reported, not just enrolment.",
+  "Retention through Class 12 and into a qualification - reported, not just enrolment.",
   "Placement rate of trained workers into paid roles, published annually.",
   "Cost per scholar through to qualification, audited and shared with funders.",
   "Independent feedback from scholars and workers, reported unedited.",
@@ -92,9 +92,9 @@ const PROGRAMMES = [
     alt: "A young woman studying with course materials and a mentor's notebook open beside her.",
     badge: "Education pathway",
     title:
-      "Scholarships & Education Support — staying in school long enough for it to count.",
+      "Scholarships & Education Support - staying in school long enough for it to count.",
     body:
-      "Multi-year, needs-based scholarships paired with monthly mentoring for first-generation learners — priority to girls pursuing nursing, allied health and social work.",
+      "Multi-year, needs-based scholarships paired with monthly mentoring for first-generation learners - priority to girls pursuing nursing, allied health and social work.",
   },
   {
     href: "/programs/chw-development",
@@ -102,9 +102,9 @@ const PROGRAMMES = [
     alt: "A community health worker in uniform standing with her training cohort outside a rural health centre.",
     badge: "Livelihood pathway",
     title:
-      "Community Health Worker Development — a paid frontline role, recruited from the village itself.",
+      "Community Health Worker Development - a paid frontline role, recruited from the village itself.",
     body:
-      "Recruiting, certifying and placing women from the community as paid community health workers — a livelihood for her, a trusted neighbour for the village, capacity for the system.",
+      "Recruiting, certifying and placing women from the community as paid community health workers - a livelihood for her, a trusted neighbour for the village, capacity for the system.",
   },
 ];
 
@@ -114,7 +114,7 @@ function SocialGrowthPage() {
       <PageHero
         eyebrow="Pillar 02 · Social Growth"
         title="The scholarship is a job. The job is a health worker. The worker is the village holding its own ground."
-        lead="Most ‘education programmes’ end the day the certificate is handed over. We design ours to end the day they draw their first salary — inside the community they grew up in."
+        lead="Most ‘education programmes’ end the day the certificate is handed over. We design ours to end the day they draw their first salary - inside the community they grew up in."
       >
         <div className="flex flex-col sm:flex-row gap-3">
           <PillButton to="/partner/csr" variant="on-dark">
@@ -126,7 +126,7 @@ function SocialGrowthPage() {
         </div>
       </PageHero>
 
-      {/* Why this pillar — evidence on a soft band */}
+      {/* Why this pillar - evidence on a soft band */}
       <section className="bg-sage border-b border-hairline">
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
@@ -144,7 +144,7 @@ function SocialGrowthPage() {
                 A village that can keep its girls in school, and turn that
                 schooling into a paid role inside its own borders, doesn’t need
                 rescuing every monsoon. The numbers below are the gap we’re
-                building against — public, sourced, uncomfortable.
+                building against - public, sourced, uncomfortable.
               </p>
             </FadeUp>
           </div>
@@ -185,7 +185,7 @@ function SocialGrowthPage() {
             <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
               <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
                 Education is the input, not the outcome. We line up scholarship,
-                qualification and placement as one continuous pathway — so the
+                qualification and placement as one continuous pathway - so the
                 investment compounds inside the village instead of leaking out
                 of it.
               </p>
@@ -339,7 +339,7 @@ function SocialGrowthPage() {
       <CTABand
         eyebrow="Stand with this pillar"
         title="Help us turn a scholarship into a salary inside the village."
-        body="CSR partners can fund a full cohort — scholarship, qualification, mentoring and placement into a paid frontline role. Volunteers can mentor scholars or support curriculum."
+        body="CSR partners can fund a full cohort - scholarship, qualification, mentoring and placement into a paid frontline role. Volunteers can mentor scholars or support curriculum."
         primary={{ label: "Partner with us", href: "/partner/csr" }}
         secondary={{ label: "Volunteer", href: "/get-involved/volunteer" }}
       />

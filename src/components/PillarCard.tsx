@@ -15,7 +15,7 @@ interface PillarCardProps {
 }
 
 /**
- * PillarCard — compact, editorial card. Tinted top band carries the
+ * PillarCard - compact, editorial card. Tinted top band carries the
  * pillar's identity (SDG-aligned colour); body stays on canvas for
  * easy scanning. Refined hover, optical alignment, restrained motion.
  */

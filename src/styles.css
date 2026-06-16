@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /* =========================================================================
-   Omni Life Care Foundation — Design System
+   Omni Life Care Foundation - Design System
    70% Gates Foundation · 20% PATH · 10% Tata Trusts
    Source serif for editorial gravitas, Inter for UI, JetBrains Mono for data.
    ========================================================================= */
@@ -66,7 +66,7 @@
 :root {
   --radius: 4px;
 
-  /* Brand — Blue primary, Black ink for text */
+  /* Brand - Blue primary, Black ink for text */
   --primary: #0437F2;
   --primary-foreground: #FFFFFF;
   --primary-glow: #3B63F5;
@@ -84,11 +84,11 @@
   --coral: #FFD600;
   --gold: #FFD600;
 
-  /* Pillar accents — distinct per pillar */
-  --pillar-mental: #FFD600;     /* Yellow — vitality */
-  --pillar-social: #735BF6;     /* Light indigo — partnerships */
-  --pillar-inclusive: #DD1367;  /* Magenta — SDG 10 */
-  --pillar-human: #0437F2;      /* Deep indigo — knowledge */
+  /* Pillar accents - distinct per pillar */
+  --pillar-mental: #FFD600;     /* Yellow - vitality */
+  --pillar-social: #735BF6;     /* Light indigo - partnerships */
+  --pillar-inclusive: #DD1367;  /* Magenta - SDG 10 */
+  --pillar-human: #0437F2;      /* Deep indigo - knowledge */
 
   /* Motion easings (Axion-style) */
   --ease-axion: cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -246,7 +246,7 @@
   }
 
 
-  /* Buttons — Axion-style pill (rounded-full, compact, hover affordance) */
+  /* Buttons - Axion-style pill (rounded-full, compact, hover affordance) */
   .btn {
     display: inline-flex;
     align-items: center;

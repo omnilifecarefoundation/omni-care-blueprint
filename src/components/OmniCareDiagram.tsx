@@ -1,5 +1,5 @@
 // Signature graphic: Four Pillars, One Orbit.
-// A radial orbital diagram — pillars revolve around a shared centre
+// A radial orbital diagram - pillars revolve around a shared centre
 // ("community ground"), each linked by a single arc of integration.
 // Click a pillar to pause rotation and read the detail.
 
@@ -42,7 +42,7 @@ const PILLARS: Pillar[] = [
     name: "Social Growth",
     caption: "Education & livelihoods",
     detail:
-      "Skills, schooling, and dignified work — the bridge between care and independence.",
+      "Skills, schooling, and dignified work - the bridge between care and independence.",
     color: "#735BF6",
     icon: Users,
     relatedIds: ["mental", "human"],
@@ -53,7 +53,7 @@ const PILLARS: Pillar[] = [
     name: "Inclusive Care",
     caption: "Women, elders, disability",
     detail:
-      "Care that meets people where they are — and refuses to leave anyone at the edge.",
+      "Care that meets people where they are - and refuses to leave anyone at the edge.",
     color: "#DD1367",
     icon: HeartHandshake,
     relatedIds: ["mental", "human"],
@@ -64,7 +64,7 @@ const PILLARS: Pillar[] = [
     name: "Human Potential",
     caption: "The long horizon",
     detail:
-      "What care, done well, releases — leadership, agency, and a community that lifts itself.",
+      "What care, done well, releases - leadership, agency, and a community that lifts itself.",
     color: "#0437F2",
     icon: Sunrise,
     relatedIds: ["social", "inclusive"],
@@ -143,7 +143,7 @@ export function OmniCareDiagram({ className = "", focus = null }: Props) {
         <div className="h-[46%] w-[46%] rounded-full border border-dashed border-snow/8" />
       </div>
 
-      {/* Centre — community ground */}
+      {/* Centre - community ground */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
         <div className="relative mx-auto h-20 w-20 rounded-full bg-snow/10 backdrop-blur-md ring-1 ring-snow/25">
           <div className="absolute inset-2 rounded-full bg-gradient-to-br from-gold to-[#E6A700] shadow-[0_0_30px_-4px_rgba(255,214,0,0.6)]" />
@@ -181,7 +181,7 @@ export function OmniCareDiagram({ className = "", focus = null }: Props) {
               zIndex: isActive ? 20 : 10,
             }}
             aria-pressed={isActive}
-            aria-label={`${p.name} — ${p.caption}`}
+            aria-label={`${p.name} - ${p.caption}`}
           >
             <span
               className={`relative grid h-12 w-12 place-items-center rounded-full border transition-all duration-300 ${

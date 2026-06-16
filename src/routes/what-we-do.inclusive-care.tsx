@@ -11,20 +11,20 @@ import wellnessImg from "@/assets/program-womens-wellness.jpg";
 export const Route = createFileRoute("/what-we-do/inclusive-care")({
   head: () => ({
     meta: [
-      { title: "Inclusive Care — Pillar 03 — Omni Life Care Foundation" },
+      { title: "Inclusive Care - Pillar 03 - Omni Life Care Foundation" },
       {
         name: "description",
         content:
-          "Care designed around the people most often overlooked — women across life stages, the elderly, and persons with disability. Pillar 03 of the Omni Care Model.",
+          "Care designed around the people most often overlooked - women across life stages, the elderly, and persons with disability. Pillar 03 of the Omni Care Model.",
       },
       {
         property: "og:title",
-        content: "Inclusive Care — Omni Life Care Foundation",
+        content: "Inclusive Care - Omni Life Care Foundation",
       },
       {
         property: "og:description",
         content:
-          "Care that comes to the doorstep — for the women, elders, and persons with disability the clinic never quite reaches.",
+          "Care that comes to the doorstep - for the women, elders, and persons with disability the clinic never quite reaches.",
       },
       { property: "og:image", content: "/og-inclusive-care.jpg" },
     ],
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/what-we-do/inclusive-care")({
   component: InclusiveCarePage,
 });
 
-// Publicly cited figures — never fabricate.
+// Publicly cited figures - never fabricate.
 // Census 2011 = Office of the Registrar General, India.
 // UNFPA = India Ageing Report 2023.
 // NFHS-5 = National Family Health Survey, India 2019-21.
@@ -45,7 +45,7 @@ const EVIDENCE = [
   },
   {
     stat: "13.8 cr",
-    label: "Indians aged 60+ — set to double by 2050",
+    label: "Indians aged 60+ - set to double by 2050",
     note: "UNFPA India Ageing Report, 2023",
   },
   {
@@ -61,26 +61,26 @@ const METHOD = [
     icon: HeartHandshake,
     title: "Design care around the person the clinic forgets.",
     body:
-      "We start with the woman in post-menopause, the elder with three chronic conditions, the household with a member with disability. Their day shapes the protocol — not the other way around.",
+      "We start with the woman in post-menopause, the elder with three chronic conditions, the household with a member with disability. Their day shapes the protocol - not the other way around.",
   },
   {
     n: "02",
     icon: HomeIcon,
     title: "Move the care to the home.",
     body:
-      "Home-based care plans, monthly visits, assistive devices, and family-caregiver training — because the people we serve cannot or should not be asked to travel to a waiting room every month.",
+      "Home-based care plans, monthly visits, assistive devices, and family-caregiver training - because the people we serve cannot or should not be asked to travel to a waiting room every month.",
   },
   {
     n: "03",
     icon: Users,
     title: "Link every household to what it’s already owed.",
     body:
-      "Disability pensions. Niramaya health insurance. Senior-citizen schemes. We don’t just refer — we help families fill the forms, follow up, and actually receive the entitlement.",
+      "Disability pensions. Niramaya health insurance. Senior-citizen schemes. We don’t just refer - we help families fill the forms, follow up, and actually receive the entitlement.",
   },
 ] as const;
 
 const PROMISES = [
-  "Screening conversion to follow-up care, published — not just screening counts.",
+  "Screening conversion to follow-up care, published - not just screening counts.",
   "Households linked to a government entitlement, with the entitlement received.",
   "Cost per household supported, audited and shared with funders.",
   "Anonymous feedback from women, elders and caregivers, reported unedited.",
@@ -93,9 +93,9 @@ const PROGRAMMES = [
     alt: "A woman community health worker counselling a group of women under a tree at the edge of a village.",
     badge: "Life-stage care",
     title:
-      "Women’s Health & Life-Cycle Care — one programme that walks with her across every stage.",
+      "Women’s Health & Life-Cycle Care - one programme that walks with her across every stage.",
     body:
-      "Menstrual health in schools, cervical and breast cancer screening in adulthood, NCD care after menopause — delivered by women community workers, in places where male health workers are not accepted.",
+      "Menstrual health in schools, cervical and breast cancer screening in adulthood, NCD care after menopause - delivered by women community workers, in places where male health workers are not accepted.",
   },
   {
     href: "/programs/disability-elderly-care",
@@ -103,9 +103,9 @@ const PROGRAMMES = [
     alt: "A home-based care worker checking on an elderly man seated by a doorway, with a family member beside him.",
     badge: "Home-based care",
     title:
-      "Disability Inclusion & Elderly Support — care plans that arrive at the doorstep, monthly.",
+      "Disability Inclusion & Elderly Support - care plans that arrive at the doorstep, monthly.",
     body:
-      "Household needs assessment, assistive devices, family-caregiver training, and a clear link into government schemes — disability pension, Niramaya insurance, senior-citizen entitlements.",
+      "Household needs assessment, assistive devices, family-caregiver training, and a clear link into government schemes - disability pension, Niramaya insurance, senior-citizen entitlements.",
   },
   {
     href: "/programs/womens-wellness",
@@ -113,9 +113,9 @@ const PROGRAMMES = [
     alt: "A group of rural women in a circle on a mat, mid-conversation in a community wellness session.",
     badge: "Group wellness",
     title:
-      "Women’s Health & Wellness Initiative — weekly circles for stress, sleep and chronic pain.",
+      "Women’s Health & Wellness Initiative - weekly circles for stress, sleep and chronic pain.",
     body:
-      "A low-cost, replicable group curriculum — yoga, breath-work, peer dialogue — delivered weekly by trained women facilitators inside community spaces, alongside the mental-health programme.",
+      "A low-cost, replicable group curriculum - yoga, breath-work, peer dialogue - delivered weekly by trained women facilitators inside community spaces, alongside the mental-health programme.",
   },
 ];
 
@@ -125,7 +125,7 @@ function InclusiveCarePage() {
       <PageHero
         eyebrow="Pillar 03 · Inclusive Care"
         title="The clinic is open from ten to five. The people who need it most are at home."
-        lead="Inclusive Care is the part of the Omni Care Model that goes through the front door instead of waiting at the reception desk — for women across life stages, the elderly, and persons with disability."
+        lead="Inclusive Care is the part of the Omni Care Model that goes through the front door instead of waiting at the reception desk - for women across life stages, the elderly, and persons with disability."
       >
         <div className="flex flex-col sm:flex-row gap-3">
           <PillButton to="/partner/csr" variant="on-dark">
@@ -137,7 +137,7 @@ function InclusiveCarePage() {
         </div>
       </PageHero>
 
-      {/* Why this pillar — evidence */}
+      {/* Why this pillar - evidence */}
       <section className="bg-sage border-b border-hairline">
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
@@ -155,7 +155,7 @@ function InclusiveCarePage() {
                 Women in post-menopause. Elders with overlapping chronic
                 conditions. Households living with disability. The numbers
                 below are public, sourced, and the reason this pillar exists
-                as its own piece of work — not as a footnote on someone
+                as its own piece of work - not as a footnote on someone
                 else’s programme.
               </p>
             </FadeUp>
@@ -199,7 +199,7 @@ function InclusiveCarePage() {
                 Inclusive Care is care that arrives, not care you have to
                 travel to. The protocol bends around the household, the
                 visit is monthly, and the paperwork for what families are
-                already owed gets done with them — not for them.
+                already owed gets done with them - not for them.
               </p>
             </FadeUp>
           </div>
@@ -314,7 +314,7 @@ function InclusiveCarePage() {
             <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
               <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
                 Visit counts are the easy number. We’ll lead with what
-                actually shifted in the household — entitlements received,
+                actually shifted in the household - entitlements received,
                 screenings followed up, cost per family supported, and
                 feedback in their own words.
               </p>
@@ -352,7 +352,7 @@ function InclusiveCarePage() {
       <CTABand
         eyebrow="Stand with this pillar"
         title="Help us put a monthly visit on every doorstep that needs one."
-        body="CSR partners can fund a full cluster of households — assessment, devices, monthly visits, and entitlement linkage for a year. Volunteers can support training, content and family-caregiver curriculum."
+        body="CSR partners can fund a full cluster of households - assessment, devices, monthly visits, and entitlement linkage for a year. Volunteers can support training, content and family-caregiver curriculum."
         primary={{ label: "Partner with us", href: "/partner/csr" }}
         secondary={{ label: "Volunteer", href: "/get-involved/volunteer" }}
       />

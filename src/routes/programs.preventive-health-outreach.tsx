@@ -4,13 +4,13 @@ import { ProgrammePage, type ProgrammePageData } from "@/components/ProgrammePag
 export const Route = createFileRoute("/programs/preventive-health-outreach")({
   head: () => ({
     meta: [
-      { title: "Preventive & Community Health Outreach — Omni Life Care Foundation" },
+      { title: "Preventive & Community Health Outreach - Omni Life Care Foundation" },
       {
         name: "description",
         content:
           "Screening that ends in a treated condition, not a printed leaflet. NCD outreach for blood pressure, blood sugar, and cancer markers, with a funded referral path into the public health system.",
       },
-      { property: "og:title", content: "Preventive & Community Health Outreach — Omni Life Care Foundation" },
+      { property: "og:title", content: "Preventive & Community Health Outreach - Omni Life Care Foundation" },
       {
         property: "og:description",
         content:
@@ -29,14 +29,14 @@ const data: ProgrammePageData = {
   headlineLead: "A camp without a referral path is not a programme.",
   headlineEm: "It is theatre.",
   lead:
-    "Non-communicable diseases now cause an estimated 63 percent of deaths in India (WHO, 2022). Most begin years before symptoms — and most are missed because preventive screening is rare in the places that need it most. This programme runs the screen, and then walks the household into the treatment.",
+    "Non-communicable diseases now cause an estimated 63 percent of deaths in India (WHO, 2022). Most begin years before symptoms - and most are missed because preventive screening is rare in the places that need it most. This programme runs the screen, and then walks the household into the treatment.",
   primary: { label: "Partner on CSR", href: "/partner/csr" },
   secondary: { label: "Donate", href: "/donate" },
 
   editorialEyebrow: "Why this programme exists",
   editorialParagraphs: [
     "The National Programme for Prevention and Control of Non-Communicable Diseases (NPCDCS) lays out a clear pathway: opportunistic screening, risk stratification, referral, and chronic management. The pathway exists on paper. In most low-income wards, it does not exist in practice.",
-    "We do not invent a new pathway. We run NPCDCS the way it was written — at the doorstep, with trained community workers, using the prescribed instruments, in partnership with the nearest PHC and district hospital.",
+    "We do not invent a new pathway. We run NPCDCS the way it was written - at the doorstep, with trained community workers, using the prescribed instruments, in partnership with the nearest PHC and district hospital.",
     "Our promise is narrow and verifiable. Every positive screen ends with a named clinician, a confirmed first appointment, and a check-in at 30, 60, and 90 days. The screen is the start of the work, not the headline at the end of it.",
   ],
 
@@ -65,7 +65,7 @@ const data: ProgrammePageData = {
       n: "04",
       title: "Publish what we missed",
       body:
-        "Quarterly we report not only screenings completed and referrals closed, but referrals lost — and the reason. Stockouts, transfers, refusals. Honesty about what did not work is the only way the system improves.",
+        "Quarterly we report not only screenings completed and referrals closed, but referrals lost - and the reason. Stockouts, transfers, refusals. Honesty about what did not work is the only way the system improves.",
     },
   ],
 
@@ -86,7 +86,7 @@ const data: ProgrammePageData = {
     },
     {
       label: "Cost per managed condition",
-      body: "We track cost per person retained in care at 90 days — not cost per screen. The screen is cheap; the care is the unit that matters.",
+      body: "We track cost per person retained in care at 90 days - not cost per screen. The screen is cheap; the care is the unit that matters.",
     },
   ],
 
@@ -103,7 +103,7 @@ const data: ProgrammePageData = {
       when: "Q4 FY 2026",
       title: "First outreach cycle",
       body:
-        "Door-to-door screening across one ward — roughly 800 adults. WHO-ISH risk classification recorded for every adult screened.",
+        "Door-to-door screening across one ward - roughly 800 adults. WHO-ISH risk classification recorded for every adult screened.",
     },
     {
       when: "Q1 FY 2027",
@@ -123,7 +123,7 @@ const data: ProgrammePageData = {
   partnershipsTitle: "PHC clinicians, district administrations, and corporate partners willing to fund the boring middle.",
   partnershipsParagraphs: [
     "We work alongside, not in place of, the public health system. PHC medical officers, district NCD officers, and ASHA supervisors are partners, not gatekeepers. If you sit in one of those roles and want a steady stream of well-prepared patients, we want to hear from you.",
-    "We are looking for CSR partners who understand that the cost-effective part of NCD control is the unglamorous part — the follow-up, the medication adherence, the chronic care. The screening camp is the first metre of a long road.",
+    "We are looking for CSR partners who understand that the cost-effective part of NCD control is the unglamorous part - the follow-up, the medication adherence, the chronic care. The screening camp is the first metre of a long road.",
     "And we are looking for diagnostic labs and pharmaceutical partners able to commit on price for medications most patients in our wards cannot otherwise sustain.",
   ],
   partnershipsLink: { label: "Talk to the programme team", href: "/contact" },
@@ -137,7 +137,7 @@ const data: ProgrammePageData = {
   ctaEyebrow: "Underwrite the programme",
   ctaTitle: "One household, one screen, one referral closed. Multiply it.",
   ctaBody:
-    "A CSR partnership underwrites a screening cohort end-to-end — equipment, worker time, and the 90-day follow-up that turns a number into a managed condition.",
+    "A CSR partnership underwrites a screening cohort end-to-end - equipment, worker time, and the 90-day follow-up that turns a number into a managed condition.",
   ctaPrimary: { label: "Partner on CSR", href: "/partner/csr" },
   ctaSecondary: { label: "Donate", href: "/donate" },
 };
