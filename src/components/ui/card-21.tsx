@@ -10,6 +10,8 @@ interface DestinationCardProps extends React.HTMLAttributes<HTMLDivElement> {
   href: string;
   themeColor: string; // HSL components, e.g. "232 97% 49%"
   ctaLabel?: string;
+  eyebrow?: string;
+  number?: string;
 }
 
 const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
