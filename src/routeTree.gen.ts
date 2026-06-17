@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapRouteImport } from './routes/sitemap'
@@ -59,6 +60,11 @@ import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/l
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 import { Route as ApiPublicFormsSubmitRouteImport } from './routes/api/public/forms/submit'
 
+const UnsubscribeRoute = UnsubscribeRouteImport.update({
+  id: '/unsubscribe',
+  path: '/unsubscribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -329,6 +335,7 @@ export interface FileRoutesByFullPath {
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/about/careers': typeof AboutCareersRoute
   '/about/compliance': typeof AboutComplianceRoute
   '/about/leadership': typeof AboutLeadershipRoute
@@ -380,6 +387,7 @@ export interface FileRoutesByTo {
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/about/careers': typeof AboutCareersRoute
   '/about/compliance': typeof AboutComplianceRoute
   '/about/leadership': typeof AboutLeadershipRoute
@@ -432,6 +440,7 @@ export interface FileRoutesById {
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/about/careers': typeof AboutCareersRoute
   '/about/compliance': typeof AboutComplianceRoute
   '/about/leadership': typeof AboutLeadershipRoute
@@ -485,6 +494,7 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
+    | '/unsubscribe'
     | '/about/careers'
     | '/about/compliance'
     | '/about/leadership'
@@ -536,6 +546,7 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
+    | '/unsubscribe'
     | '/about/careers'
     | '/about/compliance'
     | '/about/leadership'
@@ -587,6 +598,7 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
+    | '/unsubscribe'
     | '/about/careers'
     | '/about/compliance'
     | '/about/leadership'
@@ -639,6 +651,7 @@ export interface RootRouteChildren {
   SitemapRoute: typeof SitemapRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
+  UnsubscribeRoute: typeof UnsubscribeRoute
   AboutCareersRoute: typeof AboutCareersRoute
   AboutComplianceRoute: typeof AboutComplianceRoute
   AboutLeadershipRoute: typeof AboutLeadershipRoute
@@ -679,6 +692,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/unsubscribe': {
+      id: '/unsubscribe'
+      path: '/unsubscribe'
+      fullPath: '/unsubscribe'
+      preLoaderRoute: typeof UnsubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -1039,6 +1059,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapRoute: SitemapRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
+  UnsubscribeRoute: UnsubscribeRoute,
   AboutCareersRoute: AboutCareersRoute,
   AboutComplianceRoute: AboutComplianceRoute,
   AboutLeadershipRoute: AboutLeadershipRoute,
