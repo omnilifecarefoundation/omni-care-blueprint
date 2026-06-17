@@ -1,8 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
+import { toast } from "sonner";
 import { PageHero } from "@/components/PageHero";
 import { FadeUp } from "@/components/FadeUp";
 import { CTABand } from "@/components/CTABand";
+import { submitForm } from "@/lib/forms/submit";
 
 export const Route = createFileRoute("/donate")({
   head: () => ({
@@ -42,6 +44,7 @@ function Page() {
   const [amount, setAmount] = useState<number>(5000);
   const [custom, setCustom] = useState<string>("");
   const [freq, setFreq] = useState<"one" | "monthly">("one");
+  const [busy, setBusy] = useState(false);
 
   const effective = useMemo(() => {
     const c = Number(custom.replace(/[^\d]/g, ""));
@@ -69,9 +72,39 @@ function Page() {
             {/* Form */}
             <FadeUp>
               <form
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault();
-                  alert("Payment partner integration goes live with the FY 2026–27 cohort. Until then, please use the bank/UPI details below.");
+                  if (busy) return;
+                  const data = new FormData(e.currentTarget);
+                  const name = String(data.get("name") || "").trim();
+                  const email = String(data.get("email") || "").trim();
+                  const pan = String(data.get("pan") || "").trim();
+                  const phone = String(data.get("phone") || "").trim();
+                  const website = String(data.get("website") || "");
+                  if (!name || !email) {
+                    toast.error("Please add your name and email.");
+                    return;
+                  }
+                  setBusy(true);
+                  try {
+                    await submitForm({
+                      formName: "Donation pledge",
+                      replyTo: email,
+                      website,
+                      fields: [
+                        { label: "Name", value: name },
+                        { label: "Email", value: email },
+                        { label: "Phone", value: phone || "—" },
+                        { label: "PAN", value: pan || "—" },
+                        { label: "Amount", value: `₹${inr(effective)} ${freq === "monthly" ? "/ month" : "one-time"}` },
+                      ],
+                    });
+                    toast.success("Pledge received. Our team will share payment details by email shortly.");
+                  } catch (err) {
+                    toast.error(err instanceof Error ? err.message : "Couldn't send. Please try again.");
+                  } finally {
+                    setBusy(false);
+                  }
                 }}
                 aria-label="Donation form"
                 className="rounded-2xl bg-snow border border-hairline p-7 lg:p-10 shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_24px_60px_-36px_rgba(4, 55, 242,0.18)]"
@@ -151,12 +184,14 @@ function Page() {
                   <Field id="phone" label="Phone" />
                 </div>
 
+                <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+
                 <button
                   type="submit"
-                  className="mt-8 w-full h-14 rounded-full bg-ink text-snow font-semibold text-base tracking-[-0.005em] transition-[background-color,box-shadow,transform] duration-200 ease-[cubic-bezier(0.2,0,0,1)] hover:bg-ink/90 active:scale-[0.985] shadow-[0_1px_2px_rgba(4, 55, 242,0.10),0_18px_40px_-18px_rgba(4, 55, 242,0.35)]"
+                  disabled={busy}
+                  className="mt-8 w-full h-14 rounded-full bg-ink text-snow font-semibold text-base tracking-[-0.005em] transition-[background-color,box-shadow,transform] duration-200 ease-[cubic-bezier(0.2,0,0,1)] hover:bg-ink/90 active:scale-[0.985] shadow-[0_1px_2px_rgba(4, 55, 242,0.10),0_18px_40px_-18px_rgba(4, 55, 242,0.35)] disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Continue · ₹<span className="tabular-nums">{inr(effective)}</span>
-                  {freq === "monthly" ? " / month" : ""}
+                  {busy ? "Sending…" : (<>Continue · ₹<span className="tabular-nums">{inr(effective)}</span>{freq === "monthly" ? " / month" : ""}</>)}
                 </button>
 
                 <p className="mt-4 text-xs text-ink-muted leading-relaxed">
@@ -329,6 +364,7 @@ function Field({ id, label, type = "text", required }: { id: string; label: stri
       </label>
       <input
         id={id}
+        name={id}
         type={type}
         required={required}
         autoComplete={id === "name" ? "name" : id === "email" ? "email" : id === "phone" ? "tel" : "off"}

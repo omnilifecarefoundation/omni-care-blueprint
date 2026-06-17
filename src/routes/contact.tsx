@@ -1,8 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { SITE } from "@/lib/site";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
+import { submitForm } from "@/lib/forms/submit";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -19,6 +21,46 @@ export const Route = createFileRoute("/contact")({
 
 function Page() {
   const [sent, setSent] = useState(false);
+  const [busy, setBusy] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (busy) return;
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get("cname") || "").trim();
+    const email = String(data.get("cemail") || "").trim();
+    const topic = String(data.get("ctopic") || "").trim();
+    const message = String(data.get("cmsg") || "").trim();
+    const website = String(data.get("website") || "");
+
+    if (!name || !email || !message) {
+      toast.error("Please complete name, email and message.");
+      return;
+    }
+
+    setBusy(true);
+    try {
+      await submitForm({
+        formName: "Contact",
+        replyTo: email,
+        website,
+        fields: [
+          { label: "Name", value: name },
+          { label: "Email", value: email },
+          { label: "Topic", value: topic },
+          { label: "Message", value: message },
+        ],
+      });
+      setSent(true);
+      toast.success("Message sent. We'll be in touch within 3 business days.");
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Couldn't send. Please try again.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
   return (
     <>
       <PageHero eyebrow="Contact" title="Get in touch." lead="We respond to enquiries within 3 business days." />
@@ -41,14 +83,17 @@ function Page() {
           </aside>
 
           {sent ? (
-            <div className="rounded-2xl bg-sage p-8 border border-hairline shadow-[0_1px_2px_rgba(4, 55, 242,0.04)]">
+            <div className="rounded-2xl bg-sage p-8 border border-hairline shadow-[0_1px_2px_rgba(4,55,242,0.04)]">
               <h2 className="font-sans font-semibold tracking-[-0.015em] text-2xl text-balance">Thanks - your message is in.</h2>
               <p className="mt-3 text-ink-muted text-pretty">We'll get back within 3 business days.</p>
+              <div className="mt-6">
+                <Link to="/" className="btn btn-secondary">Back to home</Link>
+              </div>
             </div>
           ) : (
             <form
-              onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-              className="rounded-2xl bg-snow border border-hairline p-7 lg:p-10 shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_8px_24px_-16px_rgba(4, 55, 242,0.10)]"
+              onSubmit={handleSubmit}
+              className="rounded-2xl bg-snow border border-hairline p-7 lg:p-10 shadow-[0_1px_2px_rgba(4,55,242,0.04),0_8px_24px_-16px_rgba(4,55,242,0.10)]"
               aria-label="Contact form"
             >
               <h2 className="font-sans font-semibold tracking-[-0.015em] text-2xl">Send us a message</h2>
@@ -57,7 +102,7 @@ function Page() {
                 <Field id="cemail" label="Email" type="email" required />
                 <div className="sm:col-span-2">
                   <label htmlFor="ctopic" className="block text-sm font-semibold mb-1.5">Topic</label>
-                  <select id="ctopic" className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(4, 55, 242,0.04)] focus:border-primary outline-none transition-colors">
+                  <select id="ctopic" name="ctopic" className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(4,55,242,0.04)] focus:border-primary outline-none transition-colors">
                     <option>General enquiry</option>
                     <option>CSR partnership</option>
                     <option>Media enquiry</option>
@@ -68,10 +113,14 @@ function Page() {
                 </div>
                 <div className="sm:col-span-2">
                   <label htmlFor="cmsg" className="block text-sm font-semibold mb-1.5">Message</label>
-                  <textarea id="cmsg" rows={5} required className="w-full px-4 py-3 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(4, 55, 242,0.04)] focus:border-primary outline-none transition-colors" />
+                  <textarea id="cmsg" name="cmsg" rows={5} required className="w-full px-4 py-3 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(4,55,242,0.04)] focus:border-primary outline-none transition-colors" />
                 </div>
               </div>
-              <button type="submit" className="btn btn-primary mt-6">Send message</button>
+              {/* honeypot */}
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+              <button type="submit" disabled={busy} className="btn btn-primary mt-6 disabled:opacity-60 disabled:cursor-not-allowed">
+                {busy ? "Sending…" : "Send message"}
+              </button>
             </form>
           )}
         </div>
@@ -86,7 +135,7 @@ function Field({ id, label, type = "text", required }: { id: string; label: stri
       <label htmlFor={id} className="block text-sm font-semibold mb-1.5">
         {label}{required && <span className="text-gold"> *</span>}
       </label>
-      <input id={id} type={type} required={required} className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(4, 55, 242,0.04)] focus:border-primary outline-none transition-colors" />
+      <input id={id} name={id} type={type} required={required} className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(4,55,242,0.04)] focus:border-primary outline-none transition-colors" />
     </div>
   );
 }

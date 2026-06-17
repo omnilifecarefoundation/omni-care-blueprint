@@ -15,6 +15,8 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
+import { submitForm } from "@/lib/forms/submit";
 
 export const Route = createFileRoute("/partner/csr")({
   head: () => ({
@@ -411,6 +413,48 @@ function ContactRow({
 
 function CSRForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [busy, setBusy] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (busy) return;
+    const data = new FormData(e.currentTarget);
+    const company = String(data.get("company") || "").trim();
+    const contact = String(data.get("contact") || "").trim();
+    const role = String(data.get("role") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const phone = String(data.get("phone") || "").trim();
+    const focus = String(data.get("focus") || "").trim();
+    const msg = String(data.get("msg") || "").trim();
+    const website = String(data.get("website") || "");
+    if (!company || !contact || !email) {
+      toast.error("Please complete company, your name and work email.");
+      return;
+    }
+    setBusy(true);
+    try {
+      await submitForm({
+        formName: "CSR enquiry",
+        replyTo: email,
+        website,
+        fields: [
+          { label: "Company", value: company },
+          { label: "Contact", value: contact },
+          { label: "Role", value: role || "—" },
+          { label: "Email", value: email },
+          { label: "Phone", value: phone || "—" },
+          { label: "Programme focus", value: focus },
+          { label: "Message", value: msg || "—" },
+        ],
+      });
+      setSubmitted(true);
+      toast.success("Enquiry sent. A founding-team member will reply within three working days.");
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Couldn't send. Please try again.");
+    } finally {
+      setBusy(false);
+    }
+  }
   if (submitted) {
     return (
       <div className="rounded-2xl bg-sage p-8 border border-hairline shadow-[0_1px_2px_rgba(4, 55, 242,0.04)]">
@@ -430,10 +474,7 @@ function CSRForm() {
   }
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        setSubmitted(true);
-      }}
+      onSubmit={handleSubmit}
       className="rounded-2xl bg-snow border border-hairline p-7 shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_8px_24px_-16px_rgba(4, 55, 242,0.10)]"
       aria-label="CSR enquiry form"
     >
@@ -455,6 +496,7 @@ function CSRForm() {
           </label>
           <select
             id="focus"
+            name="focus"
             className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(4, 55, 242,0.04)] focus:border-primary outline-none transition-colors"
           >
             <option>Community Mental Health</option>
@@ -471,6 +513,7 @@ function CSRForm() {
           </label>
           <textarea
             id="msg"
+            name="msg"
             rows={4}
             placeholder="Budget range, geography, reporting needs, anything we should know."
             className="w-full px-4 py-3 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(4, 55, 242,0.04)] focus:border-primary outline-none transition-colors"
@@ -486,11 +529,13 @@ function CSRForm() {
             .
           </span>
         </label>
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
         <button
           type="submit"
-          className="btn btn-primary active:scale-[0.98] transition-[transform,background-color] duration-150"
+          disabled={busy}
+          className="btn btn-primary active:scale-[0.98] transition-[transform,background-color] duration-150 disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          Send enquiry
+          {busy ? "Sending…" : "Send enquiry"}
         </button>
       </div>
     </form>
@@ -518,6 +563,7 @@ function Field({
       </label>
       <input
         id={id}
+        name={id}
         type={type}
         required={required}
         placeholder={placeholder}

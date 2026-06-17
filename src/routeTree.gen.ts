@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapRouteImport } from './routes/sitemap'
@@ -45,6 +46,7 @@ import { Route as ProgramsSlugRouteImport } from './routes/programs.$slug'
 import { Route as PartnerCsrRouteImport } from './routes/partner.csr'
 import { Route as ImpactStoriesRouteImport } from './routes/impact.stories'
 import { Route as GetInvolvedVolunteerRouteImport } from './routes/get-involved.volunteer'
+import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
 import { Route as AboutVisionMissionRouteImport } from './routes/about.vision-mission'
 import { Route as AboutValuesRouteImport } from './routes/about.values'
 import { Route as AboutOurStoryRouteImport } from './routes/about.our-story'
@@ -52,8 +54,17 @@ import { Route as AboutOmniCareModelRouteImport } from './routes/about.omni-care
 import { Route as AboutLeadershipRouteImport } from './routes/about.leadership'
 import { Route as AboutComplianceRouteImport } from './routes/about.compliance'
 import { Route as AboutCareersRouteImport } from './routes/about.careers'
+import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
+import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
+import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
+import { Route as ApiPublicFormsSubmitRouteImport } from './routes/api/public/forms/submit'
 
+const UnsubscribeRoute = UnsubscribeRouteImport.update({
+  id: '/unsubscribe',
+  path: '/unsubscribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -241,6 +252,11 @@ const GetInvolvedVolunteerRoute = GetInvolvedVolunteerRouteImport.update({
   path: '/get-involved/volunteer',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
+  id: '/email/unsubscribe',
+  path: '/email/unsubscribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutVisionMissionRoute = AboutVisionMissionRouteImport.update({
   id: '/about/vision-mission',
   path: '/about/vision-mission',
@@ -276,12 +292,34 @@ const AboutCareersRoute = AboutCareersRouteImport.update({
   path: '/about/careers',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
+  id: '/lovable/email/suppression',
+  path: '/lovable/email/suppression',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LovableEmailTransactionalSendRoute =
+  LovableEmailTransactionalSendRouteImport.update({
+    id: '/lovable/email/transactional/send',
+    path: '/lovable/email/transactional/send',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LovableEmailTransactionalPreviewRoute =
+  LovableEmailTransactionalPreviewRouteImport.update({
+    id: '/lovable/email/transactional/preview',
+    path: '/lovable/email/transactional/preview',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LovableEmailQueueProcessRoute =
   LovableEmailQueueProcessRouteImport.update({
     id: '/lovable/email/queue/process',
     path: '/lovable/email/queue/process',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiPublicFormsSubmitRoute = ApiPublicFormsSubmitRouteImport.update({
+  id: '/api/public/forms/submit',
+  path: '/api/public/forms/submit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -297,6 +335,7 @@ export interface FileRoutesByFullPath {
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/about/careers': typeof AboutCareersRoute
   '/about/compliance': typeof AboutComplianceRoute
   '/about/leadership': typeof AboutLeadershipRoute
@@ -304,6 +343,7 @@ export interface FileRoutesByFullPath {
   '/about/our-story': typeof AboutOurStoryRoute
   '/about/values': typeof AboutValuesRoute
   '/about/vision-mission': typeof AboutVisionMissionRoute
+  '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/get-involved/volunteer': typeof GetInvolvedVolunteerRoute
   '/impact/stories': typeof ImpactStoriesRoute
   '/partner/csr': typeof PartnerCsrRoute
@@ -327,7 +367,11 @@ export interface FileRoutesByFullPath {
   '/impact/': typeof ImpactIndexRoute
   '/programs/': typeof ProgramsIndexRoute
   '/what-we-do/': typeof WhatWeDoIndexRoute
+  '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
+  '/api/public/forms/submit': typeof ApiPublicFormsSubmitRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
+  '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -343,6 +387,7 @@ export interface FileRoutesByTo {
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/about/careers': typeof AboutCareersRoute
   '/about/compliance': typeof AboutComplianceRoute
   '/about/leadership': typeof AboutLeadershipRoute
@@ -350,6 +395,7 @@ export interface FileRoutesByTo {
   '/about/our-story': typeof AboutOurStoryRoute
   '/about/values': typeof AboutValuesRoute
   '/about/vision-mission': typeof AboutVisionMissionRoute
+  '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/get-involved/volunteer': typeof GetInvolvedVolunteerRoute
   '/impact/stories': typeof ImpactStoriesRoute
   '/partner/csr': typeof PartnerCsrRoute
@@ -373,7 +419,11 @@ export interface FileRoutesByTo {
   '/impact': typeof ImpactIndexRoute
   '/programs': typeof ProgramsIndexRoute
   '/what-we-do': typeof WhatWeDoIndexRoute
+  '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
+  '/api/public/forms/submit': typeof ApiPublicFormsSubmitRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
+  '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -390,6 +440,7 @@ export interface FileRoutesById {
   '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/about/careers': typeof AboutCareersRoute
   '/about/compliance': typeof AboutComplianceRoute
   '/about/leadership': typeof AboutLeadershipRoute
@@ -397,6 +448,7 @@ export interface FileRoutesById {
   '/about/our-story': typeof AboutOurStoryRoute
   '/about/values': typeof AboutValuesRoute
   '/about/vision-mission': typeof AboutVisionMissionRoute
+  '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/get-involved/volunteer': typeof GetInvolvedVolunteerRoute
   '/impact/stories': typeof ImpactStoriesRoute
   '/partner/csr': typeof PartnerCsrRoute
@@ -420,7 +472,11 @@ export interface FileRoutesById {
   '/impact/': typeof ImpactIndexRoute
   '/programs/': typeof ProgramsIndexRoute
   '/what-we-do/': typeof WhatWeDoIndexRoute
+  '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
+  '/api/public/forms/submit': typeof ApiPublicFormsSubmitRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
+  '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -438,6 +494,7 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
+    | '/unsubscribe'
     | '/about/careers'
     | '/about/compliance'
     | '/about/leadership'
@@ -445,6 +502,7 @@ export interface FileRouteTypes {
     | '/about/our-story'
     | '/about/values'
     | '/about/vision-mission'
+    | '/email/unsubscribe'
     | '/get-involved/volunteer'
     | '/impact/stories'
     | '/partner/csr'
@@ -468,7 +526,11 @@ export interface FileRouteTypes {
     | '/impact/'
     | '/programs/'
     | '/what-we-do/'
+    | '/lovable/email/suppression'
+    | '/api/public/forms/submit'
     | '/lovable/email/queue/process'
+    | '/lovable/email/transactional/preview'
+    | '/lovable/email/transactional/send'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -484,6 +546,7 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
+    | '/unsubscribe'
     | '/about/careers'
     | '/about/compliance'
     | '/about/leadership'
@@ -491,6 +554,7 @@ export interface FileRouteTypes {
     | '/about/our-story'
     | '/about/values'
     | '/about/vision-mission'
+    | '/email/unsubscribe'
     | '/get-involved/volunteer'
     | '/impact/stories'
     | '/partner/csr'
@@ -514,7 +578,11 @@ export interface FileRouteTypes {
     | '/impact'
     | '/programs'
     | '/what-we-do'
+    | '/lovable/email/suppression'
+    | '/api/public/forms/submit'
     | '/lovable/email/queue/process'
+    | '/lovable/email/transactional/preview'
+    | '/lovable/email/transactional/send'
   id:
     | '__root__'
     | '/'
@@ -530,6 +598,7 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/sitemap.xml'
     | '/terms'
+    | '/unsubscribe'
     | '/about/careers'
     | '/about/compliance'
     | '/about/leadership'
@@ -537,6 +606,7 @@ export interface FileRouteTypes {
     | '/about/our-story'
     | '/about/values'
     | '/about/vision-mission'
+    | '/email/unsubscribe'
     | '/get-involved/volunteer'
     | '/impact/stories'
     | '/partner/csr'
@@ -560,7 +630,11 @@ export interface FileRouteTypes {
     | '/impact/'
     | '/programs/'
     | '/what-we-do/'
+    | '/lovable/email/suppression'
+    | '/api/public/forms/submit'
     | '/lovable/email/queue/process'
+    | '/lovable/email/transactional/preview'
+    | '/lovable/email/transactional/send'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -577,6 +651,7 @@ export interface RootRouteChildren {
   SitemapRoute: typeof SitemapRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
+  UnsubscribeRoute: typeof UnsubscribeRoute
   AboutCareersRoute: typeof AboutCareersRoute
   AboutComplianceRoute: typeof AboutComplianceRoute
   AboutLeadershipRoute: typeof AboutLeadershipRoute
@@ -584,6 +659,7 @@ export interface RootRouteChildren {
   AboutOurStoryRoute: typeof AboutOurStoryRoute
   AboutValuesRoute: typeof AboutValuesRoute
   AboutVisionMissionRoute: typeof AboutVisionMissionRoute
+  EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   GetInvolvedVolunteerRoute: typeof GetInvolvedVolunteerRoute
   ImpactStoriesRoute: typeof ImpactStoriesRoute
   PartnerCsrRoute: typeof PartnerCsrRoute
@@ -607,11 +683,22 @@ export interface RootRouteChildren {
   ImpactIndexRoute: typeof ImpactIndexRoute
   ProgramsIndexRoute: typeof ProgramsIndexRoute
   WhatWeDoIndexRoute: typeof WhatWeDoIndexRoute
+  LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
+  ApiPublicFormsSubmitRoute: typeof ApiPublicFormsSubmitRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
+  LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
+  LovableEmailTransactionalSendRoute: typeof LovableEmailTransactionalSendRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/unsubscribe': {
+      id: '/unsubscribe'
+      path: '/unsubscribe'
+      fullPath: '/unsubscribe'
+      preLoaderRoute: typeof UnsubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -864,6 +951,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GetInvolvedVolunteerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/email/unsubscribe': {
+      id: '/email/unsubscribe'
+      path: '/email/unsubscribe'
+      fullPath: '/email/unsubscribe'
+      preLoaderRoute: typeof EmailUnsubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about/vision-mission': {
       id: '/about/vision-mission'
       path: '/about/vision-mission'
@@ -913,11 +1007,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutCareersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lovable/email/suppression': {
+      id: '/lovable/email/suppression'
+      path: '/lovable/email/suppression'
+      fullPath: '/lovable/email/suppression'
+      preLoaderRoute: typeof LovableEmailSuppressionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lovable/email/transactional/send': {
+      id: '/lovable/email/transactional/send'
+      path: '/lovable/email/transactional/send'
+      fullPath: '/lovable/email/transactional/send'
+      preLoaderRoute: typeof LovableEmailTransactionalSendRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lovable/email/transactional/preview': {
+      id: '/lovable/email/transactional/preview'
+      path: '/lovable/email/transactional/preview'
+      fullPath: '/lovable/email/transactional/preview'
+      preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lovable/email/queue/process': {
       id: '/lovable/email/queue/process'
       path: '/lovable/email/queue/process'
       fullPath: '/lovable/email/queue/process'
       preLoaderRoute: typeof LovableEmailQueueProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/forms/submit': {
+      id: '/api/public/forms/submit'
+      path: '/api/public/forms/submit'
+      fullPath: '/api/public/forms/submit'
+      preLoaderRoute: typeof ApiPublicFormsSubmitRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -937,6 +1059,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapRoute: SitemapRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
+  UnsubscribeRoute: UnsubscribeRoute,
   AboutCareersRoute: AboutCareersRoute,
   AboutComplianceRoute: AboutComplianceRoute,
   AboutLeadershipRoute: AboutLeadershipRoute,
@@ -944,6 +1067,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutOurStoryRoute: AboutOurStoryRoute,
   AboutValuesRoute: AboutValuesRoute,
   AboutVisionMissionRoute: AboutVisionMissionRoute,
+  EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   GetInvolvedVolunteerRoute: GetInvolvedVolunteerRoute,
   ImpactStoriesRoute: ImpactStoriesRoute,
   PartnerCsrRoute: PartnerCsrRoute,
@@ -967,7 +1091,11 @@ const rootRouteChildren: RootRouteChildren = {
   ImpactIndexRoute: ImpactIndexRoute,
   ProgramsIndexRoute: ProgramsIndexRoute,
   WhatWeDoIndexRoute: WhatWeDoIndexRoute,
+  LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
+  ApiPublicFormsSubmitRoute: ApiPublicFormsSubmitRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
+  LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
+  LovableEmailTransactionalSendRoute: LovableEmailTransactionalSendRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
