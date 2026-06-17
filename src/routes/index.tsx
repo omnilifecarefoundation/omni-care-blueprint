@@ -12,6 +12,9 @@ import heroImg from "@/assets/hero-community.jpg";
 import { PROGRAMS, PILLARS } from "@/lib/site";
 import { FadeUp } from "@/components/FadeUp";
 import { PillButton } from "@/components/ui-axion/PillButton";
+import { useState } from "react";
+import { toast } from "sonner";
+import { submitForm } from "@/lib/forms/submit";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -941,31 +944,7 @@ function Newsletter() {
               </div>
 
               <div className="lg:col-span-5">
-                <form
-                  className="group relative"
-                  onSubmit={(e) => e.preventDefault()}
-                >
-                  <label htmlFor="email-newsletter" className="sr-only">
-                    Your email
-                  </label>
-                  {/* concentric: outer rounded-full p-1.5, inner button rounded-full */}
-                  <div className="flex items-center gap-1.5 rounded-full bg-snow/10 backdrop-blur-sm p-1.5 ring-1 ring-snow/20 transition-[box-shadow,background-color] duration-200 ease-out focus-within:bg-snow/15 focus-within:ring-snow/40 focus-within:shadow-[0_0_0_4px_rgba(255,214,0,0.18)]">
-                    <input
-                      id="email-newsletter"
-                      type="email"
-                      required
-                      placeholder="you@work.com"
-                      autoComplete="email"
-                      className="flex-1 min-w-0 h-11 px-4 bg-transparent text-[14px] text-snow placeholder:text-snow/45 focus:outline-none"
-                    />
-                    <button
-                      type="submit"
-                      className="shrink-0 h-11 px-5 rounded-full bg-snow text-ink text-[13px] font-semibold tracking-[0.01em] transition-[background-color,scale,box-shadow] duration-200 ease-out hover:bg-[#F1F1F4] hover:shadow-[0_6px_18px_-6px_rgba(0,0,0,0.45)] active:scale-[0.96]"
-                    >
-                      Subscribe
-                    </button>
-                  </div>
-                </form>
+                <NewsletterForm />
                 <p className="mt-3 flex items-center gap-2 text-[12px] text-snow/55">
                   <svg
                     aria-hidden
