@@ -563,6 +563,7 @@ function Field({
       </label>
       <input
         id={id}
+        name={id}
         type={type}
         required={required}
         placeholder={placeholder}
