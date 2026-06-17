@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileCTABar } from "@/components/MobileCTABar";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -149,6 +150,7 @@ function RootComponent() {
       </main>
       <Footer />
       <MobileCTABar />
+      <Toaster position="top-center" richColors closeButton />
     </QueryClientProvider>
   );
 }
