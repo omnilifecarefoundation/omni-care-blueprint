@@ -364,6 +364,7 @@ function Field({ id, label, type = "text", required }: { id: string; label: stri
       </label>
       <input
         id={id}
+        name={id}
         type={type}
         required={required}
         autoComplete={id === "name" ? "name" : id === "email" ? "email" : id === "phone" ? "tel" : "off"}
