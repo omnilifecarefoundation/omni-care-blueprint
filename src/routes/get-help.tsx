@@ -72,6 +72,45 @@ const TOPICS = [
 ];
 
 function GetHelpPage() {
+  const [busy, setBusy] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (busy) return;
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get("name") || "").trim();
+    const contact = String(data.get("contact") || "").trim();
+    const topic = String(data.get("topic") || "").trim();
+    const message = String(data.get("message") || "").trim();
+    const website = String(data.get("website") || "");
+    if (!name || !contact) {
+      toast.error("Please add your name and how to reach you.");
+      return;
+    }
+    const replyTo = /.+@.+\..+/.test(contact) ? contact : undefined;
+    setBusy(true);
+    try {
+      await submitForm({
+        formName: "Get Help",
+        replyTo,
+        website,
+        fields: [
+          { label: "Name", value: name },
+          { label: "Phone or email", value: contact },
+          { label: "Topic", value: topic || "Not specified" },
+          { label: "Message", value: message || "—" },
+        ],
+      });
+      setSent(true);
+      toast.success("Got it. Our team will reach out within two working days.");
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Couldn't send. Please try again.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
   return (
     <>
       {/* Hero */}
@@ -172,61 +211,72 @@ function GetHelpPage() {
             </FadeUp>
 
             <FadeUp className="lg:col-span-7" delay={80}>
-              <form
-                action={`mailto:${SITE.email}`}
-                method="post"
-                encType="text/plain"
-                className="rounded-2xl bg-canvas border border-hairline p-6 lg:p-8 space-y-5"
-              >
-                <div className="grid sm:grid-cols-2 gap-4">
+              {sent ? (
+                <div className="rounded-2xl bg-sage border border-hairline p-6 lg:p-8">
+                  <p className="eyebrow mb-3">Message received</p>
+                  <h3 className="font-sans font-semibold text-[clamp(1.25rem,2vw,1.6rem)] leading-[1.2] tracking-[-0.015em] text-ink text-balance">
+                    Thanks for reaching out. <em className="font-serif italic font-medium">Our team will be in touch within two working days.</em>
+                  </h3>
+                </div>
+              ) : (
+                <form
+                  onSubmit={handleSubmit}
+                  className="rounded-2xl bg-canvas border border-hairline p-6 lg:p-8 space-y-5"
+                  aria-label="Get help form"
+                >
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <label className="block">
+                      <span className="block text-[12px] uppercase tracking-[0.12em] text-ink-muted mb-2">Your name</span>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        className="w-full h-11 px-4 rounded-lg border border-hairline bg-snow text-[15px] text-ink focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40"
+                      />
+                    </label>
+                    <label className="block">
+                      <span className="block text-[12px] uppercase tracking-[0.12em] text-ink-muted mb-2">Phone or email</span>
+                      <input
+                        type="text"
+                        name="contact"
+                        required
+                        className="w-full h-11 px-4 rounded-lg border border-hairline bg-snow text-[15px] text-ink focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40"
+                      />
+                    </label>
+                  </div>
                   <label className="block">
-                    <span className="block text-[12px] uppercase tracking-[0.12em] text-ink-muted mb-2">Your name</span>
-                    <input
-                      type="text"
-                      name="name"
-                      required
+                    <span className="block text-[12px] uppercase tracking-[0.12em] text-ink-muted mb-2">What kind of help?</span>
+                    <select
+                      name="topic"
+                      defaultValue=""
                       className="w-full h-11 px-4 rounded-lg border border-hairline bg-snow text-[15px] text-ink focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40"
-                    />
+                    >
+                      <option value="">Choose one (or leave blank)</option>
+                      {TOPICS.map((t) => (
+                        <option key={t.slug} value={t.name}>{t.name}</option>
+                      ))}
+                      <option value="not-sure">I'm not sure</option>
+                    </select>
                   </label>
                   <label className="block">
-                    <span className="block text-[12px] uppercase tracking-[0.12em] text-ink-muted mb-2">Phone or email</span>
-                    <input
-                      type="text"
-                      name="contact"
-                      required
-                      className="w-full h-11 px-4 rounded-lg border border-hairline bg-snow text-[15px] text-ink focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40"
+                    <span className="block text-[12px] uppercase tracking-[0.12em] text-ink-muted mb-2">A few words about what's going on</span>
+                    <textarea
+                      name="message"
+                      rows={5}
+                      className="w-full px-4 py-3 rounded-lg border border-hairline bg-snow text-[15px] text-ink focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 resize-y"
                     />
                   </label>
-                </div>
-                <label className="block">
-                  <span className="block text-[12px] uppercase tracking-[0.12em] text-ink-muted mb-2">What kind of help?</span>
-                  <select
-                    name="topic"
-                    defaultValue=""
-                    className="w-full h-11 px-4 rounded-lg border border-hairline bg-snow text-[15px] text-ink focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40"
-                  >
-                    <option value="" disabled>Choose one (or leave blank)</option>
-                    {TOPICS.map((t) => (
-                      <option key={t.slug} value={t.name}>{t.name}</option>
-                    ))}
-                    <option value="not-sure">I'm not sure</option>
-                  </select>
-                </label>
-                <label className="block">
-                  <span className="block text-[12px] uppercase tracking-[0.12em] text-ink-muted mb-2">A few words about what's going on</span>
-                  <textarea
-                    name="message"
-                    rows={5}
-                    className="w-full px-4 py-3 rounded-lg border border-hairline bg-snow text-[15px] text-ink focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 resize-y"
-                  />
-                </label>
-                <div className="flex flex-col sm:flex-row sm:items-center gap-3 pt-2">
-                  <PillButton type="submit" variant="action">Send to our team</PillButton>
-                  <p className="text-[12.5px] text-ink-muted">
-                    We reply within two working days. In a medical emergency, please call 108.
-                  </p>
-                </div>
-              </form>
+                  <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 pt-2">
+                    <PillButton type="submit" variant="action" disabled={busy}>
+                      {busy ? "Sending…" : "Send to our team"}
+                    </PillButton>
+                    <p className="text-[12.5px] text-ink-muted">
+                      We reply within two working days. In a medical emergency, please call 108.
+                    </p>
+                  </div>
+                </form>
+              )}
             </FadeUp>
           </div>
         </div>
