@@ -268,7 +268,7 @@ function GetHelpPage() {
                   </label>
                   <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
                   <div className="flex flex-col sm:flex-row sm:items-center gap-3 pt-2">
-                    <PillButton type="submit" variant="action" disabled={busy}>
+                    <PillButton type="submit" variant="action">
                       {busy ? "Sending…" : "Send to our team"}
                     </PillButton>
                     <p className="text-[12.5px] text-ink-muted">
