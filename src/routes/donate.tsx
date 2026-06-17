@@ -1,8 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
+import { toast } from "sonner";
 import { PageHero } from "@/components/PageHero";
 import { FadeUp } from "@/components/FadeUp";
 import { CTABand } from "@/components/CTABand";
+import { submitForm } from "@/lib/forms/submit";
 
 export const Route = createFileRoute("/donate")({
   head: () => ({
@@ -42,6 +44,7 @@ function Page() {
   const [amount, setAmount] = useState<number>(5000);
   const [custom, setCustom] = useState<string>("");
   const [freq, setFreq] = useState<"one" | "monthly">("one");
+  const [busy, setBusy] = useState(false);
 
   const effective = useMemo(() => {
     const c = Number(custom.replace(/[^\d]/g, ""));
