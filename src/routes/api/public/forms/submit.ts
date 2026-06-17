@@ -1,0 +1,153 @@
+import * as React from 'react'
+import { render } from '@react-email/components'
+import { createClient } from '@supabase/supabase-js'
+import { createFileRoute } from '@tanstack/react-router'
+import { z } from 'zod'
+import { TEMPLATES } from '@/lib/email-templates/registry'
+
+const SITE_NAME = 'Omni Life Care Foundation'
+const SENDER_DOMAIN = 'notify.omnilifecare.org'
+const FROM_DOMAIN = 'notify.omnilifecare.org'
+
+const FieldSchema = z.object({
+  label: z.string().trim().min(1).max(80),
+  value: z.string().trim().max(5000),
+})
+
+const BodySchema = z.object({
+  formName: z.string().trim().min(1).max(80),
+  replyTo: z.string().trim().email().max(254).optional().or(z.literal('')),
+  pageUrl: z.string().trim().max(500).optional(),
+  fields: z.array(FieldSchema).min(1).max(20),
+  // honeypot
+  website: z.string().max(0).optional(),
+})
+
+function generateToken(): string {
+  const bytes = new Uint8Array(32)
+  crypto.getRandomValues(bytes)
+  return Array.from(bytes)
+    .map((b) => b.toString(16).padStart(2, '0'))
+    .join('')
+}
+
+export const Route = createFileRoute('/api/public/forms/submit')({
+  server: {
+    handlers: {
+      POST: async ({ request }) => {
+        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+        const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+        if (!supabaseUrl || !supabaseServiceKey) {
+          return Response.json({ error: 'Server configuration error' }, { status: 500 })
+        }
+
+        let parsed
+        try {
+          const body = await request.json()
+          parsed = BodySchema.parse(body)
+        } catch (err) {
+          return Response.json(
+            { error: 'Invalid submission', details: err instanceof Error ? err.message : 'Invalid' },
+            { status: 400 },
+          )
+        }
+
+        // Honeypot: silently succeed
+        if (parsed.website && parsed.website.length > 0) {
+          return Response.json({ success: true })
+        }
+
+        const supabase = createClient(supabaseUrl, supabaseServiceKey)
+
+        const template = TEMPLATES['form-notification']
+        if (!template) {
+          return Response.json({ error: 'Template missing' }, { status: 500 })
+        }
+        const effectiveRecipient = template.to!
+        const normalizedEmail = effectiveRecipient.toLowerCase()
+        const messageId = crypto.randomUUID()
+
+        const templateData = {
+          formName: parsed.formName,
+          replyTo: parsed.replyTo || undefined,
+          pageUrl: parsed.pageUrl,
+          submittedAt: new Date().toUTCString(),
+          fields: parsed.fields,
+        }
+
+        // Ensure unsubscribe token (required by queue dispatcher)
+        let unsubscribeToken: string | undefined
+        const { data: existingToken } = await supabase
+          .from('email_unsubscribe_tokens')
+          .select('token, used_at')
+          .eq('email', normalizedEmail)
+          .maybeSingle()
+        if (existingToken?.token && !existingToken.used_at) {
+          unsubscribeToken = existingToken.token
+        } else if (!existingToken) {
+          unsubscribeToken = generateToken()
+          await supabase
+            .from('email_unsubscribe_tokens')
+            .upsert(
+              { token: unsubscribeToken, email: normalizedEmail },
+              { onConflict: 'email', ignoreDuplicates: true },
+            )
+          const { data: stored } = await supabase
+            .from('email_unsubscribe_tokens')
+            .select('token')
+            .eq('email', normalizedEmail)
+            .maybeSingle()
+          if (stored?.token) unsubscribeToken = stored.token
+        }
+
+        const element = React.createElement(template.component, templateData)
+        const html = await render(element)
+        const plainText = await render(element, { plainText: true })
+        const subject =
+          typeof template.subject === 'function'
+            ? template.subject(templateData)
+            : template.subject
+
+        await supabase.from('email_send_log').insert({
+          message_id: messageId,
+          template_name: 'form-notification',
+          recipient_email: effectiveRecipient,
+          status: 'pending',
+        })
+
+        const { error: enqueueError } = await supabase.rpc('enqueue_email', {
+          queue_name: 'transactional_emails',
+          payload: {
+            message_id: messageId,
+            to: effectiveRecipient,
+            from: `${SITE_NAME} <noreply@${FROM_DOMAIN}>`,
+            sender_domain: SENDER_DOMAIN,
+            subject,
+            html,
+            text: plainText,
+            purpose: 'transactional',
+            label: 'form-notification',
+            idempotency_key: messageId,
+            unsubscribe_token: unsubscribeToken,
+            reply_to: parsed.replyTo || undefined,
+            queued_at: new Date().toISOString(),
+          },
+        })
+
+        if (enqueueError) {
+          console.error('Failed to enqueue form notification', enqueueError)
+          await supabase.from('email_send_log').insert({
+            message_id: messageId,
+            template_name: 'form-notification',
+            recipient_email: effectiveRecipient,
+            status: 'failed',
+            error_message: 'Failed to enqueue',
+          })
+          return Response.json({ error: 'Failed to send' }, { status: 500 })
+        }
+
+        return Response.json({ success: true })
+      },
+    },
+  },
+})
