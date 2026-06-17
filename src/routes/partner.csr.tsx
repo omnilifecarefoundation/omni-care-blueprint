@@ -496,6 +496,7 @@ function CSRForm() {
           </label>
           <select
             id="focus"
+            name="focus"
             className="w-full h-12 px-4 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(4, 55, 242,0.04)] focus:border-primary outline-none transition-colors"
           >
             <option>Community Mental Health</option>
@@ -512,6 +513,7 @@ function CSRForm() {
           </label>
           <textarea
             id="msg"
+            name="msg"
             rows={4}
             placeholder="Budget range, geography, reporting needs, anything we should know."
             className="w-full px-4 py-3 rounded-xl bg-canvas border border-hairline shadow-[inset_0_1px_2px_rgba(4, 55, 242,0.04)] focus:border-primary outline-none transition-colors"
@@ -527,11 +529,13 @@ function CSRForm() {
             .
           </span>
         </label>
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
         <button
           type="submit"
-          className="btn btn-primary active:scale-[0.98] transition-[transform,background-color] duration-150"
+          disabled={busy}
+          className="btn btn-primary active:scale-[0.98] transition-[transform,background-color] duration-150 disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          Send enquiry
+          {busy ? "Sending…" : "Send enquiry"}
         </button>
       </div>
     </form>
