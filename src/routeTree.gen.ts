@@ -57,6 +57,7 @@ import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/em
 import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
+import { Route as ApiPublicFormsSubmitRouteImport } from './routes/api/public/forms/submit'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -308,6 +309,11 @@ const LovableEmailQueueProcessRoute =
     path: '/lovable/email/queue/process',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiPublicFormsSubmitRoute = ApiPublicFormsSubmitRouteImport.update({
+  id: '/api/public/forms/submit',
+  path: '/api/public/forms/submit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -355,6 +361,7 @@ export interface FileRoutesByFullPath {
   '/programs/': typeof ProgramsIndexRoute
   '/what-we-do/': typeof WhatWeDoIndexRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
+  '/api/public/forms/submit': typeof ApiPublicFormsSubmitRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
@@ -405,6 +412,7 @@ export interface FileRoutesByTo {
   '/programs': typeof ProgramsIndexRoute
   '/what-we-do': typeof WhatWeDoIndexRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
+  '/api/public/forms/submit': typeof ApiPublicFormsSubmitRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
@@ -456,6 +464,7 @@ export interface FileRoutesById {
   '/programs/': typeof ProgramsIndexRoute
   '/what-we-do/': typeof WhatWeDoIndexRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
+  '/api/public/forms/submit': typeof ApiPublicFormsSubmitRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
@@ -508,6 +517,7 @@ export interface FileRouteTypes {
     | '/programs/'
     | '/what-we-do/'
     | '/lovable/email/suppression'
+    | '/api/public/forms/submit'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
     | '/lovable/email/transactional/send'
@@ -558,6 +568,7 @@ export interface FileRouteTypes {
     | '/programs'
     | '/what-we-do'
     | '/lovable/email/suppression'
+    | '/api/public/forms/submit'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
     | '/lovable/email/transactional/send'
@@ -608,6 +619,7 @@ export interface FileRouteTypes {
     | '/programs/'
     | '/what-we-do/'
     | '/lovable/email/suppression'
+    | '/api/public/forms/submit'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
     | '/lovable/email/transactional/send'
@@ -659,6 +671,7 @@ export interface RootRouteChildren {
   ProgramsIndexRoute: typeof ProgramsIndexRoute
   WhatWeDoIndexRoute: typeof WhatWeDoIndexRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
+  ApiPublicFormsSubmitRoute: typeof ApiPublicFormsSubmitRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
   LovableEmailTransactionalSendRoute: typeof LovableEmailTransactionalSendRoute
@@ -1002,6 +1015,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LovableEmailQueueProcessRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/forms/submit': {
+      id: '/api/public/forms/submit'
+      path: '/api/public/forms/submit'
+      fullPath: '/api/public/forms/submit'
+      preLoaderRoute: typeof ApiPublicFormsSubmitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1051,6 +1071,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProgramsIndexRoute: ProgramsIndexRoute,
   WhatWeDoIndexRoute: WhatWeDoIndexRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
+  ApiPublicFormsSubmitRoute: ApiPublicFormsSubmitRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
   LovableEmailTransactionalSendRoute: LovableEmailTransactionalSendRoute,
