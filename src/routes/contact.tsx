@@ -4,7 +4,8 @@ import { SITE } from "@/lib/site";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { submitForm } from "@/lib/forms/submit";
+import { submitForm, type FormField } from "@/lib/forms/submit";
+import { SubmissionSummary } from "@/components/SubmissionSummary";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -22,6 +23,7 @@ export const Route = createFileRoute("/contact")({
 function Page() {
   const [sent, setSent] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [summary, setSummary] = useState<FormField[]>([]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -39,19 +41,21 @@ function Page() {
       return;
     }
 
+    const fields: FormField[] = [
+      { label: "Name", value: name },
+      { label: "Email", value: email },
+      { label: "Topic", value: topic },
+      { label: "Message", value: message },
+    ];
     setBusy(true);
     try {
       await submitForm({
         formName: "Contact",
         replyTo: email,
         website,
-        fields: [
-          { label: "Name", value: name },
-          { label: "Email", value: email },
-          { label: "Topic", value: topic },
-          { label: "Message", value: message },
-        ],
+        fields,
       });
+      setSummary(fields);
       setSent(true);
       toast.success("Message sent. We'll be in touch within 3 business days.");
     } catch (err) {
@@ -84,8 +88,10 @@ function Page() {
 
           {sent ? (
             <div className="rounded-2xl bg-sage p-8 border border-hairline shadow-[0_1px_2px_rgba(4,55,242,0.04)]">
-              <h2 className="font-sans font-semibold tracking-[-0.015em] text-2xl text-balance">Thanks - your message is in.</h2>
-              <p className="mt-3 text-ink-muted text-pretty">We'll get back within 3 business days.</p>
+              <p className="eyebrow mb-2">Message received</p>
+              <h2 className="font-sans font-semibold tracking-[-0.015em] text-2xl text-balance">Thanks, {summary.find(f => f.label === "Name")?.value || "there"} - your message is in.</h2>
+              <p className="mt-3 text-ink-muted text-pretty">We'll get back within 3 business days at <span className="text-ink font-medium">{summary.find(f => f.label === "Email")?.value}</span>. Here's a copy of what you sent:</p>
+              <SubmissionSummary fields={summary} />
               <div className="mt-6">
                 <Link to="/" className="btn btn-secondary">Back to home</Link>
               </div>
