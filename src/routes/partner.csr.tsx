@@ -16,7 +16,8 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { submitForm } from "@/lib/forms/submit";
+import { submitForm, type FormField } from "@/lib/forms/submit";
+import { SubmissionSummary } from "@/components/SubmissionSummary";
 
 export const Route = createFileRoute("/partner/csr")({
   head: () => ({
@@ -414,6 +415,7 @@ function ContactRow({
 function CSRForm() {
   const [submitted, setSubmitted] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [summary, setSummary] = useState<FormField[]>([]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -431,22 +433,24 @@ function CSRForm() {
       toast.error("Please complete company, your name and work email.");
       return;
     }
+    const fields: FormField[] = [
+      { label: "Company", value: company },
+      { label: "Contact", value: contact },
+      { label: "Role", value: role || "—" },
+      { label: "Email", value: email },
+      { label: "Phone", value: phone || "—" },
+      { label: "Programme focus", value: focus },
+      { label: "Message", value: msg || "—" },
+    ];
     setBusy(true);
     try {
       await submitForm({
         formName: "CSR enquiry",
         replyTo: email,
         website,
-        fields: [
-          { label: "Company", value: company },
-          { label: "Contact", value: contact },
-          { label: "Role", value: role || "—" },
-          { label: "Email", value: email },
-          { label: "Phone", value: phone || "—" },
-          { label: "Programme focus", value: focus },
-          { label: "Message", value: msg || "—" },
-        ],
+        fields,
       });
+      setSummary(fields);
       setSubmitted(true);
       toast.success("Enquiry sent. A founding-team member will reply within three working days.");
     } catch (err) {
@@ -458,17 +462,21 @@ function CSRForm() {
   if (submitted) {
     return (
       <div className="rounded-2xl bg-sage p-8 border border-hairline shadow-[0_1px_2px_rgba(4, 55, 242,0.04)]">
+        <p className="eyebrow mb-2">Enquiry received</p>
         <h3 className="font-sans font-semibold tracking-[-0.015em] text-2xl text-balance">
-          Thank you. Note received.
+          Thank you{summary.find(f => f.label === "Contact")?.value ? `, ${summary.find(f => f.label === "Contact")?.value}` : ""}. Note received.
         </h3>
         <p className="mt-3 text-ink-muted text-pretty">
-          A founding-team member will reply within three working days. For urgent matters,
+          A founding-team member will reply within three working days at{" "}
+          <span className="text-ink font-medium">{summary.find(f => f.label === "Email")?.value}</span>. For urgent matters,
           write directly to{" "}
           <a className="underline" href="mailto:csr@omnilifecare.org">
             csr@omnilifecare.org
           </a>
           .
         </p>
+        <p className="mt-5 text-[13px] uppercase tracking-[0.14em] text-ink-muted">A copy of your enquiry</p>
+        <SubmissionSummary fields={summary} className="mt-2" />
       </div>
     );
   }
