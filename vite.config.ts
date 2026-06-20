@@ -6,13 +6,18 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+// Inside a Lovable sandbox/build the wrapper forces the Cloudflare preset and
+// dist/{client,server} output. Outside Lovable (e.g. on Netlify CI), the
+// options below take effect: Nitro's `netlify` preset emits
+//   - .netlify/functions-internal/server/server.mjs  (the SSR function)
+//   - dist/                                          (static client assets)
+// which is what netlify.toml points at.
 export default defineConfig({
   nitro: {
-    preset: "cloudflare-module",
+    preset: "netlify",
   },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
     server: { entry: "server" },
   },
 });
