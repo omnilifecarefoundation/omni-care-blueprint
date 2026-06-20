@@ -6,7 +6,8 @@ import { FadeUp } from "@/components/FadeUp";
 import { PillButton } from "@/components/ui-axion/PillButton";
 import { DestinationCard } from "@/components/ui/card-21";
 import { SITE } from "@/lib/site";
-import { submitForm } from "@/lib/forms/submit";
+import { submitForm, type FormField } from "@/lib/forms/submit";
+import { SubmissionSummary } from "@/components/SubmissionSummary";
 
 export const Route = createFileRoute("/get-help")({
   head: () => ({
@@ -74,6 +75,7 @@ const TOPICS = [
 function GetHelpPage() {
   const [busy, setBusy] = useState(false);
   const [sent, setSent] = useState(false);
+  const [summary, setSummary] = useState<FormField[]>([]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -89,19 +91,21 @@ function GetHelpPage() {
       return;
     }
     const replyTo = /.+@.+\..+/.test(contact) ? contact : undefined;
+    const fields: FormField[] = [
+      { label: "Name", value: name },
+      { label: "Phone or email", value: contact },
+      { label: "Topic", value: topic || "Not specified" },
+      { label: "Message", value: message || "—" },
+    ];
     setBusy(true);
     try {
       await submitForm({
         formName: "Get Help",
         replyTo,
         website,
-        fields: [
-          { label: "Name", value: name },
-          { label: "Phone or email", value: contact },
-          { label: "Topic", value: topic || "Not specified" },
-          { label: "Message", value: message || "—" },
-        ],
+        fields,
       });
+      setSummary(fields);
       setSent(true);
       toast.success("Got it. Our team will reach out within two working days.");
     } catch (err) {
@@ -215,8 +219,10 @@ function GetHelpPage() {
                 <div className="rounded-2xl bg-sage border border-hairline p-6 lg:p-8">
                   <p className="eyebrow mb-3">Message received</p>
                   <h3 className="font-sans font-semibold text-[clamp(1.25rem,2vw,1.6rem)] leading-[1.2] tracking-[-0.015em] text-ink text-balance">
-                    Thanks for reaching out. <em className="font-serif italic font-medium">Our team will be in touch within two working days.</em>
+                    Thanks{summary[0]?.value ? `, ${summary[0].value}` : ""}. <em className="font-serif italic font-medium">Our team will be in touch within two working days.</em>
                   </h3>
+                  <p className="mt-4 text-[14px] text-ink-muted">Here's a copy of what you shared with us:</p>
+                  <SubmissionSummary fields={summary} />
                 </div>
               ) : (
                 <form
