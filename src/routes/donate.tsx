@@ -73,6 +73,23 @@ function Page() {
           <div className="grid lg:grid-cols-[1.35fr_1fr] gap-8 lg:gap-12 items-start">
             {/* Form */}
             <FadeUp>
+              {pledged ? (
+                <div className="rounded-2xl bg-sage border border-hairline p-7 lg:p-10 shadow-[0_1px_2px_rgba(4,55,242,0.04)]">
+                  <p className="eyebrow mb-2">Pledge received</p>
+                  <h2 className="font-sans font-semibold tracking-[-0.015em] text-2xl text-balance">
+                    Thank you, {pledged.find(f => f.label === "Name")?.value || "friend"}.
+                  </h2>
+                  <p className="mt-3 text-ink-muted text-pretty">
+                    We'll email payment instructions and your 80G receipt details to{" "}
+                    <span className="text-ink font-medium">{pledged.find(f => f.label === "Email")?.value}</span> within one working day. A copy of your pledge is below.
+                  </p>
+                  <SubmissionSummary fields={pledged} />
+                  <div className="mt-7 flex flex-wrap gap-3">
+                    <button type="button" onClick={() => setPledged(null)} className="btn btn-secondary">Pledge again</button>
+                    <Link to="/" className="btn btn-secondary">Back to home</Link>
+                  </div>
+                </div>
+              ) : (
               <form
                 onSubmit={async (e) => {
                   e.preventDefault();
@@ -202,6 +219,7 @@ function Page() {
                   Payment is handled by our PCI-compliant partner. We never store card details. Your contribution is allocated against the FY 2026–27 Mumbai cohort within seven working days; allocation entry is posted to the public ledger on the first of the following month.
                 </p>
               </form>
+              )}
             </FadeUp>
 
             {/* Live tier card */}
