@@ -4,7 +4,8 @@ import { toast } from "sonner";
 import { PageHero } from "@/components/PageHero";
 import { FadeUp } from "@/components/FadeUp";
 import { CTABand } from "@/components/CTABand";
-import { submitForm } from "@/lib/forms/submit";
+import { submitForm, type FormField } from "@/lib/forms/submit";
+import { SubmissionSummary } from "@/components/SubmissionSummary";
 
 export const Route = createFileRoute("/donate")({
   head: () => ({
@@ -45,6 +46,7 @@ function Page() {
   const [custom, setCustom] = useState<string>("");
   const [freq, setFreq] = useState<"one" | "monthly">("one");
   const [busy, setBusy] = useState(false);
+  const [pledged, setPledged] = useState<FormField[] | null>(null);
 
   const effective = useMemo(() => {
     const c = Number(custom.replace(/[^\d]/g, ""));
@@ -85,20 +87,22 @@ function Page() {
                     toast.error("Please add your name and email.");
                     return;
                   }
+                  const fields: FormField[] = [
+                    { label: "Name", value: name },
+                    { label: "Email", value: email },
+                    { label: "Phone", value: phone || "—" },
+                    { label: "PAN", value: pan || "—" },
+                    { label: "Amount", value: `₹${inr(effective)} ${freq === "monthly" ? "/ month" : "one-time"}` },
+                  ];
                   setBusy(true);
                   try {
                     await submitForm({
                       formName: "Donation pledge",
                       replyTo: email,
                       website,
-                      fields: [
-                        { label: "Name", value: name },
-                        { label: "Email", value: email },
-                        { label: "Phone", value: phone || "—" },
-                        { label: "PAN", value: pan || "—" },
-                        { label: "Amount", value: `₹${inr(effective)} ${freq === "monthly" ? "/ month" : "one-time"}` },
-                      ],
+                      fields,
                     });
+                    setPledged(fields);
                     toast.success("Pledge received. Our team will share payment details by email shortly.");
                   } catch (err) {
                     toast.error(err instanceof Error ? err.message : "Couldn't send. Please try again.");
