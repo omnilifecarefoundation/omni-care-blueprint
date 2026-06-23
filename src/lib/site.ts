@@ -59,10 +59,10 @@ export const PILLARS: Pillar[] = [
   {
     id: "social",
     number: "02",
-    name: "Social Growth",
-    short: "Social Growth",
-    description: "Education, scholarships, and capacity building.",
-    long: "Investing in education and skills so individuals and communities can sustain their own growth long after a programme ends.",
+    name: "Community Development",
+    short: "Community Development",
+    description: "Education, livelihoods, and community resilience.",
+    long: "Strengthening community structures so that growth lasts beyond any single programme - through education, skills, and local leadership.",
     href: "/what-we-do/social-growth",
     color: "var(--pillar-social)",
     bgClass: "bg-[var(--pillar-social)]",
@@ -91,10 +91,10 @@ export const PILLARS: Pillar[] = [
   {
     id: "human",
     number: "04",
-    name: "Human Potential",
-    short: "Human Potential",
-    description: "Training, research, and frontline worker development.",
-    long: "Strengthening the frontline workforce and the evidence base - so every rupee of community investment compounds into long-term capability.",
+    name: "Human Potential & Leadership",
+    short: "Human Potential & Leadership",
+    description: "Training, research, and frontline leadership.",
+    long: "Investing in the people who build community capability - frontline workers, trainers, and emerging leaders from the neighbourhoods we serve.",
     href: "/what-we-do/human-potential",
     color: "var(--pillar-human)",
     bgClass: "bg-[var(--pillar-human)]",
@@ -105,6 +105,7 @@ export const PILLARS: Pillar[] = [
       "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=80",
   },
 ];
+
 
 export type Program = {
   slug: string;
@@ -120,137 +121,81 @@ export type Program = {
 export const PROGRAMS: Program[] = [
   {
     slug: "community-mental-health",
-    name: "Community Mental Health & Wellbeing",
+    name: "Mental Wellbeing",
     pillar: "mental",
-    outcome: "Reached 12,400 individuals across 40 villages in Maharashtra.",
+    outcome: "Promoting emotional wellbeing, awareness, and early support.",
     summary:
-      "Embedding mental health support inside primary care and community structures, delivered by trained local workers.",
+      "Embedding mental health awareness, early intervention and community-based support inside the places people already trust.",
     body: [
-      "We work alongside primary health centres and self-help groups to make mental health support an everyday part of community life. Our trained community mental health workers conduct door-to-door screenings, run weekly peer-support groups, and connect individuals to clinical care when needed.",
-      "The programme has reduced the rate of untreated common mental disorders in our intervention villages by 38% over 24 months, measured through validated screening tools (PHQ-9, GAD-7) and a comparison group.",
+      "We focus on bringing mental health out of the clinic and into community life - through trained facilitators, peer-support circles, and a named referral pathway when clinical care is needed.",
+      "This is an emerging focus area for a new foundation. We will publish what we learn as we begin our first pilots.",
     ],
     image: mentalImg,
     href: "/programs/community-mental-health",
   },
   {
     slug: "preventive-health-outreach",
-    name: "Preventive & Community Health Outreach",
+    name: "Preventive Health & Community Outreach",
     pillar: "human",
-    outcome: "28,000 preventive screenings conducted across 6 districts.",
+    outcome: "Improving access to health information, screening and referrals.",
     summary:
-      "Bringing screening and early detection for non-communicable diseases to communities that rarely encounter formal healthcare.",
+      "Bringing health information, screenings and referrals to communities through outreach, partnerships and trusted local workers.",
     body: [
-      "Our preventive health camps combine NCD screening (hypertension, diabetes, cancer markers) with health literacy sessions and a structured referral pathway into the public health system.",
-      "Camps are held in partnership with district administrations, ensuring every positive screen has a clear, funded path to follow-up care.",
+      "Preventive health is most effective when it meets people where they already are. Our intent is to design outreach in partnership with public health workers, community groups and clinical referral networks.",
+      "This focus area is in the design and pilot stage. Activities and partner sites will be published as they begin.",
     ],
     image: preventiveImg,
     href: "/programs/preventive-health-outreach",
   },
   {
     slug: "womens-health-lifecycle",
-    name: "Women's Health & Life-Cycle Care",
+    name: "Women's Wellbeing",
     pillar: "inclusive",
-    outcome: "9,200 women received life-stage screening and counselling.",
+    outcome: "Health, dignity and support for women across life stages.",
     summary:
-      "A single programme that walks with women through adolescence, reproductive years, and post-menopause.",
+      "Supporting women's health, wellbeing and dignity across adolescence, reproductive years and later life.",
     body: [
-      "We provide age-appropriate health support across a woman's life - from menstrual health education in schools, to cervical and breast cancer screening in adulthood, to post-menopausal NCD care.",
-      "Care is delivered through women community workers, ensuring access in contexts where male health-workers are not socially accepted.",
+      "We aim to build a single, continuous approach to women's wellbeing rather than a series of disconnected interventions - delivered by trained women workers in spaces women trust.",
+      "Initial focus areas include adolescent health literacy, maternal wellbeing, and screening pathways for common conditions.",
     ],
     image: womensHealthImg,
     href: "/programs/womens-health-lifecycle",
   },
   {
     slug: "disability-elderly-care",
-    name: "Disability Inclusion & Elderly Support",
+    name: "Inclusive Care",
     pillar: "inclusive",
-    outcome: "1,800 households supported with home-based care plans.",
+    outcome: "Person-centred support for those most often overlooked.",
     summary:
-      "Home-based care, assistive devices, and inclusion programmes for persons with disability and the elderly.",
+      "Person-centred support for persons with disability, older adults and underserved populations - at the household level.",
     body: [
-      "We assess household needs, provide assistive devices, train family caregivers, and link beneficiaries to government entitlements such as disability pensions and the Niramaya health insurance scheme.",
-      "For elderly beneficiaries, we run monthly home visits, monitor chronic conditions, and reduce social isolation through community elder circles.",
+      "Inclusive care is the work of designing around the people public systems most often miss. Our approach will combine household-level needs assessment, linkage to existing entitlements, and caregiver support.",
+      "Programmes in this focus area are being designed with input from community members and partner organisations.",
     ],
     image: elderlyImg,
     href: "/programs/disability-elderly-care",
   },
   {
-    slug: "womens-wellness",
-    name: "Women's Health & Wellness Initiative",
-    pillar: "inclusive",
-    outcome: "4,600 women enrolled in group wellness programmes.",
-    summary:
-      "Group-based mental and physical wellness for women - yoga, breath-work, and peer dialogue.",
-    body: [
-      "An evidence-informed group wellness curriculum delivered weekly by trained women facilitators in community spaces. Focus areas include stress regulation, sleep, and chronic pain management.",
-      "Designed as a low-cost, replicable model that integrates with the Community Mental Health programme.",
-    ],
-    image: wellnessImg,
-    href: "/programs/womens-wellness",
-  },
-  {
-    slug: "training-capacity-building",
-    name: "Training & Capacity Building",
-    pillar: "human",
-    outcome: "620 frontline workers and partner-org staff trained.",
-    summary:
-      "Curriculum, certification, and on-the-job mentoring for health workers and partner NGOs.",
-    body: [
-      "We design and deliver short-form training programmes - from a 12-week community mental health worker certification to bespoke sessions for partner NGOs on inclusion, safeguarding, and M&E.",
-      "All curricula are open-source and freely available to the sector.",
-    ],
-    image: capacityImg,
-    href: "/programs/training-capacity-building",
-  },
-  {
-    slug: "research-impact-assessment",
-    name: "Research & Impact Assessment",
-    pillar: "human",
-    outcome: "11 peer-reviewed publications and 4 policy briefs to date.",
-    summary:
-      "An in-house research function generating evidence on what works in community health.",
-    body: [
-      "Our research team partners with academic institutions to evaluate programmes using rigorous, often quasi-experimental, methods. We publish openly and brief state and national health authorities.",
-      "Active collaborations include institutions across India and abroad working on community mental health, NCD prevention, and integrated care models.",
-    ],
-    image: researchImg,
-    href: "/programs/research-impact-assessment",
-  },
-  {
-    slug: "scholarships-education",
-    name: "Scholarships & Education Support",
-    pillar: "social",
-    outcome: "340 girls supported through secondary and tertiary education.",
-    summary:
-      "Needs-based scholarships and mentoring for first-generation learners from our partner communities.",
-    body: [
-      "We provide multi-year scholarships covering tuition, materials, and a small stipend, paired with monthly mentoring and academic check-ins.",
-      "Priority is given to girls and first-generation learners pursuing nursing, allied health, and social-work pathways.",
-    ],
-    image: scholarshipsImg,
-    href: "/programs/scholarships-education",
-  },
-  {
     slug: "chw-development",
-    name: "Community Health Worker Development",
-    pillar: "social",
-    outcome: "210 women trained and placed as paid community health workers.",
+    name: "Human Development & Community Support",
+    pillar: "human",
+    outcome: "Strengthening individual potential and community resilience.",
     summary:
-      "Recruiting, training, and placing women from the community as paid frontline health workers.",
+      "Strengthening individual potential and community resilience through guidance, education, support networks and access to opportunities.",
     body: [
-      "A flagship pathway programme that recruits women with secondary education from underserved communities, certifies them as community health workers, and links them to paid placements with health systems or NGO partners.",
-      "Workers earn a livelihood, communities gain a trusted local health resource, and the public health system gains capacity.",
+      "Long-term change depends on the people who already lead inside their communities. This focus area invests in training, mentoring and access to opportunity - so capability stays local.",
+      "Our intent is to design curricula and pathways openly, in partnership with practitioners and academic institutions.",
     ],
     image: chwImg,
     href: "/programs/chw-development",
   },
 ];
 
+
 export const NAV: Array<{ label: string; href: string }> = [
   { label: "About", href: "/about" },
   { label: "What We Do", href: "/what-we-do" },
-  { label: "Programmes", href: "/programs" },
-  { label: "Impact", href: "/impact" },
+  { label: "Focus Areas", href: "/programs" },
   { label: "Get Involved", href: "/get-involved" },
   { label: "Newsroom", href: "/newsroom" },
 ];
@@ -286,11 +231,10 @@ export type MegaSection = {
 const ABOUT_LINKS: MegaItem[] = [
   { label: "Vision & Mission", href: "/about/vision-mission", description: "What we exist to do." },
   { label: "Omni Care Model", href: "/about/omni-care-model", description: "Four pillars, one continuum." },
-  { label: "Values", href: "/about/values", description: "The five commitments we hold." },
+  { label: "Values", href: "/about/values", description: "Five operational commitments." },
   { label: "Our Story", href: "/about/our-story", description: "How a Mumbai foundation began." },
-  { label: "Leadership", href: "/about/leadership", description: "The people accountable." },
-  { label: "Compliance & Trust", href: "/about/compliance", description: "12A, 80G, CSR-1, FCRA." },
-  { label: "Careers", href: "/about/careers", description: "Build with us." },
+  { label: "Leadership & Governance", href: "/about/leadership", description: "Who leads, and how we are accountable." },
+  { label: "Compliance & Trust", href: "/about/compliance", description: "Registrations and reporting." },
 ];
 
 const PILLAR_ITEMS: MegaItem[] = PILLARS.map((p) => ({
@@ -300,11 +244,10 @@ const PILLAR_ITEMS: MegaItem[] = PILLARS.map((p) => ({
   swatch: p.color,
 }));
 
-const programsByPillar = (id: Pillar["id"]) =>
-  PROGRAMS.filter((p) => p.pillar === id).map((p) => {
-    const pillar = PILLARS.find((x) => x.id === p.pillar)!;
-    return { label: p.name, href: p.href, swatch: pillar.color };
-  });
+const focusAreaItems: MegaItem[] = PROGRAMS.map((p) => {
+  const pillar = PILLARS.find((x) => x.id === p.pillar)!;
+  return { label: p.name, href: p.href, swatch: pillar.color };
+});
 
 export const MEGA_NAV: MegaSection[] = [
   {
@@ -334,54 +277,25 @@ export const MEGA_NAV: MegaSection[] = [
     feature: {
       eyebrow: "All work",
       title: "See every pillar",
-      body: "From mental wellbeing to the frontline workforce - one connected continuum.",
+      body: "From mental wellbeing to community leadership - one connected approach.",
       href: "/what-we-do",
       cta: "Browse all pillars",
       tone: "sage",
     },
   },
   {
-    key: "programmes",
-    label: "Programmes",
+    key: "focus-areas",
+    label: "Focus Areas",
     href: "/programs",
-    blurb: "Nine active programmes across India.",
-    columns: [
-      { heading: "Mental Wellbeing", items: programsByPillar("mental") },
-      { heading: "Inclusive Care", items: programsByPillar("inclusive") },
-      { heading: "Social Growth", items: programsByPillar("social") },
-      { heading: "Human Potential", items: programsByPillar("human") },
-    ],
+    blurb: "Five focus areas, shaped by community need.",
+    columns: [{ items: focusAreaItems }],
     feature: {
       eyebrow: "Index",
-      title: "All programmes",
-      body: "Outcomes, geographies and methodology for each programme.",
+      title: "All focus areas",
+      body: "Intent, approach and partners for each focus area.",
       href: "/programs",
       cta: "View the index",
       tone: "snow",
-    },
-  },
-  {
-    key: "impact",
-    label: "Impact",
-    href: "/impact",
-    blurb: "Evidence, transparency, and the people behind the numbers.",
-    columns: [
-      {
-        heading: "Reports",
-        items: [
-          { label: "Impact Overview", href: "/impact", description: "Numbers we publish and audit." },
-          { label: "Field Stories", href: "/impact/stories", description: "Lives in the communities we serve." },
-          { label: "Research & Assessment", href: "/programs/research-impact-assessment", description: "Peer-reviewed evidence." },
-        ],
-      },
-    ],
-    feature: {
-      eyebrow: "Live count",
-      title: "1,20,000+ lives reached",
-      body: "Across 6 states, 85+ communities, audited against our reporting promise.",
-      href: "/impact",
-      cta: "Read the ledger",
-      tone: "ink",
     },
   },
   {
@@ -394,14 +308,14 @@ export const MEGA_NAV: MegaSection[] = [
         items: [
           { label: "Volunteer", href: "/get-involved/volunteer", description: "Give time on the ground or remotely." },
           { label: "Partner - CSR", href: "/partner/csr", description: "Co-design measurable corporate impact." },
-          { label: "Donate", href: "/donate", description: "80G eligible. Every rupee tracked." },
+          { label: "Donate", href: "/donate", description: "80G eligible once approved. Every rupee tracked." },
         ],
       },
     ],
     feature: {
       eyebrow: "Now",
       title: "Partner with us",
-      body: "CSR programmes start with a single conversation. We'll respond within two working days.",
+      body: "CSR partnerships start with a single conversation. We'll respond within two working days.",
       href: "/partner/csr",
       cta: "Start a partnership",
       tone: "sage",
@@ -417,17 +331,18 @@ export const MEGA_NAV: MegaSection[] = [
 
 export const COMPLIANCE = [
   { label: "12A", desc: "Income Tax Act registered", id: "AAATO1234X" },
-  { label: "80G", desc: "Donations tax-exempt", id: "80G/2024/0042" },
-  { label: "CSR-1", desc: "MCA verified", id: "CSR00045678" },
-  { label: "FCRA", desc: "FCRA compliant", id: "094210123" },
+  { label: "80G", desc: "Donations tax-exempt (applied)", id: "Pending" },
+  { label: "CSR-1", desc: "MCA registration in progress", id: "Pending" },
+  { label: "FCRA", desc: "Application planned", id: "Pending" },
 ];
 
 export const STATS = [
-  { value: "1,20,000+", label: "Lives Reached", context: "across 6 states in India" },
-  { value: "85+", label: "Communities Served", context: "in rural and peri-urban India" },
-  { value: "6", label: "States of Operation", context: "Maharashtra, Karnataka and 4 more" },
-  { value: "9", label: "Active Programs", context: "across the Omni Care Model" },
+  { value: "5", label: "Focus Areas", context: "across the Omni Care Model" },
+  { value: "4", label: "Care Pillars", context: "Mental · Community · Inclusive · Human Potential" },
+  { value: "Mumbai", label: "First Operating City", context: "with plans to grow across Maharashtra" },
+  { value: "Year One", label: "Foundation Stage", context: "building openly, from rupee one" },
 ];
+
 
 export const STORIES = [
   {
