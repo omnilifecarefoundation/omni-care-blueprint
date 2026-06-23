@@ -278,9 +278,9 @@ function Manifesto() {
         </FadeUp>
         <FadeUp delay={80}>
           <p className="font-sans font-medium text-[clamp(1.375rem,2.4vw,1.875rem)] leading-[1.25] tracking-[-0.015em] text-ink text-balance max-w-4xl">
-            Health that meets people where they already live -{" "}
+            Support that meets people where they already live -{" "}
             <em className="font-serif italic font-medium text-primary">
-              designed with the community, reported in the open.
+              designed with communities, delivered with transparency.
             </em>
           </p>
         </FadeUp>
@@ -288,6 +288,7 @@ function Manifesto() {
     </section>
   );
 }
+
 
 /* ============================================================
    3. WHAT WE DO - 4 pillars of the Omni Care Model
@@ -361,30 +362,31 @@ function Values() {
   const values = [
     {
       n: "01",
-      title: "Dignity & Respect",
-      body: "Every person we serve is treated as a person first - never a case number.",
+      title: "Community First",
+      body: "Programmes are designed with the people they serve - not for them.",
     },
     {
       n: "02",
-      title: "Inclusion & Equity",
+      title: "Inclusion",
       body: "We start with the people most often left out: women, the elderly, persons with disability.",
     },
     {
       n: "03",
-      title: "Community-Centred",
-      body: "Programmes are designed with the people they serve - not for them.",
+      title: "Transparency",
+      body: "We commit to sharing our progress, learnings and impact as the foundation grows.",
     },
     {
       n: "04",
-      title: "Collaboration",
-      body: "We partner with local groups, institutions and government - not around them.",
+      title: "Accountability",
+      body: "Independent governance, annual audits, and a board willing to be held to its own rules.",
     },
     {
       n: "05",
-      title: "Impact & Sustainability",
-      body: "We measure what changes, publish what works, and stop what doesn&rsquo;t.",
+      title: "Sustainable Impact",
+      body: "We invest in local capability so that change continues long after any single programme ends.",
     },
   ];
+
   return (
     <section className="bg-snow border-b border-hairline">
       <div className="container-editorial py-20 lg:py-28">
@@ -392,19 +394,19 @@ function Values() {
           <FadeUp className="lg:col-span-7">
             <p className="eyebrow mb-4">What we stand for</p>
             <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-              Five commitments,{" "}
+              Five operational commitments,{" "}
               <em className="font-serif italic font-medium">
-                you can hold us to.
+                not five posters on a wall.
               </em>
             </h2>
           </FadeUp>
           <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
             <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
-              A new foundation has no track record. So instead of promises
-              about the future, here are five rules we&rsquo;ve written for
-              ourselves from day one.
+              A new foundation cannot point to a track record. It can point
+              to the standards it chooses to be measured by - from day one.
             </p>
           </FadeUp>
+
         </div>
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
@@ -436,21 +438,22 @@ function Values() {
 function WhyItMatters() {
   const facts = [
     {
-      n: "70–80%",
-      label: "Mental-health treatment gap",
-      body: "of Indians with common mental disorders never receive care, per the National Mental Health Survey.",
+      n: "Out of reach",
+      label: "Mental wellbeing",
+      body: "For most Indian families, mental health support remains hard to access - geographically, financially, and socially.",
     },
     {
-      n: "1 in 2",
-      label: "Women",
-      body: "in India lack consistent access to life-cycle health services - from adolescence to elderly care.",
+      n: "Episodic",
+      label: "Women's care",
+      body: "Women's health is too often delivered as one-off events instead of a continuous relationship across life stages.",
     },
     {
       n: "Fragmented",
       label: "Care today",
-      body: "Mental health, women&rsquo;s health, disability and chronic care are still delivered as separate systems.",
+      body: "Mental health, women's health, disability and community support are still delivered as separate, disconnected systems.",
     },
   ];
+
 
   return (
     <section className="bg-sage border-b border-hairline">
@@ -492,23 +495,24 @@ function WhyItMatters() {
    6. PROGRAMMES - four flagship cards
    ============================================================ */
 function Programmes() {
-  const flagship = [PROGRAMS[0], PROGRAMS[2], PROGRAMS[1], PROGRAMS[3]];
+  const flagship = PROGRAMS.slice(0, 4);
 
   return (
     <section className="bg-canvas border-b border-hairline">
       <div className="container-editorial py-20 lg:py-28">
         <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-12">
           <FadeUp className="lg:col-span-7">
-            <p className="eyebrow mb-4">Our programmes</p>
+            <p className="eyebrow mb-4">Our focus areas</p>
             <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-              Five programmes,{" "}
-              <em className="font-serif italic font-medium">ready to go.</em>
+              Five focus areas,{" "}
+              <em className="font-serif italic font-medium">one integrated model.</em>
             </h2>
           </FadeUp>
           <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
             <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
-              Each one is fully designed and waiting on funding and
-              partnerships. The first cohorts will run in and around Mumbai.
+              Mental wellbeing, preventive health, inclusive care, women's
+              wellbeing and human development - shaped through a coordinated,
+              community-centred approach. We are starting in Mumbai.
             </p>
           </FadeUp>
         </div>
@@ -538,7 +542,7 @@ function Programmes() {
                     {p.summary}
                   </p>
                   <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-ink transition-transform duration-300 ease-out group-hover:translate-x-1">
-                    Read about this programme
+                    Read about this focus area
                     <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </span>
                 </div>
@@ -549,7 +553,7 @@ function Programmes() {
 
         <FadeUp delay={300} className="mt-10">
           <Link to="/programs" className="link-arrow">
-            See all programmes
+            See all focus areas
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </FadeUp>
@@ -557,6 +561,7 @@ function Programmes() {
     </section>
   );
 }
+
 
 /* ============================================================
    7. FOUNDERS NOTE - short, signed, plain
@@ -580,11 +585,12 @@ function FoundersNote() {
           <FadeUp delay={160}>
             <p className="mt-5 text-[1.0625rem] lg:text-[1.15rem] leading-[1.7] text-ink text-pretty">
               We&rsquo;re a brand-new trust. So instead of promising big
-              numbers, we&rsquo;re promising five things you can hold us to:
-              we&rsquo;ll design with the community, share our finances
-              openly, publish what works <em>and</em> what doesn&rsquo;t, keep
-              overheads honest, and invite outside audits from year one.
+              numbers, we&rsquo;re committing to a simple discipline:
+              design with the community, govern independently, publish
+              audited accounts each year, and share our progress and
+              learnings openly as the foundation grows.
             </p>
+
           </FadeUp>
           <FadeUp delay={240}>
             <p className="mt-5 text-[1.0625rem] lg:text-[1.15rem] leading-[1.7] text-ink text-pretty">
