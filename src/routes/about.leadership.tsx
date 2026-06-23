@@ -116,26 +116,25 @@ function Page() {
     <>
       <PageHero
         eyebrow="About · Leadership & Governance"
-        title="A new foundation cannot point to a track record. It can point to the governance it chooses to build."
-        lead="Most NGOs publish a wall of headshots. We are publishing the rules first - who holds the pen, who reviews the books, and who has the standing to say no. The names will follow, in public, as the Board is seated."
+        title="A new foundation, governed with discipline from day one."
+        lead="Omni Life Care Foundation is governed by a board of trustees that includes independent members. The board sets strategy, reviews finances, and holds the executive accountable. Names will be published as the board is seated."
       />
 
       <Principles />
       <Structure />
-      <Standards />
-      <OpenSeats />
       <FoundingNote />
 
       <CTABand
         eyebrow="Get involved"
-        title="If you have served on a board with discipline, we want to talk."
-        body="We are actively recruiting independent trustees and advisory council members. Indicative time commitment: four board meetings a year, plus one committee."
+        title="If you bring fiduciary experience or lived experience the board needs, we'd like to hear from you."
+        body="We welcome expressions of interest from prospective trustees and advisors. Indicative time commitment: four board meetings a year."
         primary={{ label: "Express interest", href: "/contact" }}
         secondary={{ label: "Read our compliance", href: "/about/compliance" }}
       />
     </>
   );
 }
+
 
 /* ============================================================
    1. PRINCIPLES - the governance commitments
