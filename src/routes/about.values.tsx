@@ -7,40 +7,41 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 const VALUES = [
   {
     n: "01",
-    title: "Dignity & Respect",
-    body: "Every person we work with is treated as the protagonist of their own life - never as a recipient of charity.",
+    title: "Community First",
+    body: "Programmes are shaped with the people they serve, not designed at a distance and delivered to them.",
     practice:
-      "Our consent forms are in the local language, not English. Our staff are trained to sit at eye level during home visits. We do not photograph beneficiaries without explicit, revocable consent - and we never use faces in donor decks.",
+      "Programme design begins with conversations with community members, frontline workers and local partners. Decisions about what to build, where to begin, and how to measure success are made with their input.",
   },
   {
     n: "02",
-    title: "Inclusion & Equity",
-    body: "We design for those most often overlooked, and measure success by how well we reach them - not by the average.",
+    title: "Inclusion",
+    body: "We start with the people most often left out: women, the elderly, persons with disability, and underserved communities.",
     practice:
-      "Our district dashboards disaggregate every outcome by gender, caste, disability status, and geography. If a programme lifts the village average but leaves Scheduled-Caste households behind, we classify it as under review - not a success.",
+      "Inclusion is built into who we hire, who we partner with, and which households we design around. We track participation by gender, age, and ability so that the people most overlooked are not the ones our work overlooks too.",
   },
   {
     n: "03",
-    title: "Community-Centred Approach",
-    body: "Communities shape what we do, how we do it, and how we measure whether it worked.",
+    title: "Transparency",
+    body: "We are committed to sharing our progress, learnings and impact as the foundation grows.",
     practice:
-      "Every programme design starts with a community assembly, not a consultant slide deck. Programme officers spend their first month in the field before they are allowed to draft a budget. Community feedback is a standing agenda item at board meetings.",
+      "Annual reports, audited accounts, and updates on what is working - and what we are still learning - will be published openly each year. Our governance structure is designed to make honest reporting possible.",
   },
   {
     n: "04",
-    title: "Collaboration",
-    body: "We work with governments, academic institutions, frontline workers, and other NGOs - because no single actor owns the whole problem.",
+    title: "Accountability",
+    body: "Independent governance, annual audits, and a board willing to be measured against its own rules.",
     practice:
-      "We share our M&E frameworks under Creative Commons licences. We publish our failures alongside our successes in annual reports. We do not require partner NGOs to rebrand their work as ours to access funding.",
+      "Our board includes independent members with no financial stake in the foundation. Conflicts of interest are declared in writing. Audited accounts are reviewed by the board in full session each year.",
   },
   {
     n: "05",
-    title: "Impact & Sustainability",
-    body: "We invest in interventions whose effects continue long after our programme ends - and we verify it with follow-up data.",
+    title: "Sustainable Impact",
+    body: "We invest in local capability so that change continues long after any single programme ends.",
     practice:
-      "Every programme budget must include a two-year post-intervention monitoring plan before it is approved. We track livelihood gains eighteen months after programme closure. If the effect decays, we redesign the model - we do not simply report the six-month peak.",
+      "We partner with existing community structures rather than replacing them. We invest in training, mentoring and partnerships that build long-term capability inside the communities we serve.",
   },
 ];
+
 
 const LINKS = [
   { href: "/about/vision-mission", label: "Vision & Mission" },

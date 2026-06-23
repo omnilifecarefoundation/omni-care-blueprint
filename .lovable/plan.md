@@ -1,76 +1,98 @@
-# Plan — Programme pages (9 total, 8 new)
+# Omni Lifecare Foundation — Launch Site Revision Plan
 
-## Goal
-Replace the generic `programs/$slug` fallback with dedicated, editorial-grade pages for every active programme. Match the depth, rhythm, and discipline of the existing `programs/research-impact-assessment` page. Honest copy — Omni Life Care is a new Mumbai foundation; no fabricated stats.
+## My read of the reviewer's notes
 
-## Scope — 9 programmes
+The reviewer is right about one big thing: the current site sounds like a mature NGO with a track record it hasn't earned yet. Quarterly ledgers, "publish the failures", governance scorecards, salary bands, and named statistics make promises a year-one foundation can't honour. That's the gap to close.
 
-Already built (leave as reference, no changes):
-- `research-impact-assessment` (Human Potential)
+The reviewer is wrong on three things: stripping governance entirely, deleting transparency language, and removing the crisis/help-routing block. Donors, CSR teams, and families in distress all look for exactly those signals. We keep them — softened, not deleted.
 
-To build (8 new route files):
-1. `community-mental-health` — Mental Wellbeing
-2. `preventive-health-outreach` — Human Potential
-3. `womens-health-lifecycle` — Inclusive Care
-4. `disability-elderly-care` — Inclusive Care
-5. `womens-wellness` — Inclusive Care
-6. `training-capacity-building` — Human Potential
-7. `scholarships-education` — Social Growth
-8. `chw-development` — Social Growth
+---
 
-The dynamic `src/routes/programs.$slug.tsx` stays as a fallback for any future slug, but TanStack will prefer the specific file routes.
+## Reviewer comments — accept / reject
 
-## Page template (every programme follows this structure)
+| # | Reviewer note | Decision | Why |
+|---|---|---|---|
+| OF1 | Soften hero description to "bridge between people and support" | **Accept (partial)** | Use as supporting line; keep a stronger Ogilvy-style headline above it. |
+| OF2 | Replace "reported in the open" with "delivered with transparency" | **Accept** | More honest for year one. |
+| OF3 | Remove unsourced stats (70–80%, 1 in 2, etc.) | **Accept** | Replace with qualitative framing of the gap. |
+| OF4 | Reframe "Five programmes" as integrated model | **Accept** | Combine with focus-areas rename. |
+| OF5 | Remove "publish the same six lines every quarter" promise | **Accept** | Replace with a softer commitment to share progress as we grow. |
+| OF6 | Remove quarterly ledger six-line table | **Accept** | Operationally unrealistic to commit to publicly on day one. |
+| OF7 | Remove "three commitments we'll be judged by" | **Accept (partial)** | Replace with the 5 operational commitments you've defined. |
+| OF8 | Rename pillars; "Social Growth" → "Community Development"; add "& Leadership" to Human Potential | **Accept** | Cleaner naming. |
+| — | Remove "Publish everything including failures" | **Accept** | Replace with "share progress, learnings, and impact as we grow." |
+| — | Remove Impact section (newly started) | **Accept (partial)** | Replace Impact with "Our Vision for Impact" — intent, not claims. |
+| — | Remove salary, hiring, open positions | **Accept** | Keep only Volunteer / Internship / Partnership. |
+| — | Remove governance scorecards, trustee KPIs, open-seats table | **Accept** | But keep concise Leadership & Governance section. |
+| OF16 | Remove crisis helpline / "Need help now" block | **Reject** | Trust + duty-of-care signal. Keep but reframe as "We'll help you find the right door" without promising to be a 24/7 service ourselves. |
 
-Locked from `mem://design/home-style-system` and the research page. Section rhythm: `bg-ink → bg-canvas → bg-snow → bg-sage → bg-canvas → bg-snow → bg-ink CTA`. Every light section ends with `border-b border-hairline`.
+---
 
-1. **Hero (`bg-ink`)** — radial atmosphere, back-link to `/what-we-do`, pillar chip with coloured dot, H1 with one italic phrase, lead, two `PillButton`s (Partner / Volunteer or Donate). Per Ogilvy: brand + promise + news in the headline; one promise; specific.
+## Revised site structure
 
-2. **Honest editorial (`bg-canvas`)** — 12-col split (eyebrow left, 2-paragraph case right). States the problem and our position without overclaiming.
+```
+/                      Home (new flow, below)
+/about                 About (vision, mission, story)
+/about/values          Five operational commitments
+/about/governance      Concise governance & leadership (NEW, replaces scorecards)
+/about/compliance      Registrations & compliance
+/focus-areas           Index of 5 focus areas (renamed from /programs)
+  /mental-wellbeing
+  /preventive-health-community-outreach
+  /inclusive-care
+  /womens-wellbeing
+  /human-development-community-support
+/get-involved          Volunteer · Intern · Partner (no jobs/salaries)
+  /volunteer
+  /partner
+/newsroom              Updates (keep, lightweight)
+/contact               Contact
+/get-help              Reframed as "Find the right support" navigator
+/donate                Donate
+```
 
-3. **Four commitments / method cards (`bg-snow`)** — 2x2 grid of numbered cards (01–04) on a `gap-px` hairline panel, exactly the research-page pattern. Each: what we will do + why it matters. (Five cards become a 2+3 grid only for `community-mental-health`.)
+Pages removed/redirected: `/about/careers` (or stripped to "no current openings"), `/impact/*` → folded into About, `/programs/*` slugs → redirect to matching `/focus-areas/*`, all the deep programme pages (chw-development, training-capacity-building, research-impact-assessment, scholarships-education, womens-health-lifecycle, etc.) collapsed into the 5 focus-area pages.
 
-4. **How we work — methods ledger (`bg-sage`)** — definition list of 4 standard instruments / protocols / safeguards used by the programme (validated tools, consent, cost-per-outcome, referral path).
+Nav: About · Focus Areas · Get Involved · Newsroom · Get Help · Donate
 
-5. **First eighteen months timeline (`bg-canvas`)** — ordered list of 4 quarterly milestones. Honest cadence: methods → first cohort → baseline → public ledger.
+---
 
-6. **Partnerships block (`bg-snow`)** — two-col: who we want to work with (academic, municipal, community) with inline `link-arrow` to `/contact` or `/partner/csr`.
+## Home page flow (new)
 
-7. **Read next (`bg-canvas`)** — three related cards (pillar page, impact, compliance or sibling programme).
+1. **Hero** — Headline: "Building care that reaches the people India's systems still miss." Sub: bridge-between-people line (OF1). Two CTAs: *Partner with us* · *Volunteer*.
+2. **Who we are** — One paragraph. New Mumbai foundation. What we exist to do.
+3. **Why this work** — Qualitative framing of the gap (no fabricated stats). Three short cards: *Mental health is still out of reach for most*, *Women's care is episodic, not lifelong*, *Care is delivered in silos*.
+4. **The OLCF Framework** — Four pillars: Mental Wellbeing · Community Development · Inclusive Care · Human Potential & Leadership.
+5. **Our Five Focus Areas** — The five focus areas as cards (not "programmes").
+6. **Five operational commitments** — Community First · Inclusion · Transparency · Accountability · Sustainable Impact.
+7. **Leadership & Governance (short)** — Who leads, how decisions are made, transparency commitment. Link to full page.
+8. **Our vision for impact** — Forward-looking, no metrics.
+9. **Get involved band** — Donate · Partner · Volunteer.
+10. **Footer** with compliance links.
 
-8. **`CTABand` variant="dark"`** — pillar-appropriate close (Partner CSR + Donate, or Partner CSR + Volunteer for workforce programmes).
+---
 
-Every block wrapped in `<FadeUp delay={i*70}>`. Headings use `text-balance`, body `text-pretty`, numbers `tabular-nums`. Buttons are `PillButton` only.
+## Copy rewrites (key blocks)
 
-## Copy direction — Ogilvy applied
+- **Hero subhead**: "Omni Lifecare Foundation is a Mumbai-based non-profit working across mental wellbeing, inclusive care, community support and human development. We connect people with the care, resources and opportunities they need to thrive."
+- **Transparency commitment**: "We are committed to sharing our progress, learnings and impact as the foundation grows — through annual reports, open communication with our partners, and independent audits from year one."
+- **Governance (short)**: "Omni Lifecare Foundation is governed by a board of trustees that includes independent members. The board sets strategy, reviews finances, and holds the executive accountable. Conflicts of interest are declared in writing. We are committed to publishing audited accounts annually."
+- **Get Involved**: replace job listings with: "We are not actively recruiting paid staff at this stage. We welcome volunteers, interns, and partners who want to help build the foundation from the ground up."
 
-- **Positioning per programme**: psychological, not demographic. Mental Health = "the village holding its own ground." Preventive = "screening that ends with a treated condition, not a leaflet." Women's Lifecycle = "one record that follows her from menarche to menopause." Disability/Elderly = "the people the clinic hours were never written for." Wellness = "thirty minutes a week, in her own language, with women she trusts." Training = "publish the curriculum; certify the worker; pay her properly." Scholarships = "the scholarship is a job; the job is a health worker." CHW = "a paid livelihood, a trusted neighbour, a stronger PHC."
-- **One promise per page** — stated in the H1 and proven in the body.
-- **Long copy beats short copy** for an interested reader. Specific facts (NFHS-5, ASER, WHO, Census 2011, NPCDCS) cited inline; no invented numbers.
-- **Headlines 8–12 words**, brand-name implicit (this is `omnilifecare.org`), promise + news explicit.
-- **No awards/imitation/boredom.** No "transforming lives." No "empowering women" without a verb.
+---
 
-## Honest stance on numbers
+## Technical scope
 
-Every programme repeats the foundation's truth: we are new, we have no decade of outcomes. Each page therefore lists **what we will measure**, the **cadence we will publish on**, and the **standard instruments** we will use — instead of inventing impact figures. This protects the brand and matches the research-page tone.
+- Edit ~20 route files; delete or stub ~8 deep programme/career pages; add 5 focus-area pages and 1 governance page; update `MEGA_NAV` and `PROGRAMS` data in `src/lib/site.ts`; update footer; keep design tokens and component library untouched.
+- Set up redirects from old `/programs/*` and `/impact/*` URLs to new equivalents so external links and SEO don't break.
+- No backend or schema changes. Forms continue routing to info@omnilifecare.org.
 
-## Technical details
+---
 
-- File pattern: `src/routes/programs.<slug>.tsx`, each with `createFileRoute("/programs/<slug>")`, full `head()` (title, description, og:title, og:description, og:url; og:image uses the programme image already imported in `src/lib/site.ts`).
-- Components reused: `FadeUp`, `CTABand`, `PillButton` (where buttons appear), `Link` from `@tanstack/react-router`, icons from `lucide-react` chosen per programme (`Brain`, `HeartPulse`, `Stethoscope`, `HeartHandshake`, `Users`, `GraduationCap`, `Coins`, `BookOpenCheck`, etc.).
-- Pillar chip colour pulled from `PILLAR_BY_ID[<id>].color`.
-- Programme image imported through `PROGRAMS.find(...)` or duplicated import from `@/assets/...` — use existing assets only, no new image generation.
-- No edits to `routeTree.gen.ts` (auto-regenerated). No edits to `programs.$slug.tsx` (keeps working as fallback for unknown slugs and for routes I don't create in this batch).
-- No changes to `src/lib/site.ts`, `src/styles.css`, or any shared component — pages are additive only.
+## What I need from you before building
 
-## Build order (single batch, parallel writes)
+1. **Approve the structure above** (especially: collapse 9 programme pages into 5 focus-area pages, remove careers/impact, keep governance light).
+2. **Pillar naming**: confirm "Human Potential & Leadership" (vs "Human Development & Leadership"). The focus-area list uses "Human Development & Community Support" — should the pillar match?
+3. **Crisis block**: OK to keep "Find the right support" as a soft navigator (not a 24/7 helpline)?
 
-All 8 files created in one batch via parallel `code--write` calls, then verified via build output.
-
-## Out of scope
-
-- The 9th already-built `research-impact-assessment` page.
-- Touching the `what-we-do/*` pillar pages, navigation, or shared components.
-- New imagery, new tokens, or new mega-nav entries.
-
-Skills applied: `ogilvy-copywriting` (positioning + one-promise discipline), `frontend-design` (editorial composition), `make-interfaces-feel-better` (staggered FadeUp, specific transitions, tabular-nums, text-balance/pretty).
+Once you confirm, I'll implement in one pass.

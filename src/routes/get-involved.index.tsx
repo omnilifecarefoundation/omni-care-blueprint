@@ -56,24 +56,24 @@ const PATHS = [
 
 const GUARANTEES = [
   {
-    term: "Quarterly cost-per-outcome dashboard",
+    term: "Independent governance",
     definition:
-      "Every three months we publish what it cost to enrol a household, run a screening, and close a referral.",
+      "Our board includes independent members with no financial stake in the foundation, with authority to review programmes and finances.",
   },
   {
-    term: "Pre-registered research protocols",
+    term: "Annual audited accounts",
     definition:
-      "We register every study before the first survey is fielded. Hypotheses, instruments, and analysis plans are public.",
+      "We commit to publishing audited accounts each year, in full, alongside a public annual report.",
   },
   {
-    term: "Household-level consent logs",
+    term: "Consent-led programmes",
     definition:
       "No photograph, no quote, no data point appears without documented, revocable consent from the household.",
   },
   {
-    term: "Annual third-party audit",
+    term: "Open progress reporting",
     definition:
-      "Financial and programme audits by an independent firm. The report is published in full, not summarised.",
+      "We are committed to sharing our progress, learnings and impact as the foundation grows.",
   },
   {
     term: "Direct line to the programme team",
@@ -81,6 +81,7 @@ const GUARANTEES = [
       "Partners and major donors get a single point of contact inside the programme, not a donor-relations desk.",
   },
 ];
+
 
 export const Route = createFileRoute("/get-involved/")({
   head: () => ({
@@ -107,8 +108,8 @@ function Page() {
     <>
       <PageHero
         eyebrow="Get Involved"
-        title="Join us before the numbers exist."
-        lead="Most non-profits ask for money. We are asking for something harder: your trust before we have earned it. We are a new foundation. We have no beneficiary statistics to publish, no 'before and after' photographs, no annual report from last year. What we have is a model, a city, and a commitment to measure everything we do from the first household."
+        title="Stand with a new foundation - from the start."
+        lead="Omni Life Care Foundation is newly established. We do not have years of beneficiary statistics to publish, but we have a clear vision, a professional structure, and a commitment to build openly. The paths below are entry points for those who want to help shape what we become."
       />
 
       {/* Honesty band */}
@@ -118,17 +119,16 @@ function Page() {
             <div className="max-w-3xl">
               <p className="text-[1.0625rem] lg:text-[1.125rem] leading-[1.65] text-ink-muted text-pretty">
                 If you are looking for a cause with a decade of track record,
-                we are not it yet. If you are looking for a team that will
-                publish its discipline before it publishes its success, we
-                are building exactly that. The five paths below are not
-                donation tiers. They are entry points into a programme that
-                does not yet exist - and that is precisely why your input
-                matters now.
+                we are not it yet. If you are looking for a team committed to
+                discipline, transparency, and long-term community impact, we
+                are building exactly that. The paths below are ways to walk
+                with us from the start.
               </p>
             </div>
           </FadeUp>
         </div>
       </section>
+
 
       {/* Five paths */}
       <section className="container-editorial py-16 lg:py-24">
@@ -191,12 +191,13 @@ function Page() {
       </section>
 
       <CTABand
-        eyebrow="The first cohort"
-        title="The first 500 households will be enrolled in Mumbai this year."
-        body="There is still time to help design how. Whether you give, partner, volunteer, or research - you are not funding a finished machine. You are helping build it."
+        eyebrow="Begin with us"
+        title="The foundation's first years will be shaped by the people who choose to walk with us early."
+        body="Whether you give, partner, volunteer, or collaborate - you are not funding a finished organisation. You are helping build one."
         primary={{ label: "Partner on CSR", href: "/partner/csr" }}
         secondary={{ label: "Find a volunteer role", href: "/get-involved/volunteer" }}
       />
+
     </>
   );
 }

@@ -16,22 +16,23 @@ import {
 export const Route = createFileRoute("/programs/")({
   head: () => ({
     meta: [
-      { title: "Programmes - Omni Life Care Foundation" },
+      { title: "Focus Areas - Omni Life Care Foundation" },
       {
         name: "description",
         content:
-          "Five programmes designed under the Omni Care Model. Honest about what is being built, what each programme will do, and the numbers we will publish each quarter.",
+          "Five focus areas shaping a new Mumbai foundation: mental wellbeing, preventive health, inclusive care, women's wellbeing, and human development.",
       },
-      { property: "og:title", content: "Programmes - Omni Life Care Foundation" },
+      { property: "og:title", content: "Focus Areas - Omni Life Care Foundation" },
       {
         property: "og:description",
         content:
-          "Five programmes, one model. Mental wellbeing, preventive health, women's life-cycle care, inclusive care, and women's wellness - built from rupee one with public reporting.",
+          "Five focus areas, one integrated care model - shaped through a coordinated, community-centred approach.",
       },
       { property: "og:url", content: "/programs" },
     ],
     links: [{ rel: "canonical", href: "/programs" }],
   }),
+
   component: Page,
 });
 
@@ -189,15 +190,15 @@ function Page() {
   return (
     <>
       <PageHero
-        eyebrow="Five programmes · year one"
-        title="Five programmes. One model. Built honestly from rupee one."
-        lead="A new Mumbai foundation. What follows is each programme’s scope, the population it is built for, the work we will actually do, and the numbers we will publish - quarter by quarter - so progress can be checked, not assumed."
+        eyebrow="Five focus areas · year one"
+        title="Five focus areas. One integrated care model."
+        lead="Omni Life Care Foundation is a newly established Mumbai non-profit. Our work across mental wellbeing, preventive health, inclusive care, women's wellbeing and human development is shaped by a coordinated, community-centred approach. What follows is the intent behind each focus area, who it is built for, and how we plan to begin."
       >
         <a
           href="#index"
           className="inline-flex items-center gap-2 text-sm text-snow/85 hover:text-snow transition-colors"
         >
-          Jump to the programmes
+          Jump to the focus areas
           <ArrowDown className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
         </a>
       </PageHero>
@@ -206,13 +207,13 @@ function Page() {
       <section className="bg-sage border-b border-hairline">
         <div className="container-editorial py-14 lg:py-16">
           <FadeUp>
-            <p className="eyebrow mb-5">The promise</p>
+            <p className="eyebrow mb-5">Our approach</p>
           </FadeUp>
           <FadeUp delay={80}>
             <p className="font-sans font-medium text-[clamp(1.375rem,2.4vw,1.875rem)] leading-[1.25] tracking-[-0.015em] text-ink text-balance max-w-4xl">
               We will not lead with reach numbers we have not yet earned -{" "}
               <em className="font-serif italic font-medium text-primary">
-                we will publish the same six lines, every programme, every quarter.
+                we will share our progress and learnings as the foundation grows.
               </em>
             </p>
           </FadeUp>
@@ -224,7 +225,7 @@ function Page() {
         <div className="container-editorial py-20 lg:py-28">
           <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
             <FadeUp className="lg:col-span-7">
-              <p className="eyebrow mb-4">The five programmes</p>
+              <p className="eyebrow mb-4">The five focus areas</p>
               <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
                 Five briefs,{" "}
                 <em className="font-serif italic font-medium text-primary">
@@ -234,8 +235,8 @@ function Page() {
             </FadeUp>
             <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
               <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
-                Tap any programme to read its scope, who it serves, what we will
-                actually do, and the numbers we will publish each quarter.
+                Tap any focus area to read its scope, who it serves, and the
+                work we are designing in partnership with communities.
               </p>
             </FadeUp>
           </div>
@@ -285,71 +286,11 @@ function Page() {
         </div>
       </section>
 
-      {/* Quarterly ledger */}
-      <section className="bg-sage border-y border-hairline">
-        <div className="container-editorial py-20 lg:py-28">
-          <div className="grid lg:grid-cols-12 gap-x-10 gap-y-6 mb-14">
-            <FadeUp className="lg:col-span-7">
-              <p className="eyebrow mb-4">The reporting promise</p>
-              <h2 className="font-sans font-semibold text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-                Same six lines.{" "}
-                <em className="font-serif italic font-medium">Every quarter.</em>
-              </h2>
-            </FadeUp>
-            <FadeUp className="lg:col-span-5 lg:pt-4" delay={80}>
-              <p className="text-[15px] leading-relaxed text-ink-muted text-pretty">
-                A quarterly report is a contract - with the people who fund us
-                and the people we serve. Ours is short, identical in shape
-                across programmes, and published on the same day each quarter,
-                so it can be compared, not just read.
-              </p>
-            </FadeUp>
-          </div>
-
-          <FadeUp delay={140}>
-            <div className="rounded-2xl bg-snow border border-hairline overflow-hidden shadow-[0_1px_2px_rgba(4, 55, 242,0.04),0_22px_48px_-32px_rgba(4, 55, 242,0.22)]">
-              <div className="flex items-center justify-between gap-4 px-6 lg:px-8 py-4 border-b border-hairline bg-canvas">
-                <div className="flex items-center gap-3 min-w-0">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-muted">
-                    Quarterly ledger
-                  </span>
-                  <span className="hidden sm:inline font-mono text-[11px] text-ink-muted">
-                    · published within 30 days of quarter close
-                  </span>
-                </div>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-snow px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-muted shrink-0">
-                  <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-gold" />
-                  Same shape, every time
-                </span>
-              </div>
-              <ol className="divide-y divide-hairline">
-                {LEDGER.map((m, i) => (
-                  <li
-                    key={m.k}
-                    className="grid grid-cols-[2.5rem_minmax(0,1fr)] sm:grid-cols-[2.5rem_12rem_minmax(0,1fr)] items-baseline gap-x-5 gap-y-1 px-6 lg:px-8 py-5"
-                  >
-                    <span className="font-mono text-[12px] text-ink-muted tabular-nums">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="font-sans font-semibold text-[0.95rem] text-ink tracking-[-0.005em]">
-                      {m.k}
-                    </h3>
-                    <p className="col-span-2 sm:col-span-1 text-[14.5px] leading-[1.6] text-ink-muted text-pretty">
-                      {m.v}
-                    </p>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </FadeUp>
-        </div>
-      </section>
-
       <CTABand
         eyebrow="Work with us"
-        title="A programme is a promise to a community. We would rather start small and report honestly than scale a number we cannot defend."
-        body="Partner on a single programme, fund a single ward, or volunteer your time. Every route starts with a conversation."
-        primary={{ label: "Partner on a programme", href: "/partner/csr" }}
+        title="A focus area is a long-term commitment to a community. We would rather start small and share honestly than promise more than we can deliver today."
+        body="Partner on a focus area, support a single ward, or volunteer your time. Every route starts with a conversation."
+        primary={{ label: "Partner with us", href: "/partner/csr" }}
         secondary={{ label: "Volunteer with us", href: "/get-involved/volunteer" }}
       />
 
@@ -360,6 +301,7 @@ function Page() {
     </>
   );
 }
+
 
 function ProgrammeDialog({
   programme,

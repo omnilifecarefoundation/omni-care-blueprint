@@ -72,11 +72,12 @@ const FIRST_HUNDRED_DAYS = [
 ];
 
 const PUBLIC_LEDGER = [
-  { label: "Quarterly community report", cadence: "Every 90 days" },
-  { label: "Cost-per-outcome dashboard", cadence: "Updated monthly" },
+  { label: "Public progress updates", cadence: "Shared as we grow" },
+  { label: "Annual report", cadence: "Each financial year" },
   { label: "Independent annual audit", cadence: "FY 2026–27 onwards" },
   { label: "Household consent log", cadence: "Maintained continuously" },
 ];
+
 
 function Page() {
   return (

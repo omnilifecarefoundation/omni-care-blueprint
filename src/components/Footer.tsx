@@ -7,20 +7,20 @@ const COLUMNS = [
     title: "About",
     links: [
       { label: "Vision & Mission", href: "/about/vision-mission" },
-      { label: "Leadership", href: "/about/leadership" },
-      { label: "Compliance", href: "/about/compliance" },
-      { label: "Careers", href: "/about/careers" },
       { label: "Our Story", href: "/about/our-story" },
+      { label: "Leadership & Governance", href: "/about/leadership" },
+      { label: "Compliance", href: "/about/compliance" },
+      { label: "Work with us", href: "/about/careers" },
     ],
   },
   {
     title: "What We Do",
     links: [
       { label: "Mental Wellbeing", href: "/what-we-do/mental-wellbeing" },
-      { label: "Social Growth", href: "/what-we-do/social-growth" },
+      { label: "Community Development", href: "/what-we-do/social-growth" },
       { label: "Inclusive Care", href: "/what-we-do/inclusive-care" },
-      { label: "Human Potential", href: "/what-we-do/human-potential" },
-      { label: "All Programs", href: "/programs" },
+      { label: "Human Potential & Leadership", href: "/what-we-do/human-potential" },
+      { label: "All Focus Areas", href: "/programs" },
     ],
   },
   {
@@ -29,19 +29,20 @@ const COLUMNS = [
       { label: "Partner (CSR)", href: "/partner/csr" },
       { label: "Volunteer", href: "/get-involved/volunteer" },
       { label: "Donate", href: "/donate" },
-      { label: "Research collab", href: "/programs/research-impact-assessment" },
+      { label: "Get Help", href: "/get-help" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "Impact", href: "/impact" },
-      { label: "Stories", href: "/impact/stories" },
       { label: "Newsroom", href: "/newsroom" },
       { label: "Contact", href: "/contact" },
+      { label: "Privacy", href: "/privacy-policy" },
+      { label: "Sitemap", href: "/sitemap" },
     ],
   },
 ];
+
 
 function FooterLink({ to, children }: { to: string; children: React.ReactNode }) {
   return (
