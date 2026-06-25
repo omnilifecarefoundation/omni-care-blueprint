@@ -7,7 +7,7 @@ export interface TemplateEntry {
   displayName?: string
   previewData?: Record<string, any>
   /** Fixed recipient — overrides caller-provided recipientEmail when set. */
-  to?: string
+  to?: string | string[]
 }
 
 export const TEMPLATES: Record<string, TemplateEntry> = {
