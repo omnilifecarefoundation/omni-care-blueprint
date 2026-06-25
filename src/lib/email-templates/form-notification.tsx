@@ -79,7 +79,7 @@ export const template = {
       data?.replyTo ? ` — ${data.replyTo}` : ''
     }`,
   displayName: 'Form submission notification',
-  to: 'info@omnilifecare.org',
+  to: ['info@omnilifecare.org', 'amal.a@omnihealthservices.in'],
   previewData: {
     formName: 'Contact',
     pageUrl: 'https://omnilifecare.org/contact',
