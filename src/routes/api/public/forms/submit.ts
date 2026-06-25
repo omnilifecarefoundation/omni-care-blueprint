@@ -63,9 +63,9 @@ export const Route = createFileRoute('/api/public/forms/submit')({
         if (!template) {
           return Response.json({ error: 'Template missing' }, { status: 500 })
         }
-        const effectiveRecipient = template.to!
-        const normalizedEmail = effectiveRecipient.toLowerCase()
-        const messageId = crypto.randomUUID()
+        const recipients = Array.isArray(template.to)
+          ? template.to
+          : [template.to!]
 
         const templateData = {
           formName: parsed.formName,
@@ -73,31 +73,6 @@ export const Route = createFileRoute('/api/public/forms/submit')({
           pageUrl: parsed.pageUrl,
           submittedAt: new Date().toUTCString(),
           fields: parsed.fields,
-        }
-
-        // Ensure unsubscribe token (required by queue dispatcher)
-        let unsubscribeToken: string | undefined
-        const { data: existingToken } = await supabase
-          .from('email_unsubscribe_tokens')
-          .select('token, used_at')
-          .eq('email', normalizedEmail)
-          .maybeSingle()
-        if (existingToken?.token && !existingToken.used_at) {
-          unsubscribeToken = existingToken.token
-        } else if (!existingToken) {
-          unsubscribeToken = generateToken()
-          await supabase
-            .from('email_unsubscribe_tokens')
-            .upsert(
-              { token: unsubscribeToken, email: normalizedEmail },
-              { onConflict: 'email', ignoreDuplicates: true },
-            )
-          const { data: stored } = await supabase
-            .from('email_unsubscribe_tokens')
-            .select('token')
-            .eq('email', normalizedEmail)
-            .maybeSingle()
-          if (stored?.token) unsubscribeToken = stored.token
         }
 
         const element = React.createElement(template.component, templateData)
@@ -108,46 +83,82 @@ export const Route = createFileRoute('/api/public/forms/submit')({
             ? template.subject(templateData)
             : template.subject
 
-        await supabase.from('email_send_log').insert({
-          message_id: messageId,
-          template_name: 'form-notification',
-          recipient_email: effectiveRecipient,
-          status: 'pending',
-        })
+        let anyFailed = false
+        for (const recipient of recipients) {
+          const normalizedEmail = recipient.toLowerCase()
+          const messageId = crypto.randomUUID()
 
-        const { error: enqueueError } = await supabase.rpc('enqueue_email', {
-          queue_name: 'transactional_emails',
-          payload: {
-            message_id: messageId,
-            to: effectiveRecipient,
-            from: `${SITE_NAME} <noreply@${FROM_DOMAIN}>`,
-            sender_domain: SENDER_DOMAIN,
-            subject,
-            html,
-            text: plainText,
-            purpose: 'transactional',
-            label: 'form-notification',
-            idempotency_key: messageId,
-            unsubscribe_token: unsubscribeToken,
-            reply_to: parsed.replyTo || undefined,
-            queued_at: new Date().toISOString(),
-          },
-        })
+          // Ensure unsubscribe token (required by queue dispatcher)
+          let unsubscribeToken: string | undefined
+          const { data: existingToken } = await supabase
+            .from('email_unsubscribe_tokens')
+            .select('token, used_at')
+            .eq('email', normalizedEmail)
+            .maybeSingle()
+          if (existingToken?.token && !existingToken.used_at) {
+            unsubscribeToken = existingToken.token
+          } else if (!existingToken) {
+            unsubscribeToken = generateToken()
+            await supabase
+              .from('email_unsubscribe_tokens')
+              .upsert(
+                { token: unsubscribeToken, email: normalizedEmail },
+                { onConflict: 'email', ignoreDuplicates: true },
+              )
+            const { data: stored } = await supabase
+              .from('email_unsubscribe_tokens')
+              .select('token')
+              .eq('email', normalizedEmail)
+              .maybeSingle()
+            if (stored?.token) unsubscribeToken = stored.token
+          }
 
-        if (enqueueError) {
-          console.error('Failed to enqueue form notification', enqueueError)
           await supabase.from('email_send_log').insert({
             message_id: messageId,
             template_name: 'form-notification',
-            recipient_email: effectiveRecipient,
-            status: 'failed',
-            error_message: 'Failed to enqueue',
+            recipient_email: recipient,
+            status: 'pending',
           })
+
+          const { error: enqueueError } = await supabase.rpc('enqueue_email', {
+            queue_name: 'transactional_emails',
+            payload: {
+              message_id: messageId,
+              to: recipient,
+              from: `${SITE_NAME} <noreply@${FROM_DOMAIN}>`,
+              sender_domain: SENDER_DOMAIN,
+              subject,
+              html,
+              text: plainText,
+              purpose: 'transactional',
+              label: 'form-notification',
+              idempotency_key: messageId,
+              unsubscribe_token: unsubscribeToken,
+              reply_to: parsed.replyTo || undefined,
+              queued_at: new Date().toISOString(),
+            },
+          })
+
+          if (enqueueError) {
+            anyFailed = true
+            console.error('Failed to enqueue form notification', enqueueError)
+            await supabase.from('email_send_log').insert({
+              message_id: messageId,
+              template_name: 'form-notification',
+              recipient_email: recipient,
+              status: 'failed',
+              error_message: 'Failed to enqueue',
+            })
+          }
+        }
+
+        if (anyFailed) {
           return Response.json({ error: 'Failed to send' }, { status: 500 })
         }
 
         return Response.json({ success: true })
       },
+
     },
   },
 })
