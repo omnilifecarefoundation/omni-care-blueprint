@@ -8,6 +8,7 @@ import { TEMPLATES } from '@/lib/email-templates/registry'
 const SITE_NAME = 'Omni Life Care Foundation'
 const SENDER_DOMAIN = 'notify.omnilifecare.org'
 const FROM_DOMAIN = 'notify.omnilifecare.org'
+const LOVABLE_FORM_ENDPOINT = 'https://omni-care-blueprint.lovable.app/api/public/forms/submit'
 
 const FieldSchema = z.object({
   label: z.string().trim().min(1).max(80),
@@ -31,20 +32,56 @@ function generateToken(): string {
     .join('')
 }
 
+function shouldUseFallback(request: Request): boolean {
+  try {
+    const host = new URL(request.url).hostname
+    return !host.endsWith('.lovable.app') && !host.endsWith('.lovableproject.com')
+  } catch {
+    return true
+  }
+}
+
+async function forwardToLovableBackend(body: unknown) {
+  const response = await fetch(LOVABLE_FORM_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  })
+
+  if (!response.ok) {
+    console.error('Fallback form submission failed', { status: response.status })
+    return Response.json({ error: 'Failed to send' }, { status: 500 })
+  }
+
+  return Response.json({ success: true })
+}
+
 export const Route = createFileRoute('/api/public/forms/submit')({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+        let rawBody: unknown
+        try {
+          rawBody = await request.json()
+        } catch (err) {
+          return Response.json(
+            { error: 'Invalid submission', details: err instanceof Error ? err.message : 'Invalid' },
+            { status: 400 },
+          )
+        }
+
         const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+        const supabaseUrl = process.env.SUPABASE_URL || import.meta.env.VITE_SUPABASE_URL
         if (!supabaseUrl || !supabaseServiceKey) {
+          if (shouldUseFallback(request)) {
+            return forwardToLovableBackend(rawBody)
+          }
           return Response.json({ error: 'Server configuration error' }, { status: 500 })
         }
 
         let parsed
         try {
-          const body = await request.json()
-          parsed = BodySchema.parse(body)
+          parsed = BodySchema.parse(rawBody)
         } catch (err) {
           return Response.json(
             { error: 'Invalid submission', details: err instanceof Error ? err.message : 'Invalid' },
@@ -153,6 +190,9 @@ export const Route = createFileRoute('/api/public/forms/submit')({
         }
 
         if (anyFailed) {
+          if (shouldUseFallback(request)) {
+            return forwardToLovableBackend(rawBody)
+          }
           return Response.json({ error: 'Failed to send' }, { status: 500 })
         }
 
