@@ -9,6 +9,11 @@ const SITE_NAME = 'Omni Life Care Foundation'
 const SENDER_DOMAIN = 'notify.omnilifecare.org'
 const FROM_DOMAIN = 'notify.omnilifecare.org'
 const LOVABLE_FORM_ENDPOINT = 'https://omni-care-blueprint.lovable.app/api/public/forms/submit'
+const CORS_HEADERS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+}
 
 const FieldSchema = z.object({
   label: z.string().trim().min(1).max(80),
@@ -50,15 +55,16 @@ async function forwardToLovableBackend(body: unknown) {
 
   if (!response.ok) {
     console.error('Fallback form submission failed', { status: response.status })
-    return Response.json({ error: 'Failed to send' }, { status: 500 })
+    return Response.json({ error: 'Failed to send' }, { status: 500, headers: CORS_HEADERS })
   }
 
-  return Response.json({ success: true })
+  return Response.json({ success: true }, { headers: CORS_HEADERS })
 }
 
 export const Route = createFileRoute('/api/public/forms/submit')({
   server: {
     handlers: {
+      OPTIONS: async () => new Response(null, { status: 204, headers: CORS_HEADERS }),
       POST: async ({ request }) => {
         let rawBody: unknown
         try {
@@ -66,7 +72,7 @@ export const Route = createFileRoute('/api/public/forms/submit')({
         } catch (err) {
           return Response.json(
             { error: 'Invalid submission', details: err instanceof Error ? err.message : 'Invalid' },
-            { status: 400 },
+            { status: 400, headers: CORS_HEADERS },
           )
         }
 
@@ -76,7 +82,7 @@ export const Route = createFileRoute('/api/public/forms/submit')({
           if (shouldUseFallback(request)) {
             return forwardToLovableBackend(rawBody)
           }
-          return Response.json({ error: 'Server configuration error' }, { status: 500 })
+          return Response.json({ error: 'Server configuration error' }, { status: 500, headers: CORS_HEADERS })
         }
 
         let parsed
@@ -85,20 +91,20 @@ export const Route = createFileRoute('/api/public/forms/submit')({
         } catch (err) {
           return Response.json(
             { error: 'Invalid submission', details: err instanceof Error ? err.message : 'Invalid' },
-            { status: 400 },
+            { status: 400, headers: CORS_HEADERS },
           )
         }
 
         // Honeypot: silently succeed
         if (parsed.website && parsed.website.length > 0) {
-          return Response.json({ success: true })
+          return Response.json({ success: true }, { headers: CORS_HEADERS })
         }
 
         const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
         const template = TEMPLATES['form-notification']
         if (!template) {
-          return Response.json({ error: 'Template missing' }, { status: 500 })
+          return Response.json({ error: 'Template missing' }, { status: 500, headers: CORS_HEADERS })
         }
         const recipients = Array.isArray(template.to)
           ? template.to
@@ -193,10 +199,10 @@ export const Route = createFileRoute('/api/public/forms/submit')({
           if (shouldUseFallback(request)) {
             return forwardToLovableBackend(rawBody)
           }
-          return Response.json({ error: 'Failed to send' }, { status: 500 })
+          return Response.json({ error: 'Failed to send' }, { status: 500, headers: CORS_HEADERS })
         }
 
-        return Response.json({ success: true })
+        return Response.json({ success: true }, { headers: CORS_HEADERS })
       },
 
     },
